@@ -120,17 +120,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseGrades.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GlobalData.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
+    <ClInclude Include="Course.h" />
+    <ClInclude Include="CourseGrades.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="GlobalData.h" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Admin.txt" />
+    <Text Include="Courses.txt" />
+    <Text Include="student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
