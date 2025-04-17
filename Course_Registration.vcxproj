@@ -124,7 +124,6 @@
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseGrades.cpp" />
     <ClCompile Include="FileManager.cpp" />
-    <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="trial.cpp" />
   </ItemGroup>
@@ -133,15 +132,7 @@
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseGrades.h" />
     <ClInclude Include="FileManager.h" />
-    <ClInclude Include="NavBar.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Student.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="NavBar.resx">
-      <DependentUpon>NavBar.h</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Admin.txt" />
