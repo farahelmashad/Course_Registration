@@ -1,3 +1,4 @@
+#pragma once
 #include<string>
 #include<vector>
 #include<set>
@@ -18,13 +19,14 @@ private:
 
 
 public:
+	Student();
 	Student(string username, string password, long nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses);
 	void setUsername(string username);
 	void setPassword(string password);
 	void setNationalID(long nationalID);
 	void setStudentID( int studentID);
 	void setGender( char gender);
-	void setAcademicYear(string academicYear);
+	void setAcademicYear(int academicYear);
 	void setCurrentCourses(set<string> currentCourses);
 	void setCompletedCourses(vector<CourseGrades> completedCourses);
 	string getUserName();
@@ -35,7 +37,7 @@ public:
 	int getAcademicYear();
 	set<string> getCurrentCourses();
 	vector<CourseGrades> getCompletedCourses();
-
+	~Student();
 	//Student methods:
 	void SearchCourses();
 	void CourseRegistration();

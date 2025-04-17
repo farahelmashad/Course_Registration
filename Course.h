@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<string>
 #include<set>
@@ -6,7 +7,8 @@ using namespace std;
 class Course
 {
 private:
-	map<string , string> courseInfo; //courseInfo->first : course id, courseInfo ->second : course name
+	string courseID;
+	string courseName;
 	int creditHours;
 	string syllabus;
 	string instructor;
@@ -18,7 +20,7 @@ private:
 	 void setCourseID(string courseID);
 	 void setCourseName(string courseName);
 	 void setCreditHours(int creditHours);
-	 void setSyllabus(string sylabus);
+	 void setSyllabus(string syllabus);
 	 void setInstructor(string instructor);
 	 void setPrerequisites(set<string>& prerequisites);
 	 string getCourseID();
@@ -28,7 +30,7 @@ private:
 	 string getInstructor();
 	 set<string> getPrerequisites();
 	 ~Course();
-
+	 Course();
 	// course file outline: courseID|courseName|creditHours|syllabus|instructor|prerequisite1,prerequisite2,...
 
 };

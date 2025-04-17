@@ -1,3 +1,4 @@
+#pragma once
 #include "Admin.h"
 Admin::Admin(string username, string password):username(username),password(password)
 {

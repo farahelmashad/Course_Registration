@@ -124,17 +124,15 @@
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseGrades.cpp" />
     <ClCompile Include="FileManager.cpp" />
-    <ClCompile Include="GlobalData.cpp" />
     <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="trial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseGrades.h" />
     <ClInclude Include="FileManager.h" />
-    <ClInclude Include="GlobalData.h" />
-    <ClInclude Include="Main.h" />
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
