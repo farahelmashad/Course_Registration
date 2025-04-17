@@ -160,6 +160,7 @@ namespace CourseRegistration {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(737, 12);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -211,8 +212,12 @@ namespace CourseRegistration {
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Log In";
 			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Studentlogin::linkLabel2_LinkClicked);
+			// 
+			// Studentlogin
+			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoSize = true;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(1096, 631);
 			this->Controls->Add(this->linkLabel2);
@@ -228,7 +233,7 @@ namespace CourseRegistration {
 			this->Controls->Add(this->label1);
 			this->Name = L"Studentlogin";
 			this->Text = L"Studentlogin";
-			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &Studentlogin::Studentlogin_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -239,9 +244,14 @@ namespace CourseRegistration {
 	}
 private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 
+	Adminlogin^ a1 = gcnew Adminlogin();
+	a1->Show();
+	this->Hide();
 }
 private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-
+	SignUp^ s1 = gcnew SignUp();
+	s1->Show();
+	this->Hide();
 
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -267,8 +277,16 @@ private: System::Void password_KeyDown(System::Object^ sender, System::Windows::
 	}
 }
 private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	NavBar^ n1 = gcnew NavBar();
+	n1->Show();
+	this->Hide();
+	
 }
+ 
 
+
+private: System::Void Studentlogin_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
+
 }

@@ -1,5 +1,5 @@
 #pragma once
-
+#include"course_info.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -120,11 +120,11 @@ namespace CourseRegistration {
 			this->search = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->course_lay = (gcnew System::Windows::Forms::Panel());
-			this->course_nameout = (gcnew System::Windows::Forms::Label());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->course_idout = (gcnew System::Windows::Forms::Label());
-			this->credit_hoursout = (gcnew System::Windows::Forms::Label());
 			this->credit_hours = (gcnew System::Windows::Forms::Label());
+			this->credit_hoursout = (gcnew System::Windows::Forms::Label());
+			this->course_idout = (gcnew System::Windows::Forms::Label());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->course_nameout = (gcnew System::Windows::Forms::Label());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -319,7 +319,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->course_r->Location = System::Drawing::Point(260, 9);
 			this->course_r->Name = L"course_r";
-			this->course_r->Size = System::Drawing::Size(415, 53);
+			this->course_r->Size = System::Drawing::Size(403, 52);
 			this->course_r->TabIndex = 19;
 			this->course_r->Text = L"Course Registration";
 			// 
@@ -366,40 +366,19 @@ namespace CourseRegistration {
 			this->course_lay->Size = System::Drawing::Size(225, 198);
 			this->course_lay->TabIndex = 0;
 			this->course_lay->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Course_registration::panel5_Paint_1);
+			this->course_lay->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::course_lay_MouseClick);
 			// 
-			// course_nameout
+			// credit_hours
 			// 
-			this->course_nameout->AutoSize = true;
-			this->course_nameout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->credit_hours->AutoSize = true;
+			this->credit_hours->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->course_nameout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->course_nameout->Location = System::Drawing::Point(59, 109);
-			this->course_nameout->Name = L"course_nameout";
-			this->course_nameout->Size = System::Drawing::Size(116, 22);
-			this->course_nameout->TabIndex = 0;
-			this->course_nameout->Text = L"course name";
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(32, 4);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(159, 91);
-			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox6->TabIndex = 1;
-			this->pictureBox6->TabStop = false;
-			// 
-			// course_idout
-			// 
-			this->course_idout->AutoSize = true;
-			this->course_idout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->course_idout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->course_idout->Location = System::Drawing::Point(12, 142);
-			this->course_idout->Name = L"course_idout";
-			this->course_idout->Size = System::Drawing::Size(53, 22);
-			this->course_idout->TabIndex = 2;
-			this->course_idout->Text = L"cis50";
+			this->credit_hours->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->credit_hours->Location = System::Drawing::Point(72, 142);
+			this->credit_hours->Name = L"credit_hours";
+			this->credit_hours->Size = System::Drawing::Size(119, 22);
+			this->credit_hours->TabIndex = 4;
+			this->credit_hours->Text = L"credit hours :";
 			// 
 			// credit_hoursout
 			// 
@@ -413,17 +392,39 @@ namespace CourseRegistration {
 			this->credit_hoursout->TabIndex = 3;
 			this->credit_hoursout->Text = L"3";
 			// 
-			// credit_hours
+			// course_idout
 			// 
-			this->credit_hours->AutoSize = true;
-			this->credit_hours->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->course_idout->AutoSize = true;
+			this->course_idout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->credit_hours->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->credit_hours->Location = System::Drawing::Point(72, 142);
-			this->credit_hours->Name = L"credit_hours";
-			this->credit_hours->Size = System::Drawing::Size(119, 22);
-			this->credit_hours->TabIndex = 4;
-			this->credit_hours->Text = L"credit hours :";
+			this->course_idout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->course_idout->Location = System::Drawing::Point(12, 142);
+			this->course_idout->Name = L"course_idout";
+			this->course_idout->Size = System::Drawing::Size(53, 22);
+			this->course_idout->TabIndex = 2;
+			this->course_idout->Text = L"cis50";
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(32, 4);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(159, 91);
+			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox6->TabIndex = 1;
+			this->pictureBox6->TabStop = false;
+			// 
+			// course_nameout
+			// 
+			this->course_nameout->AutoSize = true;
+			this->course_nameout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->course_nameout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->course_nameout->Location = System::Drawing::Point(59, 109);
+			this->course_nameout->Name = L"course_nameout";
+			this->course_nameout->Size = System::Drawing::Size(116, 22);
+			this->course_nameout->TabIndex = 0;
+			this->course_nameout->Text = L"course name";
 			// 
 			// pictureBox5
 			// 
@@ -483,6 +484,11 @@ private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArg
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void search_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void course_lay_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	course_info^ m1 = gcnew course_info();
+	m1->Show();
+	this->Hide();
 }
 };
 }
