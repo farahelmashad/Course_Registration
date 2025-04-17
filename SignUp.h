@@ -63,7 +63,7 @@ namespace CourseRegistration {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -92,8 +92,9 @@ namespace CourseRegistration {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(745, 37);
+			this->pictureBox1->Location = System::Drawing::Point(768, 37);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(407, 433);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -129,7 +130,8 @@ namespace CourseRegistration {
 			// 
 			this->Username->BackColor = System::Drawing::SystemColors::Window;
 			this->Username->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->Username->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+			this->Username->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Username->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->Username->Location = System::Drawing::Point(159, 144);
 			this->Username->Multiline = true;
@@ -270,9 +272,8 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->ClientSize = System::Drawing::Size(1182, 523);
+			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->ClientSize = System::Drawing::Size(1203, 523);
 			this->Controls->Add(this->Submit);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->Gender);
@@ -302,41 +303,41 @@ namespace CourseRegistration {
 	}
 	private: System::Void SignUp_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyValue == (int)Keys::Enter) {
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		Password->Focus();
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-private: System::Void Password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyValue == (int)Keys::Enter) {
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		National_ID->Focus();
+	private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-private: System::Void National_ID_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyValue == (int)Keys::Enter) {
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		Student_ID->Focus();
+	private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-private: System::Void Student_ID_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	private: System::Void Username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyValue == (int)Keys::Enter) {
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			Password->Focus();
+		}
+	}
+	private: System::Void Password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyValue == (int)Keys::Enter) {
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			National_ID->Focus();
+		}
+	}
+	private: System::Void National_ID_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyValue == (int)Keys::Enter) {
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			Student_ID->Focus();
+		}
+	}
+	private: System::Void Student_ID_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 
-	if (e->KeyValue == (int)Keys::Enter) {
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		Submit->Focus(); 
-	}
+		if (e->KeyValue == (int)Keys::Enter) {
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			Submit->Focus();
+		}
 
-}
-};
+	}
+	};
 }
