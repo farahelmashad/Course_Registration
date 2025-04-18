@@ -118,7 +118,7 @@ namespace CourseRegistration {
 			this->username_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->username_s->Location = System::Drawing::Point(135, 162);
-			this->username_s->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->username_s->Margin = System::Windows::Forms::Padding(2);
 			this->username_s->Name = L"username_s";
 			this->username_s->Size = System::Drawing::Size(220, 20);
 			this->username_s->TabIndex = 5;
@@ -143,7 +143,7 @@ namespace CourseRegistration {
 			this->password_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->password_s->Location = System::Drawing::Point(135, 204);
-			this->password_s->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->password_s->Margin = System::Windows::Forms::Padding(2);
 			this->password_s->Name = L"password_s";
 			this->password_s->PasswordChar = '*';
 			this->password_s->Size = System::Drawing::Size(220, 20);
@@ -159,7 +159,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->submit_s->ForeColor = System::Drawing::SystemColors::Window;
 			this->submit_s->Location = System::Drawing::Point(272, 359);
-			this->submit_s->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->submit_s->Margin = System::Windows::Forms::Padding(2);
 			this->submit_s->Name = L"submit_s";
 			this->submit_s->Size = System::Drawing::Size(138, 32);
 			this->submit_s->TabIndex = 8;
@@ -172,7 +172,7 @@ namespace CourseRegistration {
 			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(553, 10);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(268, 483);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -185,6 +185,7 @@ namespace CourseRegistration {
 			this->linkLabel1->ActiveLinkColor = System::Drawing::SystemColors::MenuHighlight;
 			this->linkLabel1->AutoSize = true;
 			this->linkLabel1->DisabledLinkColor = System::Drawing::Color::MidnightBlue;
+			this->linkLabel1->LinkColor = System::Drawing::Color::DarkBlue;
 			this->linkLabel1->Location = System::Drawing::Point(309, 238);
 			this->linkLabel1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkLabel1->Name = L"linkLabel1";
@@ -218,6 +219,7 @@ namespace CourseRegistration {
 			// linkLabel2
 			// 
 			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->LinkColor = System::Drawing::Color::Navy;
 			this->linkLabel2->Location = System::Drawing::Point(309, 259);
 			this->linkLabel2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkLabel2->Name = L"linkLabel2";
@@ -245,9 +247,10 @@ namespace CourseRegistration {
 			this->Controls->Add(this->username_s);
 			this->Controls->Add(this->username_sl);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Studentlogin";
 			this->Text = L"Studentlogin";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &Studentlogin::Studentlogin_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -260,14 +263,14 @@ namespace CourseRegistration {
 private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 
 	Adminlogin^ a1 = gcnew Adminlogin();
-	a1->Show();
+	a1->ShowDialog();
 	this->Hide();
 }
 private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 	SignUp^ s1 = gcnew SignUp();
-	s1->Show();
+	s1->ShowDialog();
 	this->Hide();
-
+	this->Close();
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -292,18 +295,24 @@ private: System::Void password_KeyDown(System::Object^ sender, System::Windows::
 	}
 }
 private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ e) {
-	//NavBar^ n1 = gcnew NavBar();
-	//n1->Show();
-	//this->Hide();
+	if (String::IsNullOrWhiteSpace(username_s->Text) || String::IsNullOrWhiteSpace(password_s->Text)) {
+		MessageBox::Show("Please enter all fields", "User name and password are required",MessageBoxButtons::OK,MessageBoxIcon::Error);
+	}
+	else{
 	std::string username = Utils::toStdString(username_s->Text);
 	std::string password = Utils::toStdString(password_s->Text);
 	bool isStudent = Login_SignUp_Helper::validate_Student_Login(username, password);
 	if (isStudent) {
 		MessageBox::Show("Login successful!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		NavBar^ n1 = gcnew NavBar();
+		
+		n1->ShowDialog();  
+		this->Hide(); 
+		this->Close(); 
 	}
 	else {
 		MessageBox::Show("Invalid username or password", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-	}
+	}}
 
 }
  

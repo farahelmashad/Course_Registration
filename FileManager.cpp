@@ -8,6 +8,7 @@ using namespace std;
 vector<Admin> admins;
 vector<Student> students;
 map<string, Course> courses;
+Student currentStudent;
 
 
 void FileManager::readAdmins(string filename) {
@@ -59,7 +60,7 @@ void FileManager::readStudents(string filename)
                 continue;
             }
 
-            nationalID = stol(nationalIDStr);
+            nationalID = stoi(nationalIDStr);
             studentID = stoi(studentIDStr);
             academicYear = stoi(academicYearStr);
             gender = genderStr[0];

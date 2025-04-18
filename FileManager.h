@@ -12,6 +12,7 @@ using namespace std;
 extern vector<Admin> admins;
 extern vector<Student> students;
 extern map<string, Course> courses;
+extern Student currentStudent;
 
 
 class FileManager

@@ -90,6 +90,11 @@ namespace Utils {
 
         return result;
     }
+    inline System::String^ toSysStr(char c) {
+        wchar_t wcharArr[2] = { (wchar_t)c, 0 };
+        return gcnew System::String(wcharArr);
+    }
+
 
     /// <summary>
     /// Converts a vector of strings to System::String^ (joined by delimiter)

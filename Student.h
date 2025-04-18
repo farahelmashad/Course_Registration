@@ -20,7 +20,7 @@ private:
 
 public:
 	Student();
-	Student(string username, string password, long nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses);
+	Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses);
 	void setUsername(string username);
 	void setPassword(string password);
 	void setNationalID(long nationalID);

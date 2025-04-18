@@ -29,7 +29,7 @@ Student::Student()
 {
 }
 
-Student::Student(string username, string password, long nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses)
+Student::Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses)
 	: username(username), password(password), nationalID(nationalID), studentID(studentID), gender(gender), academicYear(academicYear),
 	currentCourses(currentCourses), completedCourses(completedCourses)
 {
