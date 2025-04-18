@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -109,7 +109,8 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -123,15 +124,20 @@
   <ItemGroup>
 
     <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="AdminNavBar.cpp" />
     <ClCompile Include="course_info.cpp" />
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
+    <ClCompile Include="ManageGrades1.cpp" />
     <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adminlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdminNavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="course_info.h">
@@ -141,6 +147,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Course_registration.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ManageGrades1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="NavBar.h">
@@ -157,6 +166,9 @@
     <EmbeddedResource Include="Adminlogin.resx">
       <DependentUpon>Adminlogin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminNavBar.resx">
+      <DependentUpon>AdminNavBar.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="course_info.resx">
       <DependentUpon>course_info.h</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Course_registration.resx">
       <DependentUpon>Course_registration.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageGrades1.resx">
+      <DependentUpon>ManageGrades1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
@@ -175,6 +190,11 @@
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
