@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Course_registration.h"
+#include "AdminNavBar.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -154,6 +155,7 @@ namespace CourseRegistration {
 			this->submit_a->TabIndex = 6;
 			this->submit_a->Text = L"Submit";
 			this->submit_a->UseVisualStyleBackColor = false;
+			this->submit_a->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Adminlogin::submit_a_MouseClick);
 			// 
 			// Adminlogin
 			// 
@@ -205,6 +207,12 @@ private: System::Void password_KeyDown_1(System::Object^ sender, System::Windows
 		e->SuppressKeyPress = true;
 		submit_a->Focus();
 	}
+}
+
+private: System::Void submit_a_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	AdminNavBar^ a = gcnew AdminNavBar();
+	a->Show();
+	this->Hide();
 }
 };
 }
