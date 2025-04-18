@@ -115,29 +115,66 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Admin.cpp" />
-    <ClCompile Include="Course.cpp" />
-    <ClCompile Include="CourseGrades.cpp" />
-    <ClCompile Include="FileManager.cpp" />
-    <ClCompile Include="Student.cpp" />
-    <ClCompile Include="trial.cpp" />
+
+    <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="course_info.cpp" />
+    <ClCompile Include="course_pre.cpp" />
+    <ClCompile Include="Course_registration.cpp" />
+    <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="SignUp.cpp" />
+    <ClCompile Include="Studentlogin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h" />
-    <ClInclude Include="Course.h" />
-    <ClInclude Include="CourseGrades.h" />
-    <ClInclude Include="FileManager.h" />
-    <ClInclude Include="Student.h" />
+    <ClInclude Include="Adminlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="course_info.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="course_pre.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Course_registration.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NavBar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SignUp.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Studentlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Admin.txt" />
-    <Text Include="Courses.txt" />
-    <Text Include="student.txt" />
+    <EmbeddedResource Include="Adminlogin.resx">
+      <DependentUpon>Adminlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="course_info.resx">
+      <DependentUpon>course_info.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="course_pre.resx">
+      <DependentUpon>course_pre.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course_registration.resx">
+      <DependentUpon>Course_registration.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavBar.resx">
+      <DependentUpon>NavBar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Studentlogin.resx">
+      <DependentUpon>Studentlogin.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
