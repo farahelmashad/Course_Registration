@@ -1,12 +1,16 @@
 
-
 #include "Studentlogin.h"
+
 using namespace System;
 using namespace System::Windows::Forms;
 
 [STAThread]
-int main(array<System::String^>^ args)
-{
+int main(cli::array<String^>^ args)
+{   
+    FileManager fm;
+    fm.readAdmins("Admin.txt");
+    fm.readCourses("Courses.txt");
+    fm.readStudents("student.txt");
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 

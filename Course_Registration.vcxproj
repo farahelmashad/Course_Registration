@@ -121,18 +121,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseGrades.cpp" />
     <ClCompile Include="course_info.cpp" />
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Login_SignUp_Helper.cpp" />
     <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="SignUp.cpp" />
+    <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="Adminlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Course.h" />
+    <ClInclude Include="CourseGrades.h" />
     <ClInclude Include="course_info.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -142,15 +151,19 @@
     <ClInclude Include="Course_registration.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Login_SignUp_Helper.h" />
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Student.h" />
     <ClInclude Include="Studentlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Adminlogin.resx">
@@ -174,6 +187,11 @@
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Admin.txt" />
+    <Text Include="Courses.txt" />
+    <Text Include="student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
