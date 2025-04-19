@@ -82,6 +82,16 @@ namespace CourseRegistration {
         System::Windows::Forms::Panel^ panel7;
         System::Windows::Forms::Label^ check_pre;
         System::Windows::Forms::PictureBox^ pictureBox7;
+        System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+        System::Windows::Forms::Panel^ course_lay;
+        System::Windows::Forms::Label^ course_nameout;
+        System::Windows::Forms::PictureBox^ pictureBox6;
+    private: System::Windows::Forms::Panel^ panel5;
+    private: System::Windows::Forms::PictureBox^ pictureBox8;
+    private: System::Windows::Forms::Label^ label7;
+    private: System::Windows::Forms::Label^ label6;
+    private: System::Windows::Forms::Button^ button1;
+           System::Windows::Forms::Label^ course_idout;
 
         //void InitializeData() {
         //    studentGrades = gcnew List<CourseGrade^>();
@@ -168,6 +178,11 @@ namespace CourseRegistration {
             this->semesterlabel = (gcnew System::Windows::Forms::Label());
             this->yearlabel = (gcnew System::Windows::Forms::Label());
             this->gradesflowLayoutPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
+            this->panel5 = (gcnew System::Windows::Forms::Panel());
+            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+            this->label7 = (gcnew System::Windows::Forms::Label());
+            this->label6 = (gcnew System::Windows::Forms::Label());
             this->flowLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -182,6 +197,9 @@ namespace CourseRegistration {
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
             this->searchpanel->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->searchpictureBox))->BeginInit();
+            this->gradesflowLayoutPanel->SuspendLayout();
+            this->panel5->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
             this->SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -463,11 +481,78 @@ namespace CourseRegistration {
             // gradesflowLayoutPanel
             // 
             this->gradesflowLayoutPanel->AutoScroll = true;
+            this->gradesflowLayoutPanel->Controls->Add(this->panel5);
             this->gradesflowLayoutPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
             this->gradesflowLayoutPanel->Location = System::Drawing::Point(432, 132);
             this->gradesflowLayoutPanel->Name = L"gradesflowLayoutPanel";
             this->gradesflowLayoutPanel->Size = System::Drawing::Size(903, 550);
             this->gradesflowLayoutPanel->TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this->panel5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+                static_cast<System::Int32>(static_cast<System::Byte>(68)));
+            this->panel5->Controls->Add(this->button1);
+            this->panel5->Controls->Add(this->pictureBox8);
+            this->panel5->Controls->Add(this->label7);
+            this->panel5->Controls->Add(this->label6);
+            this->panel5->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->panel5->ForeColor = System::Drawing::SystemColors::ControlText;
+            this->panel5->Location = System::Drawing::Point(3, 3);
+            this->panel5->Name = L"panel5";
+            this->panel5->Size = System::Drawing::Size(276, 256);
+            this->panel5->TabIndex = 0;
+            this->panel5->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ViewGrades::panel5_Paint);
+            // 
+            // button1
+            // 
+            this->button1->BackColor = System::Drawing::Color::AliceBlue;
+            this->button1->Location = System::Drawing::Point(175, 215);
+            this->button1->Name = L"button1";
+            this->button1->Size = System::Drawing::Size(83, 28);
+            this->button1->TabIndex = 3;
+            this->button1->Text = L"retake";
+            this->button1->UseVisualStyleBackColor = false;
+            this->button1->Click += gcnew System::EventHandler(this, &ViewGrades::button1_Click);
+            // 
+            // pictureBox8
+            // 
+            this->pictureBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+                static_cast<System::Int32>(static_cast<System::Byte>(68)));
+            this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+            this->pictureBox8->Location = System::Drawing::Point(85, 32);
+            this->pictureBox8->Name = L"pictureBox8";
+            this->pictureBox8->Size = System::Drawing::Size(111, 91);
+            this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+            this->pictureBox8->TabIndex = 2;
+            this->pictureBox8->TabStop = false;
+            this->pictureBox8->Click += gcnew System::EventHandler(this, &ViewGrades::pictureBox8_Click);
+            // 
+            // label7
+            // 
+            this->label7->AutoSize = true;
+            this->label7->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label7->ForeColor = System::Drawing::Color::White;
+            this->label7->Location = System::Drawing::Point(12, 186);
+            this->label7->Name = L"label7";
+            this->label7->Size = System::Drawing::Size(65, 24);
+            this->label7->TabIndex = 1;
+            this->label7->Text = L"Grade";
+            // 
+            // label6
+            // 
+            this->label6->AutoSize = true;
+            this->label6->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label6->ForeColor = System::Drawing::Color::White;
+            this->label6->Location = System::Drawing::Point(12, 143);
+            this->label6->Name = L"label6";
+            this->label6->Size = System::Drawing::Size(124, 24);
+            this->label6->TabIndex = 0;
+            this->label6->Text = L"Coursename";
+            this->label6->Click += gcnew System::EventHandler(this, &ViewGrades::label6_Click);
             // 
             // ViewGrades
             // 
@@ -508,6 +593,10 @@ namespace CourseRegistration {
             this->searchpanel->ResumeLayout(false);
             this->searchpanel->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->searchpictureBox))->EndInit();
+            this->gradesflowLayoutPanel->ResumeLayout(false);
+            this->panel5->ResumeLayout(false);
+            this->panel5->PerformLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
             this->ResumeLayout(false);
 
         }
@@ -545,18 +634,25 @@ namespace CourseRegistration {
                  }
              }*/
         }
-        /*private: System::Void.ctor() {
-            this->InitializeComponent();
-        }
-    private: System::Void.ctor() {
-        this->InitializeComponent();
-      }*/
-    /*private: System::Void.ctor() {
-        this->InitializeComponent();
-    }*/
-   /*private: System::Void.ctor() {
-       this->InitializeComponent();
-   }*/
+        
+private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+
+private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
+
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+}
+
+
+
+private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
+
 };
 }
 

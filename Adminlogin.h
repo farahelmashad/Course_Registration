@@ -143,7 +143,8 @@ namespace CourseRegistration {
 			// 
 			// submit_a
 			// 
-			this->submit_a->BackColor = System::Drawing::Color::MidnightBlue;
+			this->submit_a->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->submit_a->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->submit_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
