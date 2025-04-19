@@ -170,6 +170,7 @@ namespace CourseRegistration {
 			this->upload_panel->Name = L"upload_panel";
 			this->upload_panel->Size = System::Drawing::Size(237, 100);
 			this->upload_panel->TabIndex = 1;
+			this->upload_panel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::upload_panel_MouseClick);
 			// 
 			// upload_pic
 			// 
@@ -205,6 +206,7 @@ namespace CourseRegistration {
 			this->pre_panel->Name = L"pre_panel";
 			this->pre_panel->Size = System::Drawing::Size(237, 100);
 			this->pre_panel->TabIndex = 2;
+			this->pre_panel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::pre_panel_MouseClick);
 			// 
 			// pre_pic
 			// 
@@ -315,15 +317,16 @@ private: System::Void manage_panel_MouseClick_1(System::Object^ sender, System::
 	m->ShowDialog();
 	this->Hide();
 }
-private: System::Void panel3_Click(System::Object^ sender, System::EventArgs^ e) {
-	SetPrerequisites^ setprerequisiites = gcnew SetPrerequisites();
-	setprerequisiites->ShowDialog();
-	//setprerequisiites->Hide();
+
+private: System::Void upload_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	UploadCourses^ c = gcnew UploadCourses();
+	c->ShowDialog();
 }
-private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
-	UploadCourses^ uploadCourses = gcnew UploadCourses();
-	uploadCourses->ShowDialog();
-	//uploadCourses->Hide();
+
+
+private: System::Void pre_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	SetPrerequisites^ s = gcnew SetPrerequisites();
+	s->ShowDialog();
 }
 };
 }
