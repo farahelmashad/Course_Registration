@@ -53,7 +53,7 @@ namespace CourseRegistration {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -72,9 +72,9 @@ namespace CourseRegistration {
 			this->submit_a = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
+			//
 			// label1
-			// 
+			//
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -83,10 +83,10 @@ namespace CourseRegistration {
 			this->label1->Size = System::Drawing::Size(194, 72);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Log in";
-			this->label1->Click += gcnew System::EventHandler(this, &Adminlogin::label1_Click);
-			// 
+			//this->label1->Click += gcnew System::EventHandler(this, &Adminlogin::label1_Click);
+			//
 			// pictureBox1
-			// 
+			//
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(840, 25);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -94,9 +94,9 @@ namespace CourseRegistration {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
-			// 
+			//
 			// username_a
-			// 
+			//
 			this->username_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->username_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -104,11 +104,10 @@ namespace CourseRegistration {
 			this->username_a->Name = L"username_a";
 			this->username_a->Size = System::Drawing::Size(293, 25);
 			this->username_a->TabIndex = 2;
-			this->username_a->TextChanged += gcnew System::EventHandler(this, &Adminlogin::username_TextChanged);
-			this->username_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::username_KeyDown_1);
-			// 
+			//this->username_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::username_KeyDown_1);
+			//
 			// label2
-			// 
+			//
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -117,9 +116,9 @@ namespace CourseRegistration {
 			this->label2->Size = System::Drawing::Size(155, 36);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Username";
-			// 
+			//
 			// label3
-			// 
+			//
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -128,9 +127,9 @@ namespace CourseRegistration {
 			this->label3->Size = System::Drawing::Size(149, 36);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Password";
-			// 
+			//
 			// password_a
-			// 
+			//
 			this->password_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->password_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -139,11 +138,9 @@ namespace CourseRegistration {
 			this->password_a->PasswordChar = '*';
 			this->password_a->Size = System::Drawing::Size(293, 25);
 			this->password_a->TabIndex = 5;
-			this->password_a->TextChanged += gcnew System::EventHandler(this, &Adminlogin::password_TextChanged);
-			this->password_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::password_KeyDown_1);
-			// 
+			//
 			// submit_a
-			// 
+			//
 			this->submit_a->BackColor = System::Drawing::Color::MidnightBlue;
 			this->submit_a->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->submit_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -156,9 +153,9 @@ namespace CourseRegistration {
 			this->submit_a->Text = L"Submit";
 			this->submit_a->UseVisualStyleBackColor = false;
 			this->submit_a->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Adminlogin::submit_a_MouseClick);
-			// 
+			//
 			// Adminlogin
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(21, 45);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
@@ -177,42 +174,36 @@ namespace CourseRegistration {
 			this->Margin = System::Windows::Forms::Padding(8);
 			this->Name = L"Adminlogin";
 			this->Text = L"Adminlogin";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	}
-    
-private: System::Void password_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-		
-private: System::Void username_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyValue == (int)Keys::Enter)
-	{
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		password_a->Focus();
-	}
-}
-private: System::Void password_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyValue == (int)Keys::Enter)
-	{
-		e->Handled = true;
-		e->SuppressKeyPress = true;
-		submit_a->Focus();
-	}
-}
 
-private: System::Void submit_a_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	AdminNavBar^ a = gcnew AdminNavBar();
-	a->Show();
-	this->Hide();
-}
+	private: System::Void username_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyValue == (int)Keys::Enter)
+		{
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			password_a->Focus();
+		}
+	}
+	private: System::Void password_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyValue == (int)Keys::Enter)
+		{
+			e->Handled = true;
+			e->SuppressKeyPress = true;
+			submit_a->Focus();
+		}
+	}
+
+	private: System::Void submit_a_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		AdminNavBar^ a = gcnew AdminNavBar();
+		a->Show();
+		this->Hide();
+	}
 };
 }

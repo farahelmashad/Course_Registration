@@ -1,6 +1,8 @@
 #pragma once
 #include "Course_Registration.h"
 #include "ManageGrades1.h"
+#include"SetPrerequisites.h"
+#include "UploadCourses.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -71,8 +73,9 @@ namespace CourseRegistration {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
 
 
 
@@ -132,7 +135,7 @@ namespace CourseRegistration {
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 740);
 			this->flowLayoutPanel1->TabIndex = 1;
-			this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminNavBar::flowLayoutPanel1_Paint);
+			//this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminNavBar::flowLayoutPanel1_Paint);
 			// 
 			// panel1
 			// 
@@ -190,6 +193,7 @@ namespace CourseRegistration {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(234, 100);
 			this->panel2->TabIndex = 1;
+			this->panel2->Click += gcnew System::EventHandler(this, &AdminNavBar::panel2_Click);
 			// 
 			// pictureBox7
 			// 
@@ -225,6 +229,7 @@ namespace CourseRegistration {
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(234, 100);
 			this->panel3->TabIndex = 2;
+			this->panel3->Click += gcnew System::EventHandler(this, &AdminNavBar::panel3_Click);
 			// 
 			// pictureBox2
 			// 
@@ -323,7 +328,7 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(1156, 740);
 			this->Controls->Add(this->pictureBox6);
 			this->Controls->Add(this->flowLayoutPanel1);
@@ -357,11 +362,19 @@ namespace CourseRegistration {
 
 
 private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	ManageGrades^ m = gcnew ManageGrades();
+	ManageGrades1^ m = gcnew ManageGrades1();
 	m->Show();
 	this->Hide();
 }
-private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+private: System::Void panel3_Click(System::Object^ sender, System::EventArgs^ e) {
+	SetPrerequisites^ setprerequisiites = gcnew SetPrerequisites();
+	setprerequisiites->ShowDialog();
+	//setprerequisiites->Hide();
+}
+private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
+	UploadCourses^ uploadCourses = gcnew UploadCourses();
+	uploadCourses->ShowDialog();
+	//uploadCourses->Hide();
 }
 };
 }

@@ -122,7 +122,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <ClCompile Include="Adminlogin.cpp" />
     <ClCompile Include="AdminNavBar.cpp" />
     <ClCompile Include="course_info.cpp" />
@@ -130,8 +129,11 @@
     <ClCompile Include="Course_registration.cpp" />
     <ClCompile Include="ManageGrades1.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="PrerequisitesPage.cpp" />
+    <ClCompile Include="SetPrerequisites.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
+    <ClCompile Include="UploadCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adminlogin.h">
@@ -155,10 +157,19 @@
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PrerequisitesPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SetPrerequisites.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Studentlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -168,6 +179,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminNavBar.resx">
       <DependentUpon>AdminNavBar.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="course_info.resx">
       <DependentUpon>course_info.h</DependentUpon>
@@ -184,11 +196,20 @@
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrerequisitesPage.resx">
+      <DependentUpon>PrerequisitesPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetPrerequisites.resx">
+      <DependentUpon>SetPrerequisites.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadCourses.resx">
+      <DependentUpon>UploadCourses.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

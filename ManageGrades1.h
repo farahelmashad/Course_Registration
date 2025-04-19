@@ -12,10 +12,10 @@ namespace CourseRegistration {
 	/// <summary>
 	/// Summary for ManageGrades
 	/// </summary>
-	public ref class ManageGrades : public System::Windows::Forms::Form
+	public ref class ManageGrades1 : public System::Windows::Forms::Form
 	{
 	public:
-		ManageGrades(void)
+		ManageGrades1(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace CourseRegistration {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~ManageGrades()
+		~ManageGrades1()
 		{
 			if (components)
 			{
@@ -91,7 +91,7 @@ namespace CourseRegistration {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ManageGrades::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ManageGrades1::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
@@ -168,7 +168,7 @@ namespace CourseRegistration {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1029, 612);
 			this->panel1->TabIndex = 1;
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ManageGrades::panel1_Paint);
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ManageGrades1::panel1_Paint);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -542,8 +542,8 @@ namespace CourseRegistration {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(427, 35);
 			this->textBox1->TabIndex = 2;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &ManageGrades::textBox1_TextChanged);
-			this->textBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ManageGrades::textBox1_KeyDown);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &ManageGrades1::textBox1_TextChanged);
+			this->textBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ManageGrades1::textBox1_KeyDown);
 			// 
 			// label1
 			// 
