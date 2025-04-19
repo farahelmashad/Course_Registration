@@ -78,7 +78,7 @@ namespace CourseRegistration {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(52, 41);
+			this->label1->Location = System::Drawing::Point(75, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(194, 72);
 			this->label1->TabIndex = 0;
@@ -87,10 +87,13 @@ namespace CourseRegistration {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(840, 25);
+			this->pictureBox1->Location = System::Drawing::Point(861, 106);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(316, 548);
+			this->pictureBox1->Size = System::Drawing::Size(237, 397);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
@@ -100,7 +103,7 @@ namespace CourseRegistration {
 			this->username_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->username_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username_a->Location = System::Drawing::Point(195, 235);
+			this->username_a->Location = System::Drawing::Point(307, 225);
 			this->username_a->Name = L"username_a";
 			this->username_a->Size = System::Drawing::Size(293, 25);
 			this->username_a->TabIndex = 2;
@@ -112,7 +115,7 @@ namespace CourseRegistration {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(34, 224);
+			this->label2->Location = System::Drawing::Point(87, 214);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(155, 36);
 			this->label2->TabIndex = 3;
@@ -123,7 +126,7 @@ namespace CourseRegistration {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(34, 283);
+			this->label3->Location = System::Drawing::Point(87, 281);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(149, 36);
 			this->label3->TabIndex = 4;
@@ -134,7 +137,7 @@ namespace CourseRegistration {
 			this->password_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->password_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password_a->Location = System::Drawing::Point(195, 293);
+			this->password_a->Location = System::Drawing::Point(307, 292);
 			this->password_a->Name = L"password_a";
 			this->password_a->PasswordChar = '*';
 			this->password_a->Size = System::Drawing::Size(293, 25);
@@ -149,7 +152,7 @@ namespace CourseRegistration {
 			this->submit_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->submit_a->ForeColor = System::Drawing::SystemColors::Window;
-			this->submit_a->Location = System::Drawing::Point(393, 520);
+			this->submit_a->Location = System::Drawing::Point(391, 464);
 			this->submit_a->Name = L"submit_a";
 			this->submit_a->Size = System::Drawing::Size(184, 39);
 			this->submit_a->TabIndex = 6;
@@ -162,7 +165,7 @@ namespace CourseRegistration {
 			this->AutoScaleDimensions = System::Drawing::SizeF(21, 45);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->ClientSize = System::Drawing::Size(1156, 628);
+			this->ClientSize = System::Drawing::Size(1156, 740);
 			this->Controls->Add(this->submit_a);
 			this->Controls->Add(this->password_a);
 			this->Controls->Add(this->label3);
@@ -177,6 +180,7 @@ namespace CourseRegistration {
 			this->Margin = System::Windows::Forms::Padding(8);
 			this->Name = L"Adminlogin";
 			this->Text = L"Adminlogin";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -292,6 +292,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Name = L"SignUp";
 			this->Text = L"SignUp";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &SignUp::SignUp_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);

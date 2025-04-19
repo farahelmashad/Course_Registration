@@ -125,10 +125,10 @@ namespace CourseRegistration {
 			this->textpre = (gcnew System::Windows::Forms::TextBox());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->course_lay = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
-			this->course_nameout = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel3 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->course_pre_out = (gcnew System::Windows::Forms::Label());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->course_nameout = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -146,8 +146,8 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->BeginInit();
 			this->flowLayoutPanel2->SuspendLayout();
 			this->course_lay->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			this->flowLayoutPanel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// flowLayoutPanel1
@@ -399,7 +399,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->course_i->Location = System::Drawing::Point(272, 9);
 			this->course_i->Name = L"course_i";
-			this->course_i->Size = System::Drawing::Size(416, 53);
+			this->course_i->Size = System::Drawing::Size(403, 52);
 			this->course_i->TabIndex = 23;
 			this->course_i->Text = L"Course prerequisite";
 			// 
@@ -454,6 +454,26 @@ namespace CourseRegistration {
 			this->course_lay->Size = System::Drawing::Size(225, 255);
 			this->course_lay->TabIndex = 0;
 			// 
+			// flowLayoutPanel3
+			// 
+			this->flowLayoutPanel3->Controls->Add(this->course_pre_out);
+			this->flowLayoutPanel3->Location = System::Drawing::Point(3, 155);
+			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
+			this->flowLayoutPanel3->Size = System::Drawing::Size(201, 57);
+			this->flowLayoutPanel3->TabIndex = 13;
+			// 
+			// course_pre_out
+			// 
+			this->course_pre_out->AutoSize = true;
+			this->course_pre_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->course_pre_out->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->course_pre_out->Location = System::Drawing::Point(3, 0);
+			this->course_pre_out->Name = L"course_pre_out";
+			this->course_pre_out->Size = System::Drawing::Size(72, 21);
+			this->course_pre_out->TabIndex = 10;
+			this->course_pre_out->Text = L"calculus";
+			// 
 			// pictureBox8
 			// 
 			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
@@ -476,26 +496,6 @@ namespace CourseRegistration {
 			this->course_nameout->TabIndex = 0;
 			this->course_nameout->Text = L"Discrete";
 			// 
-			// flowLayoutPanel3
-			// 
-			this->flowLayoutPanel3->Controls->Add(this->course_pre_out);
-			this->flowLayoutPanel3->Location = System::Drawing::Point(3, 155);
-			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
-			this->flowLayoutPanel3->Size = System::Drawing::Size(201, 57);
-			this->flowLayoutPanel3->TabIndex = 13;
-			// 
-			// course_pre_out
-			// 
-			this->course_pre_out->AutoSize = true;
-			this->course_pre_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->course_pre_out->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->course_pre_out->Location = System::Drawing::Point(3, 0);
-			this->course_pre_out->Name = L"course_pre_out";
-			this->course_pre_out->Size = System::Drawing::Size(72, 21);
-			this->course_pre_out->TabIndex = 10;
-			this->course_pre_out->Text = L"calculus";
-			// 
 			// course_pre
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -510,6 +510,7 @@ namespace CourseRegistration {
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"course_pre";
 			this->Text = L"course_pre";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -534,9 +535,9 @@ namespace CourseRegistration {
 			this->flowLayoutPanel2->ResumeLayout(false);
 			this->course_lay->ResumeLayout(false);
 			this->course_lay->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			this->flowLayoutPanel3->ResumeLayout(false);
 			this->flowLayoutPanel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

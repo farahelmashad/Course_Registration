@@ -80,7 +80,6 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
@@ -127,6 +126,7 @@
     <ClCompile Include="course_info.cpp" />
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
+    <ClCompile Include="GradesInfo.cpp" />
     <ClCompile Include="ManageGrades1.cpp" />
     <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="SignUp.cpp" />
@@ -148,6 +148,9 @@
     <ClInclude Include="Course_registration.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GradesInfo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ManageGrades1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -167,6 +170,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminNavBar.resx">
       <DependentUpon>AdminNavBar.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="course_info.resx">
       <DependentUpon>course_info.h</DependentUpon>
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Course_registration.resx">
       <DependentUpon>Course_registration.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradesInfo.resx">
+      <DependentUpon>GradesInfo.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageGrades1.resx">
       <DependentUpon>ManageGrades1.h</DependentUpon>

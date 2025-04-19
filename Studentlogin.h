@@ -233,6 +233,7 @@ namespace CourseRegistration {
 			this->Controls->Add(this->label1);
 			this->Name = L"Studentlogin";
 			this->Text = L"Studentlogin";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &Studentlogin::Studentlogin_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);

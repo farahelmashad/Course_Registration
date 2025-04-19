@@ -451,6 +451,7 @@ namespace CourseRegistration {
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"Course_registration";
 			this->Text = L"Course_registration";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();

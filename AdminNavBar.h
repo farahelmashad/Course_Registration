@@ -38,42 +38,25 @@ namespace CourseRegistration {
 
 
 	private:
-		 System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-		 System::Windows::Forms::Panel^ panel1;
-		 System::Windows::Forms::Label^ label1;
-		 System::Windows::Forms::PictureBox^ pictureBox1;
-		 System::Windows::Forms::Label^ label2;
-		 System::Windows::Forms::Panel^ panel2;
+		System::Windows::Forms::FlowLayoutPanel^ nav_panel;
+		System::Windows::Forms::Panel^ user_panel;
+		System::Windows::Forms::Label^ user_text;
+		System::Windows::Forms::PictureBox^ user_pic;
+		System::Windows::Forms::Label^ admin_text;
+		System::Windows::Forms::Panel^ upload_panel;
+		System::Windows::Forms::Label^ upload_text;
+		System::Windows::Forms::Panel^ pre_panel;
+		System::Windows::Forms::Label^ pre_text;
+		System::Windows::Forms::Panel^ manage_panel;
+		System::Windows::Forms::Label^ manage_text;
+		System::Windows::Forms::PictureBox^ logo_Pic;
 
-		 System::Windows::Forms::Label^ label3;
-		 System::Windows::Forms::Panel^ panel3;
-		 System::Windows::Forms::Label^ label4;
-
-		 System::Windows::Forms::Panel^ panel4;
-		 System::Windows::Forms::PictureBox^ pictureBox4;
-
-
-
+		System::Windows::Forms::PictureBox^ pre_pic;
 
 
 
-
-
-
-
-
-
-
-
-
-		 System::Windows::Forms::Panel^ panel6;
-		 System::Windows::Forms::Label^ label6;
-
-	private: System::Windows::Forms::PictureBox^ pictureBox7;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::PictureBox^ pictureBox6;
-
+	private: System::Windows::Forms::PictureBox^ manage_pic;
+	private: System::Windows::Forms::PictureBox^ upload_pic;
 
 
 		 System::ComponentModel::Container ^components;
@@ -86,282 +69,249 @@ namespace CourseRegistration {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminNavBar::typeid));
-			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->panel6 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->flowLayoutPanel1->SuspendLayout();
-			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->panel2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
-			this->panel3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			this->panel4->SuspendLayout();
-			this->panel6->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			this->nav_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->user_panel = (gcnew System::Windows::Forms::Panel());
+			this->admin_text = (gcnew System::Windows::Forms::Label());
+			this->user_text = (gcnew System::Windows::Forms::Label());
+			this->user_pic = (gcnew System::Windows::Forms::PictureBox());
+			this->upload_panel = (gcnew System::Windows::Forms::Panel());
+			this->upload_pic = (gcnew System::Windows::Forms::PictureBox());
+			this->upload_text = (gcnew System::Windows::Forms::Label());
+			this->pre_panel = (gcnew System::Windows::Forms::Panel());
+			this->pre_pic = (gcnew System::Windows::Forms::PictureBox());
+			this->pre_text = (gcnew System::Windows::Forms::Label());
+			this->manage_panel = (gcnew System::Windows::Forms::Panel());
+			this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
+			this->manage_text = (gcnew System::Windows::Forms::Label());
+			this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
+			this->nav_panel->SuspendLayout();
+			this->user_panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->BeginInit();
+			this->upload_panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->BeginInit();
+			this->pre_panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
+			this->manage_panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// flowLayoutPanel1
+			// nav_panel
 			// 
-			this->flowLayoutPanel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			this->nav_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->flowLayoutPanel1->Controls->Add(this->panel1);
-			this->flowLayoutPanel1->Controls->Add(this->panel2);
-			this->flowLayoutPanel1->Controls->Add(this->panel3);
-			this->flowLayoutPanel1->Controls->Add(this->panel4);
-			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Left;
-			this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 740);
-			this->flowLayoutPanel1->TabIndex = 1;
-			this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminNavBar::flowLayoutPanel1_Paint);
+			this->nav_panel->Controls->Add(this->user_panel);
+			this->nav_panel->Controls->Add(this->upload_panel);
+			this->nav_panel->Controls->Add(this->pre_panel);
+			this->nav_panel->Controls->Add(this->manage_panel);
+			this->nav_panel->Dock = System::Windows::Forms::DockStyle::Left;
+			this->nav_panel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->nav_panel->Location = System::Drawing::Point(0, 0);
+			this->nav_panel->Margin = System::Windows::Forms::Padding(0);
+			this->nav_panel->Name = L"nav_panel";
+			this->nav_panel->Size = System::Drawing::Size(253, 740);
+			this->nav_panel->TabIndex = 1;
 			// 
-			// panel1
+			// user_panel
 			// 
-			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Controls->Add(this->label1);
-			this->panel1->Controls->Add(this->pictureBox1);
-			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(0);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(237, 178);
-			this->panel1->TabIndex = 0;
+			this->user_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->user_panel->Controls->Add(this->admin_text);
+			this->user_panel->Controls->Add(this->user_text);
+			this->user_panel->Controls->Add(this->user_pic);
+			this->user_panel->Location = System::Drawing::Point(0, 0);
+			this->user_panel->Margin = System::Windows::Forms::Padding(0);
+			this->user_panel->Name = L"user_panel";
+			this->user_panel->Size = System::Drawing::Size(237, 178);
+			this->user_panel->TabIndex = 0;
 			// 
-			// label2
+			// admin_text
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->admin_text->AutoSize = true;
+			this->admin_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(8, 150);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(51, 18);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Admin";
+			this->admin_text->ForeColor = System::Drawing::Color::White;
+			this->admin_text->Location = System::Drawing::Point(8, 150);
+			this->admin_text->Name = L"admin_text";
+			this->admin_text->Size = System::Drawing::Size(51, 18);
+			this->admin_text->TabIndex = 2;
+			this->admin_text->Text = L"Admin";
 			// 
-			// label1
+			// user_text
 			// 
-			this->label1->AutoSize = true;
-			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(64, 99);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(108, 24);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"User name";
+			this->user_text->AutoSize = true;
+			this->user_text->ForeColor = System::Drawing::Color::White;
+			this->user_text->Location = System::Drawing::Point(66, 99);
+			this->user_text->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->user_text->Name = L"user_text";
+			this->user_text->Size = System::Drawing::Size(108, 24);
+			this->user_text->TabIndex = 1;
+			this->user_text->Text = L"User name";
 			// 
-			// pictureBox1
+			// user_pic
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(27, 4);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(165, 91);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
+			this->user_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"user_pic.Image")));
+			this->user_pic->Location = System::Drawing::Point(33, 4);
+			this->user_pic->Margin = System::Windows::Forms::Padding(4);
+			this->user_pic->Name = L"user_pic";
+			this->user_pic->Size = System::Drawing::Size(165, 91);
+			this->user_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->user_pic->TabIndex = 0;
+			this->user_pic->TabStop = false;
 			// 
-			// panel2
+			// upload_panel
 			// 
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->pictureBox7);
-			this->panel2->Controls->Add(this->label3);
-			this->panel2->Location = System::Drawing::Point(0, 178);
-			this->panel2->Margin = System::Windows::Forms::Padding(0);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(234, 100);
-			this->panel2->TabIndex = 1;
+			this->upload_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->upload_panel->Controls->Add(this->upload_pic);
+			this->upload_panel->Controls->Add(this->upload_text);
+			this->upload_panel->Location = System::Drawing::Point(0, 178);
+			this->upload_panel->Margin = System::Windows::Forms::Padding(0);
+			this->upload_panel->Name = L"upload_panel";
+			this->upload_panel->Size = System::Drawing::Size(237, 100);
+			this->upload_panel->TabIndex = 1;
 			// 
-			// pictureBox7
+			// upload_pic
 			// 
-			this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			this->upload_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-			this->pictureBox7->Location = System::Drawing::Point(5, 24);
-			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(55, 39);
-			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox7->TabIndex = 2;
-			this->pictureBox7->TabStop = false;
+			this->upload_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upload_pic.Image")));
+			this->upload_pic->Location = System::Drawing::Point(7, 24);
+			this->upload_pic->Name = L"upload_pic";
+			this->upload_pic->Size = System::Drawing::Size(55, 39);
+			this->upload_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->upload_pic->TabIndex = 5;
+			this->upload_pic->TabStop = false;
 			// 
-			// label3
+			// upload_text
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->upload_text->AutoSize = true;
+			this->upload_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(75, 24);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(134, 23);
-			this->label3->TabIndex = 1;
-			this->label3->Text = L"Upload Course";
+			this->upload_text->ForeColor = System::Drawing::Color::White;
+			this->upload_text->Location = System::Drawing::Point(75, 40);
+			this->upload_text->Name = L"upload_text";
+			this->upload_text->Size = System::Drawing::Size(134, 23);
+			this->upload_text->TabIndex = 1;
+			this->upload_text->Text = L"Upload Course";
 			// 
-			// panel3
+			// pre_panel
 			// 
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel3->Controls->Add(this->pictureBox2);
-			this->panel3->Controls->Add(this->label4);
-			this->panel3->Location = System::Drawing::Point(0, 278);
-			this->panel3->Margin = System::Windows::Forms::Padding(0);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(234, 100);
-			this->panel3->TabIndex = 2;
+			this->pre_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pre_panel->Controls->Add(this->pre_pic);
+			this->pre_panel->Controls->Add(this->pre_text);
+			this->pre_panel->Location = System::Drawing::Point(0, 278);
+			this->pre_panel->Margin = System::Windows::Forms::Padding(0);
+			this->pre_panel->Name = L"pre_panel";
+			this->pre_panel->Size = System::Drawing::Size(237, 100);
+			this->pre_panel->TabIndex = 2;
 			// 
-			// pictureBox2
+			// pre_pic
 			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			this->pre_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(3, 26);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(57, 41);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox2->TabIndex = 2;
-			this->pictureBox2->TabStop = false;
+			this->pre_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pre_pic.Image")));
+			this->pre_pic->Location = System::Drawing::Point(7, 26);
+			this->pre_pic->Name = L"pre_pic";
+			this->pre_pic->Size = System::Drawing::Size(57, 41);
+			this->pre_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pre_pic->TabIndex = 3;
+			this->pre_pic->TabStop = false;
 			// 
-			// label4
+			// pre_text
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->pre_text->AutoSize = true;
+			this->pre_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(66, 35);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(158, 23);
-			this->label4->TabIndex = 1;
-			this->label4->Text = L"Set Prerequisites";
+			this->pre_text->ForeColor = System::Drawing::Color::White;
+			this->pre_text->Location = System::Drawing::Point(66, 35);
+			this->pre_text->Name = L"pre_text";
+			this->pre_text->Size = System::Drawing::Size(158, 23);
+			this->pre_text->TabIndex = 1;
+			this->pre_text->Text = L"Set Prerequisites";
 			// 
-			// panel4
+			// manage_panel
 			// 
-			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel4->Controls->Add(this->panel6);
-			this->panel4->Controls->Add(this->pictureBox4);
-			this->panel4->Location = System::Drawing::Point(0, 378);
-			this->panel4->Margin = System::Windows::Forms::Padding(0);
-			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(234, 91);
-			this->panel4->TabIndex = 3;
+			this->manage_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->manage_panel->Controls->Add(this->manage_pic);
+			this->manage_panel->Controls->Add(this->manage_text);
+			this->manage_panel->Location = System::Drawing::Point(0, 378);
+			this->manage_panel->Margin = System::Windows::Forms::Padding(0);
+			this->manage_panel->Name = L"manage_panel";
+			this->manage_panel->Size = System::Drawing::Size(237, 90);
+			this->manage_panel->TabIndex = 4;
+			this->manage_panel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::manage_panel_MouseClick_1);
 			// 
-			// panel6
+			// manage_pic
 			// 
-			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel6->Controls->Add(this->pictureBox3);
-			this->panel6->Controls->Add(this->label6);
-			this->panel6->Location = System::Drawing::Point(-1, -1);
-			this->panel6->Margin = System::Windows::Forms::Padding(0);
-			this->panel6->Name = L"panel6";
-			this->panel6->Size = System::Drawing::Size(234, 91);
-			this->panel6->TabIndex = 4;
-			this->panel6->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::panel6_MouseClick);
-			// 
-			// pictureBox3
-			// 
-			this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			this->manage_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(5, 27);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(57, 40);
-			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox3->TabIndex = 2;
-			this->pictureBox3->TabStop = false;
+			this->manage_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"manage_pic.Image")));
+			this->manage_pic->Location = System::Drawing::Point(5, 26);
+			this->manage_pic->Name = L"manage_pic";
+			this->manage_pic->Size = System::Drawing::Size(57, 40);
+			this->manage_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->manage_pic->TabIndex = 5;
+			this->manage_pic->TabStop = false;
 			// 
-			// label6
+			// manage_text
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->manage_text->AutoSize = true;
+			this->manage_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(68, 38);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(141, 23);
-			this->label6->TabIndex = 1;
-			this->label6->Text = L"Manage Grades";
+			this->manage_text->ForeColor = System::Drawing::Color::White;
+			this->manage_text->Location = System::Drawing::Point(68, 38);
+			this->manage_text->Name = L"manage_text";
+			this->manage_text->Size = System::Drawing::Size(141, 23);
+			this->manage_text->TabIndex = 1;
+			this->manage_text->Text = L"Manage Grades";
 			// 
-			// pictureBox4
+			// logo_Pic
 			// 
-			this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->pictureBox4->Location = System::Drawing::Point(3, 26);
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(57, 41);
-			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox4->TabIndex = 0;
-			this->pictureBox4->TabStop = false;
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(457, 100);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(478, 381);
-			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox6->TabIndex = 3;
-			this->pictureBox6->TabStop = false;
+			this->logo_Pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo_Pic.Image")));
+			this->logo_Pic->Location = System::Drawing::Point(560, 130);
+			this->logo_Pic->Name = L"logo_Pic";
+			this->logo_Pic->Size = System::Drawing::Size(498, 425);
+			this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->logo_Pic->TabIndex = 24;
+			this->logo_Pic->TabStop = false;
 			// 
 			// AdminNavBar
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(1156, 740);
-			this->Controls->Add(this->pictureBox6);
-			this->Controls->Add(this->flowLayoutPanel1);
+			this->Controls->Add(this->logo_Pic);
+			this->Controls->Add(this->nav_panel);
 			this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"AdminNavBar";
 			this->Text = L"AdminNavBar";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->flowLayoutPanel1->ResumeLayout(false);
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
-			this->panel3->ResumeLayout(false);
-			this->panel3->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			this->panel4->ResumeLayout(false);
-			this->panel6->ResumeLayout(false);
-			this->panel6->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			this->nav_panel->ResumeLayout(false);
+			this->user_panel->ResumeLayout(false);
+			this->user_panel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->EndInit();
+			this->upload_panel->ResumeLayout(false);
+			this->upload_panel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->EndInit();
+			this->pre_panel->ResumeLayout(false);
+			this->pre_panel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->EndInit();
+			this->manage_panel->ResumeLayout(false);
+			this->manage_panel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
 
-
-private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	ManageGrades^ m = gcnew ManageGrades();
-	m->Show();
+private: System::Void manage_panel_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	ManageGrades1^ m = gcnew ManageGrades1();
+	m->ShowDialog();
 	this->Hide();
-}
-private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }
