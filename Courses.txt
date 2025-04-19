@@ -1,0 +1,30 @@
+CS101|Introduction to Programming|3|Basics of programming using C++|Dr. Ahmed Salem|
+CS102|Object-Oriented Programming|3|OOP principles using Java|Dr. Reem Youssef|CS101
+CS201|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|CS102
+CS202|Algorithms|4|Sorting, Searching, Dynamic Programming|Dr. Mariam Ayman|CS201
+CS210|Computer Architecture|3|Digital logic and system architecture|Dr. Samir Elmasry|CS101
+CS220|Operating Systems|4|Processes, Threads, Memory Management|Dr. Dina Helmy|CS201
+CS230|Database Systems|3|SQL, ER diagrams, indexing|Dr. Omar Hassan|CS201
+CS240|Software Engineering|3|Software lifecycle, UML, testing|Dr. Eman Lotfy|CS102
+CS250|Computer Networks|3|OSI model, TCP/IP, networking protocols|Dr. Khaled Anwar|CS210
+CS260|Artificial Intelligence|3|AI concepts and search algorithms|Dr. Aya Kamel|CS202
+CS270|Machine Learning|3|Supervised & Unsupervised Learning|Dr. Waleed Gabr|CS260
+CS280|Cybersecurity|3|Network security, encryption, attacks|Dr. Lamiaa Hamdy|CS250
+CS290|Web Development|3|Frontend & Backend basics|Dr. Rania Farouk|CS102
+CS300|Mobile App Development|3|Android/iOS development fundamentals|Dr. Amr Saeed|CS290
+CS310|Cloud Computing|3|Cloud models and architecture|Dr. Sarah Nasser|CS250
+CS320|Big Data Analytics|4|Hadoop, Spark, large-scale data|Dr. Khaled Morsy|CS230
+CS330|Embedded Systems|3|Microcontrollers and real-time systems|Dr. Mona Galal|CS210
+CS340|Computer Graphics|3|Rendering, OpenGL, modeling|Dr. Hesham Gamil|CS201
+CS350|Natural Language Processing|3|Text processing and language models|Dr. Yasmine Adel|CS270
+CS360|Parallel Programming|4|Multi-threading, OpenMP, CUDA|Dr. Mostafa Abouzeid|CS202
+CS370|Blockchain Technology|3|Decentralized systems and smart contracts|Dr. Rasha Seif|CS230
+CS380|Quantum Computing|3|Qubits, gates, and algorithms|Dr. Hany Farid|CS202
+CS390|DevOps Engineering|3|CI/CD, Docker, Kubernetes|Dr. Amina Raouf|CS290
+CS400|Digital Image Processing|3|Filters, transformations, feature extraction|Dr. Youssef Nasr|CS340
+CS410|Information Retrieval|3|Search engines, indexing, ranking|Dr. Mahmoud Fadel|CS230
+CS420|Game Development|3|Unity, game loops, physics|Dr. Karim Maher|CS290
+CS430|Augmented Reality|3|ARKit, ARCore, spatial mapping|Dr. Salma Yehia|CS300
+CS440|Ethical Hacking|3|Penetration testing, tools, vulnerabilities|Dr. Heba Gamil|CS280
+CS450|Human-Computer Interaction|3|UX/UI design, evaluation techniques|Dr. Layla Naguib|CS240
+CS460|Computer Vision|3|Image classification, object detection|Dr. Basel Ali|CS270

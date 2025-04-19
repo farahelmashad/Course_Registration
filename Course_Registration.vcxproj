@@ -121,24 +121,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
     <ClCompile Include="AdminNavBar.cpp" />
+    <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseGrades.cpp" />
     <ClCompile Include="course_info.cpp" />
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
     <ClCompile Include="GradesInfo.cpp" />
     <ClCompile Include="ManageGrades1.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Login_SignUp_Helper.cpp" />
     <ClCompile Include="NavBar.cpp" />
     <ClCompile Include="SignUp.cpp" />
+    <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="Adminlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="AdminNavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Course.h" />
+    <ClInclude Include="CourseGrades.h" />
     <ClInclude Include="course_info.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -154,19 +163,24 @@
     <ClInclude Include="ManageGrades1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Login_SignUp_Helper.h" />
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Student.h" />
     <ClInclude Include="Studentlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Adminlogin.resx">
       <DependentUpon>Adminlogin.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminNavBar.resx">
       <DependentUpon>AdminNavBar.h</DependentUpon>
@@ -174,12 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="course_info.resx">
       <DependentUpon>course_info.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="course_pre.resx">
       <DependentUpon>course_pre.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Course_registration.resx">
       <DependentUpon>Course_registration.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GradesInfo.resx">
       <DependentUpon>GradesInfo.h</DependentUpon>
@@ -189,6 +206,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
@@ -201,6 +219,11 @@
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Admin.txt" />
+    <Text Include="Courses.txt" />
+    <Text Include="student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
