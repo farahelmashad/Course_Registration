@@ -134,9 +134,12 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Login_SignUp_Helper.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="PrerequisitesPage.cpp" />
+    <ClCompile Include="SetPrerequisites.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
+    <ClCompile Include="UploadCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -168,11 +171,20 @@
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PrerequisitesPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SetPrerequisites.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Student.h" />
     <ClInclude Include="Studentlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Utils.h" />
@@ -208,11 +220,20 @@
       <DependentUpon>NavBar.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrerequisitesPage.resx">
+      <DependentUpon>PrerequisitesPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetPrerequisites.resx">
+      <DependentUpon>SetPrerequisites.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadCourses.resx">
+      <DependentUpon>UploadCourses.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

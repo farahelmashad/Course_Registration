@@ -1,6 +1,8 @@
 #pragma once
 #include "Course_Registration.h"
 #include "ManageGrades1.h"
+#include"SetPrerequisites.h"
+#include "UploadCourses.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -312,6 +314,16 @@ private: System::Void manage_panel_MouseClick_1(System::Object^ sender, System::
 	ManageGrades1^ m = gcnew ManageGrades1();
 	m->ShowDialog();
 	this->Hide();
+}
+private: System::Void panel3_Click(System::Object^ sender, System::EventArgs^ e) {
+	SetPrerequisites^ setprerequisiites = gcnew SetPrerequisites();
+	setprerequisiites->ShowDialog();
+	//setprerequisiites->Hide();
+}
+private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
+	UploadCourses^ uploadCourses = gcnew UploadCourses();
+	uploadCourses->ShowDialog();
+	//uploadCourses->Hide();
 }
 };
 }
