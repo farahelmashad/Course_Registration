@@ -126,8 +126,10 @@
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="report.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
+    <ClCompile Include="ViewGrades.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adminlogin.h">
@@ -145,10 +147,16 @@
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="report.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Studentlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ViewGrades.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -168,12 +176,21 @@
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="report.resx">
+      <DependentUpon>report.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewGrades.resx">
+      <DependentUpon>ViewGrades.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image1.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
