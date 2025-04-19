@@ -299,9 +299,9 @@ private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ 
 		MessageBox::Show("Please enter all fields", "User name and password are required",MessageBoxButtons::OK,MessageBoxIcon::Error);
 	}
 	else{
-	std::string username = Utils::toStdString(username_s->Text);
+	int userID = Utils::toInt(username_s->Text);
 	std::string password = Utils::toStdString(password_s->Text);
-	bool isStudent = Login_SignUp_Helper::validate_Student_Login(username, password);
+	bool isStudent = Login_SignUp_Helper::validate_Student_Login(userID, password);
 	if (isStudent) {
 		MessageBox::Show("Login successful!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		NavBar^ n1 = gcnew NavBar();

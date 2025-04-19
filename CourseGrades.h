@@ -20,7 +20,11 @@ public:
 	string getSemester();
 	char getGrade();
 	~CourseGrades();
-
+	bool operator<(const CourseGrades& other) const {
+		if (semester != other.semester)
+			return semester < other.semester;
+		return courseID < other.courseID;
+	}
 
 
 

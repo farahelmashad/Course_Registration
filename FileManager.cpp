@@ -6,7 +6,7 @@
 
 using namespace std;
 vector<Admin> admins;
-vector<Student> students;
+map<int,Student> students;
 map<string, Course> courses;
 Student currentStudent;
 
@@ -30,8 +30,7 @@ void FileManager::readAdmins(string filename) {
 	file.close();
 }
 
-void FileManager::readStudents(string filename)
-{
+void FileManager::readStudents(string filename) {
     ifstream file(filename);
     string line;
 
@@ -45,7 +44,7 @@ void FileManager::readStudents(string filename)
             stringstream ss(line);
             string username, password, nationalIDStr, studentIDStr, genderStr, academicYearStr;
             string currentCourseStr, completedCourseStr;
-            long nationalID = 0;
+            int nationalID = 0;
             int studentID = 0, academicYear = 0;
             char gender = 'M';
 
@@ -56,7 +55,8 @@ void FileManager::readStudents(string filename)
             getline(ss, genderStr, ',');
             getline(ss, academicYearStr, ',');
 
-            if (username.empty() || password.empty() || nationalIDStr.empty() || studentIDStr.empty() || genderStr.empty() || academicYearStr.empty()) {
+            if (username.empty() || password.empty() || nationalIDStr.empty() ||
+                studentIDStr.empty() || genderStr.empty() || academicYearStr.empty()) {
                 continue;
             }
 
@@ -75,7 +75,7 @@ void FileManager::readStudents(string filename)
             }
 
             getline(ss, completedCourseStr);
-            vector<CourseGrades> completedCourses;
+            set<CourseGrades> completedCourses;
             stringstream completedStream(completedCourseStr);
             string courseData;
             while (getline(completedStream, courseData, ';')) {
@@ -88,14 +88,16 @@ void FileManager::readStudents(string filename)
                 getline(courseStream, gradeStr);
                 if (!gradeStr.empty()) grade = gradeStr[0];
 
-                if (!courseID.empty() && !semester.empty())
-                    completedCourses.push_back(CourseGrades(studentID, courseID, semester, grade));
+                if (!courseID.empty() && !semester.empty()) {
+                    completedCourses.insert(CourseGrades{ studentID, courseID, semester, grade });
+                }
             }
+
             Student newStudent(username, password, nationalID, studentID, gender, academicYear, currentCourses, completedCourses);
-            students.push_back(newStudent);
+            students[studentID] = newStudent;
         }
-        catch ( exception& e) {
-            cout << " Exception  " << line << endl;
+        catch (exception& e) {
+            cout << "Exception on line: " << line << endl;
         }
     }
 
@@ -139,7 +141,7 @@ void FileManager::readStudents(string filename)
 
 }
 
- void FileManager::writeStudents(string filename) {
+ /*void FileManager::writeStudents(string filename) {
      ofstream file(filename);
      if (!file.is_open()) {
          cout << "Error " << endl;
@@ -174,7 +176,7 @@ void FileManager::readStudents(string filename)
      }
 
      file.close();
- }
+ }*/
 
  void FileManager::writeCourses(string filename) {
      ofstream file(filename);

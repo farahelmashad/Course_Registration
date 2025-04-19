@@ -29,7 +29,7 @@ Student::Student()
 {
 }
 
-Student::Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, vector<CourseGrades>& completedCourses)
+Student::Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, set<CourseGrades>& completedCourses)
 	: username(username), password(password), nationalID(nationalID), studentID(studentID), gender(gender), academicYear(academicYear),
 	currentCourses(currentCourses), completedCourses(completedCourses)
 {
@@ -45,7 +45,7 @@ void Student::setPassword(string password)
 	this->password = password;
 }
 
-void Student::setNationalID(long nationalID)
+void Student::setNationalID(int nationalID)
 {
 	this->nationalID = nationalID;
 
@@ -71,7 +71,7 @@ void Student::setCurrentCourses(set<string> currentCourses)
 	this->currentCourses = currentCourses;
 }
 
-void Student::setCompletedCourses(vector<CourseGrades> completedCourses)
+void Student::setCompletedCourses(set<CourseGrades> completedCourses)
 {
 	this->completedCourses = completedCourses;
 }
@@ -86,7 +86,7 @@ string Student::getPassword()
 	return password;
 }
 
-long Student::getNationalID()
+int Student::getNationalID()
 {
 	return nationalID;
 }
@@ -111,7 +111,7 @@ set<string> Student::getCurrentCourses()
 	return currentCourses;
 }
 
-vector<CourseGrades> Student::getCompletedCourses()
+set<CourseGrades> Student::getCompletedCourses()
 {
 	return completedCourses;
 }
