@@ -104,7 +104,7 @@ void FileManager::readStudents(string filename) {
     file.close();
 }
 
- void FileManager::readCourses(string filename) {
+void FileManager::readCourses(string filename) {
      ifstream file(filename);
 
      if (!file.is_open()) {
@@ -141,44 +141,42 @@ void FileManager::readStudents(string filename) {
 
 }
 
- /*void FileManager::writeStudents(string filename) {
+void FileManager::writeStudents( string filename) {
      ofstream file(filename);
      if (!file.is_open()) {
-         cout << "Error " << endl;
          return;
      }
 
-     for ( Student& student : students) {
-         file << student.getUserName() << ','
-             << student.getPassword() << ','
-             << student.getNationalID() << ','
-             << student.getStudentID() << ','
-             << student.getGender() << ','
-             << student.getAcademicYear() << ',';
+     for ( auto pair : students) {
+          Student s = pair.second;
 
-         const set<string>& currentCourses = student.getCurrentCourses();
+         file << s.getUserName() << ','
+             << s.getPassword() << ','
+             << s.getNationalID() << ','
+             << s.getStudentID() << ','
+             << s.getGender() << ','
+             << s.getAcademicYear() << ',';
+
+         set<string> currentCourses = s.getCurrentCourses();
          for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
              file << *it;
              if (next(it) != currentCourses.end()) file << ';';
          }
 
-         file << "#"; 
-          vector<CourseGrades>& completedCourses = student.getCompletedCourses();
-         for (size_t i = 0; i < completedCourses.size(); ++i) {
-            CourseGrades& course = completedCourses[i];
-             file << course.getCourseID() << '|'
-                 << course.getSemester() << '|'
-                 << course.getGrade();
-             if (i != completedCourses.size() - 1) file << ';';
+         file << '#';
+
+         set<CourseGrades> completedCourses = s.getCompletedCourses();
+         for ( auto cg : completedCourses) {
+             file << cg.getCourseID() << '|' << cg.getSemester() << '|' << cg.getGrade() << ';';
          }
 
          file << '\n';
      }
 
      file.close();
- }*/
+ }
 
- void FileManager::writeCourses(string filename) {
+void FileManager::writeCourses(string filename) {
      ofstream file(filename);
      if (!file.is_open()) {
          return;
@@ -205,7 +203,7 @@ void FileManager::readStudents(string filename) {
      file.close();
  }
 
- void FileManager::writeAdmins(string filename) {
+void FileManager::writeAdmins(string filename) {
      ofstream file(filename);
      if (!file.is_open()) {
          return;
