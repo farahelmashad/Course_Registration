@@ -70,7 +70,8 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::Label^ course_r;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ searchBar;
+
 	private: System::Windows::Forms::PictureBox^ search;
 	private: System::Void CoursePanel_Click(System::Object^ sender, System::EventArgs^ e);
 
@@ -124,7 +125,7 @@ namespace CourseRegistration {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->course_r = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->searchBar = (gcnew System::Windows::Forms::TextBox());
 			this->search = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->course_lay = (gcnew System::Windows::Forms::Panel());
@@ -337,16 +338,17 @@ namespace CourseRegistration {
 			this->course_r->TabIndex = 19;
 			this->course_r->Text = L"Course Registration";
 			// 
-			// textBox1
+			// searchBar
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->searchBar->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(436, 63);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(261, 31);
-			this->textBox1->TabIndex = 20;
+			this->searchBar->Location = System::Drawing::Point(436, 63);
+			this->searchBar->Margin = System::Windows::Forms::Padding(2);
+			this->searchBar->Multiline = true;
+			this->searchBar->Name = L"searchBar";
+			this->searchBar->Size = System::Drawing::Size(261, 31);
+			this->searchBar->TabIndex = 20;
+			this->searchBar->TextChanged += gcnew System::EventHandler(this, &Course_registration::textBox1_TextChanged);
 			// 
 			// search
 			// 
@@ -474,7 +476,7 @@ namespace CourseRegistration {
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->flowLayoutPanel2);
 			this->Controls->Add(this->search);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->searchBar);
 			this->Controls->Add(this->course_r);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Margin = System::Windows::Forms::Padding(2);
@@ -514,12 +516,24 @@ private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArg
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void search_Click(System::Object^ sender, System::EventArgs^ e) {
+	string courseID = Utils::toStdString(searchBar->Text);
+	Course c=Course::SearchCourse(courseID);
+	if (c.getCreditHours() == 0) {
+		MessageBox::Show("Course not found","Error", MessageBoxButtons::OK,MessageBoxIcon::Error);
+	}
+	else {
+		this->flowLayoutPanel2->Controls->Clear();
+		CreateCoursePanel( c);
+
+	}
 }
 private: System::Void course_lay_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Course_registration_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 

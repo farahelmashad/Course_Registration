@@ -7,6 +7,8 @@
 #include"Course.h"
 #include"CourseGrades.h"
 #include"Admin.h"
+class Course;
+class Student;
 using namespace std;
 
 extern vector<Admin> admins;

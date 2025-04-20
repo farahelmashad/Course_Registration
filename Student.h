@@ -3,6 +3,7 @@
 #include<vector>
 #include<set>
 #include"CourseGrades.h"
+#include"FileManager.h"
 using namespace std;
 class Student
 {
@@ -44,8 +45,8 @@ public:
 	void ViewGrades();
 	void CheckPrerequisites();
 	void MakeReport();
-     
-
+	 bool willRetake(string courseID);
+	 void Retake(string courseID);
     // file format for info: <username>,<password>,<nationalID>,<studentID>,<gender>,<academicYear>,<currentCourse1>;<currentCourse2>;...,#<courseID>|<semester>|<grade>;<courseID>|<semester>|<grade>;...
 
 

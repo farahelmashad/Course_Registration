@@ -3,6 +3,7 @@
 #include<string>
 #include<set>
 #include<map>
+#include"FileManager.h"
 using namespace std;
 class Course
 {
@@ -23,6 +24,7 @@ private:
 	 void setSyllabus(string syllabus);
 	 void setInstructor(string instructor);
 	 void setPrerequisites(set<string>& prerequisites);
+	 static Course SearchCourse(string courseID);
 	 string getCourseID();
 	 string getCourseName();
 	 int getCreditHours();

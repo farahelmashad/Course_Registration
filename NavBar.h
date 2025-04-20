@@ -610,7 +610,7 @@ namespace CourseRegistration {
 			this->panel5->Controls->Add(this->username_p);
 			this->panel5->Location = System::Drawing::Point(256, 130);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(787, 436);
+			this->panel5->Size = System::Drawing::Size(787, 517);
 			this->panel5->TabIndex = 17;
 			// 
 			// NavBar

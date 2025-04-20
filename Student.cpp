@@ -1,6 +1,5 @@
 #pragma once
 #include "Student.h"
-
 Student::~Student()
 {
 }
@@ -23,6 +22,32 @@ void Student::CheckPrerequisites()
 
 void Student::MakeReport()
 {
+}
+
+bool Student::willRetake(string courseID)
+{
+	for ( CourseGrades  cg : completedCourses) {
+		if (cg.getCourseID() == courseID) {
+			return true;
+		}
+	}
+	return false;
+
+}
+
+void Student::Retake(string courseID)
+{
+	currentCourses.insert(courseID);
+	for (auto it = completedCourses.begin(); it != completedCourses.end(); ) {
+		if (it->getCourseID() == courseID) {
+			it = completedCourses.erase(it);  // erase returns the next valid iterator
+			break; // remove this ift you want to delete all matches
+		}
+		else {
+			++it;
+		}
+	}
+
 }
 
 Student::Student()

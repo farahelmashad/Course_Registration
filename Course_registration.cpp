@@ -45,6 +45,7 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course)
 	coursePanel->Controls->Add(pic);
 
 	this->flowLayoutPanel2->Controls->Add(coursePanel);
+
 }
 void CourseRegistration:: Course_registration::DisplayAllCourses(map<string, Course> courses)
 {
@@ -66,6 +67,7 @@ void CourseRegistration:: Course_registration::CoursePanel_Click(System::Object^
 			Course course = courses[id];
 
 		}
+
 		course_info^ infoform = gcnew course_info(courseId);
 		infoform->ShowDialog();
 		this->Close();

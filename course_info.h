@@ -2,7 +2,7 @@
 #include"Utils.h"
 #include"Course_Registration.h"
 #include"FileManager.h"
-
+extern string gcid;
 namespace CourseRegistration {
 
 	using namespace System;
@@ -67,7 +67,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Label^ course_name_pre;
 
 	private: System::Windows::Forms::CheckBox^ checkBox1;
-	private: System::Windows::Forms::Button^ submit_i;
+
 	private: System::Windows::Forms::Label^ instructor_name;
 
 
@@ -119,7 +119,6 @@ namespace CourseRegistration {
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->course_i = (gcnew System::Windows::Forms::Label());
-			this->submit_i = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -513,28 +512,12 @@ namespace CourseRegistration {
 			this->course_i->TabIndex = 22;
 			this->course_i->Text = L"Course Info";
 			// 
-			// submit_i
-			// 
-			this->submit_i->BackColor = System::Drawing::Color::MidnightBlue;
-			this->submit_i->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->submit_i->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->submit_i->ForeColor = System::Drawing::SystemColors::Window;
-			this->submit_i->Location = System::Drawing::Point(394, 460);
-			this->submit_i->Margin = System::Windows::Forms::Padding(2);
-			this->submit_i->Name = L"submit_i";
-			this->submit_i->Size = System::Drawing::Size(138, 32);
-			this->submit_i->TabIndex = 23;
-			this->submit_i->Text = L"Submit";
-			this->submit_i->UseVisualStyleBackColor = false;
-			// 
 			// course_info
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(768, 501);
-			this->Controls->Add(this->submit_i);
 			this->Controls->Add(this->course_i);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->course_infop);
@@ -568,16 +551,16 @@ namespace CourseRegistration {
 		}
 		void DisplayCourseInfo(System::String^ courseID)
 		{   
-			MessageBox::Show(courseID);
 			Course course;
 			string courseId = Utils::toStdString(courseID);
+			gcid = courseId;
 			auto it = courses.find(courseId);
 
 			if (it != courses.end()) {
 			 course = it->second;
 			}
 			else {
-				//MessageBox::Show("Course not found.");
+				MessageBox::Show("Course not found.");
 			}
 
 			coursename_out->Text = Utils::toSysStr(course.getCourseName());
@@ -611,7 +594,29 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 private: System::Void course_name_pre_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void course_info_Load(System::Object^ sender, System::EventArgs^ e) {
+     
+	bool will_retake=currentStudent.willRetake(gcid);
+	if (will_retake) {
+		Button^ Retake = gcnew Button();
+		Retake->Text = "Retake";
+		Retake->Size = System::Drawing::Size(138, 32);
+		Retake->Location = System::Drawing::Point(394, 460);
+
+		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
+
+		this->Controls->Add(Retake);
+
+	}
+
+
+	
 }
+	   void course_info::Retake_Click(System::Object^ sender, System::EventArgs^ e)
+	   {   
+		   currentStudent.Retake(gcid);
+		   MessageBox::Show("Course Successfully Retaken", "Success", MessageBoxButtons::OK);
+	   }
+
 private: System::Void hours_out_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
