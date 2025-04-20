@@ -347,7 +347,7 @@ namespace CourseRegistration {
 			   // 
 			   this->pictureBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			   this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			   this->pictureBox6->Location = System::Drawing::Point(838, 5);
+			   this->pictureBox6->Location = System::Drawing::Point(1046, 5);
 			   this->pictureBox6->Name = L"pictureBox6";
 			   this->pictureBox6->Size = System::Drawing::Size(64, 50);
 			   this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -378,7 +378,7 @@ namespace CourseRegistration {
 			   this->course_infop->Controls->Add(this->flowLayoutPanel2);
 			   this->course_infop->Controls->Add(this->coursename_out);
 			   this->course_infop->Controls->Add(this->pictureBox3);
-			   this->course_infop->Location = System::Drawing::Point(269, 98);
+			   this->course_infop->Location = System::Drawing::Point(397, 162);
 			   this->course_infop->Name = L"course_infop";
 			   this->course_infop->Size = System::Drawing::Size(619, 427);
 			   this->course_infop->TabIndex = 35;
@@ -497,7 +497,7 @@ namespace CourseRegistration {
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->ClientSize = System::Drawing::Size(905, 740);
+			   this->ClientSize = System::Drawing::Size(1113, 740);
 			   this->Controls->Add(this->course_infop);
 			   this->Controls->Add(this->course_i);
 			   this->Controls->Add(this->pictureBox6);

@@ -3,6 +3,7 @@
 #include "ManageGrades1.h"
 #include"SetPrerequisites.h"
 #include "UploadCourses.h"
+#include"iostream"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -37,7 +38,9 @@ namespace CourseRegistration {
 				delete components;
 			}
 		}
-
+		UploadCourses^ uploadCourses;
+		ManageGrades1^ manageGrades;
+		SetPrerequisites^ setPre;
 
 	private:
 		System::Windows::Forms::FlowLayoutPanel^ nav_panel;
@@ -51,7 +54,7 @@ namespace CourseRegistration {
 		System::Windows::Forms::Label^ pre_text;
 		System::Windows::Forms::Panel^ manage_panel;
 		System::Windows::Forms::Label^ manage_text;
-		System::Windows::Forms::PictureBox^ logo_Pic;
+
 
 		System::Windows::Forms::PictureBox^ pre_pic;
 
@@ -85,7 +88,6 @@ namespace CourseRegistration {
 			this->manage_panel = (gcnew System::Windows::Forms::Panel());
 			this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
 			this->manage_text = (gcnew System::Windows::Forms::Label());
-			this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
 			this->nav_panel->SuspendLayout();
 			this->user_panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->BeginInit();
@@ -95,7 +97,6 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
 			this->manage_panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// nav_panel
@@ -268,30 +269,24 @@ namespace CourseRegistration {
 			this->manage_text->TabIndex = 1;
 			this->manage_text->Text = L"Manage Grades";
 			// 
-			// logo_Pic
-			// 
-			this->logo_Pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo_Pic.Image")));
-			this->logo_Pic->Location = System::Drawing::Point(560, 130);
-			this->logo_Pic->Name = L"logo_Pic";
-			this->logo_Pic->Size = System::Drawing::Size(498, 425);
-			this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->logo_Pic->TabIndex = 24;
-			this->logo_Pic->TabStop = false;
-			// 
 			// AdminNavBar
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(1156, 740);
-			this->Controls->Add(this->logo_Pic);
 			this->Controls->Add(this->nav_panel);
+			this->DoubleBuffered = true;
 			this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->IsMdiContainer = true;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"AdminNavBar";
 			this->Text = L"AdminNavBar";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &AdminNavBar::AdminNavBar_Load);
 			this->nav_panel->ResumeLayout(false);
 			this->user_panel->ResumeLayout(false);
 			this->user_panel->PerformLayout();
@@ -305,28 +300,59 @@ namespace CourseRegistration {
 			this->manage_panel->ResumeLayout(false);
 			this->manage_panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
 
-private: System::Void manage_panel_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	ManageGrades1^ m = gcnew ManageGrades1();
-	m->ShowDialog();
-	this->Hide();
-}
+	private: System::Void manage_panel_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if(manageGrades == nullptr){
+		manageGrades = gcnew ManageGrades1();
+		manageGrades->MdiParent = this;
+		manageGrades->Location = Point(250, 40);
+		manageGrades->Show();
+		}
+		else {
+			manageGrades->BringToFront();
+		}
+	
+	}
 
-private: System::Void upload_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	UploadCourses^ c = gcnew UploadCourses();
-	c->ShowDialog();
-}
+	private: System::Void upload_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (uploadCourses == nullptr)
+		{
+			uploadCourses = gcnew UploadCourses();
+			uploadCourses->MdiParent = this;
+			uploadCourses->Location = Point(250, 40);
+			uploadCourses->Show();
+		}
+		else {
+			uploadCourses->BringToFront();
+		}
+	
+	}
 
 
-private: System::Void pre_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	SetPrerequisites^ s = gcnew SetPrerequisites();
-	s->ShowDialog();
-}
+	private: System::Void pre_panel_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if(setPre == nullptr){
+		setPre = gcnew SetPrerequisites();
+		setPre->MdiParent = this;
+		setPre->Location = Point(250, 40);
+		setPre->Show();
+		}
+		else {
+			setPre->BringToFront();
+		}
+	}
+	
+	private: System::Void AdminNavBar_Load(System::Object^ sender, System::EventArgs^ e) {
+		for each (Control ^ ctrl in this->Controls) {
+			System::Windows::Forms::MdiClient^ client = dynamic_cast<System::Windows::Forms::MdiClient^>(ctrl);
+			if (client != nullptr) {
+				client->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			}
+		}
+	}
 };
 }
