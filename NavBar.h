@@ -237,6 +237,7 @@ namespace CourseRegistration {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(253, 100);
 			this->panel2->TabIndex = 1;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel2_Paint);
 			this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel2_MouseClick);
 			// 
 			// label3
@@ -685,8 +686,9 @@ private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	Course_registration^ c1 = gcnew Course_registration();
 	
-	c1->Show();
+	c1->ShowDialog();
 	this->Hide();
+	this->Close();
 }
 private: System::Void panel7_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
@@ -701,6 +703,9 @@ private: System::Void username_out_Click(System::Object^ sender, System::EventAr
 private: System::Void panel6_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
 }
 };
 }

@@ -7,7 +7,7 @@ CS220|Operating Systems|4|Processes, Threads, Memory Management|Dr. Dina Helmy|C
 CS230|Database Systems|3|SQL, ER diagrams, indexing|Dr. Omar Hassan|CS201
 CS240|Software Engineering|3|Software lifecycle, UML, testing|Dr. Eman Lotfy|CS102
 CS250|Computer Networks|3|OSI model, TCP/IP, networking protocols|Dr. Khaled Anwar|CS210
-CS260|Artificial Intelligence|3|AI concepts and search algorithms|Dr. Aya Kamel|CS202
+CS260|Artificial Intelligence|3|AI concepts and search algorithms|Dr. Aya Kamel|CS202,CS303
 CS270|Machine Learning|3|Supervised & Unsupervised Learning|Dr. Waleed Gabr|CS260
 CS280|Cybersecurity|3|Network security, encryption, attacks|Dr. Lamiaa Hamdy|CS250
 CS290|Web Development|3|Frontend & Backend basics|Dr. Rania Farouk|CS102
