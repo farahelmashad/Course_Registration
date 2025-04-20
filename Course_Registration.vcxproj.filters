@@ -54,6 +54,12 @@
     <ClCompile Include="Login_SignUp_Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ViewGrades.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="report.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NavBar.h">
@@ -96,6 +102,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Login_SignUp_Helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewGrades.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="report.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
