@@ -26,7 +26,6 @@ public:
 bool operator<(const CourseGrades& other) const {
     return courseID < other.courseID;
 }
-void deleteCourse(string courseID);
 
 
 

@@ -35,19 +35,19 @@ bool Student::willRetake(string courseID)
 
 }
 
-void Student::Retake(string courseID)
-{
-	currentCourses.insert(courseID);
-	for (auto it = completedCourses.begin(); it != completedCourses.end(); ) {
-		if (it->getCourseID() == courseID) {
-			it = completedCourses.erase(it);  // erase returns the next valid iterator
-			break; // remove this ift you want to delete all matches
-		}
-		else {
-			++it;
-		}
-	}
+void Student::Retake(string courseID){
+	this->currentCourses.insert(courseID);
+	this->deleteCompletedCourse(courseID);
+	students[studentID] = currentStudent;
+}
 
+void Student::deleteCompletedCourse(string courseID)
+{   
+	CourseGrades target(courseID);
+	auto it = completedCourses.find(target);
+	if (it != completedCourses.end()) {
+		completedCourses.erase(it);
+	}
 }
 
 Student::Student()

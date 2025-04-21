@@ -5,19 +5,6 @@ CourseGrades::~CourseGrades()
 {
 }
 
-void CourseGrades::deleteCourse(string courseID)
-{   
-	CourseGrades target(courseID);  // temporary object with the ID to search for
-	auto it = currentStudent.getCompletedCourses().find(target);
-
-		if (it != currentStudent.getCompletedCourses.end()) {
-			completedCourses.erase(it);
-		}
-		else {
-
-		}
-	
-}
 
 CourseGrades::CourseGrades(int studentID,string courseID, string semester, char grade)
 {

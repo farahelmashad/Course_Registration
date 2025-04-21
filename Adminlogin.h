@@ -80,11 +80,11 @@ namespace CourseRegistration {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(664, 195);
+			this->label1->Location = System::Drawing::Point(753, 199);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(353, 58);
+			this->label1->Size = System::Drawing::Size(144, 58);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Welcome Back!";
+			this->label1->Text = L"Login";
 			this->label1->Click += gcnew System::EventHandler(this, &Adminlogin::label1_Click);
 			// 
 			// pictureBox1
@@ -152,7 +152,7 @@ namespace CourseRegistration {
 			this->submit_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->submit_a->ForeColor = System::Drawing::SystemColors::Window;
-			this->submit_a->Location = System::Drawing::Point(686, 426);
+			this->submit_a->Location = System::Drawing::Point(686, 429);
 			this->submit_a->Name = L"submit_a";
 			this->submit_a->Size = System::Drawing::Size(293, 39);
 			this->submit_a->TabIndex = 6;
