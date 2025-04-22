@@ -1,7 +1,9 @@
 #include "course_pre.h"
 #include"Course.h"
 #include"Utils.h"
+#include"Course_registration.h"
 #include<array>
+//ref class Course_registration;
 void CourseRegistration::course_pre::CreateCoursesPanel(Course course, Random^ rand)
 {
         Panel^ coursePanel = gcnew Panel();

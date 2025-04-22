@@ -1,5 +1,7 @@
+
 #include "Course_registration.h"
 #include"course_info.h"
+#include"course_pre.h"
 #include<array>
 
 void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Random^ rand)

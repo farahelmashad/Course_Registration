@@ -3,7 +3,8 @@
 #include"Course.h"
 #include"Utils.h"
 #include"FileManager.h"
-#include"course_pre.h"
+//#include"course_pre.h"
+ ref class course_pre;
  ref class course_info;
  namespace CourseRegistration {
 
