@@ -6,28 +6,28 @@
 
 using namespace std;
 vector<Admin> admins;
-map<int,Student> students;
+map<int, Student> students;
 map<string, Course> courses;
 Student currentStudent;
 
 
 void FileManager::readAdmins(string filename) {
-	ifstream file(filename);
-	if (!file.is_open()) {
-		cout << "File not found!" << endl;
-		return;
-	}
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "File not found!" << endl;
+        return;
+    }
 
-	string line;
+    string line;
 
-	while (getline(file, line)) {
-		stringstream ss(line);
-		string username, password;
-		getline(ss, username, '|');
-		getline(ss, password);
-		admins.push_back(Admin(username, password));
-	}
-	file.close();
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string username, password;
+        getline(ss, username, '|');
+        getline(ss, password);
+        admins.push_back(Admin(username, password));
+    }
+    file.close();
 }
 
 void FileManager::readStudents(string filename) {
@@ -104,119 +104,116 @@ void FileManager::readStudents(string filename) {
     file.close();
 }
 
- void FileManager::readCourses(string filename) {
-     ifstream file(filename);
+void FileManager::readCourses(string filename) {
+    ifstream file(filename);
 
-     if (!file.is_open()) {
-         return ;
-     }
+    if (!file.is_open()) {
+        return;
+    }
 
-     string line;
-     while (getline(file, line)) {
-         stringstream ss(line);
-         string courseID, courseName, creditHoursStr, syllabus, instructor, prereqStr;
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string courseID, courseName, creditHoursStr, syllabus, instructor, prereqStr;
 
-         getline(ss, courseID, '|');
-         getline(ss, courseName, '|');
-         getline(ss, creditHoursStr, '|');
-         getline(ss, syllabus, '|');
-         getline(ss, instructor, '|');
-         getline(ss, prereqStr); 
+        getline(ss, courseID, '|');
+        getline(ss, courseName, '|');
+        getline(ss, creditHoursStr, '|');
+        getline(ss, syllabus, '|');
+        getline(ss, instructor, '|');
+        getline(ss, prereqStr);
 
-         int creditHours = stoi(creditHoursStr);
+        int creditHours = stoi(creditHoursStr);
 
-         set<string> prereqs;
-         stringstream prereqStream(prereqStr);
-         string prereq;
-         while (getline(prereqStream, prereq, ',')) {
-             if (!prereq.empty())
-                 prereqs.insert(prereq);
-         }
-         Course course(courseID, courseName, creditHours, syllabus, instructor, prereqs);
-         courses[courseID] = course;
+        set<string> prereqs;
+        stringstream prereqStream(prereqStr);
+        string prereq;
+        while (getline(prereqStream, prereq, ',')) {
+            if (!prereq.empty())
+                prereqs.insert(prereq);
+        }
+        Course course(courseID, courseName, creditHours, syllabus, instructor, prereqs);
+        courses[courseID] = course;
 
-     }
+    }
 
-     file.close();
+    file.close();
 
 }
 
- /*void FileManager::writeStudents(string filename) {
-     ofstream file(filename);
-     if (!file.is_open()) {
-         cout << "Error " << endl;
-         return;
-     }
+void FileManager::writeStudents(string filename) {
+    ofstream file(filename);
+    if (!file.is_open()) {
+        return;
+    }
 
-     for ( Student& student : students) {
-         file << student.getUserName() << ','
-             << student.getPassword() << ','
-             << student.getNationalID() << ','
-             << student.getStudentID() << ','
-             << student.getGender() << ','
-             << student.getAcademicYear() << ',';
+    for (auto pair : students) {
+        Student s = pair.second;
 
-         const set<string>& currentCourses = student.getCurrentCourses();
-         for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
-             file << *it;
-             if (next(it) != currentCourses.end()) file << ';';
-         }
+        file << s.getUserName() << ','
+            << s.getPassword() << ','
+            << s.getNationalID() << ','
+            << s.getStudentID() << ','
+            << s.getGender() << ','
+            << s.getAcademicYear() << ',';
 
-         file << "#"; 
-          vector<CourseGrades>& completedCourses = student.getCompletedCourses();
-         for (size_t i = 0; i < completedCourses.size(); ++i) {
-            CourseGrades& course = completedCourses[i];
-             file << course.getCourseID() << '|'
-                 << course.getSemester() << '|'
-                 << course.getGrade();
-             if (i != completedCourses.size() - 1) file << ';';
-         }
+        set<string> currentCourses = s.getCurrentCourses();
+        for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
+            file << *it;
+            if (next(it) != currentCourses.end()) file << ';';
+        }
 
-         file << '\n';
-     }
+        file << '#';
 
-     file.close();
- }*/
+        set<CourseGrades> completedCourses = s.getCompletedCourses();
+        for (auto cg : completedCourses) {
+            file << cg.getCourseID() << '|' << cg.getSemester() << '|' << cg.getGrade() << ';';
+        }
 
- void FileManager::writeCourses(string filename) {
-     ofstream file(filename);
-     if (!file.is_open()) {
-         return;
-     }
+        file << '\n';
+    }
 
-     for ( auto& pair : courses) {
-          Course& course = pair.second;
+    file.close();
+}
 
-         file << course.getCourseID() << '|'
-             << course.getCourseName() << '|'
-             << course.getCreditHours() << '|'
-             << course.getSyllabus() << '|'
-             << course.getInstructor() << '|';
+void FileManager::writeCourses(string filename) {
+    ofstream file(filename);
+    if (!file.is_open()) {
+        return;
+    }
 
-         const set<string>& prereqs = course.getPrerequisites();
-         for (auto it = prereqs.begin(); it != prereqs.end(); ++it) {
-             file << *it;
-             if (next(it) != prereqs.end()) file << ',';
-         }
+    for (auto& pair : courses) {
+        Course& course = pair.second;
 
-         file << '\n';
-     }
+        file << course.getCourseID() << '|'
+            << course.getCourseName() << '|'
+            << course.getCreditHours() << '|'
+            << course.getSyllabus() << '|'
+            << course.getInstructor() << '|';
 
-     file.close();
- }
+        const set<string>& prereqs = course.getPrerequisites();
+        for (auto it = prereqs.begin(); it != prereqs.end(); ++it) {
+            file << *it;
+            if (next(it) != prereqs.end()) file << ',';
+        }
 
- void FileManager::writeAdmins(string filename) {
-     ofstream file(filename);
-     if (!file.is_open()) {
-         return;
-     }
+        file << '\n';
+    }
 
-     for ( Admin& admin : admins) {
-         file << admin.getUsername() << "|" << admin.getPassword() << endl;
-     }
+    file.close();
+}
 
-     file.close();
- }
+void FileManager::writeAdmins(string filename) {
+    ofstream file(filename);
+    if (!file.is_open()) {
+        return;
+    }
 
+    for (Admin& admin : admins) {
+        file << admin.getUsername() << "|" << admin.getPassword() << endl;
+    }
+
+    file.close();
+}
 
 

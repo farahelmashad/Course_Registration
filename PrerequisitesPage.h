@@ -1,7 +1,10 @@
 #pragma once
 #include "Course_Registration.h"
 #include "ManageGrades1.h"
-
+#include "Course.h"
+#include"UploadCoursesManager.h"
+#include<map>
+#include <msclr/marshal_cppstd.h>
 namespace CourseRegistration {
 
 	using namespace System;
@@ -16,9 +19,15 @@ namespace CourseRegistration {
 	/// </summary>
 	public ref class PrerequisitesPage : public System::Windows::Forms::Form
 	{
+	/*
+	private:
+		UploadCoursesManager* UCManager;
+		UCManager = new UploadCoursesManager();
+		*/
 	public:
 		PrerequisitesPage(void)
 		{
+			
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -85,12 +94,14 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Label^ coursename_out;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
-	private: System::Windows::Forms::CheckBox^ checkBox1;
-	private: System::Windows::Forms::Label^ course_name_pre;
-	private: System::Windows::Forms::TextBox^ CourseTitle;
-	private: System::Windows::Forms::Label^ label9;
+
+
+
+
+
 	private: System::Windows::Forms::Button^ submit_s;
+	private: System::Windows::Forms::CheckedListBox^ PrevCourses;
+
 
 
 
@@ -126,13 +137,9 @@ namespace CourseRegistration {
 			   this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			   this->course_i = (gcnew System::Windows::Forms::Label());
 			   this->course_infop = (gcnew System::Windows::Forms::Panel());
+			   this->PrevCourses = (gcnew System::Windows::Forms::CheckedListBox());
 			   this->submit_s = (gcnew System::Windows::Forms::Button());
-			   this->CourseTitle = (gcnew System::Windows::Forms::TextBox());
-			   this->label9 = (gcnew System::Windows::Forms::Label());
 			   this->label7 = (gcnew System::Windows::Forms::Label());
-			   this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			   this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-			   this->course_name_pre = (gcnew System::Windows::Forms::Label());
 			   this->coursename_out = (gcnew System::Windows::Forms::Label());
 			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			   this->flowLayoutPanel1->SuspendLayout();
@@ -148,7 +155,6 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			   this->course_infop->SuspendLayout();
-			   this->flowLayoutPanel2->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			   this->SuspendLayout();
 			   // 
@@ -371,17 +377,23 @@ namespace CourseRegistration {
 			   // course_infop
 			   // 
 			   this->course_infop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->course_infop->Controls->Add(this->PrevCourses);
 			   this->course_infop->Controls->Add(this->submit_s);
-			   this->course_infop->Controls->Add(this->CourseTitle);
-			   this->course_infop->Controls->Add(this->label9);
 			   this->course_infop->Controls->Add(this->label7);
-			   this->course_infop->Controls->Add(this->flowLayoutPanel2);
 			   this->course_infop->Controls->Add(this->coursename_out);
 			   this->course_infop->Controls->Add(this->pictureBox3);
 			   this->course_infop->Location = System::Drawing::Point(397, 162);
 			   this->course_infop->Name = L"course_infop";
 			   this->course_infop->Size = System::Drawing::Size(619, 427);
 			   this->course_infop->TabIndex = 35;
+			   // 
+			   // PrevCourses
+			   // 
+			   this->PrevCourses->FormattingEnabled = true;
+			   this->PrevCourses->Location = System::Drawing::Point(53, 151);
+			   this->PrevCourses->Name = L"PrevCourses";
+			   this->PrevCourses->Size = System::Drawing::Size(336, 193);
+			   this->PrevCourses->TabIndex = 30;
 			   // 
 			   // submit_s
 			   // 
@@ -391,38 +403,12 @@ namespace CourseRegistration {
 			   this->submit_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->submit_s->ForeColor = System::Drawing::SystemColors::Window;
-			   this->submit_s->Location = System::Drawing::Point(218, 331);
+			   this->submit_s->Location = System::Drawing::Point(262, 352);
 			   this->submit_s->Name = L"submit_s";
 			   this->submit_s->Size = System::Drawing::Size(161, 39);
 			   this->submit_s->TabIndex = 29;
 			   this->submit_s->Text = L"Submit";
 			   this->submit_s->UseVisualStyleBackColor = false;
-			   // 
-			   // CourseTitle
-			   // 
-			   this->CourseTitle->BackColor = System::Drawing::SystemColors::Window;
-			   this->CourseTitle->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			   this->CourseTitle->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->CourseTitle->ForeColor = System::Drawing::SystemColors::InfoText;
-			   this->CourseTitle->Location = System::Drawing::Point(242, 236);
-			   this->CourseTitle->Multiline = true;
-			   this->CourseTitle->Name = L"CourseTitle";
-			   this->CourseTitle->Size = System::Drawing::Size(260, 32);
-			   this->CourseTitle->TabIndex = 23;
-			   // 
-			   // label9
-			   // 
-			   this->label9->AutoSize = true;
-			   this->label9->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->label9->Location = System::Drawing::Point(35, 240);
-			   this->label9->Name = L"label9";
-			   this->label9->Size = System::Drawing::Size(201, 28);
-			   this->label9->TabIndex = 22;
-			   this->label9->Text = L"Add a Prerequisite";
 			   // 
 			   // label7
 			   // 
@@ -436,37 +422,6 @@ namespace CourseRegistration {
 			   this->label7->Size = System::Drawing::Size(223, 40);
 			   this->label7->TabIndex = 16;
 			   this->label7->Text = L"Prerequisites:";
-			   // 
-			   // flowLayoutPanel2
-			   // 
-			   this->flowLayoutPanel2->Controls->Add(this->checkBox1);
-			   this->flowLayoutPanel2->Controls->Add(this->course_name_pre);
-			   this->flowLayoutPanel2->Location = System::Drawing::Point(37, 163);
-			   this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			   this->flowLayoutPanel2->Size = System::Drawing::Size(176, 50);
-			   this->flowLayoutPanel2->TabIndex = 15;
-			   // 
-			   // checkBox1
-			   // 
-			   this->checkBox1->AutoSize = true;
-			   this->checkBox1->Location = System::Drawing::Point(3, 3);
-			   this->checkBox1->Name = L"checkBox1";
-			   this->checkBox1->Size = System::Drawing::Size(18, 17);
-			   this->checkBox1->TabIndex = 11;
-			   this->checkBox1->UseVisualStyleBackColor = true;
-			   // 
-			   // course_name_pre
-			   // 
-			   this->course_name_pre->AutoSize = true;
-			   this->course_name_pre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->course_name_pre->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->course_name_pre->Location = System::Drawing::Point(27, 0);
-			   this->course_name_pre->Name = L"course_name_pre";
-			   this->course_name_pre->Size = System::Drawing::Size(146, 28);
-			   this->course_name_pre->TabIndex = 10;
-			   this->course_name_pre->Text = L"course name";
 			   // 
 			   // coursename_out
 			   // 
@@ -508,6 +463,7 @@ namespace CourseRegistration {
 			   this->Name = L"PrerequisitesPage";
 			   this->Text = L"AdminNavBar";
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			   this->Load += gcnew System::EventHandler(this, &PrerequisitesPage::PrerequisitesPage_Load);
 			   this->flowLayoutPanel1->ResumeLayout(false);
 			   this->panel1->ResumeLayout(false);
 			   this->panel1->PerformLayout();
@@ -526,8 +482,6 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			   this->course_infop->ResumeLayout(false);
 			   this->course_infop->PerformLayout();
-			   this->flowLayoutPanel2->ResumeLayout(false);
-			   this->flowLayoutPanel2->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
@@ -551,5 +505,16 @@ private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e)
 }
 
 
+private: System::Void PrerequisitesPage_Load(System::Object^ sender, System::EventArgs^ e) {
+	/*
+	map<string, Course>::iterator it;
+
+	for (it = UCManager->courses.begin(); it != UCManager->courses.end(); it++) {
+		string s = it->second.getCourseName();
+		PrevCourses->Items->Add(System::Runtime::InteropServices::
+			Marshal::PtrToStringUni(IntPtr((void*)s.c_str())));
+	}
+	*/
+}
 };
 }

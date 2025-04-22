@@ -233,9 +233,9 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->search_text->Location = System::Drawing::Point(297, 135);
 			   this->search_text->Name = L"search_text";
-			   this->search_text->Size = System::Drawing::Size(269, 34);
+			   this->search_text->Size = System::Drawing::Size(221, 34);
 			   this->search_text->TabIndex = 36;
-			   this->search_text->Text = L"Enter Course Name:";
+			   this->search_text->Text = L"Enter Course ID:";
 			   // 
 			   // search_icon
 			   // 

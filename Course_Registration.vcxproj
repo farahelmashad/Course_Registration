@@ -140,6 +140,7 @@
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
     <ClCompile Include="UploadCourses.cpp" />
+    <ClCompile Include="UploadCoursesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UploadCoursesManager.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
