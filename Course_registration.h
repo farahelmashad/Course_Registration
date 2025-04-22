@@ -72,6 +72,8 @@
 	 private: System::Windows::Forms::PictureBox^ pictureBox4;
 	 private: System::Windows::Forms::Label^ course_r;
 	 private: System::Windows::Forms::TextBox^ searchBar;
+	 private: System::Windows::Forms::Panel^ panel6;
+	 private: System::Windows::Forms::Label^ label6;
 
 	 private: System::Windows::Forms::PictureBox^ search;
 	 private: System::Void CoursePanel_Click(System::Object^ sender, System::EventArgs^ e);
@@ -125,6 +127,8 @@
 			 this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			 this->panel4 = (gcnew System::Windows::Forms::Panel());
 			 this->label5 = (gcnew System::Windows::Forms::Label());
+			 this->panel6 = (gcnew System::Windows::Forms::Panel());
+			 this->label6 = (gcnew System::Windows::Forms::Label());
 			 this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			 this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			 this->course_r = (gcnew System::Windows::Forms::Label());
@@ -145,6 +149,7 @@
 			 this->panel3->SuspendLayout();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			 this->panel4->SuspendLayout();
+			 this->panel6->SuspendLayout();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->BeginInit();
@@ -292,6 +297,7 @@
 			 // panel4
 			 // 
 			 this->panel4->Controls->Add(this->label5);
+			 this->panel4->Controls->Add(this->panel6);
 			 this->panel4->Location = System::Drawing::Point(0, 345);
 			 this->panel4->Margin = System::Windows::Forms::Padding(0);
 			 this->panel4->Name = L"panel4";
@@ -307,12 +313,34 @@
 			 this->label5->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				 static_cast<System::Byte>(0)));
 			 this->label5->ForeColor = System::Drawing::Color::White;
-			 this->label5->Location = System::Drawing::Point(75, 31);
+			 this->label5->Location = System::Drawing::Point(75, 40);
 			 this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			 this->label5->Name = L"label5";
 			 this->label5->Size = System::Drawing::Size(90, 18);
 			 this->label5->TabIndex = 1;
 			 this->label5->Text = L"View Report";
+			 // 
+			 // panel6
+			 // 
+			 this->panel6->Controls->Add(this->label6);
+			 this->panel6->Location = System::Drawing::Point(0, 91);
+			 this->panel6->Margin = System::Windows::Forms::Padding(0);
+			 this->panel6->Name = L"panel6";
+			 this->panel6->Size = System::Drawing::Size(253, 91);
+			 this->panel6->TabIndex = 5;
+			 // 
+			 // label6
+			 // 
+			 this->label6->AutoSize = true;
+			 this->label6->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				 static_cast<System::Byte>(0)));
+			 this->label6->ForeColor = System::Drawing::Color::White;
+			 this->label6->Location = System::Drawing::Point(75, 31);
+			 this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			 this->label6->Name = L"label6";
+			 this->label6->Size = System::Drawing::Size(90, 18);
+			 this->label6->TabIndex = 1;
+			 this->label6->Text = L"View Report";
 			 // 
 			 // pictureBox4
 			 // 
@@ -387,7 +415,6 @@
 			 this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
 			 this->flowLayoutPanel2->TabIndex = 22;
 			 DisplayAllCourses(courses);
-
 			 // 
 			 // course_lay
 			 // 
@@ -500,6 +527,8 @@
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			 this->panel4->ResumeLayout(false);
 			 this->panel4->PerformLayout();
+			 this->panel6->ResumeLayout(false);
+			 this->panel6->PerformLayout();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->EndInit();

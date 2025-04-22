@@ -49,7 +49,8 @@ public:
 	bool willRetake(string courseID);
 	void Retake(string courseID);
 	void deleteCompletedCourse(string courseID); 
-
+	bool hasPrerequisites(string courseID, string& reason);
+	void registerCourse(string courseID);
     // file format for info: <username>,<password>,<nationalID>,<studentID>,<gender>,<academicYear>,<currentCourse1>;<currentCourse2>;...,#<courseID>|<semester>|<grade>;<courseID>|<semester>|<grade>;...
 
 

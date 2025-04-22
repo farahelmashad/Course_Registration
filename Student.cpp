@@ -50,6 +50,40 @@ void Student::deleteCompletedCourse(string courseID)
 	}
 }
 
+bool Student::hasPrerequisites(string courseID ,string& reason)
+{
+	auto it1 = this->currentCourses.find(courseID);
+	if (it1 != currentCourses.end()) {
+		return false;
+	}
+	auto it = courses.find(courseID);
+	Course c = it->second;
+	set<string> passedCourses;
+
+	for ( auto cg : this->completedCourses) {
+		if (cg.getGrade() != 'F' ) {
+			passedCourses.insert(cg.getCourseID());
+		}
+	}
+
+	// Now just check if all prerequisites are in passedCourses
+	for ( string prereqID : c.getPrerequisites()) {
+		if (passedCourses.find(prereqID) == passedCourses.end()) {
+			return false; // missing prerequisite
+		}
+	}
+
+	return true; // all prerequisites passed
+
+}
+
+void Student::registerCourse(string courseID)
+{
+	this->currentCourses.insert(courseID);
+	students[studentID] = currentStudent;
+
+}
+
 Student::Student()
 {
 }

@@ -77,6 +77,7 @@ namespace CourseRegistration {
 
 
 
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -321,10 +322,10 @@ namespace CourseRegistration {
 			this->course_infop->Controls->Add(this->courseid_out);
 			this->course_infop->Controls->Add(this->coursename_out);
 			this->course_infop->Controls->Add(this->pictureBox6);
-			this->course_infop->Location = System::Drawing::Point(214, 98);
+			this->course_infop->Location = System::Drawing::Point(218, 98);
 			this->course_infop->Margin = System::Windows::Forms::Padding(2);
 			this->course_infop->Name = L"course_infop";
-			this->course_infop->Size = System::Drawing::Size(992, 415);
+			this->course_infop->Size = System::Drawing::Size(988, 309);
 			this->course_infop->TabIndex = 20;
 			// 
 			// instructor_name
@@ -597,21 +598,42 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 private: System::Void course_name_pre_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void course_info_Load(System::Object^ sender, System::EventArgs^ e) {
-     
+	
+	string reason = "yay";
+	bool haspre = currentStudent.hasPrerequisites(gcid, reason);
 	bool will_retake=currentStudent.willRetake(gcid);
 	if (will_retake) {
 		Button^ Retake = gcnew Button();
 		Retake->Text = "Retake";
 		Retake->Size = System::Drawing::Size(138, 32);
-		Retake->Location = System::Drawing::Point(394, 460);
+		Retake->Location = System::Drawing::Point(614, 448);
 
 		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
 
 		this->Controls->Add(Retake);
 
 	}
+	 else if (haspre) {
+		Button^ Register = gcnew Button();
+		Register->Text = "Register";
+		Register->Size = System::Drawing::Size(138, 32);
+		Register->Location = System::Drawing::Point(614, 448);
 
+		Register->Click += gcnew System::EventHandler(this, &course_info::Register_Click);
 
+		this->Controls->Add(Register);
+	}
+	 else {
+		Label^ infoLabel = gcnew Label();
+		infoLabel->Text = "You are already registered";
+		infoLabel->Size = System::Drawing::Size(200, 32);
+		infoLabel->Location = System::Drawing::Point(614, 448);
+		infoLabel->ForeColor = System::Drawing::Color::Red;
+		infoLabel->Font = gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold);
+
+		this->Controls->Add(infoLabel);
+
+	}
 	
 }
 	   void course_info::Retake_Click(System::Object^ sender, System::EventArgs^ e)
@@ -619,7 +641,11 @@ private: System::Void course_info_Load(System::Object^ sender, System::EventArgs
 		   currentStudent.Retake(gcid);
 		   MessageBox::Show("Course Successfully Retaken", "Success", MessageBoxButtons::OK);
 	   }
-
+	   void course_info::Register_Click(System::Object^ sender, System::EventArgs^ e)
+	   {
+		   currentStudent.registerCourse(gcid);
+		   MessageBox::Show("Course Successfully Registered", "Success", MessageBoxButtons::OK);
+	   }
 private: System::Void hours_out_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
