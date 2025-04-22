@@ -248,6 +248,13 @@
     <Text Include="Courses.txt" />
     <Text Include="student.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\Downloads\book.png" />
+    <Image Include="..\..\Downloads\computer-science.png" />
+    <Image Include="..\..\Downloads\computer.png" />
+    <Image Include="..\..\Downloads\database.png" />
+    <Image Include="..\..\Downloads\pc.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

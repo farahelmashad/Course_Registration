@@ -2,6 +2,7 @@
 #include"FileManager.h"
 #include "Utils.h"
 #include "Login_SignUp_Helper.h"
+#include"NavBar.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -96,7 +97,7 @@ namespace CourseRegistration {
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(576, 30);
+			this->pictureBox1->Location = System::Drawing::Point(588, 48);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(305, 352);
@@ -144,6 +145,7 @@ namespace CourseRegistration {
 			this->Username->Name = L"Username";
 			this->Username->Size = System::Drawing::Size(223, 26);
 			this->Username->TabIndex = 4;
+			this->Username->TextChanged += gcnew System::EventHandler(this, &SignUp::Username_TextChanged);
 			this->Username->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &SignUp::Username_KeyDown);
 			// 
 			// label3
@@ -290,7 +292,7 @@ namespace CourseRegistration {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->ClientSize = System::Drawing::Size(902, 425);
+			this->ClientSize = System::Drawing::Size(910, 433);
 			this->Controls->Add(this->Submit);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->Gender);
@@ -371,11 +373,17 @@ namespace CourseRegistration {
 			bool isValid = Login_SignUp_Helper::Student_Sign_Up(username, password, nationalID, studentID, gender);
 			if (isValid) {
 				MessageBox::Show ("Welcome!","Sign Up Successful!", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				NavBar^ n2 = gcnew NavBar();
+				n2->ShowDialog();
+				this->Hide();
+				this->Close();
 			}
 			else {
 				MessageBox::Show( "User already exists! Try logging in","Sign Up Failed", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	}
+private: System::Void Username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

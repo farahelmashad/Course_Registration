@@ -5,12 +5,18 @@ CourseGrades::~CourseGrades()
 {
 }
 
+
 CourseGrades::CourseGrades(int studentID,string courseID, string semester, char grade)
 {
 	this->studentID = studentID;
 	this->courseID = courseID;
 	this->semester = semester;
 	this->grade = grade;
+}
+
+CourseGrades::CourseGrades(string courseID)
+{
+	this->courseID = courseID;
 }
 
 void CourseGrades::setCourseID(string courseID)

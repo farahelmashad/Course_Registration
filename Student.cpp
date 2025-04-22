@@ -1,6 +1,5 @@
 #pragma once
 #include "Student.h"
-
 Student::~Student()
 {
 }
@@ -23,6 +22,32 @@ void Student::CheckPrerequisites()
 
 void Student::MakeReport()
 {
+}
+
+bool Student::willRetake(string courseID)
+{
+	for ( CourseGrades  cg : completedCourses) {
+		if (cg.getCourseID() == courseID) {
+			return true;
+		}
+	}
+	return false;
+
+}
+
+void Student::Retake(string courseID){
+	this->currentCourses.insert(courseID);
+	this->deleteCompletedCourse(courseID);
+	students[studentID] = currentStudent;
+}
+
+void Student::deleteCompletedCourse(string courseID)
+{   
+	CourseGrades target(courseID);
+	auto it = completedCourses.find(target);
+	if (it != completedCourses.end()) {
+		completedCourses.erase(it);
+	}
 }
 
 Student::Student()
