@@ -4,7 +4,9 @@
 CourseGrades::~CourseGrades()
 {
 }
-
+//CourseGrades::CourseGrades(int studentID, const std::string& courseID, const std::string& semester, char grade)
+//	: studentID(studentID), courseID(courseID), semester(semester), grade(grade) {
+//}
 CourseGrades::CourseGrades(int studentID,string courseID, string semester, char grade)
 {
 	this->studentID = studentID;

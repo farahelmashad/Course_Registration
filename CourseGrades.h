@@ -12,6 +12,7 @@ class CourseGrades
 	char grade; // A , B , wkda
 	
 public:
+	//CourseGrades(int studentID, const string& courseID, const string& semester, char grade);
 	CourseGrades(int studentID,string courseID, string semester, char grade);
 	void setCourseID(string courseID);
 	void setSemester(string semester);

@@ -1,6 +1,10 @@
-
-
 #pragma once
+#include "Student.h"
+#include "Course.h"
+#include "CourseGrades.h"
+#include <map>
+#include <vector>
+#include <msclr/marshal_cppstd.h> 
 
 namespace CourseRegistration {
 
@@ -17,21 +21,15 @@ namespace CourseRegistration {
     public ref class report : public System::Windows::Forms::Form
     {
     public:
-        report(void)
-        {
-            InitializeComponent();
-        }
 
+        report(void);
+
+        report(Student* student);
     protected:
-        ~report()
-        {
-            if (components)
-            {
-                delete components;
-            }
-        }
+        ~report();
 
     private:
+        Student* studentPtr;
         System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
         System::Windows::Forms::Panel^ panel1;
         System::Windows::Forms::Label^ label1;
@@ -47,10 +45,8 @@ namespace CourseRegistration {
         System::Windows::Forms::PictureBox^ pictureBox4;
         System::Windows::Forms::PictureBox^ pictureBox5;
         System::Windows::Forms::Panel^ searchpanel;
-        System::Windows::Forms::Label^ StIDlbl;
-        System::Windows::Forms::Label^ studentNlbl;
-        System::Windows::Forms::Label^ label6;
-        System::Windows::Forms::Label^ stid;
+    private: System::Windows::Forms::Label^ StNamelbl;
+    private: System::Windows::Forms::Label^ StIDlbl;
         System::Windows::Forms::Button^ PrintRepbtn;
         System::Windows::Forms::FlowLayoutPanel^ ReportflowLayoutPanel;
         System::Drawing::Printing::PrintDocument^ printReportDocument;
@@ -59,7 +55,15 @@ namespace CourseRegistration {
         System::Windows::Forms::Label^ check_pre;
         System::Windows::Forms::PictureBox^ pictureBox7;
         System::Windows::Forms::PictureBox^ pictureBox1;
-        System::ComponentModel::Container^ components;
+    private: System::Windows::Forms::Panel^ Sempanel;
+    private: System::Windows::Forms::Label^ semlbl;
+    private: System::Windows::Forms::Panel^ coursepanel;
+    private: System::Windows::Forms::Label^ Glbl;
+    private: System::Windows::Forms::Label^ CNlbl;
+    private: System::Windows::Forms::Label^ CGPAlbl;
+    private: System::Drawing::Printing::PrintDocument^ printDocument1;
+
+           System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
@@ -84,14 +88,19 @@ namespace CourseRegistration {
             this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
             this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
             this->searchpanel = (gcnew System::Windows::Forms::Panel());
-            this->stid = (gcnew System::Windows::Forms::Label());
-            this->label6 = (gcnew System::Windows::Forms::Label());
+            this->CGPAlbl = (gcnew System::Windows::Forms::Label());
             this->StIDlbl = (gcnew System::Windows::Forms::Label());
-            this->studentNlbl = (gcnew System::Windows::Forms::Label());
+            this->StNamelbl = (gcnew System::Windows::Forms::Label());
             this->PrintRepbtn = (gcnew System::Windows::Forms::Button());
             this->ReportflowLayoutPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
+            this->Sempanel = (gcnew System::Windows::Forms::Panel());
+            this->semlbl = (gcnew System::Windows::Forms::Label());
+            this->coursepanel = (gcnew System::Windows::Forms::Panel());
+            this->Glbl = (gcnew System::Windows::Forms::Label());
+            this->CNlbl = (gcnew System::Windows::Forms::Label());
             this->printReportDocument = (gcnew System::Drawing::Printing::PrintDocument());
             this->printPreviewReportDialog = (gcnew System::Windows::Forms::PrintPreviewDialog());
+            this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
             this->flowLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -105,6 +114,9 @@ namespace CourseRegistration {
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
             this->searchpanel->SuspendLayout();
+            this->ReportflowLayoutPanel->SuspendLayout();
+            this->Sempanel->SuspendLayout();
+            this->coursepanel->SuspendLayout();
             this->SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -328,55 +340,43 @@ namespace CourseRegistration {
             // 
             this->searchpanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->searchpanel->Controls->Add(this->stid);
-            this->searchpanel->Controls->Add(this->label6);
+            this->searchpanel->Controls->Add(this->CGPAlbl);
             this->searchpanel->Controls->Add(this->StIDlbl);
-            this->searchpanel->Controls->Add(this->studentNlbl);
+            this->searchpanel->Controls->Add(this->StNamelbl);
             this->searchpanel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                 static_cast<System::Int32>(static_cast<System::Byte>(68)));
-            this->searchpanel->Location = System::Drawing::Point(302, 53);
+            this->searchpanel->Location = System::Drawing::Point(272, 31);
             this->searchpanel->Name = L"searchpanel";
-            this->searchpanel->Size = System::Drawing::Size(733, 52);
+            this->searchpanel->Size = System::Drawing::Size(763, 52);
             this->searchpanel->TabIndex = 4;
             // 
-            // stid
+            // CGPAlbl
             // 
-            this->stid->AutoSize = true;
-            this->stid->Location = System::Drawing::Point(388, 13);
-            this->stid->Name = L"stid";
-            this->stid->Size = System::Drawing::Size(108, 24);
-            this->stid->TabIndex = 7;
-            this->stid->Text = L"Student ID:";
-            // 
-            // label6
-            // 
-            this->label6->AutoSize = true;
-            this->label6->Location = System::Drawing::Point(164, 14);
-            this->label6->Name = L"label6";
-            this->label6->Size = System::Drawing::Size(82, 24);
-            this->label6->TabIndex = 6;
-            this->label6->Text = L"StName";
-            this->label6->Click += gcnew System::EventHandler(this, &report::label6_Click);
+            this->CGPAlbl->AutoSize = true;
+            this->CGPAlbl->Location = System::Drawing::Point(597, 13);
+            this->CGPAlbl->Name = L"CGPAlbl";
+            this->CGPAlbl->Size = System::Drawing::Size(64, 24);
+            this->CGPAlbl->TabIndex = 8;
+            this->CGPAlbl->Text = L"CGPA:";
             // 
             // StIDlbl
             // 
             this->StIDlbl->AutoSize = true;
-            this->StIDlbl->Location = System::Drawing::Point(502, 13);
+            this->StIDlbl->Location = System::Drawing::Point(388, 13);
             this->StIDlbl->Name = L"StIDlbl";
-            this->StIDlbl->Size = System::Drawing::Size(48, 24);
-            this->StIDlbl->TabIndex = 5;
-            this->StIDlbl->Text = L"StID";
-            this->StIDlbl->Click += gcnew System::EventHandler(this, &report::StIDlbl_Click);
+            this->StIDlbl->Size = System::Drawing::Size(108, 24);
+            this->StIDlbl->TabIndex = 7;
+            this->StIDlbl->Text = L"Student ID:";
             // 
-            // studentNlbl
+            // StNamelbl
             // 
-            this->studentNlbl->AutoSize = true;
-            this->studentNlbl->Location = System::Drawing::Point(18, 13);
-            this->studentNlbl->Name = L"studentNlbl";
-            this->studentNlbl->Size = System::Drawing::Size(140, 24);
-            this->studentNlbl->TabIndex = 4;
-            this->studentNlbl->Text = L"Student name:";
-            this->studentNlbl->Click += gcnew System::EventHandler(this, &report::studentNamelbl_Click);
+            this->StNamelbl->AutoSize = true;
+            this->StNamelbl->Location = System::Drawing::Point(18, 13);
+            this->StNamelbl->Name = L"StNamelbl";
+            this->StNamelbl->Size = System::Drawing::Size(140, 24);
+            this->StNamelbl->TabIndex = 4;
+            this->StNamelbl->Text = L"Student name:";
+            this->StNamelbl->Click += gcnew System::EventHandler(this, &report::studentNamelbl_Click);
             // 
             // PrintRepbtn
             // 
@@ -392,15 +392,65 @@ namespace CourseRegistration {
             // 
             // ReportflowLayoutPanel
             // 
+            this->ReportflowLayoutPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->ReportflowLayoutPanel->AutoScroll = true;
+            this->ReportflowLayoutPanel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+            this->ReportflowLayoutPanel->Controls->Add(this->Sempanel);
             this->ReportflowLayoutPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
             this->ReportflowLayoutPanel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
                 static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
-            this->ReportflowLayoutPanel->Location = System::Drawing::Point(302, 137);
+            this->ReportflowLayoutPanel->Location = System::Drawing::Point(272, 111);
             this->ReportflowLayoutPanel->Name = L"ReportflowLayoutPanel";
-            this->ReportflowLayoutPanel->Size = System::Drawing::Size(733, 506);
+            this->ReportflowLayoutPanel->Size = System::Drawing::Size(872, 559);
             this->ReportflowLayoutPanel->TabIndex = 6;
             this->ReportflowLayoutPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::ReportflowLayoutPanel_Paint);
+            // 
+            // Sempanel
+            // 
+            this->Sempanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+            this->Sempanel->Controls->Add(this->semlbl);
+            this->Sempanel->Controls->Add(this->coursepanel);
+            this->Sempanel->Location = System::Drawing::Point(3, 3);
+            this->Sempanel->Name = L"Sempanel";
+            this->Sempanel->Size = System::Drawing::Size(854, 164);
+            this->Sempanel->TabIndex = 0;
+            // 
+            // semlbl
+            // 
+            this->semlbl->AutoSize = true;
+            this->semlbl->Location = System::Drawing::Point(29, 6);
+            this->semlbl->Name = L"semlbl";
+            this->semlbl->Size = System::Drawing::Size(100, 24);
+            this->semlbl->TabIndex = 1;
+            this->semlbl->Text = L"semester:";
+            // 
+            // coursepanel
+            // 
+            this->coursepanel->Controls->Add(this->Glbl);
+            this->coursepanel->Controls->Add(this->CNlbl);
+            this->coursepanel->Location = System::Drawing::Point(19, 38);
+            this->coursepanel->Name = L"coursepanel";
+            this->coursepanel->Size = System::Drawing::Size(684, 64);
+            this->coursepanel->TabIndex = 0;
+            // 
+            // Glbl
+            // 
+            this->Glbl->AutoSize = true;
+            this->Glbl->Location = System::Drawing::Point(366, 13);
+            this->Glbl->Name = L"Glbl";
+            this->Glbl->Size = System::Drawing::Size(70, 24);
+            this->Glbl->TabIndex = 3;
+            this->Glbl->Text = L"Grade:";
+            // 
+            // CNlbl
+            // 
+            this->CNlbl->AutoSize = true;
+            this->CNlbl->Location = System::Drawing::Point(31, 13);
+            this->CNlbl->Name = L"CNlbl";
+            this->CNlbl->Size = System::Drawing::Size(79, 24);
+            this->CNlbl->TabIndex = 2;
+            this->CNlbl->Text = L"Course:";
             // 
             // printReportDocument
             // 
@@ -417,6 +467,10 @@ namespace CourseRegistration {
             this->printPreviewReportDialog->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"printPreviewReportDialog.Icon")));
             this->printPreviewReportDialog->Name = L"printPreviewReportDialog";
             this->printPreviewReportDialog->Visible = false;
+            // 
+            // printDocument1
+            // 
+            this->printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &report::printReportDocument_PrintPage);
             // 
             // report
             // 
@@ -456,12 +510,19 @@ namespace CourseRegistration {
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
             this->searchpanel->ResumeLayout(false);
             this->searchpanel->PerformLayout();
+            this->ReportflowLayoutPanel->ResumeLayout(false);
+            this->Sempanel->ResumeLayout(false);
+            this->Sempanel->PerformLayout();
+            this->coursepanel->ResumeLayout(false);
+            this->coursepanel->PerformLayout();
             this->ResumeLayout(false);
 
         }
 #pragma endregion
 
     private:
+        double CalculateCGPA(const set<CourseGrades>& coursesSet);
+        void LoadStudentReport();
         System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
             // Handle label3 click event
         }
@@ -490,13 +551,8 @@ namespace CourseRegistration {
             printPreviewReportDialog->Document = printReportDocument;
             printPreviewReportDialog->ShowDialog();
         }
-
-        System::Void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
-            Bitmap^ bmp = gcnew Bitmap(ReportflowLayoutPanel->Width, ReportflowLayoutPanel->Height);
-            ReportflowLayoutPanel->DrawToBitmap(bmp, System::Drawing::Rectangle(0, 0, bmp->Width, bmp->Height));
-            e->Graphics->DrawImage(bmp, e->MarginBounds.Left, e->MarginBounds.Top);
-            delete bmp;
-        }
+           
+        System::Void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e);
 
         System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
             // Handle form load event
@@ -505,5 +561,6 @@ namespace CourseRegistration {
         System::Void ReportflowLayoutPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
             // Handle flow layout panel paint event
         }
-    };
+
+};
 }

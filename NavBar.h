@@ -2,6 +2,7 @@
 #include"Course_registration.h"
 #include"course_pre.h"
 #include"Utils.h"
+#include"report.h"
 #include"FileManager.h"
 namespace CourseRegistration {
 
@@ -99,7 +100,7 @@ namespace CourseRegistration {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -198,7 +199,7 @@ namespace CourseRegistration {
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(3, 158);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(32, 14);
+			this->label2->Size = System::Drawing::Size(40, 18);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"User";
 			// 
@@ -211,7 +212,7 @@ namespace CourseRegistration {
 			this->label1->Location = System::Drawing::Point(62, 117);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(102, 23);
+			this->label1->Size = System::Drawing::Size(130, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"User name";
 			// 
@@ -247,7 +248,7 @@ namespace CourseRegistration {
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(60, 40);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(141, 18);
+			this->label3->Size = System::Drawing::Size(179, 23);
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"Course Registration";
 			this->label3->Click += gcnew System::EventHandler(this, &NavBar::label3_Click);
@@ -283,7 +284,7 @@ namespace CourseRegistration {
 			this->label4->ForeColor = System::Drawing::Color::White;
 			this->label4->Location = System::Drawing::Point(66, 37);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(93, 18);
+			this->label4->Size = System::Drawing::Size(116, 23);
 			this->label4->TabIndex = 1;
 			this->label4->Text = L"View Grades";
 			this->label4->Click += gcnew System::EventHandler(this, &NavBar::label4_Click);
@@ -315,8 +316,8 @@ namespace CourseRegistration {
 			// panel6
 			// 
 			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel6->Controls->Add(this->label6);
 			this->panel6->Controls->Add(this->pictureBox6);
+			this->panel6->Controls->Add(this->label6);
 			this->panel6->Location = System::Drawing::Point(-1, -1);
 			this->panel6->Margin = System::Windows::Forms::Padding(0);
 			this->panel6->Name = L"panel6";
@@ -332,7 +333,7 @@ namespace CourseRegistration {
 			this->label6->ForeColor = System::Drawing::Color::White;
 			this->label6->Location = System::Drawing::Point(63, 38);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(90, 18);
+			this->label6->Size = System::Drawing::Size(112, 23);
 			this->label6->TabIndex = 1;
 			this->label6->Text = L"View Report";
 			// 
@@ -347,6 +348,7 @@ namespace CourseRegistration {
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox6->TabIndex = 0;
 			this->pictureBox6->TabStop = false;
+			this->pictureBox6->Click += gcnew System::EventHandler(this, &NavBar::pictureBox6_Click);
 			// 
 			// label5
 			// 
@@ -356,7 +358,7 @@ namespace CourseRegistration {
 			this->label5->ForeColor = System::Drawing::Color::White;
 			this->label5->Location = System::Drawing::Point(63, 38);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(90, 18);
+			this->label5->Size = System::Drawing::Size(112, 23);
 			this->label5->TabIndex = 1;
 			this->label5->Text = L"View Report";
 			this->label5->Click += gcnew System::EventHandler(this, &NavBar::label5_Click);
@@ -394,7 +396,7 @@ namespace CourseRegistration {
 			this->check_pre->ForeColor = System::Drawing::Color::White;
 			this->check_pre->Location = System::Drawing::Point(63, 38);
 			this->check_pre->Name = L"check_pre";
-			this->check_pre->Size = System::Drawing::Size(133, 18);
+			this->check_pre->Size = System::Drawing::Size(170, 23);
 			this->check_pre->TabIndex = 1;
 			this->check_pre->Text = L"Check prerequisite";
 			// 
@@ -430,7 +432,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Profile->Location = System::Drawing::Point(266, 12);
 			this->Profile->Name = L"Profile";
-			this->Profile->Size = System::Drawing::Size(281, 58);
+			this->Profile->Size = System::Drawing::Size(347, 72);
 			this->Profile->TabIndex = 3;
 			this->Profile->Text = L"Profile Data";
 			this->Profile->Click += gcnew System::EventHandler(this, &NavBar::Profile_Click);
@@ -444,7 +446,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->username_p->Location = System::Drawing::Point(40, 21);
 			this->username_p->Name = L"username_p";
-			this->username_p->Size = System::Drawing::Size(124, 27);
+			this->username_p->Size = System::Drawing::Size(159, 34);
 			this->username_p->TabIndex = 5;
 			this->username_p->Text = L"Username :";
 			this->username_p->Click += gcnew System::EventHandler(this, &NavBar::username_sl_Click);
@@ -458,7 +460,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Stundent_id_p->Location = System::Drawing::Point(39, 89);
 			this->Stundent_id_p->Name = L"Stundent_id_p";
-			this->Stundent_id_p->Size = System::Drawing::Size(125, 27);
+			this->Stundent_id_p->Size = System::Drawing::Size(160, 34);
 			this->Stundent_id_p->TabIndex = 6;
 			this->Stundent_id_p->Text = L"Student ID :";
 			// 
@@ -471,7 +473,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->national_id_p->Location = System::Drawing::Point(39, 159);
 			this->national_id_p->Name = L"national_id_p";
-			this->national_id_p->Size = System::Drawing::Size(131, 27);
+			this->national_id_p->Size = System::Drawing::Size(168, 34);
 			this->national_id_p->TabIndex = 7;
 			this->national_id_p->Text = L"National ID :";
 			// 
@@ -484,7 +486,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->academic_year_p->Location = System::Drawing::Point(39, 225);
 			this->academic_year_p->Name = L"academic_year_p";
-			this->academic_year_p->Size = System::Drawing::Size(170, 27);
+			this->academic_year_p->Size = System::Drawing::Size(215, 34);
 			this->academic_year_p->TabIndex = 8;
 			this->academic_year_p->Text = L"Academic year :";
 			// 
@@ -497,7 +499,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->GPA_P->Location = System::Drawing::Point(39, 298);
 			this->GPA_P->Name = L"GPA_P";
-			this->GPA_P->Size = System::Drawing::Size(64, 27);
+			this->GPA_P->Size = System::Drawing::Size(81, 34);
 			this->GPA_P->TabIndex = 9;
 			this->GPA_P->Text = L"GPA :";
 			// 
@@ -510,7 +512,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Gender_p->Location = System::Drawing::Point(39, 365);
 			this->Gender_p->Name = L"Gender_p";
-			this->Gender_p->Size = System::Drawing::Size(94, 27);
+			this->Gender_p->Size = System::Drawing::Size(120, 34);
 			this->Gender_p->TabIndex = 10;
 			this->Gender_p->Text = L"Gender :";
 			// 
@@ -523,7 +525,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->username_out->Location = System::Drawing::Point(299, 19);
 			this->username_out->Name = L"username_out";
-			this->username_out->Size = System::Drawing::Size(124, 27);
+			this->username_out->Size = System::Drawing::Size(159, 34);
 			this->username_out->TabIndex = 11;
 			this->username_out->Text = L"Username :";
 			this->username_out->Click += gcnew System::EventHandler(this, &NavBar::username_out_Click);
@@ -537,7 +539,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->student_id_out->Location = System::Drawing::Point(299, 85);
 			this->student_id_out->Name = L"student_id_out";
-			this->student_id_out->Size = System::Drawing::Size(124, 27);
+			this->student_id_out->Size = System::Drawing::Size(159, 34);
 			this->student_id_out->TabIndex = 12;
 			this->student_id_out->Text = L"Username :";
 			// 
@@ -550,7 +552,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->national_id_out->Location = System::Drawing::Point(299, 159);
 			this->national_id_out->Name = L"national_id_out";
-			this->national_id_out->Size = System::Drawing::Size(124, 27);
+			this->national_id_out->Size = System::Drawing::Size(159, 34);
 			this->national_id_out->TabIndex = 13;
 			this->national_id_out->Text = L"Username :";
 			// 
@@ -563,7 +565,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->academic_year_out->Location = System::Drawing::Point(299, 225);
 			this->academic_year_out->Name = L"academic_year_out";
-			this->academic_year_out->Size = System::Drawing::Size(124, 27);
+			this->academic_year_out->Size = System::Drawing::Size(159, 34);
 			this->academic_year_out->TabIndex = 14;
 			this->academic_year_out->Text = L"Username :";
 			// 
@@ -576,7 +578,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->GPA_out->Location = System::Drawing::Point(299, 298);
 			this->GPA_out->Name = L"GPA_out";
-			this->GPA_out->Size = System::Drawing::Size(124, 27);
+			this->GPA_out->Size = System::Drawing::Size(159, 34);
 			this->GPA_out->TabIndex = 15;
 			this->GPA_out->Text = L"Username :";
 			// 
@@ -589,7 +591,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->gender_out->Location = System::Drawing::Point(299, 365);
 			this->gender_out->Name = L"gender_out";
-			this->gender_out->Size = System::Drawing::Size(124, 27);
+			this->gender_out->Size = System::Drawing::Size(159, 34);
 			this->gender_out->TabIndex = 16;
 			this->gender_out->Text = L"Username :";
 			// 
@@ -614,7 +616,7 @@ namespace CourseRegistration {
 			// 
 			// NavBar
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(1156, 740);
@@ -657,50 +659,57 @@ namespace CourseRegistration {
 		}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Profile_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void username_sl_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
-	username_out->Text = Utils::toSysStr(currentStudent.getUserName());
-	student_id_out->Text = Utils::toSysString(currentStudent.getStudentID());
-	national_id_out->Text = Utils::toSysString(currentStudent.getNationalID());
-	academic_year_out->Text = Utils::toSysString(currentStudent.getAcademicYear());
-	GPA_out->Text = Utils::toSysString(3.5);
-	gender_out->Text = Utils::toSysStr(currentStudent.getGender());
-	label1->Text= Utils::toSysStr(currentStudent.getUserName());
-	if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
-		pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Profile_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void username_sl_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
+		username_out->Text = Utils::toSysStr(currentStudent.getUserName());
+		student_id_out->Text = Utils::toSysString(currentStudent.getStudentID());
+		national_id_out->Text = Utils::toSysString(currentStudent.getNationalID());
+		academic_year_out->Text = Utils::toSysString(currentStudent.getAcademicYear());
+		GPA_out->Text = Utils::toSysString(3.5);
+		gender_out->Text = Utils::toSysStr(currentStudent.getGender());
+		label1->Text = Utils::toSysStr(currentStudent.getUserName());
+		/*if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
+			pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
+		}*/
 
-}
-private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	Course_registration^ c1 = gcnew Course_registration();
+	}
+	private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		Course_registration^ c1 = gcnew Course_registration();
+
+		c1->Show();
+		this->Hide();
+	}
+	private: System::Void panel7_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		course_pre^ p1 = gcnew course_pre();
+		p1->Show();
+		this->Hide();
+	}
+	private: System::Void username_out_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void panel6_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
+		report^ p1 = gcnew report(&currentStudent); // Pass addres
+		p1->ShowDialog();
+		this->Hide();
+
 	
-	c1->Show();
-	this->Hide();
-}
-private: System::Void panel7_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	course_pre^ p1 = gcnew course_pre();
-	p1->Show();
-	this->Hide();
-}
-private: System::Void username_out_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
-private: System::Void panel6_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	}
 };
 }
