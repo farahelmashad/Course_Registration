@@ -322,7 +322,7 @@ namespace CourseRegistration {
 			this->course_infop->Controls->Add(this->courseid_out);
 			this->course_infop->Controls->Add(this->coursename_out);
 			this->course_infop->Controls->Add(this->pictureBox6);
-			this->course_infop->Location = System::Drawing::Point(218, 98);
+			this->course_infop->Location = System::Drawing::Point(269, 104);
 			this->course_infop->Margin = System::Windows::Forms::Padding(2);
 			this->course_infop->Name = L"course_infop";
 			this->course_infop->Size = System::Drawing::Size(988, 309);
@@ -573,8 +573,16 @@ namespace CourseRegistration {
 			syllabus->Text = Utils::toSysStr(course.getSyllabus());
 			instructor_name->Text = Utils::toSysStr(course.getInstructor());
 
-			flowLayoutPanel2->Controls->Clear();  
+			flowLayoutPanel2->Controls->Clear();
 			set<string> prereqs = course.getPrerequisites();
+
+			// Create a set of passed course IDs for fast lookup
+			set<string> passedCourses;
+			for ( CourseGrades cg : currentStudent.getCompletedCourses()) {
+				if (cg.getGrade() != 'F') {
+					passedCourses.insert(cg.getCourseID());
+				}
+			}
 
 			for each (const string & prereq in prereqs)
 			{
@@ -583,8 +591,17 @@ namespace CourseRegistration {
 				cb->Text = gcnew System::String(prereq.c_str());
 				cb->Font = gcnew System::Drawing::Font(L"Bahnschrift", 10.8F);
 				cb->Margin = System::Windows::Forms::Padding(3, 3, 10, 3);
+
+				// Check the box if the course is passed
+				if (passedCourses.find(prereq) != passedCourses.end()) {
+					cb->Checked = true;
+
+				}
+				cb->Enabled = false;
+
 				flowLayoutPanel2->Controls->Add(cb);
 			}
+
 		}
 #pragma endregion
 	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {

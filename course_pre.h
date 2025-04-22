@@ -1,4 +1,7 @@
 #pragma once
+#include"Course.h"
+#include"Utils.h"
+#include"FileManager.h"
 
 namespace CourseRegistration {
 
@@ -22,7 +25,8 @@ namespace CourseRegistration {
 			//TODO: Add the constructor code here
 			//
 		}
-
+		void CreateCoursesPanel( Course course, Random^rand);
+		void DisplayAllCourses(map<string, Course> courses);
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -144,7 +148,6 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->BeginInit();
-			this->flowLayoutPanel2->SuspendLayout();
 			this->course_lay->SuspendLayout();
 			this->flowLayoutPanel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
@@ -166,6 +169,7 @@ namespace CourseRegistration {
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(190, 505);
 			this->flowLayoutPanel1->TabIndex = 2;
+
 			// 
 			// panel1
 			// 
@@ -242,7 +246,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
 			this->pictureBox2->Location = System::Drawing::Point(4, 24);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(41, 32);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -279,7 +283,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
 			this->pictureBox3->Location = System::Drawing::Point(2, 21);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(43, 32);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -328,7 +332,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
 			this->pictureBox6->Location = System::Drawing::Point(2, 21);
-			this->pictureBox6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox6->Name = L"pictureBox6";
 			this->pictureBox6->Size = System::Drawing::Size(43, 33);
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -354,7 +358,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
 			this->pictureBox4->Location = System::Drawing::Point(2, 21);
-			this->pictureBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox4->Name = L"pictureBox4";
 			this->pictureBox4->Size = System::Drawing::Size(43, 33);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -391,7 +395,7 @@ namespace CourseRegistration {
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
 			this->pictureBox7->Location = System::Drawing::Point(2, 21);
-			this->pictureBox7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(43, 33);
 			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -418,7 +422,7 @@ namespace CourseRegistration {
 			this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
 			this->pictureBox5->Location = System::Drawing::Point(657, 4);
-			this->pictureBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(55, 41);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -430,19 +434,20 @@ namespace CourseRegistration {
 			this->search->BackColor = System::Drawing::Color::MidnightBlue;
 			this->search->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.Image")));
 			this->search->Location = System::Drawing::Point(564, 64);
-			this->search->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->search->Margin = System::Windows::Forms::Padding(2);
 			this->search->Name = L"search";
 			this->search->Size = System::Drawing::Size(38, 30);
 			this->search->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->search->TabIndex = 26;
 			this->search->TabStop = false;
+			this->search->Click += gcnew System::EventHandler(this, &course_pre::search_Click);
 			// 
 			// textpre
 			// 
 			this->textpre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textpre->Location = System::Drawing::Point(299, 64);
-			this->textpre->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textpre->Margin = System::Windows::Forms::Padding(2);
 			this->textpre->Multiline = true;
 			this->textpre->Name = L"textpre";
 			this->textpre->Size = System::Drawing::Size(261, 31);
@@ -450,12 +455,14 @@ namespace CourseRegistration {
 			// 
 			// flowLayoutPanel2
 			// 
-			this->flowLayoutPanel2->Controls->Add(this->course_lay);
-			this->flowLayoutPanel2->Location = System::Drawing::Point(211, 111);
-			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->flowLayoutPanel2->AutoScroll = true;
+			this->flowLayoutPanel2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(320, 123);
+			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(2);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(370, 311);
-			this->flowLayoutPanel2->TabIndex = 27;
+			this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
+			this->flowLayoutPanel2->TabIndex = 22;
+			DisplayAllCourses(courses);
 			// 
 			// course_lay
 			// 
@@ -464,7 +471,7 @@ namespace CourseRegistration {
 			this->course_lay->Controls->Add(this->pictureBox8);
 			this->course_lay->Controls->Add(this->course_nameout);
 			this->course_lay->Location = System::Drawing::Point(2, 2);
-			this->course_lay->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->course_lay->Margin = System::Windows::Forms::Padding(2);
 			this->course_lay->Name = L"course_lay";
 			this->course_lay->Size = System::Drawing::Size(169, 207);
 			this->course_lay->TabIndex = 0;
@@ -473,7 +480,7 @@ namespace CourseRegistration {
 			// 
 			this->flowLayoutPanel3->Controls->Add(this->course_pre_out);
 			this->flowLayoutPanel3->Location = System::Drawing::Point(2, 126);
-			this->flowLayoutPanel3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->flowLayoutPanel3->Margin = System::Windows::Forms::Padding(2);
 			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
 			this->flowLayoutPanel3->Size = System::Drawing::Size(151, 46);
 			this->flowLayoutPanel3->TabIndex = 13;
@@ -495,7 +502,7 @@ namespace CourseRegistration {
 			// 
 			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
 			this->pictureBox8->Location = System::Drawing::Point(24, 3);
-			this->pictureBox8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(119, 74);
 			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -527,10 +534,11 @@ namespace CourseRegistration {
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->course_i);
 			this->Controls->Add(this->flowLayoutPanel1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"course_pre";
 			this->Text = L"course_pre";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &course_pre::course_pre_Load);
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -552,7 +560,6 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->EndInit();
-			this->flowLayoutPanel2->ResumeLayout(false);
 			this->course_lay->ResumeLayout(false);
 			this->course_lay->PerformLayout();
 			this->flowLayoutPanel3->ResumeLayout(false);
@@ -563,5 +570,37 @@ namespace CourseRegistration {
 
 		}
 #pragma endregion
-	};
+	private: System::Void course_pre_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Panel_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		Panel^ panel = dynamic_cast<Panel^>(sender);
+		if (panel != nullptr) {
+			panel->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+			panel->Size = System::Drawing::Size(210, 220);
+
+		}
+	}
+	 private: System::Void Panel_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		 Panel^ panel = dynamic_cast<Panel^>(sender);
+		 if (panel != nullptr) {
+			 panel->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+			 panel->Size = System::Drawing::Size(210, 210);
+
+		 }
+
+	 }
+private: System::Void search_Click(System::Object^ sender, System::EventArgs^ e) {
+	string courseID = Utils::toStdString(textpre->Text);
+	Course c = Course::SearchCourse(courseID);
+	if (c.getCreditHours() == 0) {
+		MessageBox::Show("Course not found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+	else {
+		Random^ rand = gcnew Random();
+		this->flowLayoutPanel2->Controls->Clear();
+		CreateCoursesPanel(c, rand);
+
+	}
+}
+};
 }
