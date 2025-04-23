@@ -320,7 +320,6 @@ private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ 
 	std::string password = Utils::toStdString(password_s->Text);
 	bool isStudent = Login_SignUp_Helper::validate_Student_Login(userID, password);
 	if (isStudent) {
-		MessageBox::Show("Login successful!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		NavBar^ n1 = gcnew NavBar();
 		
 		n1->ShowDialog();  

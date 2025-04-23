@@ -26,6 +26,8 @@ namespace CourseRegistration {
 			//TODO: Add the constructor code here
 			//
 		}
+		void createCurrentCoursePanel(Course course);
+		void displayAllCourses();
 
 	protected:
 		/// <summary>
@@ -54,7 +56,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::Label^ Profile;
-	private: System::Windows::Forms::Label^ username_p;
+
 	private: System::Windows::Forms::Label^ Stundent_id_p;
 	private: System::Windows::Forms::Label^ national_id_p;
 	private: System::Windows::Forms::Label^ academic_year_p;
@@ -73,6 +75,52 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Panel^ panel7;
 	private: System::Windows::Forms::Label^ check_pre;
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
+	private: System::Windows::Forms::PictureBox^ pictureBox8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Panel^ panel11;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 
 
 
@@ -131,7 +179,6 @@ namespace CourseRegistration {
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->Profile = (gcnew System::Windows::Forms::Label());
-			this->username_p = (gcnew System::Windows::Forms::Label());
 			this->Stundent_id_p = (gcnew System::Windows::Forms::Label());
 			this->national_id_p = (gcnew System::Windows::Forms::Label());
 			this->academic_year_p = (gcnew System::Windows::Forms::Label());
@@ -144,6 +191,10 @@ namespace CourseRegistration {
 			this->GPA_out = (gcnew System::Windows::Forms::Label());
 			this->gender_out = (gcnew System::Windows::Forms::Label());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->panel11 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -159,6 +210,9 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel5->SuspendLayout();
+			this->flowLayoutPanel2->SuspendLayout();
+			this->panel11->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// flowLayoutPanel1
@@ -175,7 +229,7 @@ namespace CourseRegistration {
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 740);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 562);
 			this->flowLayoutPanel1->TabIndex = 1;
 			// 
 			// panel1
@@ -404,7 +458,7 @@ namespace CourseRegistration {
 			// 
 			this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(1071, 12);
+			this->pictureBox5->Location = System::Drawing::Point(1197, 12);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(73, 50);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -418,196 +472,231 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->Profile->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Profile->Location = System::Drawing::Point(280, 12);
+			this->Profile->Location = System::Drawing::Point(272, 80);
 			this->Profile->Name = L"Profile";
 			this->Profile->Size = System::Drawing::Size(281, 58);
 			this->Profile->TabIndex = 3;
 			this->Profile->Text = L"Profile Data";
 			this->Profile->Click += gcnew System::EventHandler(this, &NavBar::Profile_Click);
 			// 
-			// username_p
-			// 
-			this->username_p->AutoSize = true;
-			this->username_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->username_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->username_p->Location = System::Drawing::Point(40, 21);
-			this->username_p->Name = L"username_p";
-			this->username_p->Size = System::Drawing::Size(124, 27);
-			this->username_p->TabIndex = 5;
-			this->username_p->Text = L"Username :";
-			this->username_p->Click += gcnew System::EventHandler(this, &NavBar::username_sl_Click);
-			// 
 			// Stundent_id_p
 			// 
 			this->Stundent_id_p->AutoSize = true;
-			this->Stundent_id_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Stundent_id_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Stundent_id_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Stundent_id_p->Location = System::Drawing::Point(39, 89);
+			this->Stundent_id_p->Location = System::Drawing::Point(26, 170);
 			this->Stundent_id_p->Name = L"Stundent_id_p";
-			this->Stundent_id_p->Size = System::Drawing::Size(125, 27);
+			this->Stundent_id_p->Size = System::Drawing::Size(117, 25);
 			this->Stundent_id_p->TabIndex = 6;
-			this->Stundent_id_p->Text = L"Student ID :";
+			this->Stundent_id_p->Text = L"Student ID ";
 			// 
 			// national_id_p
 			// 
 			this->national_id_p->AutoSize = true;
-			this->national_id_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->national_id_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->national_id_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->national_id_p->Location = System::Drawing::Point(39, 159);
+			this->national_id_p->Location = System::Drawing::Point(26, 201);
 			this->national_id_p->Name = L"national_id_p";
-			this->national_id_p->Size = System::Drawing::Size(131, 27);
+			this->national_id_p->Size = System::Drawing::Size(122, 25);
 			this->national_id_p->TabIndex = 7;
-			this->national_id_p->Text = L"National ID :";
+			this->national_id_p->Text = L"National ID ";
 			// 
 			// academic_year_p
 			// 
 			this->academic_year_p->AutoSize = true;
-			this->academic_year_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->academic_year_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->academic_year_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->academic_year_p->Location = System::Drawing::Point(39, 225);
+			this->academic_year_p->Location = System::Drawing::Point(26, 262);
 			this->academic_year_p->Name = L"academic_year_p";
-			this->academic_year_p->Size = System::Drawing::Size(170, 27);
+			this->academic_year_p->Size = System::Drawing::Size(160, 25);
 			this->academic_year_p->TabIndex = 8;
 			this->academic_year_p->Text = L"Academic year :";
 			// 
 			// GPA_P
 			// 
 			this->GPA_P->AutoSize = true;
-			this->GPA_P->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->GPA_P->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GPA_P->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->GPA_P->Location = System::Drawing::Point(39, 298);
+			this->GPA_P->Location = System::Drawing::Point(26, 289);
 			this->GPA_P->Name = L"GPA_P";
-			this->GPA_P->Size = System::Drawing::Size(64, 27);
+			this->GPA_P->Size = System::Drawing::Size(76, 25);
 			this->GPA_P->TabIndex = 9;
-			this->GPA_P->Text = L"GPA :";
+			this->GPA_P->Text = L"CGPA :";
 			// 
 			// Gender_p
 			// 
 			this->Gender_p->AutoSize = true;
-			this->Gender_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Gender_p->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Gender_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Gender_p->Location = System::Drawing::Point(39, 365);
+			this->Gender_p->Location = System::Drawing::Point(26, 234);
 			this->Gender_p->Name = L"Gender_p";
-			this->Gender_p->Size = System::Drawing::Size(94, 27);
+			this->Gender_p->Size = System::Drawing::Size(91, 25);
 			this->Gender_p->TabIndex = 10;
 			this->Gender_p->Text = L"Gender :";
 			// 
 			// username_out
 			// 
-			this->username_out->AutoSize = true;
-			this->username_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->username_out->BackColor = System::Drawing::Color::Transparent;
+			this->username_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->username_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->username_out->Location = System::Drawing::Point(299, 19);
+			this->username_out->Location = System::Drawing::Point(162, 31);
 			this->username_out->Name = L"username_out";
-			this->username_out->Size = System::Drawing::Size(124, 27);
+			this->username_out->Size = System::Drawing::Size(171, 38);
 			this->username_out->TabIndex = 11;
-			this->username_out->Text = L"Username :";
+			this->username_out->Text = L"Username ";
 			this->username_out->Click += gcnew System::EventHandler(this, &NavBar::username_out_Click);
 			// 
 			// student_id_out
 			// 
-			this->student_id_out->AutoSize = true;
-			this->student_id_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->student_id_out->BackColor = System::Drawing::Color::Transparent;
+			this->student_id_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->student_id_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->student_id_out->Location = System::Drawing::Point(299, 85);
+			this->student_id_out->Location = System::Drawing::Point(179, 168);
 			this->student_id_out->Name = L"student_id_out";
-			this->student_id_out->Size = System::Drawing::Size(124, 27);
+			this->student_id_out->Size = System::Drawing::Size(115, 27);
 			this->student_id_out->TabIndex = 12;
 			this->student_id_out->Text = L"Username :";
 			// 
 			// national_id_out
 			// 
-			this->national_id_out->AutoSize = true;
-			this->national_id_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->national_id_out->BackColor = System::Drawing::Color::Transparent;
+			this->national_id_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->national_id_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->national_id_out->Location = System::Drawing::Point(299, 159);
+			this->national_id_out->Location = System::Drawing::Point(179, 201);
 			this->national_id_out->Name = L"national_id_out";
-			this->national_id_out->Size = System::Drawing::Size(124, 27);
+			this->national_id_out->Size = System::Drawing::Size(190, 23);
 			this->national_id_out->TabIndex = 13;
 			this->national_id_out->Text = L"Username :";
 			// 
 			// academic_year_out
 			// 
-			this->academic_year_out->AutoSize = true;
-			this->academic_year_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->academic_year_out->BackColor = System::Drawing::Color::Transparent;
+			this->academic_year_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->academic_year_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->academic_year_out->Location = System::Drawing::Point(299, 225);
+			this->academic_year_out->Location = System::Drawing::Point(179, 262);
 			this->academic_year_out->Name = L"academic_year_out";
-			this->academic_year_out->Size = System::Drawing::Size(124, 27);
+			this->academic_year_out->Size = System::Drawing::Size(121, 31);
 			this->academic_year_out->TabIndex = 14;
 			this->academic_year_out->Text = L"Username :";
 			// 
 			// GPA_out
 			// 
-			this->GPA_out->AutoSize = true;
-			this->GPA_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->GPA_out->BackColor = System::Drawing::Color::Transparent;
+			this->GPA_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GPA_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->GPA_out->Location = System::Drawing::Point(299, 298);
+			this->GPA_out->Location = System::Drawing::Point(180, 288);
 			this->GPA_out->Name = L"GPA_out";
-			this->GPA_out->Size = System::Drawing::Size(124, 27);
+			this->GPA_out->Size = System::Drawing::Size(43, 27);
 			this->GPA_out->TabIndex = 15;
-			this->GPA_out->Text = L"Username :";
+			this->GPA_out->Text = L"3.5";
 			// 
 			// gender_out
 			// 
-			this->gender_out->AutoSize = true;
-			this->gender_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->gender_out->BackColor = System::Drawing::Color::Transparent;
+			this->gender_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->gender_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->gender_out->Location = System::Drawing::Point(299, 365);
+			this->gender_out->Location = System::Drawing::Point(180, 232);
 			this->gender_out->Name = L"gender_out";
-			this->gender_out->Size = System::Drawing::Size(124, 27);
+			this->gender_out->Size = System::Drawing::Size(120, 24);
 			this->gender_out->TabIndex = 16;
 			this->gender_out->Text = L"Username :";
 			// 
 			// panel5
 			// 
-			this->panel5->Controls->Add(this->gender_out);
-			this->panel5->Controls->Add(this->GPA_out);
-			this->panel5->Controls->Add(this->academic_year_out);
-			this->panel5->Controls->Add(this->national_id_out);
-			this->panel5->Controls->Add(this->student_id_out);
-			this->panel5->Controls->Add(this->username_out);
-			this->panel5->Controls->Add(this->Gender_p);
-			this->panel5->Controls->Add(this->GPA_P);
-			this->panel5->Controls->Add(this->academic_year_p);
-			this->panel5->Controls->Add(this->national_id_p);
-			this->panel5->Controls->Add(this->Stundent_id_p);
-			this->panel5->Controls->Add(this->username_p);
-			this->panel5->Location = System::Drawing::Point(256, 130);
+			this->panel5->Controls->Add(this->flowLayoutPanel2);
+			this->panel5->Controls->Add(this->panel11);
+			this->panel5->Location = System::Drawing::Point(256, 141);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(787, 517);
+			this->panel5->Size = System::Drawing::Size(1014, 644);
 			this->panel5->TabIndex = 17;
+			// 
+			// flowLayoutPanel2
+			// 
+			this->flowLayoutPanel2->AutoScroll = true;
+			this->flowLayoutPanel2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->flowLayoutPanel2->BackColor = System::Drawing::Color::White;
+			this->flowLayoutPanel2->Controls->Add(this->label8);
+			this->flowLayoutPanel2->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(547, 37);
+			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+			this->flowLayoutPanel2->Padding = System::Windows::Forms::Padding(4);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(425, 604);
+			this->flowLayoutPanel2->TabIndex = 21;
+			this->flowLayoutPanel2->WrapContents = false;
+			displayAllCourses();
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label8->Location = System::Drawing::Point(24, 25);
+			this->label8->Margin = System::Windows::Forms::Padding(20, 21, 20, 20);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(230, 35);
+			this->label8->TabIndex = 19;
+			this->label8->Text = L"Current Courses";
+			// 
+			// panel11
+			// 
+			this->panel11->BackColor = System::Drawing::Color::White;
+			this->panel11->Controls->Add(this->pictureBox8);
+			this->panel11->Controls->Add(this->username_out);
+			this->panel11->Controls->Add(this->Stundent_id_p);
+			this->panel11->Controls->Add(this->student_id_out);
+			this->panel11->Controls->Add(this->national_id_p);
+			this->panel11->Controls->Add(this->national_id_out);
+			this->panel11->Controls->Add(this->Gender_p);
+			this->panel11->Controls->Add(this->GPA_out);
+			this->panel11->Controls->Add(this->gender_out);
+			this->panel11->Controls->Add(this->GPA_P);
+			this->panel11->Controls->Add(this->academic_year_out);
+			this->panel11->Controls->Add(this->academic_year_p);
+			this->panel11->Location = System::Drawing::Point(49, 37);
+			this->panel11->Name = L"panel11";
+			this->panel11->Size = System::Drawing::Size(404, 573);
+			this->panel11->TabIndex = 20;
+			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+			this->pictureBox8->Location = System::Drawing::Point(14, 20);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(142, 123);
+			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox8->TabIndex = 17;
+			this->pictureBox8->TabStop = false;
 			// 
 			// NavBar
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Honeydew;
-			this->ClientSize = System::Drawing::Size(1156, 740);
+			this->ClientSize = System::Drawing::Size(1282, 562);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->Profile);
 			this->Controls->Add(this->pictureBox5);
@@ -640,7 +729,11 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->panel5->ResumeLayout(false);
-			this->panel5->PerformLayout();
+			this->flowLayoutPanel2->ResumeLayout(false);
+			this->flowLayoutPanel2->PerformLayout();
+			this->panel11->ResumeLayout(false);
+			this->panel11->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -754,6 +847,8 @@ private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArg
 private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
 	panel1->Cursor = Cursors::Default;
 
+}
+private: System::Void panel8_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

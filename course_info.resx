@@ -118,25 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAxRJREFUaEPtmcuLjlEcx+diamYxUzMjMkguhRVl5RLCQjYWbCi2LlHEgkFZiVJS
-        ShF/gLss3BdkQSmXlQVSyiWXZEOh8fme93ve28z7zvOMqSHnU596znnO73d+v2fOu5nTkEgkhkZfgR/4
-        GV/jM7yBJ7AXV+IEL/9jyDXROffgSbyJ2lN7qwbV0ufl2VFQRt7hWdyAkx0+KFqLG/EcvsdMODw7jhOT
-        cDYuxjWoL3Yan+BPrOY+bsMepyrC3Hjcjg+wGuV6jMqtPbSX9pyFqiHgVNlxXN1AXrfjUtyH1/A7Rn6h
-        5pbb656LaO1V3IvK0e60A8L7gIfZcVyuQJZ34Fo8j9+wGs3pndZ0OCwTChYe1sbrigs9zP8FDKHduCMk
-        KaDnLr/OTSFFhvo8P2yNRJxm2PN4mBrJjdOkRiJOkxpJjUScJjUScZrUSGok4jSpkYjTpEZSIxGnSY1E
-        nCY1khqJOE1qJOI0qZHUSMRpUiMRp0mNpEYiTjPyjcArfIr38Awexs04F9u8vCasCXhYE5a0oXIqt/bQ
-        nYv21N6qIeDlQ2qkHrpFeoS6YVqH3Q4vwlzAwyJMjcb1qFjdi4QbqcFwePZGBMMW7ERdtMzEFbgVj+Bt
-        /ILl6LLmDuo/7+OcI+DnHtyJd7H6kki5lFO5t6D20p7aWzW0KEeEccDDEp7v/6IOLG/CGbgJL+JXjOgL
-        Xyo8Bi5j+VfXWsXo+m06NjptJlgf8LCE58VbfIEPUV/uCh5HXYfpKCzEfkdIMN+Kq1EFlt9eRTR3AVdh
-        q8MqYF5HbhFqL91maW/VoFpUk2pTjQGHlfB8HnQJegsPom5jxzhVgLGOg47hc6vnTr8OMB6Lij2EOlbK
-        mQunqoT5RlQB+ipTUGd0Cerr7MZjqGvjNzgQ+tEewHnY7JzNVc/zUWu0diCUW3toL+2pvVWDjrBqUm2q
-        MddRrAmJulBHQJvpT/8Jy/mAp3CB1fNHLEcxit2FylXxFxsRKEI//Dm4H3WWa6EzfhSX4SiH/71Q5DTU
-        j/Wl1fNUv/73oHj9pZo8TPwnNDT8Bn4QPw51dRMkAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

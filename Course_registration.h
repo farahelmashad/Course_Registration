@@ -538,6 +538,7 @@
 			 this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
 			 this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
 			 this->flowLayoutPanel2->TabIndex = 22;
+			 DisplayAllCourses(courses);
 			 // 
 			 // course_lay
 			 // 

@@ -180,12 +180,12 @@ namespace CourseRegistration {
 			// course_i
 			// 
 			this->course_i->AutoSize = true;
-			this->course_i->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->course_i->BackColor = System::Drawing::Color::Transparent;
 			this->course_i->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->course_i->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->course_i->Location = System::Drawing::Point(204, 7);
+			this->course_i->Location = System::Drawing::Point(581, 20);
 			this->course_i->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->course_i->Name = L"course_i";
 			this->course_i->Size = System::Drawing::Size(330, 42);
@@ -206,9 +206,10 @@ namespace CourseRegistration {
 			// 
 			// search
 			// 
-			this->search->BackColor = System::Drawing::Color::MidnightBlue;
+			this->search->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->search->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.Image")));
-			this->search->Location = System::Drawing::Point(564, 64);
+			this->search->Location = System::Drawing::Point(873, 64);
 			this->search->Margin = System::Windows::Forms::Padding(2);
 			this->search->Name = L"search";
 			this->search->Size = System::Drawing::Size(38, 30);
@@ -221,7 +222,7 @@ namespace CourseRegistration {
 			// 
 			this->textpre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textpre->Location = System::Drawing::Point(299, 64);
+			this->textpre->Location = System::Drawing::Point(602, 64);
 			this->textpre->Margin = System::Windows::Forms::Padding(2);
 			this->textpre->Multiline = true;
 			this->textpre->Name = L"textpre";
@@ -237,6 +238,7 @@ namespace CourseRegistration {
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
 			this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
 			this->flowLayoutPanel2->TabIndex = 22;
+			DisplayAllCourses(courses);
 			// 
 			// course_lay
 			// 
@@ -531,7 +533,7 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->BackColor = System::Drawing::Color::Honeydew;
 			this->ClientSize = System::Drawing::Size(972, 593);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->flowLayoutPanel2);
