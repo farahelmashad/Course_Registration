@@ -70,7 +70,7 @@ void CourseRegistration::course_pre::CreateCoursesPanel(Course course, Random^ r
 
         System::ComponentModel::ComponentResourceManager^ resources =
             gcnew System::ComponentModel::ComponentResourceManager(course_pre::typeid);
-        pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
+    //    pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
 
         pic->SizeMode = PictureBoxSizeMode::Zoom;
         pic->Location = System::Drawing::Point(37, 10);
@@ -93,6 +93,18 @@ void CourseRegistration::course_pre::DisplayAllCourses(map<string, Course> cours
         CreateCoursesPanel(course, rand);
     }
 
+}
+System::Void CourseRegistration::course_pre::panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    Course_registration^ regForm = gcnew Course_registration();
+    regForm->ShowDialog();
+    this->Close();
+}
+System::Void CourseRegistration::course_pre::panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    Course_registration^ cg5 = gcnew Course_registration();
+    cg5->ShowDialog();
+    this->Hide();
+    this->Close();
 }
 
 

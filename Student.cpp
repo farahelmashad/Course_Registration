@@ -40,15 +40,11 @@ void Student::Retake(string courseID){
 	this->deleteCompletedCourse(courseID);
 	students[studentID] = currentStudent;
 }
-
-void Student::deleteCompletedCourse(string courseID)
-{   
-	CourseGrades target(courseID);
-	auto it = completedCourses.find(target);
-	if (it != completedCourses.end()) {
-		completedCourses.erase(it);
-	}
+bool Student::isRegistered(string courseID) {
+	return currentCourses.find(courseID) != currentCourses.end();
 }
+
+
 
 bool Student::hasPrerequisites(string courseID ,string& reason)
 {
@@ -82,6 +78,14 @@ void Student::registerCourse(string courseID)
 	this->currentCourses.insert(courseID);
 	students[studentID] = currentStudent;
 
+}
+void Student::deleteCompletedCourse(string courseID)
+{
+	CourseGrades target(courseID);
+	auto it = completedCourses.find(target);
+	if (it != completedCourses.end()) {
+		completedCourses.erase(it);
+	}
 }
 
 Student::Student()

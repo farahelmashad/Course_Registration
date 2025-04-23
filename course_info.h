@@ -710,44 +710,52 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 private: System::Void course_name_pre_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void course_info_Load(System::Object^ sender, System::EventArgs^ e) {
-	
-	string reason = "yay";
+	string reason = "N/A";
+
+	bool isAlreadyRegistered = currentStudent.isRegistered(gcid);
+	bool will_retake = currentStudent.willRetake(gcid);
 	bool haspre = currentStudent.hasPrerequisites(gcid, reason);
-	bool will_retake=currentStudent.willRetake(gcid);
-	if (will_retake) {
-		Button^ Retake = gcnew Button();
-		Retake->Text = "Retake";
-		Retake->Size = System::Drawing::Size(138, 32);
-		Retake->Location = System::Drawing::Point(614, 448);
 
-		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
-
-		this->Controls->Add(Retake);
-
-	}
-	 else if (haspre) {
-		Button^ Register = gcnew Button();
-		Register->Text = "Register";
-		Register->Size = System::Drawing::Size(138, 32);
-		Register->Location = System::Drawing::Point(614, 448);
-
-		Register->Click += gcnew System::EventHandler(this, &course_info::Register_Click);
-
-		this->Controls->Add(Register);
-	}
-	 else {
+	if (isAlreadyRegistered) {
+		// Already registered in this course
 		Label^ infoLabel = gcnew Label();
 		infoLabel->Text = "You are already registered";
 		infoLabel->Size = System::Drawing::Size(200, 32);
 		infoLabel->Location = System::Drawing::Point(614, 448);
 		infoLabel->ForeColor = System::Drawing::Color::Red;
 		infoLabel->Font = gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold);
-
 		this->Controls->Add(infoLabel);
-
 	}
-	
+	else if (will_retake) {
+		// Student has completed course before – show "Retake"
+		Button^ Retake = gcnew Button();
+		Retake->Text = "Retake";
+		Retake->Size = System::Drawing::Size(138, 32);
+		Retake->Location = System::Drawing::Point(614, 448);
+		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
+		this->Controls->Add(Retake);
+	}
+	else if (haspre) {
+		// Prerequisites are fulfilled – show "Register"
+		Button^ Register = gcnew Button();
+		Register->Text = "Register";
+		Register->Size = System::Drawing::Size(138, 32);
+		Register->Location = System::Drawing::Point(614, 448);
+		Register->Click += gcnew System::EventHandler(this, &course_info::Register_Click);
+		this->Controls->Add(Register);
+	}
+	else {
+		// Missing prerequisites
+		Label^ infoLabel = gcnew Label();
+		infoLabel->Text = Utils::toSysStr("Missing prerequisites: " + reason);
+		infoLabel->Size = System::Drawing::Size(250, 32);
+		infoLabel->Location = System::Drawing::Point(614, 448);
+		infoLabel->ForeColor = System::Drawing::Color::OrangeRed;
+		infoLabel->Font = gcnew System::Drawing::Font("Arial", 9, FontStyle::Bold);
+		this->Controls->Add(infoLabel);
+	}
 }
+
 	   void course_info::Retake_Click(System::Object^ sender, System::EventArgs^ e)
 	   {   
 		   currentStudent.Retake(gcid);

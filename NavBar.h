@@ -666,7 +666,7 @@ private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) 
 	gender_out->Text = Utils::toSysStr(currentStudent.getGender());
 	label1->Text= Utils::toSysStr(currentStudent.getUserName());
 	if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
-		pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
+		//pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
 	}
 
 }

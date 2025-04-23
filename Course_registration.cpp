@@ -63,7 +63,7 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Ra
 
 	System::ComponentModel::ComponentResourceManager^ resources =
 	gcnew System::ComponentModel::ComponentResourceManager(Course_registration::typeid);
-	pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
+	//pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
 
 	pic->SizeMode = PictureBoxSizeMode::Zoom;
 	pic->Location = System::Drawing::Point(37,10);
@@ -105,4 +105,11 @@ void CourseRegistration:: Course_registration::CoursePanel_Click(System::Object^
 		this->Close();
 
 	}
+}
+
+System::Void CourseRegistration::Course_registration::panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	course_pre^ cp = gcnew course_pre();
+	cp->ShowDialog();
+	this->Hide();
+	this->Close();
 }
