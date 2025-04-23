@@ -1,7 +1,7 @@
 #pragma once
 #include"NavBar.h"
-#include"SignUp.h"
 #include"Adminlogin.h"
+#include"SignUp.h"
 #include "FileManager.h"
 #include "Login_SignUp_Helper.h"
 #include "Utils.h"
@@ -105,12 +105,12 @@ namespace CourseRegistration {
 			this->username_sl->AutoSize = true;
 			this->username_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username_sl->Location = System::Drawing::Point(14, 153);
+			this->username_sl->Location = System::Drawing::Point(8, 157);
 			this->username_sl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->username_sl->Name = L"username_sl";
-			this->username_sl->Size = System::Drawing::Size(124, 29);
+			this->username_sl->Size = System::Drawing::Size(125, 29);
 			this->username_sl->TabIndex = 4;
-			this->username_sl->Text = L"Username";
+			this->username_sl->Text = L"Student ID";
 			// 
 			// username_s
 			// 
@@ -130,7 +130,7 @@ namespace CourseRegistration {
 			this->password_sl->AutoSize = true;
 			this->password_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password_sl->Location = System::Drawing::Point(14, 196);
+			this->password_sl->Location = System::Drawing::Point(14, 198);
 			this->password_sl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->password_sl->Name = L"password_sl";
 			this->password_sl->Size = System::Drawing::Size(119, 29);
@@ -265,6 +265,7 @@ private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Win
 	Adminlogin^ a1 = gcnew Adminlogin();
 	a1->ShowDialog();
 	this->Hide();
+	this->Close();
 }
 private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 	SignUp^ s1 = gcnew SignUp();

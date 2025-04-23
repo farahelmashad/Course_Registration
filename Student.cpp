@@ -1,6 +1,5 @@
 #pragma once
 #include "Student.h"
-
 Student::~Student()
 {
 }
@@ -23,6 +22,66 @@ void Student::CheckPrerequisites()
 
 void Student::MakeReport()
 {
+}
+
+bool Student::willRetake(string courseID)
+{
+	for ( CourseGrades  cg : completedCourses) {
+		if (cg.getCourseID() == courseID) {
+			return true;
+		}
+	}
+	return false;
+
+}
+
+void Student::Retake(string courseID){
+	this->currentCourses.insert(courseID);
+	this->deleteCompletedCourse(courseID);
+	students[studentID] = currentStudent;
+}
+
+void Student::deleteCompletedCourse(string courseID)
+{   
+	CourseGrades target(courseID);
+	auto it = completedCourses.find(target);
+	if (it != completedCourses.end()) {
+		completedCourses.erase(it);
+	}
+}
+
+bool Student::hasPrerequisites(string courseID ,string& reason)
+{
+	auto it1 = this->currentCourses.find(courseID);
+	if (it1 != currentCourses.end()) {
+		return false;
+	}
+	auto it = courses.find(courseID);
+	Course c = it->second;
+	set<string> passedCourses;
+
+	for ( auto cg : this->completedCourses) {
+		if (cg.getGrade() != 'F' ) {
+			passedCourses.insert(cg.getCourseID());
+		}
+	}
+
+	// Now just check if all prerequisites are in passedCourses
+	for ( string prereqID : c.getPrerequisites()) {
+		if (passedCourses.find(prereqID) == passedCourses.end()) {
+			return false; // missing prerequisite
+		}
+	}
+
+	return true; // all prerequisites passed
+
+}
+
+void Student::registerCourse(string courseID)
+{
+	this->currentCourses.insert(courseID);
+	students[studentID] = currentStudent;
+
 }
 
 Student::Student()

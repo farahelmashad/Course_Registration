@@ -6,9 +6,9 @@ using namespace System;
 using namespace System::Windows::Forms;
 
 void OnAppExit(Object^ sender, EventArgs^ e) {
-    fm.writeStudents("student.txt");
-    fm.writeAdmins("Admins.txt");
-    fm.writeCourses("Courses.txt");
+       fm.writeStudents("student.txt");
+       fm.writeAdmins("Admin.txt");
+       fm.writeCourses("Courses.txt");
 }
 
 

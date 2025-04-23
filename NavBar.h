@@ -3,6 +3,7 @@
 #include"course_pre.h"
 #include"Utils.h"
 #include"FileManager.h"
+#include"course_pre.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -41,7 +42,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ label3;
@@ -111,7 +112,6 @@ namespace CourseRegistration {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(NavBar::typeid));
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -180,8 +180,6 @@ namespace CourseRegistration {
 			// 
 			// panel1
 			// 
-			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Location = System::Drawing::Point(0, 0);
@@ -190,38 +188,28 @@ namespace CourseRegistration {
 			this->panel1->Size = System::Drawing::Size(253, 178);
 			this->panel1->TabIndex = 0;
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(3, 158);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(32, 14);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"User";
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(62, 117);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(74, 117);
+			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(102, 23);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"User name";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label1->Click += gcnew System::EventHandler(this, &NavBar::label1_Click);
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(22, 11);
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(174, 102);
+			this->pictureBox1->Size = System::Drawing::Size(253, 113);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -229,7 +217,6 @@ namespace CourseRegistration {
 			// 
 			// panel2
 			// 
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel2->Controls->Add(this->label3);
 			this->panel2->Controls->Add(this->pictureBox2);
 			this->panel2->Location = System::Drawing::Point(0, 178);
@@ -237,7 +224,10 @@ namespace CourseRegistration {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(253, 100);
 			this->panel2->TabIndex = 1;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel2_Paint);
 			this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel2_MouseClick);
+			this->panel2->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel2_MouseEnter);
+			this->panel2->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel2_MouseLeave);
 			// 
 			// label3
 			// 
@@ -254,10 +244,9 @@ namespace CourseRegistration {
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(5, 29);
+			this->pictureBox2->Location = System::Drawing::Point(3, 28);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(55, 39);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -266,7 +255,6 @@ namespace CourseRegistration {
 			// 
 			// panel3
 			// 
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel3->Controls->Add(this->label4);
 			this->panel3->Controls->Add(this->pictureBox3);
 			this->panel3->Location = System::Drawing::Point(0, 278);
@@ -274,6 +262,8 @@ namespace CourseRegistration {
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(253, 100);
 			this->panel3->TabIndex = 2;
+			this->panel3->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel3_MouseEnter);
+			this->panel3->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel3_MouseLeave);
 			// 
 			// label4
 			// 
@@ -290,8 +280,7 @@ namespace CourseRegistration {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
 			this->pictureBox3->Location = System::Drawing::Point(3, 26);
 			this->pictureBox3->Name = L"pictureBox3";
@@ -302,7 +291,6 @@ namespace CourseRegistration {
 			// 
 			// panel4
 			// 
-			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel4->Controls->Add(this->panel6);
 			this->panel4->Controls->Add(this->label5);
 			this->panel4->Controls->Add(this->pictureBox4);
@@ -314,15 +302,16 @@ namespace CourseRegistration {
 			// 
 			// panel6
 			// 
-			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel6->Controls->Add(this->label6);
 			this->panel6->Controls->Add(this->pictureBox6);
-			this->panel6->Location = System::Drawing::Point(-1, -1);
+			this->panel6->Location = System::Drawing::Point(0, 0);
 			this->panel6->Margin = System::Windows::Forms::Padding(0);
 			this->panel6->Name = L"panel6";
 			this->panel6->Size = System::Drawing::Size(253, 91);
 			this->panel6->TabIndex = 4;
 			this->panel6->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel6_Paint);
+			this->panel6->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel6_MouseEnter);
+			this->panel6->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel6_MouseLeave);
 			// 
 			// label6
 			// 
@@ -338,8 +327,7 @@ namespace CourseRegistration {
 			// 
 			// pictureBox6
 			// 
-			this->pictureBox6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
 			this->pictureBox6->Location = System::Drawing::Point(3, 26);
 			this->pictureBox6->Name = L"pictureBox6";
@@ -375,16 +363,17 @@ namespace CourseRegistration {
 			// 
 			// panel7
 			// 
-			this->panel7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel7->Controls->Add(this->check_pre);
 			this->panel7->Controls->Add(this->pictureBox7);
 			this->panel7->Location = System::Drawing::Point(0, 469);
 			this->panel7->Margin = System::Windows::Forms::Padding(0);
 			this->panel7->Name = L"panel7";
-			this->panel7->Size = System::Drawing::Size(253, 89);
+			this->panel7->Size = System::Drawing::Size(253, 93);
 			this->panel7->TabIndex = 18;
 			this->panel7->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel7_Paint);
 			this->panel7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel7_MouseClick);
+			this->panel7->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel7_MouseEnter);
+			this->panel7->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel7_MouseLeave);
 			// 
 			// check_pre
 			// 
@@ -400,8 +389,7 @@ namespace CourseRegistration {
 			// 
 			// pictureBox7
 			// 
-			this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
 			this->pictureBox7->Location = System::Drawing::Point(3, 26);
 			this->pictureBox7->Name = L"pictureBox7";
@@ -428,7 +416,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->Profile->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Profile->Location = System::Drawing::Point(266, 12);
+			this->Profile->Location = System::Drawing::Point(280, 12);
 			this->Profile->Name = L"Profile";
 			this->Profile->Size = System::Drawing::Size(281, 58);
 			this->Profile->TabIndex = 3;
@@ -609,14 +597,14 @@ namespace CourseRegistration {
 			this->panel5->Controls->Add(this->username_p);
 			this->panel5->Location = System::Drawing::Point(256, 130);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(787, 436);
+			this->panel5->Size = System::Drawing::Size(787, 517);
 			this->panel5->TabIndex = 17;
 			// 
 			// NavBar
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->BackColor = System::Drawing::Color::Honeydew;
 			this->ClientSize = System::Drawing::Size(1156, 740);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->Profile);
@@ -685,15 +673,11 @@ private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	Course_registration^ c1 = gcnew Course_registration();
 	
-	c1->Show();
+	c1->ShowDialog();
 	this->Hide();
+	this->Close();
 }
 private: System::Void panel7_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	course_pre^ p1 = gcnew course_pre();
-	p1->Show();
-	this->Hide();
 }
 private: System::Void username_out_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -701,6 +685,64 @@ private: System::Void username_out_Click(System::Object^ sender, System::EventAr
 private: System::Void panel6_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+}
+private: System::Void panel2_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel2->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+	panel2->Cursor = Cursors::Hand;
+
+}
+
+private: System::Void panel2_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel2->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+	panel2->Cursor = Cursors::Hand;
+
+}
+private: System::Void panel3_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		   panel3->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+		   panel3->Cursor = Cursors::Hand;
+
+	   }
+
+private: System::Void panel3_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel3->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+	panel3->Cursor = Cursors::Hand;
+
+}
+private: System::Void panel6_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel6->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+	panel6->Cursor = Cursors::Hand;
+
+}
+
+private: System::Void panel6_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel6->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+	panel6->Cursor = Cursors::Hand;
+
+}
+private: System::Void panel7_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel7->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+	panel7->Cursor = Cursors::Hand;
+
+}
+
+private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+	panel7->Cursor = Cursors::Hand;
+
+}
+private: System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+}
+private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	course_pre^ pre = gcnew course_pre();
+	pre->ShowDialog();
+	this->Hide();
+	this->Close();
+}
+
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
