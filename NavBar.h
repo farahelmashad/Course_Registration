@@ -187,6 +187,8 @@ namespace CourseRegistration {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(253, 178);
 			this->panel1->TabIndex = 0;
+			this->panel1->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel1_MouseEnter);
+			this->panel1->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel1_MouseLeave);
 			// 
 			// label1
 			// 
@@ -206,10 +208,10 @@ namespace CourseRegistration {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Location = System::Drawing::Point(58, 5);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(253, 113);
+			this->pictureBox1->Size = System::Drawing::Size(130, 113);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -743,6 +745,15 @@ private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows:
 }
 
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Default;
+
+}
+
+private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Default;
+
 }
 };
 }

@@ -90,12 +90,13 @@ namespace CourseRegistration {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 54.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(44, 17);
+			this->label1->ForeColor = System::Drawing::Color::MidnightBlue;
+			this->label1->Location = System::Drawing::Point(200, 119);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(157, 58);
+			this->label1->Size = System::Drawing::Size(237, 88);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Log in";
 			this->label1->Click += gcnew System::EventHandler(this, &Studentlogin::label1_Click);
@@ -103,12 +104,13 @@ namespace CourseRegistration {
 			// username_sl
 			// 
 			this->username_sl->AutoSize = true;
-			this->username_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->username_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 17, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username_sl->Location = System::Drawing::Point(8, 157);
+			this->username_sl->ForeColor = System::Drawing::Color::MidnightBlue;
+			this->username_sl->Location = System::Drawing::Point(177, 252);
 			this->username_sl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->username_sl->Name = L"username_sl";
-			this->username_sl->Size = System::Drawing::Size(125, 29);
+			this->username_sl->Size = System::Drawing::Size(119, 28);
 			this->username_sl->TabIndex = 4;
 			this->username_sl->Text = L"Student ID";
 			// 
@@ -117,10 +119,10 @@ namespace CourseRegistration {
 			this->username_s->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->username_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username_s->Location = System::Drawing::Point(135, 162);
+			this->username_s->Location = System::Drawing::Point(182, 280);
 			this->username_s->Margin = System::Windows::Forms::Padding(2);
 			this->username_s->Name = L"username_s";
-			this->username_s->Size = System::Drawing::Size(220, 20);
+			this->username_s->Size = System::Drawing::Size(264, 20);
 			this->username_s->TabIndex = 5;
 			this->username_s->TextChanged += gcnew System::EventHandler(this, &Studentlogin::username_TextChanged);
 			this->username_s->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Studentlogin::username_KeyDown);
@@ -128,25 +130,27 @@ namespace CourseRegistration {
 			// password_sl
 			// 
 			this->password_sl->AutoSize = true;
-			this->password_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->password_sl->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 17, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password_sl->Location = System::Drawing::Point(14, 198);
+			this->password_sl->ForeColor = System::Drawing::Color::MidnightBlue;
+			this->password_sl->Location = System::Drawing::Point(177, 338);
 			this->password_sl->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->password_sl->Name = L"password_sl";
-			this->password_sl->Size = System::Drawing::Size(119, 29);
+			this->password_sl->Size = System::Drawing::Size(114, 28);
 			this->password_sl->TabIndex = 6;
 			this->password_sl->Text = L"Password";
+			this->password_sl->Click += gcnew System::EventHandler(this, &Studentlogin::password_sl_Click);
 			// 
 			// password_s
 			// 
 			this->password_s->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->password_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password_s->Location = System::Drawing::Point(135, 204);
+			this->password_s->Location = System::Drawing::Point(182, 368);
 			this->password_s->Margin = System::Windows::Forms::Padding(2);
 			this->password_s->Name = L"password_s";
 			this->password_s->PasswordChar = '*';
-			this->password_s->Size = System::Drawing::Size(220, 20);
+			this->password_s->Size = System::Drawing::Size(264, 20);
 			this->password_s->TabIndex = 7;
 			this->password_s->TextChanged += gcnew System::EventHandler(this, &Studentlogin::password_TextChanged);
 			this->password_s->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Studentlogin::password_KeyDown);
@@ -158,10 +162,10 @@ namespace CourseRegistration {
 			this->submit_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->submit_s->ForeColor = System::Drawing::SystemColors::Window;
-			this->submit_s->Location = System::Drawing::Point(272, 359);
+			this->submit_s->Location = System::Drawing::Point(182, 421);
 			this->submit_s->Margin = System::Windows::Forms::Padding(2);
 			this->submit_s->Name = L"submit_s";
-			this->submit_s->Size = System::Drawing::Size(138, 32);
+			this->submit_s->Size = System::Drawing::Size(264, 38);
 			this->submit_s->TabIndex = 8;
 			this->submit_s->Text = L"Submit";
 			this->submit_s->UseVisualStyleBackColor = false;
@@ -169,12 +173,13 @@ namespace CourseRegistration {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(553, 10);
+			this->pictureBox1->Location = System::Drawing::Point(516, -62);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(268, 483);
+			this->pictureBox1->Size = System::Drawing::Size(800, 800);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 9;
 			this->pictureBox1->TabStop = false;
@@ -182,14 +187,18 @@ namespace CourseRegistration {
 			// 
 			// linkLabel1
 			// 
-			this->linkLabel1->ActiveLinkColor = System::Drawing::SystemColors::MenuHighlight;
+			this->linkLabel1->ActiveLinkColor = System::Drawing::Color::MintCream;
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->DisabledLinkColor = System::Drawing::Color::MidnightBlue;
-			this->linkLabel1->LinkColor = System::Drawing::Color::DarkBlue;
-			this->linkLabel1->Location = System::Drawing::Point(309, 238);
+			this->linkLabel1->DisabledLinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
+				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiCondensed", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel1->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
+			this->linkLabel1->LinkColor = System::Drawing::Color::Navy;
+			this->linkLabel1->Location = System::Drawing::Point(330, 494);
 			this->linkLabel1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(45, 13);
+			this->linkLabel1->Size = System::Drawing::Size(52, 18);
 			this->linkLabel1->TabIndex = 10;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"Sign Up";
@@ -198,10 +207,12 @@ namespace CourseRegistration {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(204, 238);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(221, 496);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(102, 13);
+			this->label4->Size = System::Drawing::Size(110, 14);
 			this->label4->TabIndex = 11;
 			this->label4->Text = L"Create an Account\?";
 			this->label4->Click += gcnew System::EventHandler(this, &Studentlogin::label4_Click);
@@ -209,21 +220,26 @@ namespace CourseRegistration {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(204, 259);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(225, 519);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(98, 13);
+			this->label5->Size = System::Drawing::Size(106, 14);
 			this->label5->TabIndex = 12;
 			this->label5->Text = L"Are You an Admin\?";
 			// 
 			// linkLabel2
 			// 
 			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiCondensed", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel2->LinkBehavior = System::Windows::Forms::LinkBehavior::NeverUnderline;
 			this->linkLabel2->LinkColor = System::Drawing::Color::Navy;
-			this->linkLabel2->Location = System::Drawing::Point(309, 259);
+			this->linkLabel2->Location = System::Drawing::Point(333, 516);
 			this->linkLabel2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(37, 13);
+			this->linkLabel2->Size = System::Drawing::Size(43, 18);
 			this->linkLabel2->TabIndex = 13;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"Log In";
@@ -234,8 +250,8 @@ namespace CourseRegistration {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->ClientSize = System::Drawing::Size(822, 513);
+			this->BackColor = System::Drawing::Color::Honeydew;
+			this->ClientSize = System::Drawing::Size(1246, 657);
 			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -323,6 +339,8 @@ private: System::Void Studentlogin_Load(System::Object^ sender, System::EventArg
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 
+}
+private: System::Void password_sl_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 

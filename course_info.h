@@ -7,6 +7,7 @@ extern string gcid;
 //class Course_registration;
 ref class course_pre;
 ref class Course_registration;
+ref class NavBar;
 namespace CourseRegistration {
 
 	using namespace System;
@@ -399,6 +400,9 @@ namespace CourseRegistration {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(253, 178);
 			this->panel1->TabIndex = 0;
+			this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_info::panel1_MouseClick);
+			this->panel1->MouseEnter += gcnew System::EventHandler(this, &course_info::panel1_MouseEnter);
+			this->panel1->MouseLeave += gcnew System::EventHandler(this, &course_info::panel1_MouseLeave);
 			// 
 			// label1
 			// 
@@ -417,10 +421,10 @@ namespace CourseRegistration {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Location = System::Drawing::Point(60, 0);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(253, 113);
+			this->pictureBox1->Size = System::Drawing::Size(128, 113);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -819,6 +823,16 @@ private: System::Void panel7_MouseEnter(System::Object^ sender, System::EventArg
 private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
 	panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	panel7->Cursor = Cursors::Hand;
+}
+private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
+private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Hand;
+
+}
+
+private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Default;
 }
 };
 }

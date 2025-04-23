@@ -1,11 +1,13 @@
 #pragma once
 //#include"course_info.h"
+
 #include"Course.h"
 #include"Utils.h"
 #include"FileManager.h"
 //#include"course_pre.h"
  ref class course_pre;
  ref class course_info;
+ ref class NavBar;
  namespace CourseRegistration {
 
 	 using namespace System;
@@ -103,6 +105,9 @@
 	 private: System::Windows::Forms::Label^ credit_hours;
 	 private: System::Windows::Forms::PictureBox^ pictureBox5;
 	 private:System::Random^ rand;
+	 System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	 //System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	// System::Void panel1_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 
 
@@ -206,6 +211,8 @@
 			 this->panel1->Name = L"panel1";
 			 this->panel1->Size = System::Drawing::Size(253, 176);
 			 this->panel1->TabIndex = 0;
+			 this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::panel1_MouseClick);
+			 this->panel1->MouseEnter += gcnew System::EventHandler(this, &Course_registration::panel1_MouseEnter);
 			 // 
 			 // label1
 			 // 
@@ -224,10 +231,10 @@
 			 // pictureBox1
 			 // 
 			 this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			 this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			 this->pictureBox1->Location = System::Drawing::Point(61, 0);
 			 this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			 this->pictureBox1->Name = L"pictureBox1";
-			 this->pictureBox1->Size = System::Drawing::Size(253, 113);
+			 this->pictureBox1->Size = System::Drawing::Size(116, 113);
 			 this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			 this->pictureBox1->TabIndex = 2;
 			 this->pictureBox1->TabStop = false;
@@ -778,13 +785,13 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void panel5_Paint_2(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
 }
-private: System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+/*private: System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	course_pre^ cp = gcnew course_pre();
 	cp->ShowDialog();
 	this->Hide();
 	this->Close();
 
-}
+}*/
 private: System::Void panel5_MouseEnter_1(System::Object^ sender, System::EventArgs^ e) {
 	panel5->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
 	panel5->Cursor = Cursors::Hand;
@@ -795,6 +802,15 @@ private: System::Void panel5_MouseLeave_1(System::Object^ sender, System::EventA
 	panel5->Cursor = Cursors::Hand;
 
 }
+	 private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		 panel1->Cursor = Cursors::Hand;
+	 }
+	//private: System::Void panel1_MouseClick_1(System::Object^ sender, System::EventArgs^ e);
+
+//private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e){}
+
+//private: System::Void panel1_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };
 
 			/*void Course_registration::CreateCoursePanel(Course course)
