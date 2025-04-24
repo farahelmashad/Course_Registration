@@ -253,7 +253,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label1->Location = System::Drawing::Point(74, 117);
 			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(102, 23);
+			this->label1->Size = System::Drawing::Size(130, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"User name";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -293,7 +293,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(60, 40);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(141, 18);
+			this->label3->Size = System::Drawing::Size(179, 23);
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"Course Registration";
 			this->label3->Click += gcnew System::EventHandler(this, &NavBar::label3_Click);
@@ -329,7 +329,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label4->ForeColor = System::Drawing::Color::White;
 			this->label4->Location = System::Drawing::Point(66, 37);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(93, 18);
+			this->label4->Size = System::Drawing::Size(116, 23);
 			this->label4->TabIndex = 1;
 			this->label4->Text = L"View Grades";
 			this->label4->Click += gcnew System::EventHandler(this, &NavBar::label4_Click);
@@ -377,7 +377,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label6->ForeColor = System::Drawing::Color::White;
 			this->label6->Location = System::Drawing::Point(63, 38);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(90, 18);
+			this->label6->Size = System::Drawing::Size(112, 23);
 			this->label6->TabIndex = 1;
 			this->label6->Text = L"View Report";
 			// 
@@ -400,7 +400,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label5->ForeColor = System::Drawing::Color::White;
 			this->label5->Location = System::Drawing::Point(63, 38);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(90, 18);
+			this->label5->Size = System::Drawing::Size(112, 23);
 			this->label5->TabIndex = 1;
 			this->label5->Text = L"View Report";
 			this->label5->Click += gcnew System::EventHandler(this, &NavBar::label5_Click);
@@ -439,7 +439,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->check_pre->ForeColor = System::Drawing::Color::White;
 			this->check_pre->Location = System::Drawing::Point(63, 38);
 			this->check_pre->Name = L"check_pre";
-			this->check_pre->Size = System::Drawing::Size(133, 18);
+			this->check_pre->Size = System::Drawing::Size(170, 23);
 			this->check_pre->TabIndex = 1;
 			this->check_pre->Text = L"Check prerequisite";
 			// 
@@ -474,7 +474,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Profile->Location = System::Drawing::Point(272, 80);
 			this->Profile->Name = L"Profile";
-			this->Profile->Size = System::Drawing::Size(281, 58);
+			this->Profile->Size = System::Drawing::Size(347, 72);
 			this->Profile->TabIndex = 3;
 			this->Profile->Text = L"Profile Data";
 			this->Profile->Click += gcnew System::EventHandler(this, &NavBar::Profile_Click);
@@ -488,7 +488,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Stundent_id_p->Location = System::Drawing::Point(26, 170);
 			this->Stundent_id_p->Name = L"Stundent_id_p";
-			this->Stundent_id_p->Size = System::Drawing::Size(117, 25);
+			this->Stundent_id_p->Size = System::Drawing::Size(148, 33);
 			this->Stundent_id_p->TabIndex = 6;
 			this->Stundent_id_p->Text = L"Student ID ";
 			// 
@@ -499,9 +499,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->national_id_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->national_id_p->Location = System::Drawing::Point(26, 201);
+			this->national_id_p->Location = System::Drawing::Point(26, 213);
 			this->national_id_p->Name = L"national_id_p";
-			this->national_id_p->Size = System::Drawing::Size(122, 25);
+			this->national_id_p->Size = System::Drawing::Size(155, 33);
 			this->national_id_p->TabIndex = 7;
 			this->national_id_p->Text = L"National ID ";
 			// 
@@ -512,9 +512,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->academic_year_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->academic_year_p->Location = System::Drawing::Point(26, 262);
+			this->academic_year_p->Location = System::Drawing::Point(26, 304);
 			this->academic_year_p->Name = L"academic_year_p";
-			this->academic_year_p->Size = System::Drawing::Size(160, 25);
+			this->academic_year_p->Size = System::Drawing::Size(204, 33);
 			this->academic_year_p->TabIndex = 8;
 			this->academic_year_p->Text = L"Academic year :";
 			// 
@@ -525,9 +525,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->GPA_P->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->GPA_P->Location = System::Drawing::Point(26, 289);
+			this->GPA_P->Location = System::Drawing::Point(26, 351);
 			this->GPA_P->Name = L"GPA_P";
-			this->GPA_P->Size = System::Drawing::Size(76, 25);
+			this->GPA_P->Size = System::Drawing::Size(94, 33);
 			this->GPA_P->TabIndex = 9;
 			this->GPA_P->Text = L"CGPA :";
 			// 
@@ -538,9 +538,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->Gender_p->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Gender_p->Location = System::Drawing::Point(26, 234);
+			this->Gender_p->Location = System::Drawing::Point(26, 258);
 			this->Gender_p->Name = L"Gender_p";
-			this->Gender_p->Size = System::Drawing::Size(91, 25);
+			this->Gender_p->Size = System::Drawing::Size(115, 33);
 			this->Gender_p->TabIndex = 10;
 			this->Gender_p->Text = L"Gender :";
 			// 
@@ -578,7 +578,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->national_id_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->national_id_out->Location = System::Drawing::Point(179, 201);
+			this->national_id_out->Location = System::Drawing::Point(179, 213);
 			this->national_id_out->Name = L"national_id_out";
 			this->national_id_out->Size = System::Drawing::Size(190, 23);
 			this->national_id_out->TabIndex = 13;
@@ -591,7 +591,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->academic_year_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
 				static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->academic_year_out->Location = System::Drawing::Point(179, 262);
+			this->academic_year_out->Location = System::Drawing::Point(179, 304);
 			this->academic_year_out->Name = L"academic_year_out";
 			this->academic_year_out->Size = System::Drawing::Size(121, 31);
 			this->academic_year_out->TabIndex = 14;
@@ -604,7 +604,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->GPA_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->GPA_out->Location = System::Drawing::Point(180, 288);
+			this->GPA_out->Location = System::Drawing::Point(170, 351);
 			this->GPA_out->Name = L"GPA_out";
 			this->GPA_out->Size = System::Drawing::Size(43, 27);
 			this->GPA_out->TabIndex = 15;
@@ -617,7 +617,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Byte>(0)));
 			this->gender_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->gender_out->Location = System::Drawing::Point(180, 232);
+			this->gender_out->Location = System::Drawing::Point(180, 256);
 			this->gender_out->Name = L"gender_out";
 			this->gender_out->Size = System::Drawing::Size(120, 24);
 			this->gender_out->TabIndex = 16;
@@ -645,7 +645,6 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->flowLayoutPanel2->Size = System::Drawing::Size(425, 604);
 			this->flowLayoutPanel2->TabIndex = 21;
 			this->flowLayoutPanel2->WrapContents = false;
-			displayAllCourses();
 			// 
 			// label8
 			// 
@@ -657,7 +656,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label8->Location = System::Drawing::Point(24, 25);
 			this->label8->Margin = System::Windows::Forms::Padding(20, 21, 20, 20);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(230, 35);
+			this->label8->Size = System::Drawing::Size(297, 45);
 			this->label8->TabIndex = 19;
 			this->label8->Text = L"Current Courses";
 			// 
@@ -680,6 +679,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel11->Name = L"panel11";
 			this->panel11->Size = System::Drawing::Size(404, 573);
 			this->panel11->TabIndex = 20;
+			this->panel11->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel11_Paint);
 			// 
 			// pictureBox8
 			// 
@@ -693,7 +693,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			// 
 			// NavBar
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Honeydew;
 			this->ClientSize = System::Drawing::Size(1282, 562);
@@ -761,7 +761,7 @@ private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) 
 	gender_out->Text = Utils::toSysStr(currentStudent.getGender());
 	label1->Text= Utils::toSysStr(currentStudent.getUserName());
 	if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
-		pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
+	//	pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
 	}
 
 }
@@ -849,6 +849,8 @@ private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArg
 
 }
 private: System::Void panel8_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void panel11_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

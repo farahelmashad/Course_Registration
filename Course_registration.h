@@ -667,6 +667,8 @@
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			 this->ResumeLayout(false);
 			 this->PerformLayout();
+			 // click enter to search
+			 this->searchBar->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Course_registration::searchBar_KeyDown);
 
 		 }
 #pragma endregion
@@ -798,6 +800,15 @@ private: System::Void panel5_MouseEnter_1(System::Object^ sender, System::EventA
 	panel5->Cursor = Cursors::Hand;
 
 }
+	   // click enter to search
+ private: System::Void searchBar_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		   if (e->KeyCode == Keys::Enter) {
+
+			   search_Click(sender, e);
+			   e->Handled = true; 
+			   e->SuppressKeyPress = true; 
+		   }
+	   }
 private: System::Void panel5_MouseLeave_1(System::Object^ sender, System::EventArgs^ e) {
 	panel5->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	panel5->Cursor = Cursors::Hand;
