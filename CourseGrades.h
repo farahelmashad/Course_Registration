@@ -19,9 +19,9 @@ public:
 	void setCourseID(string courseID);
 	void setSemester(string semester);
 	void setGrade( char grade);
-	string getCourseID();
+	string getCourseID() const; 
 	string getSemester();
-	char getGrade();
+	char getGrade() const;
 	~CourseGrades();
 bool operator<(const CourseGrades& other) const {
     return courseID < other.courseID;

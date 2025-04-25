@@ -736,8 +736,8 @@ private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArg
 private: System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 }
 private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	course_pre^ pre = gcnew course_pre();
-	pre->ShowDialog();
+//	course_pre^ pre = gcnew course_pre();
+//	pre->ShowDialog();
 	this->Hide();
 	this->Close();
 }

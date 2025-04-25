@@ -170,7 +170,7 @@ set<string> Student::getCurrentCourses()
 	return currentCourses;
 }
 
-set<CourseGrades> Student::getCompletedCourses()
+set<CourseGrades>& Student::getCompletedCourses()
 {
 	return completedCourses;
 }

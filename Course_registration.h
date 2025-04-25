@@ -4,8 +4,8 @@
 #include"Utils.h"
 #include"FileManager.h"
 //#include"course_pre.h"
- ref class course_pre;
- ref class course_info;
+// ref class course_pre;
+// ref class course_info;
  namespace CourseRegistration {
 
 	 using namespace System;
@@ -394,7 +394,7 @@
 			 this->panel5->Size = System::Drawing::Size(253, 91);
 			 this->panel5->TabIndex = 5;
 			 this->panel5->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Course_registration::panel5_Paint_2);
-			 this->panel5->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::panel5_MouseClick);
+		//	 this->panel5->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::panel5_MouseClick);
 			 this->panel5->MouseEnter += gcnew System::EventHandler(this, &Course_registration::panel5_MouseEnter_1);
 			 this->panel5->MouseLeave += gcnew System::EventHandler(this, &Course_registration::panel5_MouseLeave_1);
 			 // 
@@ -778,13 +778,13 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void panel5_Paint_2(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
 }
-private: System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	course_pre^ cp = gcnew course_pre();
-	cp->ShowDialog();
-	this->Hide();
-	this->Close();
+//private: System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	//course_pre^ cp = gcnew course_pre();
+	//cp->ShowDialog();
+	//this->Hide();
+	//this->Close();
 
-}
+//}
 private: System::Void panel5_MouseEnter_1(System::Object^ sender, System::EventArgs^ e) {
 	panel5->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
 	panel5->Cursor = Cursors::Hand;

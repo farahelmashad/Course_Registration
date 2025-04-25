@@ -4,7 +4,7 @@
 #include"FileManager.h"
 //#include "course_pre.h"
 
- ref class Course_registration;
+// ref class Course_registration;
 
 
 
@@ -356,7 +356,7 @@ namespace CourseRegistration {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(253, 100);
 			this->panel2->TabIndex = 1;
-			this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel2_MouseClick);
+		//	this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel2_MouseClick);
 			this->panel2->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel2_MouseEnter);
 			this->panel2->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel2_MouseLeave);
 			// 
@@ -497,7 +497,7 @@ namespace CourseRegistration {
 			this->panel7->Name = L"panel7";
 			this->panel7->Size = System::Drawing::Size(253, 93);
 			this->panel7->TabIndex = 18;
-			this->panel7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel7_MouseClick);
+		//	this->panel7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel7_MouseClick);
 			this->panel7->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel7_MouseEnter);
 			this->panel7->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel7_MouseLeave);
 			// 
@@ -639,20 +639,20 @@ private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArg
 	panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	panel7->Cursor = Cursors::Hand;
 }
-private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	Course_registration^ cg5 = gcnew Course_registration();
-	cg5->ShowDialog();
-	this->Hide();
-	this->Close();
+//private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	//Course_registration^ cg5 = gcnew Course_registration();
+//	cg5->ShowDialog();
+	//this->Hide();
+	//this->Close();
 
 
-}
-private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-    course_pre^ pr5 = gcnew course_pre();
-	pr5->ShowDialog();
-	this->Hide();
-	this->Close();
+//}
+ //private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    //course_pre^ pr5 = gcnew course_pre();
+	//pr5->ShowDialog();
+	//this->Hide();
+	//this->Close();
 
-}
+//}
 };
 }

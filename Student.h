@@ -38,7 +38,7 @@ public:
 	char getGender();
 	int getAcademicYear();
 	set<string> getCurrentCourses();
-	set<CourseGrades> getCompletedCourses();
+	set<CourseGrades>&getCompletedCourses();
 	~Student();
 	//Student methods:
 	void SearchCourses();

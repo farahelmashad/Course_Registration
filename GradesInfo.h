@@ -1,5 +1,10 @@
 #pragma once
 #include "Course_Registration.h"
+#include"FileManager.h"
+#include <map>
+#include "GradesWrapper.h"
+#include "Utils.h"
+
 
 namespace CourseRegistration {
 
@@ -12,13 +17,16 @@ namespace CourseRegistration {
 
 	public ref class GradesInfo : public System::Windows::Forms::Form
 	{
+	private:
+		int studentID;        
+		String^ courseID;
 	public:
-		GradesInfo(void)
+		GradesInfo(int studentID, String^ courseID)
 		{
+			this->studentID = studentID;
+			this->courseID = courseID;
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			LoadCourseInfo();
 		}
 
 	protected:
@@ -33,41 +41,41 @@ namespace CourseRegistration {
 			}
 		}
 	private:
-		System::Windows::Forms::FlowLayoutPanel^ nav_panel;
-		System::Windows::Forms::Panel^ user_panel;
-		System::Windows::Forms::Label^ user_text;
-		System::Windows::Forms::PictureBox^ user_pic;
-		System::Windows::Forms::Label^ admin_text;
-		System::Windows::Forms::Panel^ upload_panel;
-		System::Windows::Forms::Label^ upload_text;
-		System::Windows::Forms::Panel^ pre_panel;
-		System::Windows::Forms::Label^ pre_text;
-		System::Windows::Forms::Panel^ manage_panel;
-		System::Windows::Forms::Label^ manage_text;
-		System::Windows::Forms::PictureBox^ logo_Pic;
-		System::Windows::Forms::PictureBox^ upload_pic;
-		System::Windows::Forms::PictureBox^ pre_pic;
-		System::Windows::Forms::PictureBox^ manage_pic;
+	System::Windows::Forms::FlowLayoutPanel^ nav_panel;
+	System::Windows::Forms::Panel^ user_panel;
+	System::Windows::Forms::Label^ user_text;
+	System::Windows::Forms::PictureBox^ user_pic;
+	System::Windows::Forms::Label^ admin_text;
+	System::Windows::Forms::Panel^ upload_panel;
+	System::Windows::Forms::Label^ upload_text;
+	System::Windows::Forms::Panel^ pre_panel;
+	System::Windows::Forms::Label^ pre_text;
+	System::Windows::Forms::Panel^ manage_panel;
+	System::Windows::Forms::Label^ manage_text;
+	System::Windows::Forms::PictureBox^ logo_Pic;
+	System::Windows::Forms::PictureBox^ upload_pic;
+	System::Windows::Forms::PictureBox^ pre_pic;
+	System::Windows::Forms::PictureBox^ manage_pic;
 
-		System::Windows::Forms::Label^ grades_info;
+	System::Windows::Forms::Label^ grades_info;
 
-		System::Windows::Forms::Panel^ gradeinfo_panel;
-		System::Windows::Forms::Label^ instructor_name;
-		System::Windows::Forms::Label^ std_grade_text;
-		System::Windows::Forms::Label^ separate_line;
-		System::Windows::Forms::Label^ syllabus;
-		System::Windows::Forms::Label^ hours_out;
-		System::Windows::Forms::Label^ ch;
-		System::Windows::Forms::Label^ courseid_out;
-		System::Windows::Forms::Label^ coursename_out;
-		System::Windows::Forms::PictureBox^ book_pic;
-		System::Windows::Forms::Label^ newgrade_text;
+	System::Windows::Forms::Panel^ gradeinfo_panel;
+	System::Windows::Forms::Label^ instructor_name;
+	System::Windows::Forms::Label^ std_grade_text;
+	System::Windows::Forms::Label^ separate_line;
+	System::Windows::Forms::Label^ syllabus;
+	System::Windows::Forms::Label^ hours_out;
+	System::Windows::Forms::Label^ ch;
+	System::Windows::Forms::Label^ courseid_out;
+	System::Windows::Forms::Label^ coursename_out;
+	System::Windows::Forms::PictureBox^ book_pic;
+	System::Windows::Forms::Label^ newgrade_text;
 
-		System::Windows::Forms::Button^ submit_button;
-		System::Windows::Forms::TextBox^ new_grade;
-	private: System::Windows::Forms::Label^ stud_grade;
+	System::Windows::Forms::Button^ submit_button;
+	System::Windows::Forms::TextBox^ new_grade;
+	System::Windows::Forms::Label^ stud_grade;
 
-		   System::ComponentModel::Container^ components;
+	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
@@ -370,6 +378,7 @@ namespace CourseRegistration {
 			   this->submit_button->TabIndex = 24;
 			   this->submit_button->Text = L"Submit";
 			   this->submit_button->UseVisualStyleBackColor = false;
+			   this->submit_button->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &GradesInfo::submit_button_MouseClick);
 			   // 
 			   // newgrade_text
 			   // 
@@ -544,7 +553,79 @@ namespace CourseRegistration {
 			new_grade->Focus();
 		}
 	}
-	
-	};
-}
+	private: void GradesInfo::LoadCourseInfo() {
 
+	   std::string stdCourseCode = Utils::toStdString(courseID);
+
+		   // SIMPLE WORKING VERSION
+		   for (auto& studentPair : students) {
+			   if (studentPair.first == studentID) {
+				   for (auto& completedCourse : studentPair.second.getCompletedCourses()) {
+					   if (completedCourse.getCourseID() == stdCourseCode) {
+						   courseid_out->Text = Utils::toSysStr(completedCourse.getCourseID());
+						   coursename_out->Text = Utils::toSysStr(courses[stdCourseCode].getCourseName());
+						   stud_grade->Text = Utils::toSysStr(completedCourse.getGrade());
+						   return;
+					   }
+				   }
+			   break;
+			   }
+			  }
+			   // If we get here, student/course wasn't found
+			   courseid_out->Text = "N/A";
+			   coursename_out->Text = "Student not found!";
+			   stud_grade->Text = "N/A";
+	}
+
+private: System::Void submit_button_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+
+	String^ gradeInput = new_grade->Text;
+
+	if (String::IsNullOrWhiteSpace(gradeInput)) {
+		MessageBox::Show("Grade cannot be empty or whitespace.", "Invalid Input", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+
+	std::string gradeStr = msclr::interop::marshal_as<std::string>(gradeInput);
+
+	if (!(gradeStr == "A" || gradeStr == "B" || gradeStr == "C" || gradeStr == "D" || gradeStr == "F")) {
+		MessageBox::Show("Invalid grade entered. Acceptable grades: A, B, C, D, F", "Invalid Grade", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+
+	std::string stdCourseCode = Utils::toStdString(courseID);
+	char gradeChar = gradeStr.length() > 0 ? gradeStr[0] : ' ';
+
+	for (auto& studentPair : students) {
+		if (studentPair.first == studentID) {
+			// Get non-const reference to courses
+			auto& courses = studentPair.second.getCompletedCourses();
+
+			// Find and update the course
+			for (auto it = courses.begin(); it != courses.end(); ++it) {
+				if (it->getCourseID() == stdCourseCode) {
+					// Create modified copy
+					CourseGrades updated = *it;
+					updated.setGrade(gradeChar);
+
+					// Replace in set (required for std::set)
+					courses.erase(it);
+					courses.insert(updated);
+
+					// Force map update
+					studentPair.second = studentPair.second;
+
+					MessageBox::Show("Grade updated in memory!\n"
+						"Remember to save before exiting.",
+						"Success",
+						MessageBoxButtons::OK,
+						MessageBoxIcon::Information);
+					return;
+				}
+			}
+			break;
+		}
+	}
+}
+};
+}

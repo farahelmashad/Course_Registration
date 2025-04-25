@@ -34,9 +34,10 @@ void CourseGrades::setGrade(char grade)
 	this->grade = grade;
 }
 
-string CourseGrades::getCourseID()
+string CourseGrades::getCourseID() const
 {
 	return courseID;
+	
 }
 
 string CourseGrades::getSemester()
@@ -44,7 +45,7 @@ string CourseGrades::getSemester()
 	return semester;
 }
 
-char CourseGrades::getGrade()
+char CourseGrades::getGrade() const
 {
 	return grade;
 }
