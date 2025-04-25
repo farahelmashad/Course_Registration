@@ -154,6 +154,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="Login_SignUp_Helper.h" />
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>

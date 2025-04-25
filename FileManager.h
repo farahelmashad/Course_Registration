@@ -7,16 +7,19 @@
 #include"Course.h"
 #include"CourseGrades.h"
 #include"Admin.h"
+class Course;
+class Student;
 using namespace std;
 
 extern vector<Admin> admins;
-extern map<int,Student> students;
+extern map<int, Student> students;
 extern map<string, Course> courses;
 extern Student currentStudent;
 
 
 class FileManager
-{   public:
+{
+public:
 	void readAdmins(string filename);
 	void readStudents(string filename);
 	void readCourses(string filename);
@@ -25,4 +28,3 @@ class FileManager
 	void FileManager::writeAdmins(string filename);
 
 };
-

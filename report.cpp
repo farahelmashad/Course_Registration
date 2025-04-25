@@ -1,218 +1,3 @@
-//#include "report.h"
-//#include "Student.h"	
-//#include "Course.h"
-//#include "Studentlogin.h"
-//#include <map>
-//#include <vector> 
-//#include <set> 
-//#include <string>   
-//#include <msclr/marshal_cppstd.h>
-//using namespace std;
-//using namespace System;
-//using namespace System::Windows::Forms;
-//using namespace System::Drawing;
-//using namespace System::Drawing::Printing;
-//using namespace CourseRegistration;
-//report::report(void)
-//{
-//    // Create dummy student
-//    Student* dummyStudent = new Student();
-//    dummyStudent->setUsername("Test Student");
-//    dummyStudent->setStudentID(999999);  // Note this ID
-//
-//    // Create dummy grades
-//    std::set<CourseGrades> dummyGrades;
-//    dummyGrades.insert(CourseGrades(
-//        999999,     // Must match student ID
-//        "CSC101",
-//        "Fall 2023",
-//        'A'
-//    ));
-//    dummyGrades.insert(CourseGrades(999999, "PHY301", "Spring 2024", 'B'));
-//    dummyGrades.insert(CourseGrades(999999, "MKT101", "Fall 2023", 'C'));
-//
-//    dummyStudent->setCompletedCourses(dummyGrades);
-//}
-//	//InitializeComponent(); // Initialize UI components
-//	// LoadStudentReport();   // Load the report data
-//
-//report::report(Student* student) : studentPtr(student) {
-//	InitializeComponent(); // Initialize UI components
-//	LoadStudentReport();   // Load the report data
-//}
-//report::~report()
-//{
-//	throw gcnew System::NotImplementedException();
-//}
-//Course getCourseById(const string& courseID) {
-//	return Course(courseID, "Course_" + courseID, 3, "Syllabus", "Instructor");
-//}
-//double report::CalculateCGPA(const set<CourseGrades>& coursesSet) {
-//    if (courses.empty()) return 0.0;
-//
-//    double totalPoints = 0.0;
-//    int totalCourses = 0;
-//
-//    // Map letter grades to grade points
-//    {
-//        for (CourseGrades& courseGrade : courses){
-//            char grade = courseGrade.getGrade();
-//        double gradePoint = 0.0;
-//
-//        // Assuming standard grading scale: A=4.0, B=3.0, C=2.0, D=1.0, F=0.0
-//        switch (grade) {
-//        case 'A': gradePoint = 4.0; break;
-//        case 'B': gradePoint = 3.0; break;
-//        case 'C': gradePoint = 2.0; break;
-//        case 'D': gradePoint = 1.0; break;
-//        case 'F': gradePoint = 0.0; break;
-//        default: continue; // Skip if grade is invalid or not set
-//        }
-//
-//        totalPoints += gradePoint;
-//        totalCourses++;
-//    }
-//
-//    // Calculate CGPA
-//    return totalCourses > 0 ? totalPoints / totalCourses : 0.0;
-//}
-//void report::LoadStudentReport() {
-//    if (!studentPtr) {
-//        MessageBox::Show("No student data provided.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-//        return;
-//    }
-//
-//    // Set student name and ID labels
-//    StNamelbl->Text = "Student Name: " + gcnew String(studentPtr->getUserName().c_str());
-//    StIDlbl->Text = "Student ID: " + studentPtr->getStudentID().ToString();
-//    const std::set<CourseGrades>& completedCourses = studentPtr->getCompletedCourses();
-//    double cgpa = CalculateCGPA(completedCourses);
-//    CGPAlbl->Text = "CGPA: " + cgpa.ToString("F2");
-//    // Clear previous content
-//    ReportflowLayoutPanel->Controls->Clear();
-//
-//    // Get completed courses
-//    const std::set<CourseGrades>& completedCourses = studentPtr->getCompletedCourses();
-//    if (completedCourses.empty()) {
-//        Label^ noCoursesLabel = gcnew Label();
-//        noCoursesLabel->Text = "No completed courses.";
-//        noCoursesLabel->AutoSize = true;
-//        noCoursesLabel->Font = gcnew Drawing::Font("Bahnschrift", 12);
-//        ReportflowLayoutPanel->Controls->Add(noCoursesLabel);
-//        return;
-//    }
-//
-//    // Group courses by semester
-//    std::map<std::string, std::vector<CourseGrades>> semesterCourses;
-//    //   for (const CourseGrades& courseGrade : completedCourses) {
-//    //       CourseGrades& nonConstGrade = const_cast<CourseGrades&>(courseGrade);
-//    //       semesterCourses[nonConstGrade.getSemester()].push_back(nonConstGrade);
-//    //   }
-//
-//    //   // Iterate through each semester
-//    //   for (const auto& semesterEntry : semesterCourses) {
-//    //       const std::string& semester = semesterEntry.first;
-//    //       const std::vector<CourseGrades>& courses = semesterEntry.second;
-//
-//    //       // Add semester header
-//    //      Panel^ Sempanel = gcnew Panel();
-//    //       Label^ semesterLabel = gcnew Label();
-//    //       semesterLabel->Text = "Semester:   " + gcnew String(semester.c_str());
-//    //       semesterLabel->AutoSize = true;
-//    //       semesterLabel->Font = gcnew Drawing::Font("Bahnschrift", 14, Drawing::FontStyle::Bold);
-//    //       /*  semesterLabel->Margin = Padding(0, 10, 0, 5);*/
-//    //       Sempanel->Controls->Add(semesterLabel);
-//    //       ReportflowLayoutPanel->Controls->Add(Sempanel);
-//
-//    //       // Add table header
-//    //       // Use a monospaced font for alignment
-//    //       /*Label^ headerLabel = gcnew Label();
-//    //       headerLabel->Text = "Course ID       | Course Name              | Grade";
-//    //       headerLabel->AutoSize = true;
-//    //       headerLabel->Font = gcnew Drawing::Font("Consolas", 12, Drawing::FontStyle::Underline);
-//    //       ReportflowLayoutPanel->Controls->Add(headerLabel);*/
-//
-//    //       // Add courses for this semester
-//    //       for (const CourseGrades& courseGrade : courses) {
-//    //           CourseGrades& nonConstGrade = const_cast<CourseGrades&>(courseGrade);
-//    //           std::string courseID = nonConstGrade.getCourseID();
-//    //           Course course = getCourseById(courseID);
-//    //           String^ courseName = gcnew String(course.getCourseName().c_str());
-//    //           char gradeChar = nonConstGrade.getGrade();
-//    //           if (gradeChar == '\0') gradeChar = '-';  // Handle missing grades
-//    //           String^ grade = gcnew String(&gradeChar, 0, 1);  // Correct conversion
-//    //           // Create formatted course info line
-//       //		Panel^ coursePanel = gcnew Panel();
-//    //           Label^ courseLabel = gcnew Label();
-//    //           Label^ Glbl = gcnew Label();
-//    //           courseLabel->Text = String::Format("{0,-15} | {1,-25} | {2}",
-//    //               gcnew String(courseID.c_str()), courseName, grade);
-//    //           courseLabel->AutoSize = true;
-//    //           courseLabel->Font = gcnew Drawing::Font("Consolas", 12);
-//    //       coursePanel->Controls->Add(courseLabel);
-//    //       ReportflowLayoutPanel->Controls->Add(coursePanel);
-//    //       }
-//       //}	
-//    std::string currentSemester = ""; // Track the current semester
-//    Panel^ semPanel = nullptr; // Hold the current semester panel
-//
-//    for (const CourseGrades& courseGrade : completedCourses) {
-//        CourseGrades& nonConstGrade = const_cast<CourseGrades&>(courseGrade);
-//        std::string courseID = nonConstGrade.getCourseID();
-//        Course course = getCourseById(courseID);
-//        std::string semester = nonConstGrade.getSemester();
-//
-//        // Create a new semester panel only if the semester changes
-//        if (semester != currentSemester) {
-//            currentSemester = semester;
-//
-//            semPanel = gcnew Panel();
-//            semPanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-//            semPanel->Size = System::Drawing::Size(854, 164);
-//            semPanel->Name = L"Sempanel";
-//
-//            // Add semester label
-//            Label^ semLabel = gcnew Label();
-//            semLabel->AutoSize = true;
-//            semLabel->Text = "Semester: " + gcnew String(currentSemester.c_str());
-//            semLabel->Location = System::Drawing::Point(29, 6);
-//            semLabel->Font = gcnew System::Drawing::Font("Bahnschrift", 14, System::Drawing::FontStyle::Bold);
-//            semPanel->Controls->Add(semLabel);
-//
-//            // Add semester panel to flow layout
-//            ReportflowLayoutPanel->Controls->Add(semPanel);
-//        }
-//
-//        // Create course panel
-//        Panel^ coursePanel = gcnew Panel();
-//        coursePanel->Location = System::Drawing::Point(19, 38 + (semPanel->Controls->Count - 1) * 70); // Adjust position for each course
-//        coursePanel->Size = System::Drawing::Size(684, 64);
-//
-//        // Create and add course name label
-//        Label^ cnLabel = gcnew Label();
-//        cnLabel->AutoSize = true;
-//        cnLabel->Text = gcnew String(course.getCourseName().c_str());
-//        cnLabel->Location = System::Drawing::Point(31, 13);
-//        cnLabel->Font = gcnew System::Drawing::Font("Consolas", 12);
-//        coursePanel->Controls->Add(cnLabel);
-//
-//        // Create and add grade label
-//        Label^ gradeLabel = gcnew Label();
-//        char gradeChar = nonConstGrade.getGrade();
-//        if (gradeChar == '\0') gradeChar = '-';
-//        gradeLabel->Text = gcnew String(&gradeChar, 0, 1);
-//        gradeLabel->AutoSize = true;
-//        gradeLabel->Location = System::Drawing::Point(366, 13);
-//        gradeLabel->Font = gcnew System::Drawing::Font("Consolas", 12);
-//        coursePanel->Controls->Add(gradeLabel);
-//
-//        // Add course panel to the current semester panel
-//        semPanel->Controls->Add(coursePanel);
-//
-//        // Dynamically adjust the semester panel height based on the number of courses
-//        semPanel->Size = System::Drawing::Size(854, 64 + (semPanel->Controls->Count - 1) * 70);
-//    }
-//}
 #include "report.h"
 #include "Student.h"
 #include "Course.h"
@@ -223,6 +8,7 @@
 #include <set>
 #include <string>
 #include <msclr/marshal_cppstd.h>
+#include"FileManager.h"
 
 using namespace std;
 using namespace System;
@@ -231,16 +17,16 @@ using namespace System::Drawing;
 using namespace System::Drawing::Printing;
 using namespace CourseRegistration;
 using namespace std;
-
+//extern Student studentPtr = &currentStudent;
 report::report(void) {
     InitializeComponent();
     LoadStudentReport();
 }
 
-report::report(Student* student) : studentPtr(student) {
-    InitializeComponent();
-    LoadStudentReport();
-}
+//report::report(Student* student) : studentPtr(student) {
+//    InitializeComponent();
+//    LoadStudentReport();
+//}
 
 report::~report() {
    
@@ -248,12 +34,14 @@ report::~report() {
         delete studentPtr;
         studentPtr = nullptr;
     }*/
+
 }
 
 Course getCourseById(const string& courseID) {
     return Course(courseID, "Course_" + courseID, 3, "Syllabus", "Instructor");
 
 }
+
 Void report::printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
     // Define fonts for printing
     System::Drawing::Font^ headerFont = gcnew System::Drawing::Font("Bahnschrift", 14, FontStyle::Bold);
@@ -279,7 +67,7 @@ Void report::printReportDocument_PrintPage(System::Object^ sender, System::Drawi
     y += lineHeight * 2; // Extra space before semester sections
 
     // Group courses by semester (same logic as LoadStudentReport)
-    const set<CourseGrades>& completedCourses = studentPtr->getCompletedCourses();
+    const set<CourseGrades>& completedCourses = currentStudent.getCompletedCourses();
     map<string, vector<CourseGrades>> semesterCourses;
     vector<CourseGrades> nonConstCourses(completedCourses.begin(), completedCourses.end());
     for (CourseGrades& courseGrade : nonConstCourses) {
@@ -359,19 +147,19 @@ double report::CalculateCGPA(const set<CourseGrades>& courseID) {
 }
 
 void report::LoadStudentReport() {
-    if (!studentPtr) {
+   /* if (!studentPtr) {
         MessageBox::Show("No student data provided.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
-    }
+    }*/
 
     // Set student info
-    StNamelbl->Text = "Student Name: " + gcnew String(studentPtr->getUserName().c_str());
-    StIDlbl->Text = "Student ID: " + studentPtr->getStudentID().ToString();
+    StNamelbl->Text = "Student Name: " + gcnew String(currentStudent.getUserName().c_str());
+    StIDlbl->Text = "Student ID: " + currentStudent.getStudentID().ToString();
 
     // Clear previous content
     ReportflowLayoutPanel->Controls->Clear();
 
-    const set<CourseGrades>& completedCourses = studentPtr->getCompletedCourses();
+    const set<CourseGrades>& completedCourses = currentStudent.getCompletedCourses();
 
     // Calculate and display CGPA
     double cgpa = CalculateCGPA(completedCourses);
@@ -400,7 +188,7 @@ void report::LoadStudentReport() {
 
         // Create semester panel
         Panel^ semPanel = gcnew Panel();
-        semPanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+        semPanel->BackColor = System::Drawing::Color::Honeydew;
         semPanel->Size = System::Drawing::Size(854, 164);
         semPanel->Name = L"Sempanel";
 
@@ -409,12 +197,12 @@ void report::LoadStudentReport() {
         semLabel->AutoSize = true;
         semLabel->Text = "Semester: " + gcnew String(semester.c_str());
         semLabel->Location = System::Drawing::Point(29, 6);
-        semLabel->Font = gcnew Drawing::Font("Bahnschrift", 14, FontStyle::Bold);
+        semLabel->Font = gcnew Drawing::Font("Bahnschrift", 16, FontStyle::Bold);
         semPanel->Controls->Add(semLabel);
            // Add course panels
            int yPos = 38;
         for (CourseGrades& courseGrade : courses) { 
- // Non-const reference
+           // Non-const reference
             Panel^ coursePanel = gcnew Panel();
             coursePanel->Location = System::Drawing::Point(19, yPos);
             coursePanel->Size = System::Drawing::Size(684, 64);
@@ -424,7 +212,7 @@ void report::LoadStudentReport() {
             cnLabel->AutoSize = true;
             cnLabel->Text = gcnew String(getCourseById(courseGrade.getCourseID()).getCourseName().c_str());
             cnLabel->Location = System::Drawing::Point(31, 13);
-            cnLabel->Font = gcnew Drawing::Font("Consolas", 12);
+            cnLabel->Font = gcnew Drawing::Font("Bahnschrift", 14, FontStyle::Bold);
             coursePanel->Controls->Add(cnLabel);
 
             // Grade label
@@ -433,8 +221,46 @@ void report::LoadStudentReport() {
             if (gradeChar == '\0') gradeChar = '-';
             gradeLabel->Text = gcnew String(&gradeChar, 0, 1);
             gradeLabel->AutoSize = true;
-            gradeLabel->Location = System::Drawing::Point(366, 13);
-            gradeLabel->Font = gcnew Drawing::Font("Consolas", 12);
+            gradeLabel->Location = System::Drawing::Point(366, 9);
+            gradeLabel->Font = gcnew Drawing::Font("Bahnschrift", 18, FontStyle::Bold);
+            
+            if ( gradeChar == 'A') {
+                gradeLabel->ForeColor = Color::FromArgb(0, 128, 0);
+            }
+            //else if (gradeChar == 'A-') {
+            //    gradeLabel->ForeColor = Color::FromArgb(50, 205, 50);
+            //     System::Diagnostics::Debug::WriteLine("C grade detected - color set"); // Debug
+            //}
+            else if ( gradeChar =='B') {
+                gradeLabel->ForeColor = Color::FromArgb(154, 205, 50);
+                System::Diagnostics::Debug::WriteLine("B grade detected - color set"); // Debug
+            }
+            /*else if (gradeChar == 'B-') {
+                gradeLabel->ForeColor = Color::FromArgb(255, 215, 0);  
+            }*/
+            else if (gradeChar == 'C') {
+                
+                gradeLabel->ForeColor = Color::FromArgb(255, 140, 0);
+                System::Diagnostics::Debug::WriteLine("C grade detected - color set"); // Debug
+            }
+            //else if (gradeChar == 'C-') {
+            //   gradeLabel->ForeColor = Color::FromArgb(255, 69, 0);  
+            //   System::Diagnostics::Debug::WriteLine("C grade detected - color set"); // Debug
+            //}
+            else if (gradeChar == 'D') {
+                gradeLabel->ForeColor = Color::FromArgb(220, 20, 60);  // Crimson
+            }
+            else if (gradeChar == 'F' ) {
+                gradeLabel->ForeColor = Color::FromArgb(178, 34, 34);
+                System::Diagnostics::Debug::WriteLine("F grade detected - color set"); // Debug
+            }
+            else if (gradeChar == 'W') {
+                    gradeLabel->ForeColor = Color::FromArgb(128, 128, 128);  
+            }
+            else {
+                gradeLabel->ForeColor = Color::FromArgb(32, 42, 68); // Your dark blue color
+            }
+
             coursePanel->Controls->Add(gradeLabel);
 
             semPanel->Controls->Add(coursePanel);

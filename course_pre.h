@@ -1,4 +1,12 @@
 #pragma once
+//#include"Course_registration.h"
+#include"Utils.h"
+#include"FileManager.h"
+//#include "course_pre.h"
+
+ref class Course_registration;
+ref class NavBar;
+
 
 namespace CourseRegistration {
 
@@ -22,7 +30,8 @@ namespace CourseRegistration {
 			//TODO: Add the constructor code here
 			//
 		}
-
+		void CreateCoursesPanel(Course course, Random^ rand);
+		void DisplayAllCourses(map<string, Course> courses);
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -34,10 +43,42 @@ namespace CourseRegistration {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+
 	protected:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ course_i;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ search;
+	private: System::Windows::Forms::TextBox^ textpre;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+	private: System::Windows::Forms::Panel^ course_lay;
+
+
+
+	private: System::Windows::Forms::PictureBox^ pictureBox8;
+	private: System::Windows::Forms::Label^ course_nameout;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel3;
+	private: System::Windows::Forms::Label^ course_pre_out;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Panel^ panel2;
@@ -55,19 +96,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Panel^ panel7;
 	private: System::Windows::Forms::Label^ check_pre;
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
-	private: System::Windows::Forms::Label^ course_i;
-	private: System::Windows::Forms::PictureBox^ pictureBox5;
-	private: System::Windows::Forms::PictureBox^ search;
-	private: System::Windows::Forms::TextBox^ textpre;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
-	private: System::Windows::Forms::Panel^ course_lay;
-
-
-
-	private: System::Windows::Forms::PictureBox^ pictureBox8;
-	private: System::Windows::Forms::Label^ course_nameout;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel3;
-	private: System::Windows::Forms::Label^ course_pre_out;
+		   System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 
 	protected:
@@ -89,7 +118,7 @@ namespace CourseRegistration {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -99,9 +128,18 @@ namespace CourseRegistration {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(course_pre::typeid));
+			this->course_i = (gcnew System::Windows::Forms::Label());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->search = (gcnew System::Windows::Forms::PictureBox());
+			this->textpre = (gcnew System::Windows::Forms::TextBox());
+			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->course_lay = (gcnew System::Windows::Forms::Panel());
+			this->flowLayoutPanel3 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->course_pre_out = (gcnew System::Windows::Forms::Label());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->course_nameout = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -119,16 +157,11 @@ namespace CourseRegistration {
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->check_pre = (gcnew System::Windows::Forms::Label());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
-			this->course_i = (gcnew System::Windows::Forms::Label());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->search = (gcnew System::Windows::Forms::PictureBox());
-			this->textpre = (gcnew System::Windows::Forms::TextBox());
-			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->course_lay = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
-			this->course_nameout = (gcnew System::Windows::Forms::Label());
-			this->flowLayoutPanel3 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->course_pre_out = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->BeginInit();
+			this->course_lay->SuspendLayout();
+			this->flowLayoutPanel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -142,13 +175,127 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->BeginInit();
-			this->flowLayoutPanel2->SuspendLayout();
-			this->course_lay->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
-			this->flowLayoutPanel3->SuspendLayout();
 			this->SuspendLayout();
+			// 
+			// course_i
+			// 
+			this->course_i->AutoSize = true;
+			this->course_i->BackColor = System::Drawing::Color::Transparent;
+			this->course_i->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->course_i->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->course_i->Location = System::Drawing::Point(678, 25);
+			this->course_i->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->course_i->Name = L"course_i";
+			this->course_i->Size = System::Drawing::Size(403, 52);
+			this->course_i->TabIndex = 23;
+			this->course_i->Text = L"Course prerequisite";
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			this->pictureBox5->Location = System::Drawing::Point(1068, 5);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(64, 50);
+			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox5->TabIndex = 24;
+			this->pictureBox5->TabStop = false;
+			// 
+			// search
+			// 
+			this->search->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->search->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.Image")));
+			this->search->Location = System::Drawing::Point(1018, 79);
+			this->search->Margin = System::Windows::Forms::Padding(2);
+			this->search->Name = L"search";
+			this->search->Size = System::Drawing::Size(44, 37);
+			this->search->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->search->TabIndex = 26;
+			this->search->TabStop = false;
+			this->search->Click += gcnew System::EventHandler(this, &course_pre::search_Click);
+			// 
+			// textpre
+			// 
+			this->textpre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textpre->Location = System::Drawing::Point(702, 79);
+			this->textpre->Margin = System::Windows::Forms::Padding(2);
+			this->textpre->Multiline = true;
+			this->textpre->Name = L"textpre";
+			this->textpre->Size = System::Drawing::Size(304, 37);
+			this->textpre->TabIndex = 25;
+			// 
+			// flowLayoutPanel2
+			// 
+			this->flowLayoutPanel2->AutoScroll = true;
+			this->flowLayoutPanel2->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(373, 151);
+			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(2);
+			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+			this->flowLayoutPanel2->Size = System::Drawing::Size(1120, 615);
+			this->flowLayoutPanel2->TabIndex = 22;
+			// 
+			// course_lay
+			// 
+			this->course_lay->BackColor = System::Drawing::Color::MidnightBlue;
+			this->course_lay->Controls->Add(this->flowLayoutPanel3);
+			this->course_lay->Controls->Add(this->pictureBox8);
+			this->course_lay->Controls->Add(this->course_nameout);
+			this->course_lay->Location = System::Drawing::Point(2, 2);
+			this->course_lay->Margin = System::Windows::Forms::Padding(2);
+			this->course_lay->Name = L"course_lay";
+			this->course_lay->Size = System::Drawing::Size(169, 207);
+			this->course_lay->TabIndex = 0;
+			// 
+			// flowLayoutPanel3
+			// 
+			this->flowLayoutPanel3->Controls->Add(this->course_pre_out);
+			this->flowLayoutPanel3->Location = System::Drawing::Point(2, 126);
+			this->flowLayoutPanel3->Margin = System::Windows::Forms::Padding(2);
+			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
+			this->flowLayoutPanel3->Size = System::Drawing::Size(151, 46);
+			this->flowLayoutPanel3->TabIndex = 13;
+			// 
+			// course_pre_out
+			// 
+			this->course_pre_out->AutoSize = true;
+			this->course_pre_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->course_pre_out->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->course_pre_out->Location = System::Drawing::Point(2, 0);
+			this->course_pre_out->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->course_pre_out->Name = L"course_pre_out";
+			this->course_pre_out->Size = System::Drawing::Size(72, 21);
+			this->course_pre_out->TabIndex = 10;
+			this->course_pre_out->Text = L"calculus";
+			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+			this->pictureBox8->Location = System::Drawing::Point(24, 3);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(119, 74);
+			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox8->TabIndex = 1;
+			this->pictureBox8->TabStop = false;
+			// 
+			// course_nameout
+			// 
+			this->course_nameout->AutoSize = true;
+			this->course_nameout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->course_nameout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->course_nameout->Location = System::Drawing::Point(44, 89);
+			this->course_nameout->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->course_nameout->Name = L"course_nameout";
+			this->course_nameout->Size = System::Drawing::Size(79, 22);
+			this->course_nameout->TabIndex = 0;
+			this->course_nameout->Text = L"Discrete";
 			// 
 			// flowLayoutPanel1
 			// 
@@ -164,65 +311,59 @@ namespace CourseRegistration {
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 622);
-			this->flowLayoutPanel1->TabIndex = 2;
+			this->flowLayoutPanel1->Size = System::Drawing::Size(295, 730);
+			this->flowLayoutPanel1->TabIndex = 27;
 			// 
 			// panel1
 			// 
-			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(237, 178);
+			this->panel1->Size = System::Drawing::Size(295, 219);
 			this->panel1->TabIndex = 0;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(8, 150);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(89, 18);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"User/Admin";
+			this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel1_MouseClick);
+			this->panel1->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel1_MouseEnter);
+			this->panel1->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel1_MouseLeave);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(64, 99);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(86, 144);
+			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(73, 16);
+			this->label1->Size = System::Drawing::Size(130, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"User name";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(27, 4);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox1->Location = System::Drawing::Point(74, 0);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(165, 91);
+			this->pictureBox1->Size = System::Drawing::Size(148, 139);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
 			// panel2
 			// 
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel2->Controls->Add(this->label3);
 			this->panel2->Controls->Add(this->pictureBox2);
-			this->panel2->Location = System::Drawing::Point(0, 178);
+			this->panel2->Location = System::Drawing::Point(0, 219);
 			this->panel2->Margin = System::Windows::Forms::Padding(0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(234, 100);
+			this->panel2->Size = System::Drawing::Size(295, 123);
 			this->panel2->TabIndex = 1;
+			this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_pre::panel2_MouseClick);
+			this->panel2->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel2_MouseEnter);
+			this->panel2->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel2_MouseLeave);
 			// 
 			// label3
 			// 
@@ -230,7 +371,8 @@ namespace CourseRegistration {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(60, 40);
+			this->label3->Location = System::Drawing::Point(70, 49);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(179, 23);
 			this->label3->TabIndex = 1;
@@ -238,26 +380,27 @@ namespace CourseRegistration {
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(5, 29);
+			this->pictureBox2->Location = System::Drawing::Point(4, 34);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(55, 39);
+			this->pictureBox2->Size = System::Drawing::Size(64, 48);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox2->TabIndex = 0;
 			this->pictureBox2->TabStop = false;
 			// 
 			// panel3
 			// 
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel3->Controls->Add(this->label4);
 			this->panel3->Controls->Add(this->pictureBox3);
-			this->panel3->Location = System::Drawing::Point(0, 278);
+			this->panel3->Location = System::Drawing::Point(0, 342);
 			this->panel3->Margin = System::Windows::Forms::Padding(0);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(234, 100);
+			this->panel3->Size = System::Drawing::Size(295, 123);
 			this->panel3->TabIndex = 2;
+			this->panel3->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel3_MouseEnter);
+			this->panel3->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel3_MouseLeave_1);
 			// 
 			// label4
 			// 
@@ -265,7 +408,8 @@ namespace CourseRegistration {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(60, 35);
+			this->label4->Location = System::Drawing::Point(77, 46);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(116, 23);
 			this->label4->TabIndex = 1;
@@ -273,38 +417,38 @@ namespace CourseRegistration {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(3, 26);
+			this->pictureBox3->Location = System::Drawing::Point(4, 32);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(57, 40);
+			this->pictureBox3->Size = System::Drawing::Size(66, 49);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox3->TabIndex = 0;
 			this->pictureBox3->TabStop = false;
 			// 
 			// panel4
 			// 
-			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel4->Controls->Add(this->panel6);
 			this->panel4->Controls->Add(this->label5);
 			this->panel4->Controls->Add(this->pictureBox4);
-			this->panel4->Location = System::Drawing::Point(0, 378);
+			this->panel4->Location = System::Drawing::Point(0, 465);
 			this->panel4->Margin = System::Windows::Forms::Padding(0);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(234, 91);
+			this->panel4->Size = System::Drawing::Size(295, 112);
 			this->panel4->TabIndex = 3;
 			// 
 			// panel6
 			// 
-			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel6->Controls->Add(this->label6);
 			this->panel6->Controls->Add(this->pictureBox6);
-			this->panel6->Location = System::Drawing::Point(-1, -1);
+			this->panel6->Location = System::Drawing::Point(0, 0);
 			this->panel6->Margin = System::Windows::Forms::Padding(0);
 			this->panel6->Name = L"panel6";
-			this->panel6->Size = System::Drawing::Size(234, 91);
+			this->panel6->Size = System::Drawing::Size(295, 112);
 			this->panel6->TabIndex = 4;
+			this->panel6->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel6_MouseEnter);
+			this->panel6->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel6_MouseLeave);
 			// 
 			// label6
 			// 
@@ -312,7 +456,8 @@ namespace CourseRegistration {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(63, 38);
+			this->label6->Location = System::Drawing::Point(74, 47);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(112, 23);
 			this->label6->TabIndex = 1;
@@ -320,12 +465,12 @@ namespace CourseRegistration {
 			// 
 			// pictureBox6
 			// 
-			this->pictureBox6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(3, 26);
+			this->pictureBox6->Location = System::Drawing::Point(4, 32);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(57, 41);
+			this->pictureBox6->Size = System::Drawing::Size(66, 50);
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox6->TabIndex = 0;
 			this->pictureBox6->TabStop = false;
@@ -336,7 +481,8 @@ namespace CourseRegistration {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(63, 38);
+			this->label5->Location = System::Drawing::Point(74, 47);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(112, 23);
 			this->label5->TabIndex = 1;
@@ -347,23 +493,25 @@ namespace CourseRegistration {
 			this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			this->pictureBox4->Location = System::Drawing::Point(3, 26);
+			this->pictureBox4->Location = System::Drawing::Point(4, 32);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(57, 41);
+			this->pictureBox4->Size = System::Drawing::Size(66, 50);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox4->TabIndex = 0;
 			this->pictureBox4->TabStop = false;
 			// 
 			// panel7
 			// 
-			this->panel7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel7->Controls->Add(this->check_pre);
 			this->panel7->Controls->Add(this->pictureBox7);
-			this->panel7->Location = System::Drawing::Point(0, 469);
+			this->panel7->Location = System::Drawing::Point(0, 577);
 			this->panel7->Margin = System::Windows::Forms::Padding(0);
 			this->panel7->Name = L"panel7";
-			this->panel7->Size = System::Drawing::Size(234, 91);
+			this->panel7->Size = System::Drawing::Size(295, 114);
 			this->panel7->TabIndex = 18;
+			this->panel7->MouseEnter += gcnew System::EventHandler(this, &course_pre::panel7_MouseEnter);
+			this->panel7->MouseLeave += gcnew System::EventHandler(this, &course_pre::panel7_MouseLeave);
 			// 
 			// check_pre
 			// 
@@ -371,7 +519,8 @@ namespace CourseRegistration {
 			this->check_pre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->check_pre->ForeColor = System::Drawing::Color::White;
-			this->check_pre->Location = System::Drawing::Point(63, 38);
+			this->check_pre->Location = System::Drawing::Point(74, 47);
+			this->check_pre->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->check_pre->Name = L"check_pre";
 			this->check_pre->Size = System::Drawing::Size(170, 23);
 			this->check_pre->TabIndex = 1;
@@ -379,137 +528,40 @@ namespace CourseRegistration {
 			// 
 			// pictureBox7
 			// 
-			this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-			this->pictureBox7->Location = System::Drawing::Point(3, 26);
+			this->pictureBox7->Location = System::Drawing::Point(4, 32);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(57, 41);
+			this->pictureBox7->Size = System::Drawing::Size(66, 50);
 			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox7->TabIndex = 0;
 			this->pictureBox7->TabStop = false;
 			// 
-			// course_i
-			// 
-			this->course_i->AutoSize = true;
-			this->course_i->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->course_i->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->course_i->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->course_i->Location = System::Drawing::Point(272, 9);
-			this->course_i->Name = L"course_i";
-			this->course_i->Size = System::Drawing::Size(416, 53);
-			this->course_i->TabIndex = 23;
-			this->course_i->Text = L"Course prerequisite";
-			// 
-			// pictureBox5
-			// 
-			this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(876, 5);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(73, 50);
-			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox5->TabIndex = 24;
-			this->pictureBox5->TabStop = false;
-			// 
-			// search
-			// 
-			this->search->BackColor = System::Drawing::Color::MidnightBlue;
-			this->search->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search.Image")));
-			this->search->Location = System::Drawing::Point(752, 79);
-			this->search->Name = L"search";
-			this->search->Size = System::Drawing::Size(50, 37);
-			this->search->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->search->TabIndex = 26;
-			this->search->TabStop = false;
-			// 
-			// textpre
-			// 
-			this->textpre->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textpre->Location = System::Drawing::Point(399, 79);
-			this->textpre->Multiline = true;
-			this->textpre->Name = L"textpre";
-			this->textpre->Size = System::Drawing::Size(347, 37);
-			this->textpre->TabIndex = 25;
-			// 
-			// flowLayoutPanel2
-			// 
-			this->flowLayoutPanel2->Controls->Add(this->course_lay);
-			this->flowLayoutPanel2->Location = System::Drawing::Point(281, 137);
-			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(494, 383);
-			this->flowLayoutPanel2->TabIndex = 27;
-			// 
-			// course_lay
-			// 
-			this->course_lay->BackColor = System::Drawing::Color::MidnightBlue;
-			this->course_lay->Controls->Add(this->flowLayoutPanel3);
-			this->course_lay->Controls->Add(this->pictureBox8);
-			this->course_lay->Controls->Add(this->course_nameout);
-			this->course_lay->Location = System::Drawing::Point(3, 3);
-			this->course_lay->Name = L"course_lay";
-			this->course_lay->Size = System::Drawing::Size(225, 255);
-			this->course_lay->TabIndex = 0;
-			// 
-			// pictureBox8
-			// 
-			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
-			this->pictureBox8->Location = System::Drawing::Point(32, 4);
-			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(159, 91);
-			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox8->TabIndex = 1;
-			this->pictureBox8->TabStop = false;
-			// 
-			// course_nameout
-			// 
-			this->course_nameout->AutoSize = true;
-			this->course_nameout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->course_nameout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->course_nameout->Location = System::Drawing::Point(59, 109);
-			this->course_nameout->Name = L"course_nameout";
-			this->course_nameout->Size = System::Drawing::Size(79, 22);
-			this->course_nameout->TabIndex = 0;
-			this->course_nameout->Text = L"Discrete";
-			// 
-			// flowLayoutPanel3
-			// 
-			this->flowLayoutPanel3->Controls->Add(this->course_pre_out);
-			this->flowLayoutPanel3->Location = System::Drawing::Point(3, 155);
-			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
-			this->flowLayoutPanel3->Size = System::Drawing::Size(201, 57);
-			this->flowLayoutPanel3->TabIndex = 13;
-			// 
-			// course_pre_out
-			// 
-			this->course_pre_out->AutoSize = true;
-			this->course_pre_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->course_pre_out->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->course_pre_out->Location = System::Drawing::Point(3, 0);
-			this->course_pre_out->Name = L"course_pre_out";
-			this->course_pre_out->Size = System::Drawing::Size(72, 21);
-			this->course_pre_out->TabIndex = 10;
-			this->course_pre_out->Text = L"calculus";
-			// 
 			// course_pre
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->ClientSize = System::Drawing::Size(952, 622);
+			this->BackColor = System::Drawing::Color::Honeydew;
+			this->ClientSize = System::Drawing::Size(1134, 730);
+			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->flowLayoutPanel2);
 			this->Controls->Add(this->search);
 			this->Controls->Add(this->textpre);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->course_i);
-			this->Controls->Add(this->flowLayoutPanel1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"course_pre";
 			this->Text = L"course_pre";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &course_pre::course_pre_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->EndInit();
+			this->course_lay->ResumeLayout(false);
+			this->course_lay->PerformLayout();
+			this->flowLayoutPanel3->ResumeLayout(false);
+			this->flowLayoutPanel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -529,18 +581,99 @@ namespace CourseRegistration {
 			this->panel7->ResumeLayout(false);
 			this->panel7->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search))->EndInit();
-			this->flowLayoutPanel2->ResumeLayout(false);
-			this->course_lay->ResumeLayout(false);
-			this->course_lay->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
-			this->flowLayoutPanel3->ResumeLayout(false);
-			this->flowLayoutPanel3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	private: System::Void course_pre_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Panel_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		Panel^ panel = dynamic_cast<Panel^>(sender);
+		if (panel != nullptr) {
+			panel->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+			panel->Size = System::Drawing::Size(210, 220);
+
+		}
+	}
+	private: System::Void Panel_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		Panel^ panel = dynamic_cast<Panel^>(sender);
+		if (panel != nullptr) {
+			panel->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+			panel->Size = System::Drawing::Size(210, 210);
+
+		}
+
+	}
+	private: System::Void search_Click(System::Object^ sender, System::EventArgs^ e) {
+		string courseID = Utils::toStdString(textpre->Text);
+		Course c = Course::SearchCourse(courseID);
+		if (c.getCreditHours() == 0) {
+			MessageBox::Show("Course not found", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		else {
+			Random^ rand = gcnew Random();
+			this->flowLayoutPanel2->Controls->Clear();
+			CreateCoursesPanel(c, rand);
+
+		}
+	}
+
+	private: System::Void panel3_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel2_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		panel2->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+		panel2->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel2_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		panel2->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+		panel2->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel3_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		panel3->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+		panel3->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel3_MouseLeave_1(System::Object^ sender, System::EventArgs^ e) {
+		panel3->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+		panel3->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel6_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		panel6->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+		panel6->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel6_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		panel6->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+		panel6->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel7_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		panel7->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+		panel7->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+		panel7->Cursor = Cursors::Hand;
+	}
+		   /*private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+			   Course_registration^ cg5 = gcnew Course_registration();
+			   cg5->ShowDialog();
+			   this->Hide();
+			   this->Close();
+
+
+		   }
+			private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+			   course_pre^ pr5 = gcnew course_pre();
+			   pr5->ShowDialog();
+			   this->Hide();
+			   this->Close();
+
+		   }*/
+	private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+		panel1->Cursor = Cursors::Hand;
+	}
+	private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		panel1->Cursor = Cursors::Default;
+	}
+	private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 	};
 }

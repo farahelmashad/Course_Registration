@@ -1,7 +1,10 @@
 #pragma once
 #include "Student.h"
 #include "Course.h"
+#include"Course_registration.h"
+#include"course_pre.h"
 #include "CourseGrades.h"
+#include"ViewGrades.h"
 #include <map>
 #include <vector>
 #include <msclr/marshal_cppstd.h> 
@@ -24,7 +27,7 @@ namespace CourseRegistration {
 
         report(void);
 
-        report(Student* student);
+    
     protected:
         ~report();
 
@@ -40,7 +43,9 @@ namespace CourseRegistration {
         System::Windows::Forms::Panel^ panel3;
         System::Windows::Forms::Label^ label4;
         System::Windows::Forms::PictureBox^ pictureBox3;
-        System::Windows::Forms::Panel^ panel4;
+    private: System::Windows::Forms::Panel^ panel4;
+
+
         System::Windows::Forms::Label^ label5;
         System::Windows::Forms::PictureBox^ pictureBox4;
         System::Windows::Forms::PictureBox^ pictureBox5;
@@ -62,7 +67,8 @@ namespace CourseRegistration {
     private: System::Windows::Forms::Label^ CNlbl;
     private: System::Windows::Forms::Label^ CGPAlbl;
     private: System::Drawing::Printing::PrintDocument^ printDocument1;
-
+    private: System::Windows::Forms::Panel^ headerPanel; 
+   
            System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -101,6 +107,7 @@ namespace CourseRegistration {
             this->printReportDocument = (gcnew System::Drawing::Printing::PrintDocument());
             this->printPreviewReportDialog = (gcnew System::Windows::Forms::PrintPreviewDialog());
             this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
+            this->headerPanel = (gcnew System::Windows::Forms::Panel());
             this->flowLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -113,10 +120,10 @@ namespace CourseRegistration {
             this->panel7->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
-            this->searchpanel->SuspendLayout();
             this->ReportflowLayoutPanel->SuspendLayout();
             this->Sempanel->SuspendLayout();
             this->coursepanel->SuspendLayout();
+            this->headerPanel->SuspendLayout();
             this->SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -133,19 +140,19 @@ namespace CourseRegistration {
             this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
             this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
             this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-            this->flowLayoutPanel1->Size = System::Drawing::Size(253, 740);
+            this->flowLayoutPanel1->Size = System::Drawing::Size(295, 740);
             this->flowLayoutPanel1->TabIndex = 1;
+            this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::flowLayoutPanel1_Paint);
             // 
             // panel1
             // 
-            this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
             this->panel1->Controls->Add(this->label2);
             this->panel1->Controls->Add(this->label1);
             this->panel1->Controls->Add(this->pictureBox1);
             this->panel1->Location = System::Drawing::Point(0, 0);
             this->panel1->Margin = System::Windows::Forms::Padding(0);
             this->panel1->Name = L"panel1";
-            this->panel1->Size = System::Drawing::Size(237, 178);
+            this->panel1->Size = System::Drawing::Size(295, 178);
             this->panel1->TabIndex = 0;
             // 
             // label2
@@ -174,24 +181,25 @@ namespace CourseRegistration {
             // pictureBox1
             // 
             this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-            this->pictureBox1->Location = System::Drawing::Point(27, 4);
+            this->pictureBox1->Location = System::Drawing::Point(58, 5);
             this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
             this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(165, 91);
+            this->pictureBox1->Size = System::Drawing::Size(130, 113);
             this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->pictureBox1->TabIndex = 0;
             this->pictureBox1->TabStop = false;
             // 
             // panel2
             // 
-            this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
             this->panel2->Controls->Add(this->label3);
             this->panel2->Controls->Add(this->pictureBox2);
             this->panel2->Location = System::Drawing::Point(0, 178);
             this->panel2->Margin = System::Windows::Forms::Padding(0);
             this->panel2->Name = L"panel2";
-            this->panel2->Size = System::Drawing::Size(237, 100);
+            this->panel2->Size = System::Drawing::Size(295, 100);
             this->panel2->TabIndex = 1;
+            this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::panel2_Paint);
+            this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &report::panel2_MouseClick);
             // 
             // label3
             // 
@@ -220,14 +228,14 @@ namespace CourseRegistration {
             // 
             // panel3
             // 
-            this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
             this->panel3->Controls->Add(this->label4);
             this->panel3->Controls->Add(this->pictureBox3);
             this->panel3->Location = System::Drawing::Point(0, 278);
             this->panel3->Margin = System::Windows::Forms::Padding(0);
             this->panel3->Name = L"panel3";
-            this->panel3->Size = System::Drawing::Size(237, 100);
+            this->panel3->Size = System::Drawing::Size(295, 100);
             this->panel3->TabIndex = 2;
+            this->panel3->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &report::panel3_MouseClick);
             // 
             // label4
             // 
@@ -256,13 +264,12 @@ namespace CourseRegistration {
             // 
             // panel4
             // 
-            this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
             this->panel4->Controls->Add(this->label5);
             this->panel4->Controls->Add(this->pictureBox4);
             this->panel4->Location = System::Drawing::Point(0, 378);
             this->panel4->Margin = System::Windows::Forms::Padding(0);
             this->panel4->Name = L"panel4";
-            this->panel4->Size = System::Drawing::Size(237, 91);
+            this->panel4->Size = System::Drawing::Size(295, 91);
             this->panel4->TabIndex = 3;
             // 
             // label5
@@ -292,14 +299,14 @@ namespace CourseRegistration {
             // 
             // panel7
             // 
-            this->panel7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
             this->panel7->Controls->Add(this->check_pre);
             this->panel7->Controls->Add(this->pictureBox7);
             this->panel7->Location = System::Drawing::Point(0, 469);
             this->panel7->Margin = System::Windows::Forms::Padding(0);
             this->panel7->Name = L"panel7";
-            this->panel7->Size = System::Drawing::Size(237, 91);
+            this->panel7->Size = System::Drawing::Size(295, 91);
             this->panel7->TabIndex = 18;
+            this->panel7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &report::panel7_MouseClick);
             // 
             // check_pre
             // 
@@ -340,43 +347,49 @@ namespace CourseRegistration {
             // 
             this->searchpanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
-            this->searchpanel->Controls->Add(this->CGPAlbl);
-            this->searchpanel->Controls->Add(this->StIDlbl);
-            this->searchpanel->Controls->Add(this->StNamelbl);
+            this->searchpanel->BackColor = System::Drawing::Color::Transparent;
             this->searchpanel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                 static_cast<System::Int32>(static_cast<System::Byte>(68)));
-            this->searchpanel->Location = System::Drawing::Point(272, 31);
+            this->searchpanel->Location = System::Drawing::Point(295, 31);
             this->searchpanel->Name = L"searchpanel";
-            this->searchpanel->Size = System::Drawing::Size(763, 52);
+            this->searchpanel->Size = System::Drawing::Size(740, 52);
             this->searchpanel->TabIndex = 4;
             // 
             // CGPAlbl
             // 
             this->CGPAlbl->AutoSize = true;
-            this->CGPAlbl->Location = System::Drawing::Point(597, 13);
+            this->CGPAlbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 20.8F, System::Drawing::FontStyle::Bold));
+            this->CGPAlbl->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(66)),
+                static_cast<System::Int32>(static_cast<System::Byte>(78)));
+            this->CGPAlbl->Location = System::Drawing::Point(750, 20);
             this->CGPAlbl->Name = L"CGPAlbl";
-            this->CGPAlbl->Size = System::Drawing::Size(64, 24);
-            this->CGPAlbl->TabIndex = 8;
+            this->CGPAlbl->Size = System::Drawing::Size(113, 42);
+            this->CGPAlbl->TabIndex = 0;
             this->CGPAlbl->Text = L"CGPA:";
             // 
             // StIDlbl
             // 
             this->StIDlbl->AutoSize = true;
-            this->StIDlbl->Location = System::Drawing::Point(388, 13);
+            this->StIDlbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 20.8F, System::Drawing::FontStyle::Bold));
+            this->StIDlbl->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(66)),
+                static_cast<System::Int32>(static_cast<System::Byte>(78)));
+            this->StIDlbl->Location = System::Drawing::Point(410, 20);
             this->StIDlbl->Name = L"StIDlbl";
-            this->StIDlbl->Size = System::Drawing::Size(108, 24);
-            this->StIDlbl->TabIndex = 7;
+            this->StIDlbl->Size = System::Drawing::Size(188, 42);
+            this->StIDlbl->TabIndex = 1;
             this->StIDlbl->Text = L"Student ID:";
             // 
             // StNamelbl
             // 
             this->StNamelbl->AutoSize = true;
-            this->StNamelbl->Location = System::Drawing::Point(18, 13);
+            this->StNamelbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 20.8F, System::Drawing::FontStyle::Bold));
+            this->StNamelbl->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(66)),
+                static_cast<System::Int32>(static_cast<System::Byte>(78)));
+            this->StNamelbl->Location = System::Drawing::Point(20, 20);
             this->StNamelbl->Name = L"StNamelbl";
-            this->StNamelbl->Size = System::Drawing::Size(140, 24);
-            this->StNamelbl->TabIndex = 4;
-            this->StNamelbl->Text = L"Student name:";
-            this->StNamelbl->Click += gcnew System::EventHandler(this, &report::studentNamelbl_Click);
+            this->StNamelbl->Size = System::Drawing::Size(248, 42);
+            this->StNamelbl->TabIndex = 2;
+            this->StNamelbl->Text = L"Student Name:";
             // 
             // PrintRepbtn
             // 
@@ -395,20 +408,21 @@ namespace CourseRegistration {
             this->ReportflowLayoutPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
                 | System::Windows::Forms::AnchorStyles::Right));
             this->ReportflowLayoutPanel->AutoScroll = true;
+            this->ReportflowLayoutPanel->BackColor = System::Drawing::Color::Honeydew;
             this->ReportflowLayoutPanel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
             this->ReportflowLayoutPanel->Controls->Add(this->Sempanel);
             this->ReportflowLayoutPanel->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
             this->ReportflowLayoutPanel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)),
                 static_cast<System::Int32>(static_cast<System::Byte>(42)), static_cast<System::Int32>(static_cast<System::Byte>(68)));
-            this->ReportflowLayoutPanel->Location = System::Drawing::Point(272, 111);
+            this->ReportflowLayoutPanel->Location = System::Drawing::Point(295, 111);
             this->ReportflowLayoutPanel->Name = L"ReportflowLayoutPanel";
-            this->ReportflowLayoutPanel->Size = System::Drawing::Size(872, 559);
+            this->ReportflowLayoutPanel->Size = System::Drawing::Size(849, 559);
             this->ReportflowLayoutPanel->TabIndex = 6;
             this->ReportflowLayoutPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::ReportflowLayoutPanel_Paint);
             // 
             // Sempanel
             // 
-            this->Sempanel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+            this->Sempanel->BackColor = System::Drawing::Color::Honeydew;
             this->Sempanel->Controls->Add(this->semlbl);
             this->Sempanel->Controls->Add(this->coursepanel);
             this->Sempanel->Location = System::Drawing::Point(3, 3);
@@ -427,6 +441,7 @@ namespace CourseRegistration {
             // 
             // coursepanel
             // 
+            this->coursepanel->BackColor = System::Drawing::Color::Honeydew;
             this->coursepanel->Controls->Add(this->Glbl);
             this->coursepanel->Controls->Add(this->CNlbl);
             this->coursepanel->Location = System::Drawing::Point(19, 38);
@@ -472,12 +487,28 @@ namespace CourseRegistration {
             // 
             this->printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &report::printReportDocument_PrintPage);
             // 
+            // headerPanel
+            // 
+            this->headerPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(245)),
+                static_cast<System::Int32>(static_cast<System::Byte>(250)));
+            this->headerPanel->Controls->Add(this->StNamelbl);
+            this->headerPanel->Controls->Add(this->StIDlbl);
+            this->headerPanel->Controls->Add(this->CGPAlbl);
+            this->headerPanel->Dock = System::Windows::Forms::DockStyle::Top;
+            this->headerPanel->Location = System::Drawing::Point(295, 0);
+            this->headerPanel->Name = L"headerPanel";
+            this->headerPanel->Padding = System::Windows::Forms::Padding(20, 15, 20, 15);
+            this->headerPanel->Size = System::Drawing::Size(861, 70);
+            this->headerPanel->TabIndex = 4;
+            this->headerPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::headerPanel_Paint);
+            // 
             // report
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+            this->BackColor = System::Drawing::Color::Honeydew;
             this->ClientSize = System::Drawing::Size(1156, 740);
+            this->Controls->Add(this->headerPanel);
             this->Controls->Add(this->ReportflowLayoutPanel);
             this->Controls->Add(this->PrintRepbtn);
             this->Controls->Add(this->searchpanel);
@@ -508,13 +539,13 @@ namespace CourseRegistration {
             this->panel7->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-            this->searchpanel->ResumeLayout(false);
-            this->searchpanel->PerformLayout();
             this->ReportflowLayoutPanel->ResumeLayout(false);
             this->Sempanel->ResumeLayout(false);
             this->Sempanel->PerformLayout();
             this->coursepanel->ResumeLayout(false);
             this->coursepanel->PerformLayout();
+            this->headerPanel->ResumeLayout(false);
+            this->headerPanel->PerformLayout();
             this->ResumeLayout(false);
 
         }
@@ -557,10 +588,58 @@ namespace CourseRegistration {
         System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
             // Handle form load event
         }
-
+       
         System::Void ReportflowLayoutPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
             // Handle flow layout panel paint event
         }
+       
+        System::Void headerPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+                // Draw subtle bottom border
+                Panel^ panel = safe_cast<Panel^>(sender);
+                e->Graphics->DrawLine(gcnew Pen(Color::FromArgb(220, 220, 220)),
+                    0, panel->Height - 1, panel->Width, panel->Height - 1);
+        }
+    
+      
 
+
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+
+    Course_registration^ c1 = gcnew Course_registration();
+
+    c1->ShowDialog();
+    this->Hide();
+    this->Close();
+}
+
+
+
+private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    
+    course_pre^ pre = gcnew course_pre();
+    pre->ShowDialog();
+    this->Hide();
+    this->Close();
+
+}
+private: System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    ViewGrades^ vg = gcnew ViewGrades();
+    vg->ShowDialog();
+    this->Hide();
+    this->Close();
+}
+private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }
+
+
+
+
+
+
+
+
+
