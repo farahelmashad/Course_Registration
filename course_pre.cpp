@@ -1,9 +1,23 @@
 #include "course_pre.h"
 #include"Course.h"
+#include"NavBar.h"
 #include"Utils.h"
 #include"Course_registration.h"
 #include<array>
 //ref class Course_registration;
+
+void CourseRegistration::course_pre::panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    Course_registration^ cg5 = gcnew Course_registration();
+    cg5->ShowDialog();
+    this->Hide();
+    this->Close();
+}
+void CourseRegistration::course_pre::panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    NavBar^ nb1 = gcnew NavBar();
+    nb1->ShowDialog();
+    this->Hide();
+    this->Close();
+}
 void CourseRegistration::course_pre::CreateCoursesPanel(Course course, Random^ rand)
 {
         Panel^ coursePanel = gcnew Panel();

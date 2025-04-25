@@ -7,6 +7,7 @@ extern string gcid;
 //class Course_registration;
 ref class course_pre;
 ref class Course_registration;
+ref class NavBar;
 namespace CourseRegistration {
 
 	using namespace System;
@@ -58,14 +59,14 @@ namespace CourseRegistration {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::Label^ course_i;
-	private: System::Windows::Forms::PictureBox^ pictureBox6;
+
 	private: System::Windows::Forms::Label^ coursename_out;
 	private: System::Windows::Forms::Label^ courseid_out;
 	private: System::Windows::Forms::Label^ syllabus;
 
 	private: System::Windows::Forms::Label^ hours_out;
 	private: System::Windows::Forms::Label^ ch;
-	private: System::Windows::Forms::Label^ label6;
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 	private: System::Windows::Forms::Label^ course_name_pre;
@@ -92,6 +93,8 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Panel^ panel7;
 	private: System::Windows::Forms::Label^ check_pre;
 	private: System::Windows::Forms::PictureBox^ pictureBox8;
+	private: System::Windows::Forms::Label^ label6;
+
 
 
 
@@ -126,7 +129,6 @@ namespace CourseRegistration {
 			this->ch = (gcnew System::Windows::Forms::Label());
 			this->courseid_out = (gcnew System::Windows::Forms::Label());
 			this->coursename_out = (gcnew System::Windows::Forms::Label());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->course_i = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -150,7 +152,6 @@ namespace CourseRegistration {
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			this->course_infop->SuspendLayout();
 			this->flowLayoutPanel2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -169,7 +170,6 @@ namespace CourseRegistration {
 			// 
 			// course_infop
 			// 
-			this->course_infop->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->course_infop->Controls->Add(this->instructor_name);
 			this->course_infop->Controls->Add(this->label7);
 			this->course_infop->Controls->Add(this->flowLayoutPanel2);
@@ -179,11 +179,10 @@ namespace CourseRegistration {
 			this->course_infop->Controls->Add(this->ch);
 			this->course_infop->Controls->Add(this->courseid_out);
 			this->course_infop->Controls->Add(this->coursename_out);
-			this->course_infop->Controls->Add(this->pictureBox6);
-			this->course_infop->Location = System::Drawing::Point(365, 106);
+			this->course_infop->Location = System::Drawing::Point(324, 178);
 			this->course_infop->Margin = System::Windows::Forms::Padding(2);
 			this->course_infop->Name = L"course_infop";
-			this->course_infop->Size = System::Drawing::Size(988, 309);
+			this->course_infop->Size = System::Drawing::Size(999, 267);
 			this->course_infop->TabIndex = 20;
 			// 
 			// instructor_name
@@ -193,7 +192,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->instructor_name->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->instructor_name->Location = System::Drawing::Point(28, 154);
+			this->instructor_name->Location = System::Drawing::Point(35, 136);
 			this->instructor_name->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->instructor_name->Name = L"instructor_name";
 			this->instructor_name->Size = System::Drawing::Size(135, 27);
@@ -207,7 +206,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->label7->Location = System::Drawing::Point(16, 197);
+			this->label7->Location = System::Drawing::Point(479, 12);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(184, 33);
@@ -218,20 +217,22 @@ namespace CourseRegistration {
 			// 
 			this->flowLayoutPanel2->Controls->Add(this->checkBox1);
 			this->flowLayoutPanel2->Controls->Add(this->course_name_pre);
-			this->flowLayoutPanel2->Location = System::Drawing::Point(22, 235);
+			this->flowLayoutPanel2->Location = System::Drawing::Point(485, 70);
 			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(2);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(151, 41);
+			this->flowLayoutPanel2->Padding = System::Windows::Forms::Padding(4);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(170, 30);
 			this->flowLayoutPanel2->TabIndex = 12;
 			this->flowLayoutPanel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &course_info::flowLayoutPanel2_Paint);
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(2, 2);
+			this->checkBox1->Location = System::Drawing::Point(6, 6);
 			this->checkBox1->Margin = System::Windows::Forms::Padding(2);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(15, 14);
+			this->checkBox1->Padding = System::Windows::Forms::Padding(3, 3, 0, 3);
+			this->checkBox1->Size = System::Drawing::Size(18, 20);
 			this->checkBox1->TabIndex = 11;
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &course_info::checkBox1_CheckedChanged);
@@ -243,8 +244,8 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->course_name_pre->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->course_name_pre->Location = System::Drawing::Point(21, 0);
-			this->course_name_pre->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->course_name_pre->Location = System::Drawing::Point(26, 4);
+			this->course_name_pre->Margin = System::Windows::Forms::Padding(0, 0, 2, 0);
 			this->course_name_pre->Name = L"course_name_pre";
 			this->course_name_pre->Size = System::Drawing::Size(120, 23);
 			this->course_name_pre->TabIndex = 10;
@@ -253,28 +254,26 @@ namespace CourseRegistration {
 			// 
 			// label6
 			// 
-			this->label6->AutoSize = true;
+			this->label6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(146, 180);
+			this->label6->Location = System::Drawing::Point(438, 23);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(278, 17);
+			this->label6->Size = System::Drawing::Size(1, 190);
 			this->label6->TabIndex = 11;
-			this->label6->Text = L"______________________________________________________";
 			this->label6->Click += gcnew System::EventHandler(this, &course_info::label6_Click);
 			// 
 			// syllabus
 			// 
-			this->syllabus->AutoSize = true;
-			this->syllabus->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->syllabus->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->syllabus->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->syllabus->Location = System::Drawing::Point(28, 125);
+			this->syllabus->Location = System::Drawing::Point(36, 189);
 			this->syllabus->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->syllabus->Name = L"syllabus";
-			this->syllabus->Size = System::Drawing::Size(386, 27);
+			this->syllabus->Size = System::Drawing::Size(226, 113);
 			this->syllabus->TabIndex = 10;
 			this->syllabus->Text = L"intoduction to pragramming using c++";
 			// 
@@ -285,7 +284,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->hours_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->hours_out->Location = System::Drawing::Point(168, 93);
+			this->hours_out->Location = System::Drawing::Point(168, 95);
 			this->hours_out->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->hours_out->Name = L"hours_out";
 			this->hours_out->Size = System::Drawing::Size(24, 27);
@@ -300,7 +299,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->ch->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->ch->Location = System::Drawing::Point(28, 93);
+			this->ch->Location = System::Drawing::Point(35, 95);
 			this->ch->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->ch->Name = L"ch";
 			this->ch->Size = System::Drawing::Size(142, 27);
@@ -310,42 +309,30 @@ namespace CourseRegistration {
 			// courseid_out
 			// 
 			this->courseid_out->AutoSize = true;
-			this->courseid_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->courseid_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->courseid_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->courseid_out->Location = System::Drawing::Point(28, 59);
+			this->courseid_out->Location = System::Drawing::Point(35, 70);
 			this->courseid_out->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->courseid_out->Name = L"courseid_out";
-			this->courseid_out->Size = System::Drawing::Size(70, 27);
+			this->courseid_out->Size = System::Drawing::Size(72, 25);
 			this->courseid_out->TabIndex = 7;
-			this->courseid_out->Text = L"CIS50";
+			this->courseid_out->Text = L"CS202";
 			// 
 			// coursename_out
 			// 
 			this->coursename_out->AutoSize = true;
-			this->coursename_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->coursename_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->coursename_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->coursename_out->Location = System::Drawing::Point(26, 11);
+			this->coursename_out->Location = System::Drawing::Point(34, 10);
 			this->coursename_out->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->coursename_out->Name = L"coursename_out";
-			this->coursename_out->Size = System::Drawing::Size(171, 33);
+			this->coursename_out->Size = System::Drawing::Size(218, 35);
 			this->coursename_out->TabIndex = 6;
-			this->coursename_out->Text = L"course name";
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->BackColor = System::Drawing::Color::MidnightBlue;
-			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(871, 15);
-			this->pictureBox6->Margin = System::Windows::Forms::Padding(2);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(96, 82);
-			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox6->TabIndex = 0;
-			this->pictureBox6->TabStop = false;
+			this->coursename_out->Text = L"Data Structures";
 			// 
 			// pictureBox5
 			// 
@@ -366,7 +353,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->course_i->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->course_i->Location = System::Drawing::Point(472, 52);
+			this->course_i->Location = System::Drawing::Point(266, 30);
 			this->course_i->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->course_i->Name = L"course_i";
 			this->course_i->Size = System::Drawing::Size(198, 42);
@@ -399,6 +386,9 @@ namespace CourseRegistration {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(253, 178);
 			this->panel1->TabIndex = 0;
+			this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &course_info::panel1_MouseClick);
+			this->panel1->MouseEnter += gcnew System::EventHandler(this, &course_info::panel1_MouseEnter);
+			this->panel1->MouseLeave += gcnew System::EventHandler(this, &course_info::panel1_MouseLeave);
 			// 
 			// label1
 			// 
@@ -417,10 +407,10 @@ namespace CourseRegistration {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Location = System::Drawing::Point(60, 0);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(253, 113);
+			this->pictureBox1->Size = System::Drawing::Size(128, 113);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -629,7 +619,7 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->BackColor = System::Drawing::Color::Honeydew;
 			this->ClientSize = System::Drawing::Size(1227, 580);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->course_i);
@@ -638,6 +628,13 @@ namespace CourseRegistration {
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"course_info";
 			this->Text = L"course_info";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &course_info::course_info_Load);
+			this->course_infop->ResumeLayout(false);
+			this->course_infop->PerformLayout();
+			this->flowLayoutPanel2->ResumeLayout(false);
+			this->flowLayoutPanel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
@@ -684,7 +681,6 @@ namespace CourseRegistration {
 			flowLayoutPanel2->Controls->Clear();
 			set<string> prereqs = course.getPrerequisites();
 
-			// Create a set of passed course IDs for fast lookup
 			set<string> passedCourses;
 			for ( CourseGrades cg : currentStudent.getCompletedCourses()) {
 				if (cg.getGrade() != 'F') {
@@ -700,7 +696,6 @@ namespace CourseRegistration {
 				cb->Font = gcnew System::Drawing::Font(L"Bahnschrift", 10.8F);
 				cb->Margin = System::Windows::Forms::Padding(3, 3, 10, 3);
 
-				// Check the box if the course is passed
 				if (passedCourses.find(prereq) != passedCourses.end()) {
 					cb->Checked = true;
 
@@ -722,45 +717,56 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 }
 private: System::Void course_name_pre_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
 private: System::Void course_info_Load(System::Object^ sender, System::EventArgs^ e) {
-	
-	string reason = "yay";
+	string reason = "N/A";
+
+	bool isAlreadyRegistered = currentStudent.isRegistered(gcid);
+	bool will_retake = currentStudent.willRetake(gcid);
 	bool haspre = currentStudent.hasPrerequisites(gcid, reason);
-	bool will_retake=currentStudent.willRetake(gcid);
-	if (will_retake) {
-		Button^ Retake = gcnew Button();
-		Retake->Text = "Retake";
-		Retake->Size = System::Drawing::Size(138, 32);
-		Retake->Location = System::Drawing::Point(614, 448);
 
-		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
-
-		this->Controls->Add(Retake);
-
-	}
-	 else if (haspre) {
-		Button^ Register = gcnew Button();
-		Register->Text = "Register";
-		Register->Size = System::Drawing::Size(138, 32);
-		Register->Location = System::Drawing::Point(614, 448);
-
-		Register->Click += gcnew System::EventHandler(this, &course_info::Register_Click);
-
-		this->Controls->Add(Register);
-	}
-	 else {
+	if (isAlreadyRegistered) {
 		Label^ infoLabel = gcnew Label();
 		infoLabel->Text = "You are already registered";
 		infoLabel->Size = System::Drawing::Size(200, 32);
-		infoLabel->Location = System::Drawing::Point(614, 448);
+		infoLabel->Location = System::Drawing::Point(700, 500);
 		infoLabel->ForeColor = System::Drawing::Color::Red;
 		infoLabel->Font = gcnew System::Drawing::Font("Arial", 10, FontStyle::Bold);
-
 		this->Controls->Add(infoLabel);
-
 	}
-	
+	else if (will_retake) {
+		Button^ Retake = gcnew Button();
+		Retake->Text = "Retake";
+		Retake->Size = System::Drawing::Size(138, 32);
+		Retake->Location = System::Drawing::Point(700, 500);
+		Retake->Click += gcnew System::EventHandler(this, &course_info::Retake_Click);
+		this->Controls->Add(Retake);
+	}
+	else if (haspre) {
+		Button^ Register = gcnew Button();
+		Register->Text = "Register";
+		Register->Size = System::Drawing::Size(138, 32);
+		Register->Location = System::Drawing::Point(700, 500);
+		Register->Click += gcnew System::EventHandler(this, &course_info::Register_Click);
+		this->Controls->Add(Register);
+	}
+	else {
+		Label^ infoLabel = gcnew Label();
+		infoLabel->Text = Utils::toSysStr("Missing prerequisites " );
+		infoLabel->Size = System::Drawing::Size(250, 32);
+		infoLabel->Location = System::Drawing::Point(700, 500);
+		infoLabel->ForeColor = System::Drawing::Color::OrangeRed;
+		infoLabel->Font = gcnew System::Drawing::Font("Arial", 9, FontStyle::Bold);
+		this->Controls->Add(infoLabel);
+	}
 }
+
+
+
+
+
+
 	   void course_info::Retake_Click(System::Object^ sender, System::EventArgs^ e)
 	   {   
 		   currentStudent.Retake(gcid);
@@ -832,6 +838,16 @@ private: System::Void panel7_MouseEnter(System::Object^ sender, System::EventArg
 private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
 	panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	panel7->Cursor = Cursors::Hand;
+}
+private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
+private: System::Void panel1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Hand;
+
+}
+
+private: System::Void panel1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Cursor = Cursors::Default;
 }
 };
 }

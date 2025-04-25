@@ -34,6 +34,9 @@ bool Student::willRetake(string courseID)
 	return false;
 
 }
+bool Student::isRegistered(string courseID) {
+	return currentCourses.find(courseID) != currentCourses.end();
+}
 
 void Student::Retake(string courseID){
 	this->currentCourses.insert(courseID);
@@ -66,16 +69,16 @@ bool Student::hasPrerequisites(string courseID ,string& reason)
 		}
 	}
 
-	// Now just check if all prerequisites are in passedCourses
 	for ( string prereqID : c.getPrerequisites()) {
 		if (passedCourses.find(prereqID) == passedCourses.end()) {
-			return false; // missing prerequisite
+			return false; 
 		}
 	}
 
-	return true; // all prerequisites passed
+	return true; 
 
 }
+
 
 void Student::registerCourse(string courseID)
 {

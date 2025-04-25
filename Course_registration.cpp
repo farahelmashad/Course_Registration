@@ -1,9 +1,23 @@
-
 #include "Course_registration.h"
-#include"course_info.h"
 #include"course_pre.h"
+#include"course_info.h"
+#include"NavBar.h"
 #include<array>
 
+void CourseRegistration::Course_registration::panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	NavBar^ nb = gcnew NavBar();
+	nb->ShowDialog();
+	this->Hide();
+	this->Close();
+
+
+}
+void CourseRegistration::Course_registration::panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	course_pre^ cp = gcnew course_pre();  
+	cp->ShowDialog();
+	this->Hide();   
+	this->Close();  
+}
 void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Random^ rand)
 {
 	Panel^ coursePanel = gcnew Panel();
@@ -78,7 +92,7 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Ra
 	this->flowLayoutPanel2->Controls->Add(coursePanel);
 
 }
-void CourseRegistration:: Course_registration::DisplayAllCourses(map<string, Course> courses)
+void CourseRegistration::Course_registration::DisplayAllCourses(map<string, Course> courses)
 {
 	Random^ rand = gcnew Random();
 	this->flowLayoutPanel2->Controls->Clear();
@@ -89,7 +103,7 @@ void CourseRegistration:: Course_registration::DisplayAllCourses(map<string, Cou
 	}
 
 }
-void CourseRegistration:: Course_registration::CoursePanel_Click(System::Object^ sender, System::EventArgs^ e)
+void CourseRegistration::Course_registration::CoursePanel_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	Panel^ clickedPanel = safe_cast<Panel^>(sender);
 	if (clickedPanel->Tag != nullptr) {
