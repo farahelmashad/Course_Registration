@@ -105,7 +105,7 @@
     <ClCompile Include="UploadCourses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UploadCoursesManager.cpp">
+    <ClCompile Include="AdminCoursesManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,7 +176,7 @@
     <ClInclude Include="UploadCourses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UploadCoursesManager.h">
+    <ClInclude Include="AdminCoursesManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

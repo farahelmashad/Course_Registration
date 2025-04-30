@@ -1,6 +1,6 @@
 #pragma once
 #include "Course_Registration.h"
-#include"UploadCoursesManager.h"
+#include"AdminCoursesManager.h"
 #include <msclr/marshal_cppstd.h>
 
 namespace CourseRegistration {
@@ -18,11 +18,11 @@ namespace CourseRegistration {
 	public ref class UploadCourses : public System::Windows::Forms::Form
 	{
 	private:
-		UploadCoursesManager* UCManager;
+		AdminCoursesManager* UCManager;
 	public:
 		UploadCourses(void)
 		{
-			UCManager = new UploadCoursesManager();
+			UCManager = new AdminCoursesManager();
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here

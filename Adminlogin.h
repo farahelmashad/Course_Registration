@@ -76,77 +76,75 @@ namespace CourseRegistration {
 			this->submit_a = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			//
+			// 
 			// label1
-			//
+			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(753, 199);
+			this->label1->Location = System::Drawing::Point(849, 199);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(144, 58);
+			this->label1->Size = System::Drawing::Size(178, 72);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Login";
 			this->label1->Click += gcnew System::EventHandler(this, &Adminlogin::label1_Click);
 			// 
 			// pictureBox1
-			//
 			// 
 			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(54, 68);
+			this->pictureBox1->Location = System::Drawing::Point(46, 119);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(505, 548);
+			this->pictureBox1->Size = System::Drawing::Size(462, 421);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
-			//
+			// 
 			// username_a
-			//
+			// 
 			this->username_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->username_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->username_a->Location = System::Drawing::Point(686, 315);
+			this->username_a->Location = System::Drawing::Point(782, 315);
 			this->username_a->Name = L"username_a";
-			this->username_a->Size = System::Drawing::Size(293, 20);
+			this->username_a->Size = System::Drawing::Size(293, 25);
 			this->username_a->TabIndex = 2;
-			//this->username_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::username_KeyDown_1);
-			//
+			// 
 			// label2
-			//
+			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(683, 294);
+			this->label2->Location = System::Drawing::Point(779, 294);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(77, 18);
+			this->label2->Size = System::Drawing::Size(97, 23);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Username";
-			//
+			// 
 			// label3
-			//
+			// 
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(683, 360);
+			this->label3->Location = System::Drawing::Point(779, 360);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(75, 18);
+			this->label3->Size = System::Drawing::Size(95, 23);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Password";
-			//
+			// 
 			// password_a
-			//
+			// 
 			this->password_a->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->password_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift SemiBold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->password_a->Location = System::Drawing::Point(686, 381);
+			this->password_a->Location = System::Drawing::Point(782, 381);
 			this->password_a->Name = L"password_a";
 			this->password_a->PasswordChar = '*';
-			this->password_a->Size = System::Drawing::Size(293, 20);
+			this->password_a->Size = System::Drawing::Size(293, 25);
 			this->password_a->TabIndex = 5;
-			//
+			// 
 			// submit_a
 			// 
 			this->submit_a->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
@@ -155,7 +153,7 @@ namespace CourseRegistration {
 			this->submit_a->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->submit_a->ForeColor = System::Drawing::SystemColors::Window;
-			this->submit_a->Location = System::Drawing::Point(686, 429);
+			this->submit_a->Location = System::Drawing::Point(782, 429);
 			this->submit_a->Name = L"submit_a";
 			this->submit_a->Size = System::Drawing::Size(293, 39);
 			this->submit_a->TabIndex = 6;
@@ -165,7 +163,7 @@ namespace CourseRegistration {
 			// 
 			// Adminlogin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(17, 36);
+			this->AutoScaleDimensions = System::Drawing::SizeF(21, 45);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::AliceBlue;
 			this->ClientSize = System::Drawing::Size(1156, 628);
@@ -225,12 +223,15 @@ private: System::Void submit_a_Click(System::Object^ sender, System::EventArgs^ 
 		bool isAdmin = Login_SignUp_Helper::validate_Admin_Login(username,password);
 		if (isAdmin) {
 			MessageBox::Show("Login Successful", "Welcome",MessageBoxButtons::OK,MessageBoxIcon::None);
-
+			AdminNavBar^ a = gcnew AdminNavBar();
+			a->Show();
+			//this->Hide();
 		}
 		else {
 			MessageBox::Show("Invalid username or password", "Login Invalid", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
+	
 }
 };
 }

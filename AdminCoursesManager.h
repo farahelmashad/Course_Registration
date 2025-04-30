@@ -3,10 +3,11 @@
 #include<string>
 #include"Course.h"
 
-class UploadCoursesManager {
+class AdminCoursesManager {
 
-public:
-	map<string, Course> courses;
+private:
+	
+	map<string, string> courseNametoID;
 
 public:
 
@@ -14,4 +15,6 @@ public:
 	Course* searchCourse(const string& courseID);
 	bool courseExits(const string& courseID);
 	const map<string, Course>& getAllCourses() const;
+	void NameToIDMap();
+	string getCourseIdByName(string& courseName);
 };

@@ -28,3 +28,4 @@ CS430|Augmented Reality|3|ARKit, ARCore, spatial mapping|Dr. Salma Yehia|CS300
 CS440|Ethical Hacking|3|Penetration testing, tools, vulnerabilities|Dr. Heba Gamil|CS280
 CS450|Human-Computer Interaction|3|UX/UI design, evaluation techniques|Dr. Layla Naguib|CS240
 CS460|Computer Vision|3|Image classification, object detection|Dr. Basel Ali|CS270
+CS600|Data stucture|3|vectors, stacks|Dr. Hanan|CS101,CS102

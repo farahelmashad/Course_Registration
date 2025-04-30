@@ -40,7 +40,7 @@ Course Course::SearchCourse(string courseID)
 	}
 }
 
-string Course::getCourseID()
+string Course::getCourseID ()
 {
 	return courseID;
 }
@@ -68,4 +68,8 @@ string Course::getInstructor()
 set<string> Course::getPrerequisites()
 {
 	return prerequisites;
+}
+
+void Course::setPrerequisites(set<string>& prereqs) {
+	prerequisites = prereqs;
 }
