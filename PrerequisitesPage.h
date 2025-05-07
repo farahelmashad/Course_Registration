@@ -24,10 +24,12 @@ namespace CourseRegistration {
 		UploadCoursesManager* UCManager;
 		UCManager = new UploadCoursesManager();
 		*/
+	private:
+		String^ username;
 	public:
-		PrerequisitesPage(void)
+		PrerequisitesPage(String^user)
 		{
-			
+			username = user;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -492,7 +494,7 @@ namespace CourseRegistration {
 
 
 	private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		ManageGrades1^ m = gcnew ManageGrades1();
+		ManageGrades1^ m = gcnew ManageGrades1(username);
 		m->Show();
 		this->Hide();
 	}

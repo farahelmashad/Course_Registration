@@ -613,7 +613,7 @@ namespace CourseRegistration {
 			this->course_infop->PerformLayout();
 			this->flowLayoutPanel2->ResumeLayout(false);
 			this->flowLayoutPanel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+		//	(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			// course_info
 			// 
@@ -651,7 +651,7 @@ namespace CourseRegistration {
 			this->course_infop->ResumeLayout(false);
 			this->course_infop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+	//		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->flowLayoutPanel2->ResumeLayout(false);
 			this->flowLayoutPanel2->PerformLayout();
 			this->ResumeLayout(false);

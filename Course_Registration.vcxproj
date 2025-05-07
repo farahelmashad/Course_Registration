@@ -139,7 +139,6 @@
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
-    <ClCompile Include="GradesManager.cpp" />
     <ClCompile Include="UploadCourses.cpp" />
     <ClCompile Include="UploadCoursesManager.cpp" />
   </ItemGroup>
@@ -186,8 +185,6 @@
     <ClInclude Include="Studentlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="GradesManager.h" />
-    <ClInclude Include="GradesWrapper.h" />
     <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>

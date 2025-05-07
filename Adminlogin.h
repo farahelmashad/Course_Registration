@@ -87,7 +87,6 @@ namespace CourseRegistration {
 			this->label1->Size = System::Drawing::Size(178, 72);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Login";
-			this->label1->Click += gcnew System::EventHandler(this, &Adminlogin::label1_Click);
 			// 
 			// username_a
 			// 
@@ -147,6 +146,8 @@ namespace CourseRegistration {
 			this->submit_a->Text = L"Log in";
 			this->submit_a->UseVisualStyleBackColor = false;
 			this->submit_a->Click += gcnew System::EventHandler(this, &Adminlogin::submit_a_Click);
+			this->submit_a->MouseEnter += gcnew System::EventHandler(this, &Adminlogin::submit_a_MouseEnter);
+			this->submit_a->MouseLeave += gcnew System::EventHandler(this, &Adminlogin::submit_a_MouseLeave);
 			// 
 			// pictureBox1
 			// 
@@ -165,7 +166,7 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(21, 45);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::AliceBlue;
+			this->BackColor = System::Drawing::Color::Honeydew;
 			this->ClientSize = System::Drawing::Size(1156, 628);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->submit_a);
@@ -187,16 +188,7 @@ namespace CourseRegistration {
 			this->PerformLayout();
 
 		}
-#pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-	}
-    
-private: System::Void password_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-		
+#pragma endregion		
 private: System::Void username_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 	if (e->KeyValue == (int)Keys::Enter)
 	{
@@ -223,7 +215,7 @@ private: System::Void submit_a_Click(System::Object^ sender, System::EventArgs^ 
 		bool isAdmin = Login_SignUp_Helper::validate_Admin_Login(username,password);
 		if (isAdmin) {
 			MessageBox::Show("Login Successful", "Welcome",MessageBoxButtons::OK,MessageBoxIcon::None);
-			AdminNavBar^ adminNavBar = gcnew AdminNavBar();
+			AdminNavBar^ adminNavBar = gcnew AdminNavBar(gcnew String(username.c_str()));
 			adminNavBar->ShowDialog();
 			this->Hide();
 		}
@@ -231,6 +223,15 @@ private: System::Void submit_a_Click(System::Object^ sender, System::EventArgs^ 
 			MessageBox::Show("Invalid username or password", "Login Invalid", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
+}
+private: System::Void submit_a_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	submit_a->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+	submit_a->Cursor = System::Windows::Forms::Cursors::Hand;
+}
+	private: System::Void submit_a_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		submit_a->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			static_cast<System::Int32>(static_cast<System::Byte>(68)));
+		submit_a->Cursor = System::Windows::Forms::Cursors::Default;
 }
 };
 }

@@ -17,9 +17,14 @@ namespace CourseRegistration {
 	/// </summary>
 	public ref class SetPrerequisites : public System::Windows::Forms::Form
 	{
+	private:
+		String^ username;
+
+			
 	public:
-		SetPrerequisites(void)
+		SetPrerequisites(String ^ user)
 		{
+			username = user;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -306,7 +311,7 @@ namespace CourseRegistration {
 
 	private: System::Void course_layout_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 
-		PrerequisitesPage^ prerequisiites = gcnew PrerequisitesPage();
+		PrerequisitesPage^ prerequisiites = gcnew PrerequisitesPage(username);
 		prerequisiites->ShowDialog();
 		//prerequisiites->Hide();
 

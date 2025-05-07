@@ -2,9 +2,7 @@
 #include "Course_Registration.h"
 #include"FileManager.h"
 #include <map>
-#include "GradesWrapper.h"
 #include "Utils.h"
-
 
 namespace CourseRegistration {
 
@@ -18,21 +16,34 @@ namespace CourseRegistration {
 	public ref class GradesInfo : public System::Windows::Forms::Form
 	{
 	private:
-		int studentID;        
-		String^ courseID;
+	int studentID; 
+	String^ courseID;
+	String^ username;
+	System::Windows::Forms::Panel^ user_panel;
+	System::Windows::Forms::Label^ user_name;
+	System::Windows::Forms::PictureBox^ user_pic;
+	System::Windows::Forms::Panel^ update_panel;
+	System::Windows::Forms::Label^ upload_text;
+	System::Windows::Forms::PictureBox^ upload_pic;
+	System::Windows::Forms::Panel^ pre_panel;
+	System::Windows::Forms::Label^ pre_text;
+	System::Windows::Forms::PictureBox^ pre_pic;
+	System::Windows::Forms::Panel^ manage_panel;
+	System::Windows::Forms::Label^ manage_text;
+	System::Windows::Forms::PictureBox^ manage_pic;
+
 	public:
-		GradesInfo(int studentID, String^ courseID)
+		GradesInfo(int studentID, String^ courseID, String^user)
 		{
 			this->studentID = studentID;
 			this->courseID = courseID;
-			InitializeComponent();
+			InitializeComponent();       
+			username = user;               
+			this->user_name->Text = user; 
 			LoadCourseInfo();
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~GradesInfo()
 		{
 			if (components)
@@ -42,63 +53,41 @@ namespace CourseRegistration {
 		}
 	private:
 	System::Windows::Forms::FlowLayoutPanel^ nav_panel;
-	System::Windows::Forms::Panel^ user_panel;
-	System::Windows::Forms::Label^ user_text;
-	System::Windows::Forms::PictureBox^ user_pic;
-	System::Windows::Forms::Label^ admin_text;
-	System::Windows::Forms::Panel^ upload_panel;
-	System::Windows::Forms::Label^ upload_text;
-	System::Windows::Forms::Panel^ pre_panel;
-	System::Windows::Forms::Label^ pre_text;
-	System::Windows::Forms::Panel^ manage_panel;
-	System::Windows::Forms::Label^ manage_text;
 	System::Windows::Forms::PictureBox^ logo_Pic;
-	System::Windows::Forms::PictureBox^ upload_pic;
-	System::Windows::Forms::PictureBox^ pre_pic;
-	System::Windows::Forms::PictureBox^ manage_pic;
-
 	System::Windows::Forms::Label^ grades_info;
-
 	System::Windows::Forms::Panel^ gradeinfo_panel;
 	System::Windows::Forms::Label^ instructor_name;
 	System::Windows::Forms::Label^ std_grade_text;
 	System::Windows::Forms::Label^ separate_line;
 	System::Windows::Forms::Label^ syllabus;
 	System::Windows::Forms::Label^ hours_out;
-	System::Windows::Forms::Label^ ch;
-	System::Windows::Forms::Label^ courseid_out;
-	System::Windows::Forms::Label^ coursename_out;
-	System::Windows::Forms::PictureBox^ book_pic;
+	System::Windows::Forms::Label^ ch_text;
+	System::Windows::Forms::Label^ course_id;	
+	System::Windows::Forms::Label^ course_name;
 	System::Windows::Forms::Label^ newgrade_text;
-
 	System::Windows::Forms::Button^ submit_button;
 	System::Windows::Forms::TextBox^ new_grade;
 	System::Windows::Forms::Label^ stud_grade;
-
 	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		   /// <summary>
-		   /// Required method for Designer support - do not modify
-		   /// the contents of this method with the code editor.
-		   /// </summary>
+
 		   void InitializeComponent(void)
 		   {
 			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GradesInfo::typeid));
 			   this->nav_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			   this->user_panel = (gcnew System::Windows::Forms::Panel());
-			   this->admin_text = (gcnew System::Windows::Forms::Label());
-			   this->user_text = (gcnew System::Windows::Forms::Label());
+			   this->user_name = (gcnew System::Windows::Forms::Label());
 			   this->user_pic = (gcnew System::Windows::Forms::PictureBox());
-			   this->upload_panel = (gcnew System::Windows::Forms::Panel());
-			   this->upload_pic = (gcnew System::Windows::Forms::PictureBox());
+			   this->update_panel = (gcnew System::Windows::Forms::Panel());
 			   this->upload_text = (gcnew System::Windows::Forms::Label());
+			   this->upload_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->pre_panel = (gcnew System::Windows::Forms::Panel());
-			   this->pre_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->pre_text = (gcnew System::Windows::Forms::Label());
+			   this->pre_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_panel = (gcnew System::Windows::Forms::Panel());
-			   this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_text = (gcnew System::Windows::Forms::Label());
+			   this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->grades_info = (gcnew System::Windows::Forms::Label());
 			   this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->gradeinfo_panel = (gcnew System::Windows::Forms::Panel());
@@ -111,14 +100,13 @@ namespace CourseRegistration {
 			   this->separate_line = (gcnew System::Windows::Forms::Label());
 			   this->syllabus = (gcnew System::Windows::Forms::Label());
 			   this->hours_out = (gcnew System::Windows::Forms::Label());
-			   this->ch = (gcnew System::Windows::Forms::Label());
-			   this->courseid_out = (gcnew System::Windows::Forms::Label());
-			   this->coursename_out = (gcnew System::Windows::Forms::Label());
-			   this->book_pic = (gcnew System::Windows::Forms::PictureBox());
+			   this->ch_text = (gcnew System::Windows::Forms::Label());
+			   this->course_id = (gcnew System::Windows::Forms::Label());
+			   this->course_name = (gcnew System::Windows::Forms::Label());
 			   this->nav_panel->SuspendLayout();
 			   this->user_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->BeginInit();
-			   this->upload_panel->SuspendLayout();
+			   this->update_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->BeginInit();
 			   this->pre_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
@@ -126,7 +114,6 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
 			   this->gradeinfo_panel->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // nav_panel
@@ -134,7 +121,7 @@ namespace CourseRegistration {
 			   this->nav_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->nav_panel->Controls->Add(this->user_panel);
-			   this->nav_panel->Controls->Add(this->upload_panel);
+			   this->nav_panel->Controls->Add(this->update_panel);
 			   this->nav_panel->Controls->Add(this->pre_panel);
 			   this->nav_panel->Controls->Add(this->manage_panel);
 			   this->nav_panel->Dock = System::Windows::Forms::DockStyle::Left;
@@ -142,77 +129,53 @@ namespace CourseRegistration {
 			   this->nav_panel->Location = System::Drawing::Point(0, 0);
 			   this->nav_panel->Margin = System::Windows::Forms::Padding(0);
 			   this->nav_panel->Name = L"nav_panel";
-			   this->nav_panel->Size = System::Drawing::Size(253, 740);
+			   this->nav_panel->Size = System::Drawing::Size(253, 673);
 			   this->nav_panel->TabIndex = 1;
 			   // 
 			   // user_panel
 			   // 
-			   this->user_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->user_panel->Controls->Add(this->admin_text);
-			   this->user_panel->Controls->Add(this->user_text);
+			   this->user_panel->Controls->Add(this->user_name);
 			   this->user_panel->Controls->Add(this->user_pic);
 			   this->user_panel->Location = System::Drawing::Point(0, 0);
 			   this->user_panel->Margin = System::Windows::Forms::Padding(0);
 			   this->user_panel->Name = L"user_panel";
-			   this->user_panel->Size = System::Drawing::Size(237, 178);
-			   this->user_panel->TabIndex = 0;
+			   this->user_panel->Size = System::Drawing::Size(253, 178);
+			   this->user_panel->TabIndex = 26;
 			   // 
-			   // admin_text
+			   // user_name
 			   // 
-			   this->admin_text->AutoSize = true;
-			   this->admin_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->user_name->AutoSize = true;
+			   this->user_name->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->admin_text->ForeColor = System::Drawing::Color::White;
-			   this->admin_text->Location = System::Drawing::Point(8, 150);
-			   this->admin_text->Name = L"admin_text";
-			   this->admin_text->Size = System::Drawing::Size(51, 18);
-			   this->admin_text->TabIndex = 2;
-			   this->admin_text->Text = L"Admin";
-			   // 
-			   // user_text
-			   // 
-			   this->user_text->AutoSize = true;
-			   this->user_text->ForeColor = System::Drawing::Color::White;
-			   this->user_text->Location = System::Drawing::Point(66, 99);
-			   this->user_text->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			   this->user_text->Name = L"user_text";
-			   this->user_text->Size = System::Drawing::Size(108, 24);
-			   this->user_text->TabIndex = 1;
-			   this->user_text->Text = L"User name";
+			   this->user_name->ForeColor = System::Drawing::Color::White;
+			   this->user_name->Location = System::Drawing::Point(64, 122);
+			   this->user_name->Margin = System::Windows::Forms::Padding(0);
+			   this->user_name->Name = L"user_name";
+			   this->user_name->Size = System::Drawing::Size(153, 34);
+			   this->user_name->TabIndex = 1;
+			   this->user_name->Text = L"User name";
+			   this->user_name->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   // 
 			   // user_pic
 			   // 
 			   this->user_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"user_pic.Image")));
-			   this->user_pic->Location = System::Drawing::Point(33, 4);
+			   this->user_pic->Location = System::Drawing::Point(58, 5);
 			   this->user_pic->Margin = System::Windows::Forms::Padding(4);
 			   this->user_pic->Name = L"user_pic";
-			   this->user_pic->Size = System::Drawing::Size(165, 91);
+			   this->user_pic->Size = System::Drawing::Size(130, 113);
 			   this->user_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			   this->user_pic->TabIndex = 0;
 			   this->user_pic->TabStop = false;
 			   // 
-			   // upload_panel
+			   // update_panel
 			   // 
-			   this->upload_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->upload_panel->Controls->Add(this->upload_pic);
-			   this->upload_panel->Controls->Add(this->upload_text);
-			   this->upload_panel->Location = System::Drawing::Point(0, 178);
-			   this->upload_panel->Margin = System::Windows::Forms::Padding(0);
-			   this->upload_panel->Name = L"upload_panel";
-			   this->upload_panel->Size = System::Drawing::Size(237, 100);
-			   this->upload_panel->TabIndex = 1;
-			   // 
-			   // upload_pic
-			   // 
-			   this->upload_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->upload_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upload_pic.Image")));
-			   this->upload_pic->Location = System::Drawing::Point(7, 24);
-			   this->upload_pic->Name = L"upload_pic";
-			   this->upload_pic->Size = System::Drawing::Size(55, 39);
-			   this->upload_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->upload_pic->TabIndex = 3;
-			   this->upload_pic->TabStop = false;
+			   this->update_panel->Controls->Add(this->upload_text);
+			   this->update_panel->Controls->Add(this->upload_pic);
+			   this->update_panel->Location = System::Drawing::Point(0, 178);
+			   this->update_panel->Margin = System::Windows::Forms::Padding(0);
+			   this->update_panel->Name = L"update_panel";
+			   this->update_panel->Size = System::Drawing::Size(253, 100);
+			   this->update_panel->TabIndex = 27;
 			   // 
 			   // upload_text
 			   // 
@@ -220,34 +183,32 @@ namespace CourseRegistration {
 			   this->upload_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->upload_text->ForeColor = System::Drawing::Color::White;
-			   this->upload_text->Location = System::Drawing::Point(75, 40);
+			   this->upload_text->Location = System::Drawing::Point(60, 40);
 			   this->upload_text->Name = L"upload_text";
 			   this->upload_text->Size = System::Drawing::Size(134, 23);
 			   this->upload_text->TabIndex = 1;
 			   this->upload_text->Text = L"Upload Course";
 			   // 
+			   // upload_pic
+			   // 
+			   this->upload_pic->BackColor = System::Drawing::Color::Transparent;
+			   this->upload_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upload_pic.Image")));
+			   this->upload_pic->Location = System::Drawing::Point(3, 28);
+			   this->upload_pic->Name = L"upload_pic";
+			   this->upload_pic->Size = System::Drawing::Size(55, 39);
+			   this->upload_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->upload_pic->TabIndex = 0;
+			   this->upload_pic->TabStop = false;
+			   // 
 			   // pre_panel
 			   // 
-			   this->pre_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->pre_panel->Controls->Add(this->pre_pic);
 			   this->pre_panel->Controls->Add(this->pre_text);
+			   this->pre_panel->Controls->Add(this->pre_pic);
 			   this->pre_panel->Location = System::Drawing::Point(0, 278);
 			   this->pre_panel->Margin = System::Windows::Forms::Padding(0);
 			   this->pre_panel->Name = L"pre_panel";
-			   this->pre_panel->Size = System::Drawing::Size(237, 100);
-			   this->pre_panel->TabIndex = 2;
-			   // 
-			   // pre_pic
-			   // 
-			   this->pre_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->pre_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pre_pic.Image")));
-			   this->pre_pic->Location = System::Drawing::Point(7, 26);
-			   this->pre_pic->Name = L"pre_pic";
-			   this->pre_pic->Size = System::Drawing::Size(57, 41);
-			   this->pre_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pre_pic->TabIndex = 3;
-			   this->pre_pic->TabStop = false;
+			   this->pre_panel->Size = System::Drawing::Size(253, 93);
+			   this->pre_panel->TabIndex = 28;
 			   // 
 			   // pre_text
 			   // 
@@ -255,34 +216,32 @@ namespace CourseRegistration {
 			   this->pre_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->pre_text->ForeColor = System::Drawing::Color::White;
-			   this->pre_text->Location = System::Drawing::Point(66, 35);
+			   this->pre_text->Location = System::Drawing::Point(63, 38);
 			   this->pre_text->Name = L"pre_text";
-			   this->pre_text->Size = System::Drawing::Size(158, 23);
+			   this->pre_text->Size = System::Drawing::Size(148, 23);
 			   this->pre_text->TabIndex = 1;
-			   this->pre_text->Text = L"Set Prerequisites";
+			   this->pre_text->Text = L"Set Prerequisite";
+			   // 
+			   // pre_pic
+			   // 
+			   this->pre_pic->BackColor = System::Drawing::Color::Transparent;
+			   this->pre_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pre_pic.Image")));
+			   this->pre_pic->Location = System::Drawing::Point(3, 26);
+			   this->pre_pic->Name = L"pre_pic";
+			   this->pre_pic->Size = System::Drawing::Size(57, 41);
+			   this->pre_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pre_pic->TabIndex = 0;
+			   this->pre_pic->TabStop = false;
 			   // 
 			   // manage_panel
 			   // 
-			   this->manage_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->manage_panel->Controls->Add(this->manage_pic);
 			   this->manage_panel->Controls->Add(this->manage_text);
-			   this->manage_panel->Location = System::Drawing::Point(0, 378);
+			   this->manage_panel->Controls->Add(this->manage_pic);
+			   this->manage_panel->Location = System::Drawing::Point(0, 371);
 			   this->manage_panel->Margin = System::Windows::Forms::Padding(0);
 			   this->manage_panel->Name = L"manage_panel";
-			   this->manage_panel->Size = System::Drawing::Size(237, 90);
-			   this->manage_panel->TabIndex = 4;
-			   // 
-			   // manage_pic
-			   // 
-			   this->manage_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->manage_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"manage_pic.Image")));
-			   this->manage_pic->Location = System::Drawing::Point(5, 26);
-			   this->manage_pic->Name = L"manage_pic";
-			   this->manage_pic->Size = System::Drawing::Size(57, 40);
-			   this->manage_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->manage_pic->TabIndex = 3;
-			   this->manage_pic->TabStop = false;
+			   this->manage_panel->Size = System::Drawing::Size(253, 100);
+			   this->manage_panel->TabIndex = 28;
 			   // 
 			   // manage_text
 			   // 
@@ -290,11 +249,22 @@ namespace CourseRegistration {
 			   this->manage_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->manage_text->ForeColor = System::Drawing::Color::White;
-			   this->manage_text->Location = System::Drawing::Point(68, 38);
+			   this->manage_text->Location = System::Drawing::Point(66, 37);
 			   this->manage_text->Name = L"manage_text";
 			   this->manage_text->Size = System::Drawing::Size(141, 23);
 			   this->manage_text->TabIndex = 1;
 			   this->manage_text->Text = L"Manage Grades";
+			   // 
+			   // manage_pic
+			   // 
+			   this->manage_pic->BackColor = System::Drawing::Color::Transparent;
+			   this->manage_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"manage_pic.Image")));
+			   this->manage_pic->Location = System::Drawing::Point(3, 26);
+			   this->manage_pic->Name = L"manage_pic";
+			   this->manage_pic->Size = System::Drawing::Size(57, 40);
+			   this->manage_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->manage_pic->TabIndex = 0;
+			   this->manage_pic->TabStop = false;
 			   // 
 			   // grades_info
 			   // 
@@ -313,7 +283,7 @@ namespace CourseRegistration {
 			   // 
 			   this->logo_Pic->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			   this->logo_Pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo_Pic.Image")));
-			   this->logo_Pic->Location = System::Drawing::Point(1071, 12);
+			   this->logo_Pic->Location = System::Drawing::Point(1197, 12);
 			   this->logo_Pic->Name = L"logo_Pic";
 			   this->logo_Pic->Size = System::Drawing::Size(73, 50);
 			   this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -322,7 +292,6 @@ namespace CourseRegistration {
 			   // 
 			   // gradeinfo_panel
 			   // 
-			   this->gradeinfo_panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->gradeinfo_panel->Controls->Add(this->stud_grade);
 			   this->gradeinfo_panel->Controls->Add(this->new_grade);
 			   this->gradeinfo_panel->Controls->Add(this->submit_button);
@@ -332,13 +301,12 @@ namespace CourseRegistration {
 			   this->gradeinfo_panel->Controls->Add(this->separate_line);
 			   this->gradeinfo_panel->Controls->Add(this->syllabus);
 			   this->gradeinfo_panel->Controls->Add(this->hours_out);
-			   this->gradeinfo_panel->Controls->Add(this->ch);
-			   this->gradeinfo_panel->Controls->Add(this->courseid_out);
-			   this->gradeinfo_panel->Controls->Add(this->coursename_out);
-			   this->gradeinfo_panel->Controls->Add(this->book_pic);
-			   this->gradeinfo_panel->Location = System::Drawing::Point(367, 141);
+			   this->gradeinfo_panel->Controls->Add(this->ch_text);
+			   this->gradeinfo_panel->Controls->Add(this->course_id);
+			   this->gradeinfo_panel->Controls->Add(this->course_name);
+			   this->gradeinfo_panel->Location = System::Drawing::Point(408, 122);
 			   this->gradeinfo_panel->Name = L"gradeinfo_panel";
-			   this->gradeinfo_panel->Size = System::Drawing::Size(707, 476);
+			   this->gradeinfo_panel->Size = System::Drawing::Size(766, 513);
 			   this->gradeinfo_panel->TabIndex = 25;
 			   // 
 			   // stud_grade
@@ -346,7 +314,7 @@ namespace CourseRegistration {
 			   this->stud_grade->AutoSize = true;
 			   this->stud_grade->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->stud_grade->Location = System::Drawing::Point(275, 258);
+			   this->stud_grade->Location = System::Drawing::Point(343, 284);
 			   this->stud_grade->Name = L"stud_grade";
 			   this->stud_grade->Size = System::Drawing::Size(215, 34);
 			   this->stud_grade->TabIndex = 26;
@@ -357,7 +325,7 @@ namespace CourseRegistration {
 			   this->new_grade->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			   this->new_grade->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->new_grade->Location = System::Drawing::Point(281, 329);
+			   this->new_grade->Location = System::Drawing::Point(349, 342);
 			   this->new_grade->Multiline = true;
 			   this->new_grade->Name = L"new_grade";
 			   this->new_grade->Size = System::Drawing::Size(100, 32);
@@ -368,17 +336,19 @@ namespace CourseRegistration {
 			   // 
 			   this->submit_button->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->submit_button->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			   this->submit_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->submit_button->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->submit_button->ForeColor = System::Drawing::SystemColors::Window;
-			   this->submit_button->Location = System::Drawing::Point(244, 410);
+			   this->submit_button->Location = System::Drawing::Point(302, 416);
 			   this->submit_button->Name = L"submit_button";
-			   this->submit_button->Size = System::Drawing::Size(184, 39);
+			   this->submit_button->Size = System::Drawing::Size(199, 42);
 			   this->submit_button->TabIndex = 24;
 			   this->submit_button->Text = L"Submit";
 			   this->submit_button->UseVisualStyleBackColor = false;
 			   this->submit_button->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &GradesInfo::submit_button_MouseClick);
+			   this->submit_button->MouseEnter += gcnew System::EventHandler(this, &GradesInfo::submit_button_MouseEnter);
+			   this->submit_button->MouseLeave += gcnew System::EventHandler(this, &GradesInfo::submit_button_MouseLeave);
 			   // 
 			   // newgrade_text
 			   // 
@@ -387,7 +357,7 @@ namespace CourseRegistration {
 				   static_cast<System::Byte>(0)));
 			   this->newgrade_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->newgrade_text->Location = System::Drawing::Point(22, 321);
+			   this->newgrade_text->Location = System::Drawing::Point(90, 334);
 			   this->newgrade_text->Name = L"newgrade_text";
 			   this->newgrade_text->Size = System::Drawing::Size(242, 40);
 			   this->newgrade_text->TabIndex = 16;
@@ -396,15 +366,15 @@ namespace CourseRegistration {
 			   // instructor_name
 			   // 
 			   this->instructor_name->AutoSize = true;
-			   this->instructor_name->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->instructor_name->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->instructor_name->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->instructor_name->Location = System::Drawing::Point(37, 190);
+			   this->instructor_name->Location = System::Drawing::Point(91, 201);
 			   this->instructor_name->Name = L"instructor_name";
-			   this->instructor_name->Size = System::Drawing::Size(172, 34);
+			   this->instructor_name->Size = System::Drawing::Size(199, 36);
 			   this->instructor_name->TabIndex = 14;
-			   this->instructor_name->Text = L"Doc mustafa";
+			   this->instructor_name->Text = L"insruct_name";
 			   // 
 			   // std_grade_text
 			   // 
@@ -413,7 +383,7 @@ namespace CourseRegistration {
 				   static_cast<System::Byte>(0)));
 			   this->std_grade_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->std_grade_text->Location = System::Drawing::Point(22, 252);
+			   this->std_grade_text->Location = System::Drawing::Point(90, 278);
 			   this->std_grade_text->Name = L"std_grade_text";
 			   this->std_grade_text->Size = System::Drawing::Size(263, 40);
 			   this->std_grade_text->TabIndex = 13;
@@ -424,7 +394,7 @@ namespace CourseRegistration {
 			   this->separate_line->AutoSize = true;
 			   this->separate_line->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->separate_line->Location = System::Drawing::Point(195, 221);
+			   this->separate_line->Location = System::Drawing::Point(280, 239);
 			   this->separate_line->Name = L"separate_line";
 			   this->separate_line->Size = System::Drawing::Size(280, 21);
 			   this->separate_line->TabIndex = 11;
@@ -433,86 +403,74 @@ namespace CourseRegistration {
 			   // syllabus
 			   // 
 			   this->syllabus->AutoSize = true;
-			   this->syllabus->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->syllabus->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->syllabus->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->syllabus->Location = System::Drawing::Point(37, 156);
+			   this->syllabus->Location = System::Drawing::Point(91, 167);
 			   this->syllabus->Name = L"syllabus";
-			   this->syllabus->Size = System::Drawing::Size(493, 34);
+			   this->syllabus->Size = System::Drawing::Size(527, 36);
 			   this->syllabus->TabIndex = 10;
 			   this->syllabus->Text = L"intoduction to pragramming using c++";
 			   // 
 			   // hours_out
 			   // 
 			   this->hours_out->AutoSize = true;
-			   this->hours_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->hours_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->hours_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->hours_out->Location = System::Drawing::Point(224, 115);
+			   this->hours_out->Location = System::Drawing::Point(278, 128);
 			   this->hours_out->Name = L"hours_out";
-			   this->hours_out->Size = System::Drawing::Size(30, 34);
+			   this->hours_out->Size = System::Drawing::Size(31, 36);
 			   this->hours_out->TabIndex = 9;
 			   this->hours_out->Text = L"3";
 			   // 
-			   // ch
+			   // ch_text
 			   // 
-			   this->ch->AutoSize = true;
-			   this->ch->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->ch_text->AutoSize = true;
+			   this->ch_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->ch->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			   this->ch_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->ch->Location = System::Drawing::Point(37, 115);
-			   this->ch->Name = L"ch";
-			   this->ch->Size = System::Drawing::Size(181, 34);
-			   this->ch->TabIndex = 8;
-			   this->ch->Text = L"Credit Hours:";
+			   this->ch_text->Location = System::Drawing::Point(91, 126);
+			   this->ch_text->Name = L"ch_text";
+			   this->ch_text->Size = System::Drawing::Size(194, 36);
+			   this->ch_text->TabIndex = 8;
+			   this->ch_text->Text = L"Credit Hours:";
 			   // 
-			   // courseid_out
+			   // course_id
 			   // 
-			   this->courseid_out->AutoSize = true;
-			   this->courseid_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->course_id->AutoSize = true;
+			   this->course_id->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->courseid_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			   this->course_id->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->courseid_out->Location = System::Drawing::Point(37, 66);
-			   this->courseid_out->Name = L"courseid_out";
-			   this->courseid_out->Size = System::Drawing::Size(87, 34);
-			   this->courseid_out->TabIndex = 7;
-			   this->courseid_out->Text = L"CIS50";
+			   this->course_id->Location = System::Drawing::Point(91, 77);
+			   this->course_id->Name = L"course_id";
+			   this->course_id->Size = System::Drawing::Size(132, 36);
+			   this->course_id->TabIndex = 7;
+			   this->course_id->Text = L"courseid";
 			   // 
-			   // coursename_out
+			   // course_name
 			   // 
-			   this->coursename_out->AutoSize = true;
-			   this->coursename_out->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->course_name->AutoSize = true;
+			   this->course_name->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->coursename_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+			   this->course_name->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->coursename_out->Location = System::Drawing::Point(206, 13);
-			   this->coursename_out->Name = L"coursename_out";
-			   this->coursename_out->Size = System::Drawing::Size(209, 40);
-			   this->coursename_out->TabIndex = 6;
-			   this->coursename_out->Text = L"course name";
-			   // 
-			   // book_pic
-			   // 
-			   this->book_pic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->book_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"book_pic.Image")));
-			   this->book_pic->Location = System::Drawing::Point(563, 20);
-			   this->book_pic->Name = L"book_pic";
-			   this->book_pic->Size = System::Drawing::Size(128, 101);
-			   this->book_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->book_pic->TabIndex = 0;
-			   this->book_pic->TabStop = false;
+			   this->course_name->Location = System::Drawing::Point(275, 16);
+			   this->course_name->Name = L"course_name";
+			   this->course_name->Size = System::Drawing::Size(280, 53);
+			   this->course_name->TabIndex = 6;
+			   this->course_name->Text = L"course name";
 			   // 
 			   // GradesInfo
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->ClientSize = System::Drawing::Size(1156, 740);
+			   this->BackColor = System::Drawing::Color::Honeydew;
+			   this->ClientSize = System::Drawing::Size(1282, 673);
 			   this->Controls->Add(this->gradeinfo_panel);
 			   this->Controls->Add(this->logo_Pic);
 			   this->Controls->Add(this->grades_info);
@@ -527,8 +485,8 @@ namespace CourseRegistration {
 			   this->user_panel->ResumeLayout(false);
 			   this->user_panel->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->EndInit();
-			   this->upload_panel->ResumeLayout(false);
-			   this->upload_panel->PerformLayout();
+			   this->update_panel->ResumeLayout(false);
+			   this->update_panel->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->EndInit();
 			   this->pre_panel->ResumeLayout(false);
 			   this->pre_panel->PerformLayout();
@@ -539,93 +497,35 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
 			   this->gradeinfo_panel->ResumeLayout(false);
 			   this->gradeinfo_panel->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
 		   }
 #pragma endregion
 
-	private: System::Void new_grade_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyValue == (int)Keys::Enter) {
-			e->Handled = true;
-			e->SuppressKeyPress = true;
-			new_grade->Focus();
-		}
-	}
-	private: void GradesInfo::LoadCourseInfo() {
-
-	   std::string stdCourseCode = Utils::toStdString(courseID);
-
-		   // SIMPLE WORKING VERSION
-		   for (auto& studentPair : students) {
-			   if (studentPair.first == studentID) {
-				   for (auto& completedCourse : studentPair.second.getCompletedCourses()) {
-					   if (completedCourse.getCourseID() == stdCourseCode) {
-						   courseid_out->Text = Utils::toSysStr(completedCourse.getCourseID());
-						   coursename_out->Text = Utils::toSysStr(courses[stdCourseCode].getCourseName());
-						   stud_grade->Text = Utils::toSysStr(completedCourse.getGrade());
-						   return;
-					   }
-				   }
-			   break;
-			   }
-			  }
-			   // If we get here, student/course wasn't found
-			   courseid_out->Text = "N/A";
-			   coursename_out->Text = "Student not found!";
-			   stud_grade->Text = "N/A";
-	}
-
-private: System::Void submit_button_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-
-	String^ gradeInput = new_grade->Text;
-
-	if (String::IsNullOrWhiteSpace(gradeInput)) {
-		MessageBox::Show("Grade cannot be empty or whitespace.", "Invalid Input", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		return;
-	}
-
-	std::string gradeStr = msclr::interop::marshal_as<std::string>(gradeInput);
-
-	if (!(gradeStr == "A" || gradeStr == "B" || gradeStr == "C" || gradeStr == "D" || gradeStr == "F")) {
-		MessageBox::Show("Invalid grade entered. Acceptable grades: A, B, C, D, F", "Invalid Grade", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		return;
-	}
-
-	std::string stdCourseCode = Utils::toStdString(courseID);
-	char gradeChar = gradeStr.length() > 0 ? gradeStr[0] : ' ';
-
-	for (auto& studentPair : students) {
-		if (studentPair.first == studentID) {
-			// Get non-const reference to courses
-			auto& courses = studentPair.second.getCompletedCourses();
-
-			// Find and update the course
-			for (auto it = courses.begin(); it != courses.end(); ++it) {
-				if (it->getCourseID() == stdCourseCode) {
-					// Create modified copy
-					CourseGrades updated = *it;
-					updated.setGrade(gradeChar);
-
-					// Replace in set (required for std::set)
-					courses.erase(it);
-					courses.insert(updated);
-
-					// Force map update
-					studentPair.second = studentPair.second;
-
-					MessageBox::Show("Grade updated in memory!\n"
-						"Remember to save before exiting.",
-						"Success",
-						MessageBoxButtons::OK,
-						MessageBoxIcon::Information);
-					return;
-				}
-			}
-			break;
-		}
+private: System::Void new_grade_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyValue == (int)Keys::Enter) {
+		e->Handled = true;
+		e->SuppressKeyPress = true;
+		new_grade->Focus();
 	}
 }
+
+private: void GradesInfo::LoadCourseInfo();
+
+private: System::Void submit_button_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
+private: System::Void submit_button_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	submit_button->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+	static_cast<System::Int32>(static_cast<System::Byte>(80)));
+	submit_button->Cursor = System::Windows::Forms::Cursors::Hand;
+}
+
+private: System::Void submit_button_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	submit_button->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+		static_cast<System::Int32>(static_cast<System::Byte>(68)));
+	submit_button->Cursor = System::Windows::Forms::Cursors::Default;
+}
+
 };
 }

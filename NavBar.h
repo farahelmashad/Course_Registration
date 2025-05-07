@@ -229,7 +229,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 562);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 673);
 			this->flowLayoutPanel1->TabIndex = 1;
 			// 
 			// panel1
@@ -250,7 +250,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(74, 117);
+			this->label1->Location = System::Drawing::Point(65, 116);
 			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(130, 29);
@@ -696,7 +696,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Honeydew;
-			this->ClientSize = System::Drawing::Size(1282, 562);
+			this->ClientSize = System::Drawing::Size(1282, 673);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->Profile);
 			this->Controls->Add(this->pictureBox5);
@@ -763,7 +763,7 @@ private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) 
 	if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
 	//	pictureBox1->Image = System::Drawing::Image::FromFile("C:\\Users\\Hosam\\Downloads\\programmer (1).png");
 	}
-
+	displayAllCourses();
 }
 private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	Course_registration^ c1 = gcnew Course_registration();
@@ -831,8 +831,8 @@ private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArg
 private: System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 }
 private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-//	course_pre^ pre = gcnew course_pre();
-//	pre->ShowDialog();
+	course_pre^ pre = gcnew course_pre();
+	pre->ShowDialog();
 	this->Hide();
 	this->Close();
 }
