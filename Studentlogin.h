@@ -124,6 +124,7 @@ namespace CourseRegistration {
 			this->username_s->TabIndex = 5;
 			this->username_s->TextChanged += gcnew System::EventHandler(this, &Studentlogin::username_TextChanged);
 			this->username_s->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Studentlogin::username_KeyDown);
+			this->username_s->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Studentlogin::username_s_KeyPress);
 			// 
 			// password_sl
 			// 
@@ -243,7 +244,7 @@ namespace CourseRegistration {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->BackColor = System::Drawing::Color::Honeydew;
+			this->BackColor = System::Drawing::Color::AliceBlue;
 			this->ClientSize = System::Drawing::Size(1661, 809);
 			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->label5);
@@ -264,9 +265,6 @@ namespace CourseRegistration {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
-			this->username_s->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Studentlogin::username_s_KeyPress);
-
 
 		}
 #pragma endregion
