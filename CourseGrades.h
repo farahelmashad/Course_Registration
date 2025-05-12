@@ -6,28 +6,28 @@
 using namespace std;
 
 class CourseGrades
-{   private: 
+{
+private:
 	int studentID;
 	string courseID;
 	string semester; // ex: Fall 2024 
 	char grade; // A , B , wkda
-	
+
 public:
-	CourseGrades(int studentID,string courseID, string semester, char grade);
+	CourseGrades(int studentID, string courseID, string semester, char grade);
 	CourseGrades(string courseID);
 
 	void setCourseID(string courseID);
 	void setSemester(string semester);
-	void setGrade( char grade);
-	string getCourseID();
+	void setGrade(char grade);
+	string getCourseID() const;
 	string getSemester();
-	char getGrade();
+	char getGrade() const;
 	~CourseGrades();
-bool operator<(const CourseGrades& other) const {
-    return courseID < other.courseID;
-}
+	bool operator<(const CourseGrades& other) const {
+		return courseID < other.courseID;
+	}
 
 
 
 };
-

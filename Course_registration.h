@@ -8,6 +8,8 @@
  ref class course_pre;
  ref class course_info;
  ref class NavBar;
+ ref class ViewGrades;
+ ref class report;
  namespace CourseRegistration {
 
 	 using namespace System;
@@ -106,6 +108,9 @@
 	 private: System::Windows::Forms::PictureBox^ pictureBox5;
 	 private:System::Random^ rand;
 	 System::Void panel5_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	 System::Void panel4_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	 System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
 	 //System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 	// System::Void panel1_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
@@ -287,6 +292,7 @@
 			 this->panel3->Name = L"panel3";
 			 this->panel3->Size = System::Drawing::Size(253, 100);
 			 this->panel3->TabIndex = 2;
+			 this->panel3->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::panel3_MouseClick);
 			 this->panel3->MouseEnter += gcnew System::EventHandler(this, &Course_registration::panel3_MouseEnter);
 			 this->panel3->MouseLeave += gcnew System::EventHandler(this, &Course_registration::panel3_MouseLeave);
 			 // 
@@ -326,6 +332,7 @@
 			 this->panel4->Size = System::Drawing::Size(253, 91);
 			 this->panel4->TabIndex = 4;
 			 this->panel4->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Course_registration::panel4_Paint);
+			 this->panel4->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Course_registration::panel4_MouseClick);
 			 this->panel4->MouseEnter += gcnew System::EventHandler(this, &Course_registration::panel4_MouseEnter);
 			 this->panel4->MouseLeave += gcnew System::EventHandler(this, &Course_registration::panel4_MouseLeave);
 			 // 
@@ -514,6 +521,7 @@
 			 this->searchBar->Size = System::Drawing::Size(261, 31);
 			 this->searchBar->TabIndex = 20;
 			 this->searchBar->TextChanged += gcnew System::EventHandler(this, &Course_registration::textBox1_TextChanged);
+			 this->searchBar->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Course_registration::searchBar_KeyDown);
 			 // 
 			 // search
 			 // 
@@ -538,7 +546,6 @@
 			 this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
 			 this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
 			 this->flowLayoutPanel2->TabIndex = 22;
-			 DisplayAllCourses(courses);
 			 // 
 			 // course_lay
 			 // 
@@ -667,8 +674,6 @@
 			 (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			 this->ResumeLayout(false);
 			 this->PerformLayout();
-			 // click enter to search
-			 this->searchBar->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Course_registration::searchBar_KeyDown);
 
 		 }
 #pragma endregion

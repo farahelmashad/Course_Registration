@@ -2,6 +2,8 @@
 #include"course_pre.h"
 #include"course_info.h"
 #include"NavBar.h"
+#include"ViewGrades.h"
+#include"report.h"
 #include<array>
 
 void CourseRegistration::Course_registration::panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -18,6 +20,20 @@ void CourseRegistration::Course_registration::panel5_MouseClick(System::Object^ 
 	this->Hide();   
 	this->Close();  
 }
+void CourseRegistration::Course_registration::panel4_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	report^ rep = gcnew report();
+	rep->ShowDialog();
+	this->Hide();
+	this->Close();
+}
+void CourseRegistration::Course_registration::panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	ViewGrades^ vg = gcnew ViewGrades();
+	vg->ShowDialog();
+	this->Hide();
+	this->Close();
+}
+
+
 void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Random^ rand)
 {
 	Panel^ coursePanel = gcnew Panel();
