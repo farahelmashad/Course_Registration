@@ -649,6 +649,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->flowLayoutPanel2->Size = System::Drawing::Size(425, 604);
 			this->flowLayoutPanel2->TabIndex = 21;
 			this->flowLayoutPanel2->WrapContents = false;
+			displayAllCourses();
 			// 
 			// label8
 			// 
