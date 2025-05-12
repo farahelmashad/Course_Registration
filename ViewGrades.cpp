@@ -3,8 +3,12 @@
 #include "Course.h"
 #include "CourseGrades.h"
 #include "Studentlogin.h"
+
 #include"FileManager.h"
 #include"course_info.h"
+#include"course_pre.h"
+//#include"report.h"
+#include"Course_registration.h"
 #include <map>
 #include <vector>
 #include <set>
@@ -15,18 +19,37 @@ using namespace std;
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
-using namespace CourseRegistration;
+using namespace CourseRegistration; 
 
-ViewGrades::ViewGrades(void) {
-    InitializeComponent();
-    InitializeData();
+
+Void CourseRegistration::ViewGrades::panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    NavBar^ nb = gcnew NavBar();
+    nb->ShowDialog();
+    this->Hide();
+    this->Close();
 }
+Void CourseRegistration::ViewGrades::panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    Course_registration^ c1 = gcnew Course_registration ();
 
-ViewGrades::~ViewGrades() {
-    // Cleanup if necessary
+    c1->ShowDialog();
+    this->Hide();
+    this->Close();
 }
+Void CourseRegistration::ViewGrades::panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+    course_pre^ pre = gcnew course_pre();
+    pre->ShowDialog();
+    this->Hide();
+    this->Close();
+}
+//Void CourseRegistration::ViewGrades::panel4_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+//    report^ rpt = gcnew report();
+//   rpt->ShowDialog();
+//    this->Hide();
+//    this->Close();
+//}
 
-void ViewGrades::InitializeData() {
+
+void CourseRegistration::ViewGrades::InitializeData() {
 
 
     GradesLayoutPanel->Controls->Clear();
@@ -43,7 +66,7 @@ void ViewGrades::InitializeData() {
     }
 }
 
-System::Void ViewGrades::searchbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, System::EventArgs^ e) {
     if (SemBox->SelectedItem == nullptr) return;
 
     String^ selectedSemesterStr = SemBox->SelectedItem->ToString();
@@ -112,7 +135,7 @@ System::Void ViewGrades::searchbutton_Click(System::Object^ sender, System::Even
   
 }
 
-System::Void ViewGrades::Retakebtn_Click(System::Object^ sender, System::EventArgs^ e) {
+Void CourseRegistration::ViewGrades::Retakebtn_Click(System::Object^ sender, System::EventArgs^ e) {
     currentStudent.Retake(gcid);
     MessageBox::Show("Course Successfully Retaken", "Success", MessageBoxButtons::OK);
 

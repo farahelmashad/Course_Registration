@@ -1,3 +1,4 @@
+||0|||
 CS101|Introduction to Programming|3|Basics of programming using C++|Dr. Ahmed Salem|
 CS102|Object-Oriented Programming|3|OOP principles using Java|Dr. Reem Youssef|CS101
 CS201|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|CS102

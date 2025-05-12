@@ -3,6 +3,7 @@
 #include "course_pre.h"
 #include"Course.h"
 #include"NavBar.h"
+
 #include"Utils.h"
 #include"Course_registration.h"
 #include<array>

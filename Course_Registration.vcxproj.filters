@@ -57,6 +57,27 @@
     <ClCompile Include="ViewGrades.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AdminCoursesManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminNavBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GradesInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageGrades1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrerequisitesPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetPrerequisites.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UploadCourses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="report.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -107,6 +128,27 @@
     <ClInclude Include="ViewGrades.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AdminCoursesManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminNavBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GradesInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageGrades1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrerequisitesPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetPrerequisites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UploadCourses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="report.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -115,5 +157,25 @@
     <Text Include="Admin.txt" />
     <Text Include="Courses.txt" />
     <Text Include="student.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="courseicon.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="database.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="pc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="book.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="computer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="computer-science.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

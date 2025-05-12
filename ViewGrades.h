@@ -1,7 +1,13 @@
 #pragma once
-#include"Course_registration.h"
+
 #include"course_pre.h"
 #include <msclr/marshal_cppstd.h>
+
+ref class NavBar; 
+ref class Course_registration;
+
+ref class course_pre;
+
 
 namespace CourseRegistration {
 
@@ -19,17 +25,25 @@ namespace CourseRegistration {
 	public ref class ViewGrades : public System::Windows::Forms::Form
 	{
 	public:
-		ViewGrades(void);
+		ViewGrades(void) {
+			InitializeComponent();
+		}
 
 	protected:
-		~ViewGrades();
+		~ViewGrades() {
+
+			/*if (components)
+			{
+				delete components;
+			}*/
+		}
 
 		// UI Controls
 		System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 		System::Windows::Forms::Panel^ panel1;
 		System::Windows::Forms::Label^ label1;
 		System::Windows::Forms::PictureBox^ pictureBox1;
-		System::Windows::Forms::Label^ label2;
+
 		System::Windows::Forms::Panel^ panel2;
 		System::Windows::Forms::PictureBox^ pictureBox2;
 		System::Windows::Forms::Label^ label3;
@@ -81,7 +95,6 @@ namespace CourseRegistration {
 			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ViewGrades::typeid));
 			   this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
-			   this->label2 = (gcnew System::Windows::Forms::Label());
 			   this->label1 = (gcnew System::Windows::Forms::Label());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -143,8 +156,6 @@ namespace CourseRegistration {
 			   // 
 			   // panel1
 			   // 
-			   this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->panel1->Controls->Add(this->label2);
 			   this->panel1->Controls->Add(this->label1);
 			   this->panel1->Controls->Add(this->pictureBox1);
 			   this->panel1->Location = System::Drawing::Point(0, 0);
@@ -152,37 +163,27 @@ namespace CourseRegistration {
 			   this->panel1->Name = L"panel1";
 			   this->panel1->Size = System::Drawing::Size(295, 178);
 			   this->panel1->TabIndex = 0;
-			   // 
-			   // label2
-			   // 
-			   this->label2->AutoSize = true;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->label2->ForeColor = System::Drawing::Color::White;
-			   this->label2->Location = System::Drawing::Point(8, 150);
-			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(89, 18);
-			   this->label2->TabIndex = 2;
-			   this->label2->Text = L"User/Admin";
+			   this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ViewGrades::panel1_MouseClick);
 			   // 
 			   // label1
 			   // 
 			   this->label1->AutoSize = true;
 			   this->label1->ForeColor = System::Drawing::Color::White;
-			   this->label1->Location = System::Drawing::Point(64, 99);
+			   this->label1->Location = System::Drawing::Point(81, 144);
 			   this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(108, 24);
 			   this->label1->TabIndex = 1;
 			   this->label1->Text = L"User name";
+			   this->label1->Click += gcnew System::EventHandler(this, &ViewGrades::label1_Click);
 			   // 
 			   // pictureBox1
 			   // 
 			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			   this->pictureBox1->Location = System::Drawing::Point(58, 5);
+			   this->pictureBox1->Location = System::Drawing::Point(71, 0);
 			   this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			   this->pictureBox1->Name = L"pictureBox1";
-			   this->pictureBox1->Size = System::Drawing::Size(130, 113);
+			   this->pictureBox1->Size = System::Drawing::Size(130, 139);
 			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			   this->pictureBox1->TabIndex = 0;
 			   this->pictureBox1->TabStop = false;
@@ -194,7 +195,7 @@ namespace CourseRegistration {
 			   this->panel2->Location = System::Drawing::Point(0, 178);
 			   this->panel2->Margin = System::Windows::Forms::Padding(0);
 			   this->panel2->Name = L"panel2";
-			   this->panel2->Size = System::Drawing::Size(295, 100);
+			   this->panel2->Size = System::Drawing::Size(295, 123);
 			   this->panel2->TabIndex = 1;
 			   this->panel2->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ViewGrades::panel2_MouseClick);
 			   // 
@@ -227,10 +228,10 @@ namespace CourseRegistration {
 			   // 
 			   this->panel3->Controls->Add(this->label4);
 			   this->panel3->Controls->Add(this->pictureBox3);
-			   this->panel3->Location = System::Drawing::Point(0, 278);
+			   this->panel3->Location = System::Drawing::Point(0, 301);
 			   this->panel3->Margin = System::Windows::Forms::Padding(0);
 			   this->panel3->Name = L"panel3";
-			   this->panel3->Size = System::Drawing::Size(301, 100);
+			   this->panel3->Size = System::Drawing::Size(301, 123);
 			   this->panel3->TabIndex = 2;
 			   // 
 			   // label4
@@ -262,10 +263,10 @@ namespace CourseRegistration {
 			   // 
 			   this->panel4->Controls->Add(this->label5);
 			   this->panel4->Controls->Add(this->pictureBox4);
-			   this->panel4->Location = System::Drawing::Point(0, 378);
+			   this->panel4->Location = System::Drawing::Point(0, 424);
 			   this->panel4->Margin = System::Windows::Forms::Padding(0);
 			   this->panel4->Name = L"panel4";
-			   this->panel4->Size = System::Drawing::Size(295, 91);
+			   this->panel4->Size = System::Drawing::Size(295, 112);
 			   this->panel4->TabIndex = 3;
 			   // 
 			   // label5
@@ -297,10 +298,10 @@ namespace CourseRegistration {
 			   // 
 			   this->panel7->Controls->Add(this->check_pre);
 			   this->panel7->Controls->Add(this->pictureBox7);
-			   this->panel7->Location = System::Drawing::Point(0, 469);
+			   this->panel7->Location = System::Drawing::Point(0, 536);
 			   this->panel7->Margin = System::Windows::Forms::Padding(0);
 			   this->panel7->Name = L"panel7";
-			   this->panel7->Size = System::Drawing::Size(295, 91);
+			   this->panel7->Size = System::Drawing::Size(295, 112);
 			   this->panel7->TabIndex = 18;
 			   this->panel7->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ViewGrades::panel7_MouseClick);
 			   // 
@@ -499,7 +500,9 @@ namespace CourseRegistration {
 		System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {}
 		System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {}
 		System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {}
-		System::Void ViewGrades_Load(System::Object^ sender, System::EventArgs^ e) {}
+		System::Void ViewGrades_Load(System::Object^ sender, System::EventArgs^ e) {
+			label1->Text = Utils::toSysStr(currentStudent.getUserName());
+		}
 		System::Void searchbutton_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Retakebtn_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
@@ -511,19 +514,12 @@ namespace CourseRegistration {
 	}
 	private: System::Void panel9_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		Course_registration^ c1 = gcnew Course_registration();
-
-		c1->ShowDialog();
-		this->Hide();
-		this->Close();
-	}
-    private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	   course_pre^ pre = gcnew course_pre();
-	   pre->ShowDialog();
-	   this->Hide();
-	   this->Close();
-
+	private: System::Void panel2_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	   
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
 };
 }

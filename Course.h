@@ -23,7 +23,7 @@ public:
 	void setCreditHours(int creditHours);
 	void setSyllabus(string syllabus);
 	void setInstructor(string instructor);
-	void setPrerequisites(set<string>& prerequisites);
+	void setPrerequisites(set<string>& prereqs);
 	static Course SearchCourse(string courseID);
 	string getCourseID();
 	string getCourseName();

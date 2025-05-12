@@ -122,24 +122,35 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminCoursesManager.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="AdminNavBar.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseGrades.cpp" />
     <ClCompile Include="course_info.cpp" />
     <ClCompile Include="course_pre.cpp" />
     <ClCompile Include="Course_registration.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GradesInfo.cpp" />
     <ClCompile Include="Login_SignUp_Helper.cpp" />
+    <ClCompile Include="ManageGrades1.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="PrerequisitesPage.cpp" />
     <ClCompile Include="report.cpp" />
+    <ClCompile Include="SetPrerequisites.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
+    <ClCompile Include="UploadCourses.cpp" />
     <ClCompile Include="ViewGrades.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminCoursesManager.h" />
     <ClInclude Include="Adminlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdminNavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Course.h" />
@@ -154,12 +165,23 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FileManager.h" />
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="GradesInfo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Login_SignUp_Helper.h" />
+    <ClInclude Include="ManageGrades1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PrerequisitesPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="report.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SetPrerequisites.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SignUp.h">
@@ -167,6 +189,9 @@
     </ClInclude>
     <ClInclude Include="Student.h" />
     <ClInclude Include="Studentlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Utils.h" />
@@ -178,6 +203,9 @@
     <EmbeddedResource Include="Adminlogin.resx">
       <DependentUpon>Adminlogin.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminNavBar.resx">
+      <DependentUpon>AdminNavBar.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="course_info.resx">
       <DependentUpon>course_info.h</DependentUpon>
@@ -191,18 +219,33 @@
       <DependentUpon>Course_registration.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GradesInfo.resx">
+      <DependentUpon>GradesInfo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageGrades1.resx">
+      <DependentUpon>ManageGrades1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NavBar.resx">
       <DependentUpon>NavBar.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrerequisitesPage.resx">
+      <DependentUpon>PrerequisitesPage.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="report.resx">
       <DependentUpon>report.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetPrerequisites.resx">
+      <DependentUpon>SetPrerequisites.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadCourses.resx">
+      <DependentUpon>UploadCourses.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewGrades.resx">
       <DependentUpon>ViewGrades.h</DependentUpon>
@@ -212,6 +255,14 @@
     <Text Include="Admin.txt" />
     <Text Include="Courses.txt" />
     <Text Include="student.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="book.png" />
+    <Image Include="computer-science.png" />
+    <Image Include="computer.png" />
+    <Image Include="courseicon.bmp" />
+    <Image Include="database.png" />
+    <Image Include="pc.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

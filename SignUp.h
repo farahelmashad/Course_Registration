@@ -99,10 +99,10 @@ namespace CourseRegistration {
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Honeydew;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(886, -41);
+			this->pictureBox1->Location = System::Drawing::Point(775, -41);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(1141, 1068);
+			this->pictureBox1->Size = System::Drawing::Size(998, 1068);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -113,8 +113,9 @@ namespace CourseRegistration {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 55.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->label1->Location = System::Drawing::Point(339, 68);
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label1->Location = System::Drawing::Point(297, 68);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(363, 110);
 			this->label1->TabIndex = 1;
@@ -126,8 +127,9 @@ namespace CourseRegistration {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->label2->Location = System::Drawing::Point(198, 233);
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label2->Location = System::Drawing::Point(173, 233);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(145, 34);
 			this->label2->TabIndex = 2;
@@ -140,11 +142,11 @@ namespace CourseRegistration {
 			this->Username->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Username->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->Username->Location = System::Drawing::Point(204, 270);
+			this->Username->Location = System::Drawing::Point(178, 270);
 			this->Username->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Username->Multiline = true;
 			this->Username->Name = L"Username";
-			this->Username->Size = System::Drawing::Size(377, 24);
+			this->Username->Size = System::Drawing::Size(330, 24);
 			this->Username->TabIndex = 4;
 			this->Username->TextChanged += gcnew System::EventHandler(this, &SignUp::Username_TextChanged);
 			this->Username->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &SignUp::Username_KeyDown);
@@ -154,8 +156,9 @@ namespace CourseRegistration {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->label3->Location = System::Drawing::Point(198, 318);
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label3->Location = System::Drawing::Point(173, 318);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(140, 34);
 			this->label3->TabIndex = 5;
@@ -167,12 +170,12 @@ namespace CourseRegistration {
 			this->Password->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Password->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->Password->Location = System::Drawing::Point(204, 355);
+			this->Password->Location = System::Drawing::Point(178, 355);
 			this->Password->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Password->Multiline = true;
 			this->Password->Name = L"Password";
 			this->Password->PasswordChar = '*';
-			this->Password->Size = System::Drawing::Size(377, 25);
+			this->Password->Size = System::Drawing::Size(330, 25);
 			this->Password->TabIndex = 6;
 			this->Password->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &SignUp::Password_KeyDown);
 			// 
@@ -181,8 +184,9 @@ namespace CourseRegistration {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->label4->Location = System::Drawing::Point(198, 407);
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label4->Location = System::Drawing::Point(173, 407);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(154, 34);
 			this->label4->TabIndex = 7;
@@ -195,12 +199,12 @@ namespace CourseRegistration {
 			this->National_ID->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->National_ID->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->National_ID->Location = System::Drawing::Point(204, 444);
+			this->National_ID->Location = System::Drawing::Point(178, 444);
 			this->National_ID->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->National_ID->MaxLength = 10;
 			this->National_ID->Multiline = true;
 			this->National_ID->Name = L"National_ID";
-			this->National_ID->Size = System::Drawing::Size(377, 26);
+			this->National_ID->Size = System::Drawing::Size(330, 26);
 			this->National_ID->TabIndex = 8;
 			this->National_ID->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &SignUp::National_ID_KeyDown);
 			this->National_ID->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &SignUp::National_ID_KeyPress);
@@ -210,8 +214,9 @@ namespace CourseRegistration {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->label5->Location = System::Drawing::Point(198, 492);
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->label5->Location = System::Drawing::Point(173, 492);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(146, 34);
 			this->label5->TabIndex = 9;
@@ -223,12 +228,12 @@ namespace CourseRegistration {
 			this->Student_ID->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Student_ID->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->Student_ID->Location = System::Drawing::Point(204, 529);
+			this->Student_ID->Location = System::Drawing::Point(178, 529);
 			this->Student_ID->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Student_ID->MaxLength = 8;
 			this->Student_ID->Multiline = true;
 			this->Student_ID->Name = L"Student_ID";
-			this->Student_ID->Size = System::Drawing::Size(377, 26);
+			this->Student_ID->Size = System::Drawing::Size(330, 26);
 			this->Student_ID->TabIndex = 10;
 			this->Student_ID->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &SignUp::Student_ID_KeyDown);
 			this->Student_ID->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &SignUp::Student_ID_KeyPress);
@@ -238,8 +243,9 @@ namespace CourseRegistration {
 			this->radioButton2->AutoSize = true;
 			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton2->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->radioButton2->Location = System::Drawing::Point(204, 630);
+			this->radioButton2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->radioButton2->Location = System::Drawing::Point(178, 630);
 			this->radioButton2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(129, 38);
@@ -253,8 +259,9 @@ namespace CourseRegistration {
 			this->Gender->AutoSize = true;
 			this->Gender->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Gender->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->Gender->Location = System::Drawing::Point(198, 579);
+			this->Gender->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->Gender->Location = System::Drawing::Point(173, 579);
 			this->Gender->Name = L"Gender";
 			this->Gender->Size = System::Drawing::Size(106, 34);
 			this->Gender->TabIndex = 13;
@@ -265,8 +272,9 @@ namespace CourseRegistration {
 			this->radioButton3->AutoSize = true;
 			this->radioButton3->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton3->ForeColor = System::Drawing::Color::MidnightBlue;
-			this->radioButton3->Location = System::Drawing::Point(403, 630);
+			this->radioButton3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			this->radioButton3->Location = System::Drawing::Point(353, 630);
 			this->radioButton3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(96, 38);
@@ -278,16 +286,17 @@ namespace CourseRegistration {
 			// 
 			// Submit
 			// 
-			this->Submit->BackColor = System::Drawing::Color::MidnightBlue;
+			this->Submit->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Submit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Submit->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Submit->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(241)),
 				static_cast<System::Int32>(static_cast<System::Byte>(236)));
-			this->Submit->Location = System::Drawing::Point(204, 703);
+			this->Submit->Location = System::Drawing::Point(178, 703);
 			this->Submit->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Submit->Name = L"Submit";
-			this->Submit->Size = System::Drawing::Size(377, 39);
+			this->Submit->Size = System::Drawing::Size(330, 39);
 			this->Submit->TabIndex = 15;
 			this->Submit->Text = L"Submit";
 			this->Submit->UseVisualStyleBackColor = false;
@@ -295,10 +304,10 @@ namespace CourseRegistration {
 			// 
 			// SignUp
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Honeydew;
-			this->ClientSize = System::Drawing::Size(1560, 927);
+			this->ClientSize = System::Drawing::Size(1365, 927);
 			this->Controls->Add(this->Submit);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->Gender);

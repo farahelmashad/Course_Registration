@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <Windows.h>
 
 using namespace std;
 vector<Admin> admins;
@@ -141,21 +142,22 @@ void FileManager::readCourses(string filename) {
 
 }
 
-void FileManager::writeStudents(string filename) {
-    ofstream file(filename);
+void FileManager::writeStudents(string student) {
+    ofstream file(student);
+
     if (!file.is_open()) {
+        cout << "Error: Could not open file " << student << endl;
         return;
     }
+
+    cout << "Writing data to " << student << endl;
 
     for (auto pair : students) {
         Student s = pair.second;
 
-        file << s.getUserName() << ','
-            << s.getPassword() << ','
-            << s.getNationalID() << ','
-            << s.getStudentID() << ','
-            << s.getGender() << ','
-            << s.getAcademicYear() << ',';
+        file << s.getUserName() << ',' << s.getPassword() << ','
+            << s.getNationalID() << ',' << s.getStudentID() << ','
+            << s.getGender() << ',' << s.getAcademicYear() << ',';
 
         set<string> currentCourses = s.getCurrentCourses();
         for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
@@ -174,7 +176,44 @@ void FileManager::writeStudents(string filename) {
     }
 
     file.close();
+    OutputDebugStringA("Debug: writeFile was called\n");
+    cout << "Finished writing to " << student << endl;
 }
+
+//void FileManager::writeStudents(string filename) {
+//    ofstream file(filename);
+//    if (!file.is_open()) {
+//        return;
+//    }
+//
+//    for (auto pair : students) {
+//        Student s = pair.second;
+//
+//        file << s.getUserName() << ','
+//            << s.getPassword() << ','
+//            << s.getNationalID() << ','
+//            << s.getStudentID() << ','
+//            << s.getGender() << ','
+//            << s.getAcademicYear() << ',';
+//
+//        set<string> currentCourses = s.getCurrentCourses();
+//        for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
+//            file << *it;
+//            if (next(it) != currentCourses.end()) file << ';';
+//        }
+//
+//        file << '#';
+//
+//        set<CourseGrades> completedCourses = s.getCompletedCourses();
+//        for (auto cg : completedCourses) {
+//            file << cg.getCourseID() << '|' << cg.getSemester() << '|' << cg.getGrade() << ';';
+//        }
+//
+//        file << '\n';
+//    }
+//
+//    file.close();
+//}
 
 void FileManager::writeCourses(string filename) {
     ofstream file(filename);

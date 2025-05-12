@@ -3,6 +3,8 @@
 #include"course_pre.h"
 #include"course_info.h"
 #include"NavBar.h"
+#include"ViewGrades.h"
+
 #include<array>
 
 void CourseRegistration::Course_registration::panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -18,6 +20,14 @@ void CourseRegistration::Course_registration::panel5_MouseClick(System::Object^ 
 	cp->ShowDialog();
 	this->Hide();
 	this->Close();
+}
+void CourseRegistration::Course_registration::panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	ViewGrades^ vg = gcnew ViewGrades(); 
+	vg->ShowDialog();
+	this->Hide();
+	this->Close();
+
+
 }
 void CourseRegistration::Course_registration::CreateCoursePanel(Course course, Random^ rand)
 {
@@ -71,14 +81,18 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course, R
 	//Picturesss
 	PictureBox^ pic = gcnew PictureBox();
 	std::array<std::string, 5> imageNames = { "book", "pc", "computer","computer-science","database" };
-
-	int index = rand->Next(imageNames.size());
-	String^ selectedImage = Utils::toSysStr(imageNames[index]);
-
+	
 
 	System::ComponentModel::ComponentResourceManager^ resources =
 		gcnew System::ComponentModel::ComponentResourceManager(Course_registration::typeid);
-	pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
+	
+	
+	int index = rand->Next(imageNames.size()); 
+	String^ selectedImage = Utils::toSysStr(imageNames[index]); 
+
+
+	
+	pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage))); 
 
 	pic->SizeMode = PictureBoxSizeMode::Zoom;
 	pic->Location = System::Drawing::Point(37, 10);
