@@ -131,9 +131,11 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Login_SignUp_Helper.cpp" />
     <ClCompile Include="NavBar.cpp" />
+    <ClCompile Include="report.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
+    <ClCompile Include="ViewGrades.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -156,6 +158,9 @@
     <ClInclude Include="NavBar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="report.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SignUp.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -164,6 +169,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="ViewGrades.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Adminlogin.resx">
@@ -186,11 +194,17 @@
       <DependentUpon>NavBar.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="report.resx">
+      <DependentUpon>report.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Studentlogin.resx">
       <DependentUpon>Studentlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewGrades.resx">
+      <DependentUpon>ViewGrades.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

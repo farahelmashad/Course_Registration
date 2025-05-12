@@ -1,9 +1,11 @@
 #pragma once
+#include"report.h"
 #include"Course_registration.h"
 #include"course_pre.h"
 #include"Utils.h"
 #include"FileManager.h"
 #include"course_pre.h"
+#include"ViewGrades.h"
 namespace CourseRegistration {
 
 	using namespace System;
@@ -318,6 +320,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(253, 100);
 			this->panel3->TabIndex = 2;
+			this->panel3->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel3_MouseClick_1);
 			this->panel3->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel3_MouseEnter);
 			this->panel3->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel3_MouseLeave);
 			// 
@@ -366,6 +369,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel6->Size = System::Drawing::Size(253, 91);
 			this->panel6->TabIndex = 4;
 			this->panel6->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NavBar::panel6_Paint);
+			this->panel6->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel6_MouseClick);
 			this->panel6->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel6_MouseEnter);
 			this->panel6->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel6_MouseLeave);
 			// 
@@ -695,7 +699,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Honeydew;
+			this->BackColor = System::Drawing::Color::AliceBlue;
 			this->ClientSize = System::Drawing::Size(1282, 562);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->Profile);
@@ -829,6 +833,7 @@ private: System::Void panel7_MouseLeave(System::Object^ sender, System::EventArg
 
 }
 private: System::Void panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	
 }
 private: System::Void panel7_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	course_pre^ pre = gcnew course_pre();
@@ -852,5 +857,20 @@ private: System::Void panel8_Paint(System::Object^ sender, System::Windows::Form
 }
 private: System::Void panel11_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+private: System::Void panel3_MouseClick_1(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	ViewGrades^ gra = gcnew ViewGrades();
+	gra->ShowDialog();
+	this->Hide();
+	this->Close();
+}
+private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	report^re= gcnew report();
+	re->ShowDialog();
+	this->Hide();
+	this->Close();
+}
+
+
 };
 }

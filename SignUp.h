@@ -95,7 +95,7 @@ namespace CourseRegistration {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::Honeydew;
+			this->pictureBox1->BackColor = System::Drawing::Color::AliceBlue;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(886, -41);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -295,7 +295,7 @@ namespace CourseRegistration {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Honeydew;
+			this->BackColor = System::Drawing::Color::AliceBlue;
 			this->ClientSize = System::Drawing::Size(1560, 927);
 			this->Controls->Add(this->Submit);
 			this->Controls->Add(this->radioButton3);

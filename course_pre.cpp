@@ -1,6 +1,8 @@
 #include "course_pre.h"
 #include"Course.h"
 #include"NavBar.h"
+#include"report.h"
+#include"ViewGrades.h"
 #include"Utils.h"
 #include"Course_registration.h"
 #include<array>
@@ -108,5 +110,17 @@ void CourseRegistration::course_pre::DisplayAllCourses(map<string, Course> cours
     }
 
 }
-
-
+void CourseRegistration::course_pre::panel3_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    ViewGrades^ gr = gcnew ViewGrades();
+    gr->ShowDialog();
+    this->Hide();
+    this->Close();
+}
+void CourseRegistration::course_pre::panel6_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    report^ r = gcnew report();
+    r->ShowDialog();
+    this->Hide();
+    this->Close();
+}
