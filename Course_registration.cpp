@@ -104,7 +104,7 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Ra
 	this->flowLayoutPanel2->Controls->Add(coursePanel);
 
 }
-void CourseRegistration::Course_registration::DisplayAllCourses(map<string, Course> courses)
+void CourseRegistration::Course_registration::DisplayAllCourses(unordered_map<string, Course> courses)
 {
 	Random^ rand = gcnew Random();
 	this->flowLayoutPanel2->Controls->Clear();

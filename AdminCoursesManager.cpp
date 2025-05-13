@@ -26,7 +26,7 @@ bool AdminCoursesManager::courseExits(const string& courseID) {
 	return courses.find(courseID) != courses.end();
 }
 
-const map<string, Course>& AdminCoursesManager::getAllCourses() const {
+const unordered_map<string, Course>& AdminCoursesManager::getAllCourses() const {
 	return courses;
 }
 

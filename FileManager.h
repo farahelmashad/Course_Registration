@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<map>
+#include<unordered_map>
 #include<vector>
 #include<set>
 #include"Student.h"
@@ -12,8 +13,8 @@ class Student;
 using namespace std;
 
 extern vector<Admin> admins;
-extern map<int,Student> students;
-extern map<string, Course> courses;
+extern unordered_map<int,Student> students;
+extern unordered_map<string, Course> courses;
 extern Student currentStudent;
 
 

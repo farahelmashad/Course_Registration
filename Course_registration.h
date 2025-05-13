@@ -33,7 +33,7 @@
 			 //
 		 }
 		 void CreateCoursePanel(Course course, Random^ rand);
-		 void DisplayAllCourses(map<string, Course> courses);
+		 void DisplayAllCourses(unordered_map<string, Course> courses);
 
 
 	 protected:

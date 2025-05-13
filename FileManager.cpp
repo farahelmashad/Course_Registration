@@ -6,8 +6,8 @@
 
 using namespace std;
 vector<Admin> admins;
-map<int,Student> students;
-map<string, Course> courses;
+unordered_map<int,Student> students;
+unordered_map<string, Course> courses;
 Student currentStudent;
 
 

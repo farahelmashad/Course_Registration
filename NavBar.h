@@ -655,7 +655,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 				static_cast<System::Byte>(0)));
 			this->GPA_out->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->GPA_out->Location = System::Drawing::Point(170, 351);
+			this->GPA_out->Location = System::Drawing::Point(180, 351);
 			this->GPA_out->Name = L"GPA_out";
 			this->GPA_out->Size = System::Drawing::Size(43, 27);
 			this->GPA_out->TabIndex = 15;
@@ -808,12 +808,14 @@ private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void username_sl_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
+	report^ r = gcnew report();
+	double cgpa=r->CalculateCGPA(currentStudent.getCompletedCourses());
 
 	username_out->Text = Utils::toSysStr(currentStudent.getUserName());
 	student_id_out->Text = Utils::toSysString(currentStudent.getStudentID());
 	national_id_out->Text = Utils::toSysString(currentStudent.getNationalID());
 	academic_year_out->Text = Utils::toSysString(currentStudent.getAcademicYear());
-	GPA_out->Text = Utils::toSysString(3.5);
+	GPA_out->Text = Utils::toSysString(cgpa);
 	gender_out->Text = Utils::toSysStr(currentStudent.getGender());
 	label1->Text= Utils::toSysStr(currentStudent.getUserName());
 	if (currentStudent.getGender() == 'F' || currentStudent.getGender() == 'f') {
