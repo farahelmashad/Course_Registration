@@ -58,7 +58,6 @@ void CourseRegistration::NavBar::displayAllCourses()
         }
     }
 }
-
 void CourseRegistration::NavBar::panel8_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
     System::Windows::Forms::DialogResult result = MessageBox::Show("Are you sure you want to log out?", "Logout", MessageBoxButtons::YesNo, MessageBoxIcon::Exclamation);
