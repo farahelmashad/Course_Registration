@@ -29,6 +29,7 @@ namespace CourseRegistration {
 
         report(void) {
             InitializeComponent();
+            LoadStudentReport();
         }
         Course getCourseById(const string& courseID);
         void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e);
@@ -185,6 +186,7 @@ namespace CourseRegistration {
                // 
                // pictureBox1
                // 
+               this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
                this->pictureBox1->Location = System::Drawing::Point(71, 0);
                this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
                this->pictureBox1->Name = L"pictureBox1";
@@ -224,6 +226,7 @@ namespace CourseRegistration {
                // 
                this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                    static_cast<System::Int32>(static_cast<System::Byte>(68)));
+               this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
                this->pictureBox2->Location = System::Drawing::Point(5, 29);
                this->pictureBox2->Name = L"pictureBox2";
                this->pictureBox2->Size = System::Drawing::Size(55, 39);
@@ -261,12 +264,14 @@ namespace CourseRegistration {
                // 
                this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                    static_cast<System::Int32>(static_cast<System::Byte>(68)));
+               this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
                this->pictureBox3->Location = System::Drawing::Point(3, 26);
                this->pictureBox3->Name = L"pictureBox3";
                this->pictureBox3->Size = System::Drawing::Size(57, 40);
                this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
                this->pictureBox3->TabIndex = 0;
                this->pictureBox3->TabStop = false;
+               this->pictureBox3->Click += gcnew System::EventHandler(this, &report::pictureBox3_Click);
                // 
                // panel4
                // 
@@ -297,6 +302,7 @@ namespace CourseRegistration {
                // 
                this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                    static_cast<System::Int32>(static_cast<System::Byte>(68)));
+               this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
                this->pictureBox4->Location = System::Drawing::Point(3, 26);
                this->pictureBox4->Name = L"pictureBox4";
                this->pictureBox4->Size = System::Drawing::Size(57, 41);
@@ -333,6 +339,7 @@ namespace CourseRegistration {
                // 
                this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
                    static_cast<System::Int32>(static_cast<System::Byte>(68)));
+               this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
                this->pictureBox7->Location = System::Drawing::Point(3, 26);
                this->pictureBox7->Name = L"pictureBox7";
                this->pictureBox7->Size = System::Drawing::Size(57, 41);
@@ -659,14 +666,16 @@ namespace CourseRegistration {
         panel7->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
         panel7->Cursor = Cursors::Hand;
     }
-  private: System::Void panel4_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
-      panel4->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
-      panel4->Cursor = Cursors::Hand;
-  }
-private: System::Void panel4_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
-    panel4->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
-    panel4->Cursor = Cursors::Hand;
+    private: System::Void panel4_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+        panel4->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+        panel4->Cursor = Cursors::Hand;
+    }
+    private: System::Void panel4_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+        panel4->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+        panel4->Cursor = Cursors::Hand;
 
-}
+    }
+    private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
 };
 }
