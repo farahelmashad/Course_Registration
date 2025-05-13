@@ -1,6 +1,9 @@
 #pragma once
 #include "Course_Registration.h"
 #include"PrerequisitesPage.h"
+#include <msclr\marshal_cppstd.h>
+#include<string>
+#include"Course.h"
 
 
 namespace CourseRegistration {
@@ -18,14 +21,16 @@ namespace CourseRegistration {
 	public ref class SetPrerequisites : public System::Windows::Forms::Form
 	{
 	private:
-		String^ username;
-
-
+		AdminCoursesManager* setPreManager;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+		   String^ adminUsername;
 	public:
-		SetPrerequisites(String^ user)
+		SetPrerequisites(String^ username)
 		{
-			username = user;
 			InitializeComponent();
+			setPreManager = new AdminCoursesManager();
+			adminUsername = username;
+			course_layout->Visible = false;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -49,57 +54,15 @@ namespace CourseRegistration {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::PictureBox^ pictureBox6;
 	private: System::Windows::Forms::FlowLayoutPanel^ courses_panel;
 	private: System::Windows::Forms::Panel^ course_layout;
 	private: System::Windows::Forms::Label^ credit_hours;
 	private: System::Windows::Forms::Label^ credit_hoursout;
-	private: System::Windows::Forms::Label^ course_idout;
+	private: System::Windows::Forms::Label^ course_id;
+
 	private: System::Windows::Forms::PictureBox^ book_pic;
-	private: System::Windows::Forms::Label^ course_nameout;
+	private: System::Windows::Forms::Label^ course_name;
+
 	private: System::Windows::Forms::Label^ search_text;
 	private: System::Windows::Forms::PictureBox^ search_icon;
 	private: System::Windows::Forms::TextBox^ search_id;
@@ -117,34 +80,25 @@ namespace CourseRegistration {
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
-			   this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SetPrerequisites::typeid));
 			   this->courses_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			   this->course_layout = (gcnew System::Windows::Forms::Panel());
 			   this->credit_hours = (gcnew System::Windows::Forms::Label());
 			   this->credit_hoursout = (gcnew System::Windows::Forms::Label());
-			   this->course_idout = (gcnew System::Windows::Forms::Label());
+			   this->course_id = (gcnew System::Windows::Forms::Label());
 			   this->book_pic = (gcnew System::Windows::Forms::PictureBox());
-			   this->course_nameout = (gcnew System::Windows::Forms::Label());
+			   this->course_name = (gcnew System::Windows::Forms::Label());
 			   this->search_text = (gcnew System::Windows::Forms::Label());
 			   this->search_icon = (gcnew System::Windows::Forms::PictureBox());
 			   this->search_id = (gcnew System::Windows::Forms::TextBox());
 			   this->manage_grades = (gcnew System::Windows::Forms::Label());
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			   this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			   this->courses_panel->SuspendLayout();
 			   this->course_layout->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			   this->SuspendLayout();
-			   // 
-			   // pictureBox6
-			   // 
-			   this->pictureBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			   this->pictureBox6->Location = System::Drawing::Point(1029, 12);
-			   this->pictureBox6->Name = L"pictureBox6";
-			   this->pictureBox6->Size = System::Drawing::Size(64, 50);
-			   this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox6->TabIndex = 32;
-			   this->pictureBox6->TabStop = false;
 			   // 
 			   // courses_panel
 			   // 
@@ -160,12 +114,12 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->course_layout->Controls->Add(this->credit_hours);
 			   this->course_layout->Controls->Add(this->credit_hoursout);
-			   this->course_layout->Controls->Add(this->course_idout);
+			   this->course_layout->Controls->Add(this->course_id);
 			   this->course_layout->Controls->Add(this->book_pic);
-			   this->course_layout->Controls->Add(this->course_nameout);
+			   this->course_layout->Controls->Add(this->course_name);
 			   this->course_layout->Location = System::Drawing::Point(3, 3);
 			   this->course_layout->Name = L"course_layout";
-			   this->course_layout->Size = System::Drawing::Size(225, 198);
+			   this->course_layout->Size = System::Drawing::Size(234, 198);
 			   this->course_layout->TabIndex = 0;
 			   this->course_layout->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &SetPrerequisites::course_layout_MouseClick);
 			   // 
@@ -193,20 +147,21 @@ namespace CourseRegistration {
 			   this->credit_hoursout->TabIndex = 3;
 			   this->credit_hoursout->Text = L"3";
 			   // 
-			   // course_idout
+			   // course_id
 			   // 
-			   this->course_idout->AutoSize = true;
-			   this->course_idout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->course_id->AutoSize = true;
+			   this->course_id->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->course_idout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			   this->course_idout->Location = System::Drawing::Point(12, 142);
-			   this->course_idout->Name = L"course_idout";
-			   this->course_idout->Size = System::Drawing::Size(53, 22);
-			   this->course_idout->TabIndex = 2;
-			   this->course_idout->Text = L"cis50";
+			   this->course_id->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			   this->course_id->Location = System::Drawing::Point(12, 142);
+			   this->course_id->Name = L"course_id";
+			   this->course_id->Size = System::Drawing::Size(53, 22);
+			   this->course_id->TabIndex = 2;
+			   this->course_id->Text = L"cis50";
 			   // 
 			   // book_pic
 			   // 
+			   this->book_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"book_pic.Image")));
 			   this->book_pic->Location = System::Drawing::Point(32, 4);
 			   this->book_pic->Name = L"book_pic";
 			   this->book_pic->Size = System::Drawing::Size(159, 91);
@@ -214,17 +169,17 @@ namespace CourseRegistration {
 			   this->book_pic->TabIndex = 1;
 			   this->book_pic->TabStop = false;
 			   // 
-			   // course_nameout
+			   // course_name
 			   // 
-			   this->course_nameout->AutoSize = true;
-			   this->course_nameout->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->course_name->AutoSize = true;
+			   this->course_name->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->course_nameout->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			   this->course_nameout->Location = System::Drawing::Point(59, 109);
-			   this->course_nameout->Name = L"course_nameout";
-			   this->course_nameout->Size = System::Drawing::Size(116, 22);
-			   this->course_nameout->TabIndex = 0;
-			   this->course_nameout->Text = L"course name";
+			   this->course_name->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			   this->course_name->Location = System::Drawing::Point(59, 109);
+			   this->course_name->Name = L"course_name";
+			   this->course_name->Size = System::Drawing::Size(116, 22);
+			   this->course_name->TabIndex = 0;
+			   this->course_name->Text = L"course name";
 			   // 
 			   // search_text
 			   // 
@@ -243,12 +198,14 @@ namespace CourseRegistration {
 			   // 
 			   this->search_icon->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			   this->search_icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search_icon.Image")));
 			   this->search_icon->Location = System::Drawing::Point(719, 177);
 			   this->search_icon->Name = L"search_icon";
 			   this->search_icon->Size = System::Drawing::Size(50, 37);
 			   this->search_icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			   this->search_icon->TabIndex = 35;
 			   this->search_icon->TabStop = false;
+			   this->search_icon->Click += gcnew System::EventHandler(this, &SetPrerequisites::search_icon_Click);
 			   // 
 			   // search_id
 			   // 
@@ -274,18 +231,30 @@ namespace CourseRegistration {
 			   this->manage_grades->TabIndex = 33;
 			   this->manage_grades->Text = L"Set Prerequisites";
 			   // 
+			   // pictureBox5
+			   // 
+			   this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			   this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			   this->pictureBox5->Location = System::Drawing::Point(1020, 11);
+			   this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			   this->pictureBox5->Name = L"pictureBox5";
+			   this->pictureBox5->Size = System::Drawing::Size(73, 50);
+			   this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox5->TabIndex = 38;
+			   this->pictureBox5->TabStop = false;
+			   // 
 			   // SetPrerequisites
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1105, 740);
+			   this->Controls->Add(this->pictureBox5);
 			   this->Controls->Add(this->courses_panel);
 			   this->Controls->Add(this->search_text);
 			   this->Controls->Add(this->search_icon);
 			   this->Controls->Add(this->search_id);
 			   this->Controls->Add(this->manage_grades);
-			   this->Controls->Add(this->pictureBox6);
 			   this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Margin = System::Windows::Forms::Padding(4);
@@ -293,13 +262,12 @@ namespace CourseRegistration {
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			   this->Text = L"AdminNavBar";
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			   this->Load += gcnew System::EventHandler(this, &SetPrerequisites::SetPrerequisites_Load);
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			   this->courses_panel->ResumeLayout(false);
 			   this->course_layout->ResumeLayout(false);
 			   this->course_layout->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
@@ -307,13 +275,32 @@ namespace CourseRegistration {
 #pragma endregion
 
 	private: System::Void course_layout_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-
-		PrerequisitesPage^ prerequisiites = gcnew PrerequisitesPage(username);
+		String^ courseID = course_id->Text;
+		PrerequisitesPage^ prerequisiites = gcnew PrerequisitesPage(courseID, adminUsername);
 		prerequisiites->ShowDialog();
 		//prerequisiites->Hide();
 
 	}
-	private: System::Void SetPrerequisites_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void search_icon_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ courseID = search_id->Text->Trim();
+		if (String::IsNullOrEmpty(courseID)) {
+			MessageBox::Show("Please enter a course ID");
+			return;
+		}
+		string CourseID = msclr::interop::marshal_as<std::string>(courseID);
+		Course* course = setPreManager->searchCourse(CourseID);
+
+		if (course != nullptr) {
+			course_name->Text = gcnew String(course->getCourseName().c_str());
+			course_id->Text = gcnew String(course->getCourseID().c_str());
+			credit_hoursout->Text = course->getCreditHours().ToString();
+			course_layout->Visible = true;
+		}
+		else {
+			MessageBox::Show("Course not found!");
+			course_layout->Visible = false;
+		}
+
 	}
-};
+	};
 }

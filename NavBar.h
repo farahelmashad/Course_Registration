@@ -613,6 +613,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->GPA_out->Size = System::Drawing::Size(43, 27);
 			this->GPA_out->TabIndex = 15;
 			this->GPA_out->Text = L"3.5";
+			this->GPA_out->Click += gcnew System::EventHandler(this, &NavBar::GPA_out_Click);
 			// 
 			// gender_out
 			// 
@@ -649,7 +650,6 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->flowLayoutPanel2->Size = System::Drawing::Size(425, 604);
 			this->flowLayoutPanel2->TabIndex = 21;
 			this->flowLayoutPanel2->WrapContents = false;
-			displayAllCourses();
 			// 
 			// label8
 			// 
@@ -758,6 +758,7 @@ private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void username_sl_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
+
 	username_out->Text = Utils::toSysStr(currentStudent.getUserName());
 	student_id_out->Text = Utils::toSysString(currentStudent.getStudentID());
 	national_id_out->Text = Utils::toSysString(currentStudent.getNationalID());
@@ -873,5 +874,7 @@ private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows:
 }
 
 
+private: System::Void GPA_out_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

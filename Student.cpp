@@ -26,7 +26,7 @@ void Student::MakeReport()
 
 bool Student::willRetake(string courseID)
 {
-	for ( CourseGrades  cg : completedCourses) {
+	for (CourseGrades cg : completedCourses) {
 		if (cg.getCourseID() == courseID) {
 			return true;
 		}
@@ -38,14 +38,14 @@ bool Student::isRegistered(string courseID) {
 	return currentCourses.find(courseID) != currentCourses.end();
 }
 
-void Student::Retake(string courseID){
+void Student::Retake(string courseID) {
 	this->currentCourses.insert(courseID);
 	this->deleteCompletedCourse(courseID);
 	students[studentID] = currentStudent;
 }
 
 void Student::deleteCompletedCourse(string courseID)
-{   
+{
 	CourseGrades target(courseID);
 	auto it = completedCourses.find(target);
 	if (it != completedCourses.end()) {
@@ -53,7 +53,7 @@ void Student::deleteCompletedCourse(string courseID)
 	}
 }
 
-bool Student::hasPrerequisites(string courseID ,string& reason)
+bool Student::hasPrerequisites(string courseID, string& reason)
 {
 	auto it1 = this->currentCourses.find(courseID);
 	if (it1 != currentCourses.end()) {
@@ -63,19 +63,19 @@ bool Student::hasPrerequisites(string courseID ,string& reason)
 	Course c = it->second;
 	set<string> passedCourses;
 
-	for ( auto cg : this->completedCourses) {
-		if (cg.getGrade() != 'F' ) {
+	for (auto cg : this->completedCourses) {
+		if (cg.getGrade() != 'F') {
 			passedCourses.insert(cg.getCourseID());
 		}
 	}
 
-	for ( string prereqID : c.getPrerequisites()) {
+	for (string prereqID : c.getPrerequisites()) {
 		if (passedCourses.find(prereqID) == passedCourses.end()) {
-			return false; 
+			return false;
 		}
 	}
 
-	return true; 
+	return true;
 
 }
 
@@ -173,7 +173,7 @@ set<string> Student::getCurrentCourses()
 	return currentCourses;
 }
 
-set<CourseGrades> Student::getCompletedCourses()
+set<CourseGrades>& Student::getCompletedCourses()
 {
 	return completedCourses;
 }

@@ -31,6 +31,7 @@ namespace CourseRegistration {
 	public:
 		ViewGrades(void) {
 			InitializeComponent();
+			InitializeData();
 		}
 
 	protected:
@@ -508,7 +509,7 @@ namespace CourseRegistration {
 		System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {}
 		System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {}
 		System::Void ViewGrades_Load(System::Object^ sender, System::EventArgs^ e) {
-			label1->Text = Utils::toSysStr(currentStudent.getUserName());
+			label1->Text = gcnew String(currentStudent.getUserName().c_str());
 		}
 		System::Void searchbutton_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Retakebtn_Click(System::Object^ sender, System::EventArgs^ e);

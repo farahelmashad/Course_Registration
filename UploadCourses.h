@@ -56,11 +56,12 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::TextBox^ CourseName;
 
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
+
 	private: System::Windows::Forms::Label^ course_i;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ CourseID;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
 
 
 
@@ -87,11 +88,11 @@ namespace CourseRegistration {
 			   this->label7 = (gcnew System::Windows::Forms::Label());
 			   this->CourseName = (gcnew System::Windows::Forms::TextBox());
 			   this->label9 = (gcnew System::Windows::Forms::Label());
-			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			   this->course_i = (gcnew System::Windows::Forms::Label());
 			   this->label10 = (gcnew System::Windows::Forms::Label());
+			   this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			   this->panel5->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // panel5
@@ -141,7 +142,7 @@ namespace CourseRegistration {
 			   this->submit_s->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->submit_s->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->submit_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->submit_s->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->submit_s->ForeColor = System::Drawing::SystemColors::Window;
 			   this->submit_s->Location = System::Drawing::Point(243, 364);
@@ -245,17 +246,6 @@ namespace CourseRegistration {
 			   this->label9->TabIndex = 20;
 			   this->label9->Text = L"Course Name";
 			   // 
-			   // pictureBox3
-			   // 
-			   this->pictureBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			   this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			   this->pictureBox3->Location = System::Drawing::Point(1080, 21);
-			   this->pictureBox3->Name = L"pictureBox3";
-			   this->pictureBox3->Size = System::Drawing::Size(64, 50);
-			   this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox3->TabIndex = 29;
-			   this->pictureBox3->TabStop = false;
-			   // 
 			   // course_i
 			   // 
 			   this->course_i->AutoSize = true;
@@ -272,7 +262,7 @@ namespace CourseRegistration {
 			   // label10
 			   // 
 			   this->label10->AutoSize = true;
-			   this->label10->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->label10->BackColor = System::Drawing::Color::AliceBlue;
 			   this->label10->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
@@ -283,15 +273,27 @@ namespace CourseRegistration {
 			   this->label10->TabIndex = 31;
 			   this->label10->Text = L"Upload Courses";
 			   // 
+			   // pictureBox5
+			   // 
+			   this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			   this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			   this->pictureBox5->Location = System::Drawing::Point(1061, 11);
+			   this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			   this->pictureBox5->Name = L"pictureBox5";
+			   this->pictureBox5->Size = System::Drawing::Size(73, 50);
+			   this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox5->TabIndex = 35;
+			   this->pictureBox5->TabStop = false;
+			   // 
 			   // UploadCourses
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1156, 740);
+			   this->Controls->Add(this->pictureBox5);
 			   this->Controls->Add(this->label10);
 			   this->Controls->Add(this->course_i);
-			   this->Controls->Add(this->pictureBox3);
 			   this->Controls->Add(this->panel5);
 			   this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
@@ -302,7 +304,7 @@ namespace CourseRegistration {
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			   this->panel5->ResumeLayout(false);
 			   this->panel5->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 

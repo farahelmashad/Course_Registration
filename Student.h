@@ -26,19 +26,19 @@ public:
 	void setUsername(string username);
 	void setPassword(string password);
 	void setNationalID(int nationalID);
-	void setStudentID( int studentID);
-	void setGender( char gender);
+	void setStudentID(int studentID);
+	void setGender(char gender);
 	void setAcademicYear(int academicYear);
 	void setCurrentCourses(set<string> currentCourses);
 	void setCompletedCourses(set<CourseGrades> completedCourses);
 	string getUserName();
 	string getPassword();
-    int getNationalID();
+	int getNationalID();
 	int getStudentID();
 	char getGender();
 	int getAcademicYear();
 	set<string> getCurrentCourses();
-	set<CourseGrades> getCompletedCourses();
+	set<CourseGrades>& getCompletedCourses();
 	~Student();
 	//Student methods:
 	void SearchCourses();
@@ -48,11 +48,11 @@ public:
 	void MakeReport();
 	bool willRetake(string courseID);
 	void Retake(string courseID);
-	void deleteCompletedCourse(string courseID); 
+	void deleteCompletedCourse(string courseID);
 	bool hasPrerequisites(string courseID, string& reason);
 	void registerCourse(string courseID);
 	bool isRegistered(string courseID);
-    // file format for info: <username>,<password>,<nationalID>,<studentID>,<gender>,<academicYear>,<currentCourse1>;<currentCourse2>;...,#<courseID>|<semester>|<grade>;<courseID>|<semester>|<grade>;...
+	// file format for info: <username>,<password>,<nationalID>,<studentID>,<gender>,<academicYear>,<currentCourse1>;<currentCourse2>;...,#<courseID>|<semester>|<grade>;<courseID>|<semester>|<grade>;...
 
 
 
@@ -60,4 +60,3 @@ public:
 
 
 };
-

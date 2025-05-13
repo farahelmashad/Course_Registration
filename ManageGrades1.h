@@ -33,135 +33,140 @@ namespace CourseRegistration {
 		}
 
 	private:
-		System::Windows::Forms::PictureBox^ logo_Pic;
+
 		System::Windows::Forms::Label^ manage_grades;
 		System::Windows::Forms::TextBox^ search_id;
 		System::Windows::Forms::PictureBox^ search_icon;
 		System::Windows::Forms::Label^ search_text;
 		System::Windows::Forms::Panel^ panelCurrent;
 		System::Windows::Forms::Panel^ panelCompleted;
-		System::ComponentModel::Container^ components;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+
+		   System::ComponentModel::Container^ components;
 
 
 #pragma region Windows Form Designer generated code
 
-		void InitializeComponent(void)
-		{
-			this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
-			this->manage_grades = (gcnew System::Windows::Forms::Label());
-			this->search_id = (gcnew System::Windows::Forms::TextBox());
-			this->search_icon = (gcnew System::Windows::Forms::PictureBox());
-			this->search_text = (gcnew System::Windows::Forms::Label());
-			this->panelCurrent = (gcnew System::Windows::Forms::Panel());
-			this->panelCompleted = (gcnew System::Windows::Forms::Panel());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->BeginInit();
-			this->SuspendLayout();
-			// 
-			// logo_Pic
-			// 
-			this->logo_Pic->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->logo_Pic->Location = System::Drawing::Point(1071, 12);
-			this->logo_Pic->Name = L"logo_Pic";
-			this->logo_Pic->Size = System::Drawing::Size(73, 50);
-			this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->logo_Pic->TabIndex = 24;
-			this->logo_Pic->TabStop = false;
-			// 
-			// manage_grades
-			// 
-			this->manage_grades->AutoSize = true;
-			this->manage_grades->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->manage_grades->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->manage_grades->Location = System::Drawing::Point(2, 24);
-			this->manage_grades->Name = L"manage_grades";
-			this->manage_grades->Size = System::Drawing::Size(321, 52);
-			this->manage_grades->TabIndex = 25;
-			this->manage_grades->Text = L"Manage Grades";
-			// 
-			// search_id
-			// 
-			this->search_id->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->search_id->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->search_id->Location = System::Drawing::Point(339, 188);
-			this->search_id->Multiline = true;
-			this->search_id->Name = L"search_id";
-			this->search_id->Size = System::Drawing::Size(347, 37);
-			this->search_id->TabIndex = 26;
-			this->search_id->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ManageGrades1::search_id_KeyDown_1);
-			// 
-			// search_icon
-			// 
-			this->search_icon->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->search_icon->Cursor = System::Windows::Forms::Cursors::Default;
-			this->search_icon->Location = System::Drawing::Point(761, 188);
-			this->search_icon->Name = L"search_icon";
-			this->search_icon->Size = System::Drawing::Size(50, 37);
-			this->search_icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->search_icon->TabIndex = 27;
-			this->search_icon->TabStop = false;
-			this->search_icon->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ManageGrades1::search_icon_MouseClick);
-			this->search_icon->MouseEnter += gcnew System::EventHandler(this, &ManageGrades1::search_icon_MouseEnter);
-			this->search_icon->MouseLeave += gcnew System::EventHandler(this, &ManageGrades1::search_icon_MouseLeave_1);
-			// 
-			// search_text
-			// 
-			this->search_text->AutoSize = true;
-			this->search_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->search_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->search_text->Location = System::Drawing::Point(339, 146);
-			this->search_text->Name = L"search_text";
-			this->search_text->Size = System::Drawing::Size(228, 34);
-			this->search_text->TabIndex = 29;
-			this->search_text->Text = L"Enter Student ID:";
-			// 
-			// panelCurrent
-			// 
-			this->panelCurrent->Location = System::Drawing::Point(583, 248);
-			this->panelCurrent->Name = L"panelCurrent";
-			this->panelCurrent->Size = System::Drawing::Size(353, 480);
-			this->panelCurrent->TabIndex = 31;
-			// 
-			// panelCompleted
-			// 
-			this->panelCompleted->Location = System::Drawing::Point(196, 248);
-			this->panelCompleted->Name = L"panelCompleted";
-			this->panelCompleted->Size = System::Drawing::Size(353, 480);
-			this->panelCompleted->TabIndex = 33;
-			// 
-			// ManageGrades1
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Honeydew;
-			this->ClientSize = System::Drawing::Size(1156, 740);
-			this->Controls->Add(this->panelCompleted);
-			this->Controls->Add(this->panelCurrent);
-			this->Controls->Add(this->search_text);
-			this->Controls->Add(this->search_icon);
-			this->Controls->Add(this->search_id);
-			this->Controls->Add(this->manage_grades);
-			this->Controls->Add(this->logo_Pic);
-			this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Margin = System::Windows::Forms::Padding(4);
-			this->Name = L"ManageGrades1";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
-			this->Text = L"ManageGrades";
-			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->Load += gcnew System::EventHandler(this, &ManageGrades1::ManageGrades1_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
-			this->ResumeLayout(false);
-			this->PerformLayout();
+		   void InitializeComponent(void)
+		   {
+			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ManageGrades1::typeid));
+			   this->manage_grades = (gcnew System::Windows::Forms::Label());
+			   this->search_id = (gcnew System::Windows::Forms::TextBox());
+			   this->search_icon = (gcnew System::Windows::Forms::PictureBox());
+			   this->search_text = (gcnew System::Windows::Forms::Label());
+			   this->panelCurrent = (gcnew System::Windows::Forms::Panel());
+			   this->panelCompleted = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			   this->SuspendLayout();
+			   // 
+			   // manage_grades
+			   // 
+			   this->manage_grades->AutoSize = true;
+			   this->manage_grades->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->manage_grades->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			   this->manage_grades->Location = System::Drawing::Point(12, 9);
+			   this->manage_grades->Name = L"manage_grades";
+			   this->manage_grades->Size = System::Drawing::Size(321, 52);
+			   this->manage_grades->TabIndex = 25;
+			   this->manage_grades->Text = L"Manage Grades";
+			   // 
+			   // search_id
+			   // 
+			   this->search_id->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			   this->search_id->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->search_id->Location = System::Drawing::Point(339, 188);
+			   this->search_id->Multiline = true;
+			   this->search_id->Name = L"search_id";
+			   this->search_id->Size = System::Drawing::Size(347, 37);
+			   this->search_id->TabIndex = 26;
+			   this->search_id->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ManageGrades1::search_id_KeyDown_1);
+			   // 
+			   // search_icon
+			   // 
+			   this->search_icon->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			   this->search_icon->Cursor = System::Windows::Forms::Cursors::Default;
+			   this->search_icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search_icon.Image")));
+			   this->search_icon->Location = System::Drawing::Point(761, 188);
+			   this->search_icon->Name = L"search_icon";
+			   this->search_icon->Size = System::Drawing::Size(50, 37);
+			   this->search_icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->search_icon->TabIndex = 27;
+			   this->search_icon->TabStop = false;
+			   this->search_icon->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ManageGrades1::search_icon_MouseClick);
+			   this->search_icon->MouseEnter += gcnew System::EventHandler(this, &ManageGrades1::search_icon_MouseEnter);
+			   this->search_icon->MouseLeave += gcnew System::EventHandler(this, &ManageGrades1::search_icon_MouseLeave_1);
+			   // 
+			   // search_text
+			   // 
+			   this->search_text->AutoSize = true;
+			   this->search_text->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->search_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
+			   this->search_text->Location = System::Drawing::Point(339, 146);
+			   this->search_text->Name = L"search_text";
+			   this->search_text->Size = System::Drawing::Size(228, 34);
+			   this->search_text->TabIndex = 29;
+			   this->search_text->Text = L"Enter Student ID:";
+			   // 
+			   // panelCurrent
+			   // 
+			   this->panelCurrent->Location = System::Drawing::Point(583, 248);
+			   this->panelCurrent->Name = L"panelCurrent";
+			   this->panelCurrent->Size = System::Drawing::Size(353, 480);
+			   this->panelCurrent->TabIndex = 31;
+			   // 
+			   // panelCompleted
+			   // 
+			   this->panelCompleted->Location = System::Drawing::Point(196, 248);
+			   this->panelCompleted->Name = L"panelCompleted";
+			   this->panelCompleted->Size = System::Drawing::Size(353, 480);
+			   this->panelCompleted->TabIndex = 33;
+			   // 
+			   // pictureBox5
+			   // 
+			   this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			   this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			   this->pictureBox5->Location = System::Drawing::Point(1071, 11);
+			   this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			   this->pictureBox5->Name = L"pictureBox5";
+			   this->pictureBox5->Size = System::Drawing::Size(73, 50);
+			   this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox5->TabIndex = 34;
+			   this->pictureBox5->TabStop = false;
+			   // 
+			   // ManageGrades1
+			   // 
+			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
+			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			   this->BackColor = System::Drawing::Color::AliceBlue;
+			   this->ClientSize = System::Drawing::Size(1156, 740);
+			   this->Controls->Add(this->pictureBox5);
+			   this->Controls->Add(this->panelCompleted);
+			   this->Controls->Add(this->panelCurrent);
+			   this->Controls->Add(this->search_text);
+			   this->Controls->Add(this->search_icon);
+			   this->Controls->Add(this->search_id);
+			   this->Controls->Add(this->manage_grades);
+			   this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Margin = System::Windows::Forms::Padding(4);
+			   this->Name = L"ManageGrades1";
+			   this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
+			   this->Text = L"ManageGrades";
+			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			   this->ResumeLayout(false);
+			   this->PerformLayout();
 
-		}
+		   }
 
 #pragma endregion
 
@@ -367,7 +372,5 @@ namespace CourseRegistration {
 		search_icon->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	}
 
-	private: System::Void ManageGrades1_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-};
+	};
 }

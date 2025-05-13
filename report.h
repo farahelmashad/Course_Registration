@@ -29,6 +29,7 @@ namespace CourseRegistration {
 
         report(void) {
             InitializeComponent();
+            LoadStudentReport();
         }
         Course getCourseById(const string& courseID);
         void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e);
@@ -436,6 +437,7 @@ namespace CourseRegistration {
                this->Sempanel->Name = L"Sempanel";
                this->Sempanel->Size = System::Drawing::Size(854, 164);
                this->Sempanel->TabIndex = 0;
+               this->Sempanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &report::Sempanel_Paint);
                // 
                // semlbl
                // 
@@ -592,6 +594,7 @@ namespace CourseRegistration {
         // System::Void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e);
 
         System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
+            label1->Text = gcnew String(currentStudent.getUserName().c_str());
             // Handle form load event
         }
 
@@ -667,6 +670,8 @@ private: System::Void panel4_MouseLeave(System::Object^ sender, System::EventArg
     panel4->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
     panel4->Cursor = Cursors::Hand;
 
+}
+private: System::Void Sempanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }
