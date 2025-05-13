@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 #include "FileManager.h"
 #include <fstream>
 #include <sstream>
@@ -181,7 +182,6 @@ void FileManager::writeCourses(string filename) {
      if (!file.is_open()) {
          return;
      }
-
     for (auto& pair : courses) {
         Course& course = pair.second;
 
@@ -201,6 +201,7 @@ void FileManager::writeCourses(string filename) {
     }
 
     file.close();
+    OutputDebugStringA("Debug: writeFile was called\n");
 }
 
 void FileManager::writeAdmins(string filename) {

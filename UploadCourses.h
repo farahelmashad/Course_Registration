@@ -1,6 +1,6 @@
 #pragma once
 #include "Course_Registration.h"
-#include"UploadCoursesManager.h"
+#include"AdminCoursesManager.h"
 #include <msclr/marshal_cppstd.h>
 
 namespace CourseRegistration {
@@ -18,11 +18,11 @@ namespace CourseRegistration {
 	public ref class UploadCourses : public System::Windows::Forms::Form
 	{
 	private:
-		UploadCoursesManager* UCManager;
+		AdminCoursesManager* UCManager;
 	public:
 		UploadCourses(void)
 		{
-			UCManager = new UploadCoursesManager();
+			UCManager = new AdminCoursesManager();
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -56,7 +56,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::TextBox^ CourseName;
 
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
+
 	private: System::Windows::Forms::Label^ course_i;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ CourseID;
@@ -74,7 +74,6 @@ namespace CourseRegistration {
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
-			   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(UploadCourses::typeid));
 			   this->panel5 = (gcnew System::Windows::Forms::Panel());
 			   this->CourseID = (gcnew System::Windows::Forms::TextBox());
 			   this->label1 = (gcnew System::Windows::Forms::Label());
@@ -87,11 +86,9 @@ namespace CourseRegistration {
 			   this->label7 = (gcnew System::Windows::Forms::Label());
 			   this->CourseName = (gcnew System::Windows::Forms::TextBox());
 			   this->label9 = (gcnew System::Windows::Forms::Label());
-			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			   this->course_i = (gcnew System::Windows::Forms::Label());
 			   this->label10 = (gcnew System::Windows::Forms::Label());
 			   this->panel5->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // panel5
@@ -245,17 +242,6 @@ namespace CourseRegistration {
 			   this->label9->TabIndex = 20;
 			   this->label9->Text = L"Course Name";
 			   // 
-			   // pictureBox3
-			   // 
-			   this->pictureBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			   this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			   this->pictureBox3->Location = System::Drawing::Point(1080, 21);
-			   this->pictureBox3->Name = L"pictureBox3";
-			   this->pictureBox3->Size = System::Drawing::Size(64, 50);
-			   this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox3->TabIndex = 29;
-			   this->pictureBox3->TabStop = false;
-			   // 
 			   // course_i
 			   // 
 			   this->course_i->AutoSize = true;
@@ -272,7 +258,7 @@ namespace CourseRegistration {
 			   // label10
 			   // 
 			   this->label10->AutoSize = true;
-			   this->label10->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->label10->BackColor = System::Drawing::Color::Honeydew;
 			   this->label10->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
@@ -287,11 +273,10 @@ namespace CourseRegistration {
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->BackColor = System::Drawing::Color::Honeydew;
 			   this->ClientSize = System::Drawing::Size(1156, 740);
 			   this->Controls->Add(this->label10);
 			   this->Controls->Add(this->course_i);
-			   this->Controls->Add(this->pictureBox3);
 			   this->Controls->Add(this->panel5);
 			   this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
@@ -302,7 +287,6 @@ namespace CourseRegistration {
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			   this->panel5->ResumeLayout(false);
 			   this->panel5->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
@@ -310,40 +294,40 @@ namespace CourseRegistration {
 #pragma endregion
 
 
-private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ e) {
-	try {
-		std::string courseID = msclr::interop::marshal_as<std::string>(CourseID->Text);
-		std::string courseName = msclr::interop::marshal_as<std::string>(CourseName->Text);
-		std::string syllabus = msclr::interop::marshal_as<std::string>(Syllabus->Text);
-		int creditHours = System::Convert::ToInt32(CreditHours->Text);
-		std::string instructor = msclr::interop::marshal_as<std::string>(InstructorName->Text);
+	private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+			std::string courseID = msclr::interop::marshal_as<std::string>(CourseID->Text);
+			std::string courseName = msclr::interop::marshal_as<std::string>(CourseName->Text);
+			std::string syllabus = msclr::interop::marshal_as<std::string>(Syllabus->Text);
+			int creditHours = System::Convert::ToInt32(CreditHours->Text);
+			std::string instructor = msclr::interop::marshal_as<std::string>(InstructorName->Text);
 
-		if (courseID.empty() || courseName.empty() || syllabus.empty() || instructor.empty()) {
-			MessageBox::Show("Please fill all fields", "Error",
+			if (courseID.empty() || courseName.empty() || syllabus.empty() || instructor.empty()) {
+				MessageBox::Show("Please fill all fields", "Error",
+					MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return;
+			}
+
+			if (UCManager->addCourse(courseID, courseName, creditHours, syllabus, instructor)) {
+				MessageBox::Show("Course added successfully!", "Success",
+					MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+				CourseID->Clear();
+				CourseName->Clear();
+				CreditHours->Clear();
+				Syllabus->Clear();
+				InstructorName->Clear();
+			}
+			else {
+				MessageBox::Show("Course ID or Name already exists!", "Error",
+					MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Invalid input. Please check all fields.", "Error",
 				MessageBoxButtons::OK, MessageBoxIcon::Error);
-			return;
 		}
-		
-		if (UCManager->addCourse(courseID, courseName, creditHours,syllabus,instructor)) {
-			MessageBox::Show("Course added successfully!", "Success",
-				MessageBoxButtons::OK, MessageBoxIcon::Information);
-
-			CourseID->Clear();
-			CourseName->Clear();
-			CreditHours->Clear();
-			Syllabus->Clear();
-			InstructorName->Clear();
-		}
-		else {
-			MessageBox::Show("Course ID or Name already exists!", "Error",
-				MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
-
 	}
-	catch (Exception^ ex) {
-		MessageBox::Show("Invalid input. Please check all fields.", "Error",
-			MessageBoxButtons::OK, MessageBoxIcon::Error);
-	}
-}
-};
+	};
 }

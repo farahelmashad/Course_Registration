@@ -69,3 +69,7 @@ set<string> Course::getPrerequisites()
 {
 	return prerequisites;
 }
+
+void Course::setPrerequisites(set<string>& prereqs) {
+	prerequisites = prereqs;
+}

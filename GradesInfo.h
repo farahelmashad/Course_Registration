@@ -53,7 +53,7 @@ namespace CourseRegistration {
 		}
 	private:
 	System::Windows::Forms::FlowLayoutPanel^ nav_panel;
-	System::Windows::Forms::PictureBox^ logo_Pic;
+
 	System::Windows::Forms::Label^ grades_info;
 	System::Windows::Forms::Panel^ gradeinfo_panel;
 	System::Windows::Forms::Label^ instructor_name;
@@ -89,7 +89,6 @@ namespace CourseRegistration {
 			   this->manage_text = (gcnew System::Windows::Forms::Label());
 			   this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->grades_info = (gcnew System::Windows::Forms::Label());
-			   this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->gradeinfo_panel = (gcnew System::Windows::Forms::Panel());
 			   this->stud_grade = (gcnew System::Windows::Forms::Label());
 			   this->new_grade = (gcnew System::Windows::Forms::TextBox());
@@ -112,7 +111,6 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
 			   this->manage_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
 			   this->gradeinfo_panel->SuspendLayout();
 			   this->SuspendLayout();
 			   // 
@@ -278,17 +276,6 @@ namespace CourseRegistration {
 			   this->grades_info->Size = System::Drawing::Size(393, 52);
 			   this->grades_info->TabIndex = 23;
 			   this->grades_info->Text = L"Grades Information";
-			   // 
-			   // logo_Pic
-			   // 
-			   this->logo_Pic->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			   this->logo_Pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo_Pic.Image")));
-			   this->logo_Pic->Location = System::Drawing::Point(1197, 12);
-			   this->logo_Pic->Name = L"logo_Pic";
-			   this->logo_Pic->Size = System::Drawing::Size(73, 50);
-			   this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->logo_Pic->TabIndex = 24;
-			   this->logo_Pic->TabStop = false;
 			   // 
 			   // gradeinfo_panel
 			   // 
@@ -461,7 +448,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->course_name->Location = System::Drawing::Point(275, 16);
 			   this->course_name->Name = L"course_name";
-			   this->course_name->Size = System::Drawing::Size(280, 53);
+			   this->course_name->Size = System::Drawing::Size(271, 52);
 			   this->course_name->TabIndex = 6;
 			   this->course_name->Text = L"course name";
 			   // 
@@ -472,7 +459,6 @@ namespace CourseRegistration {
 			   this->BackColor = System::Drawing::Color::Honeydew;
 			   this->ClientSize = System::Drawing::Size(1282, 673);
 			   this->Controls->Add(this->gradeinfo_panel);
-			   this->Controls->Add(this->logo_Pic);
 			   this->Controls->Add(this->grades_info);
 			   this->Controls->Add(this->nav_panel);
 			   this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -494,7 +480,6 @@ namespace CourseRegistration {
 			   this->manage_panel->ResumeLayout(false);
 			   this->manage_panel->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
 			   this->gradeinfo_panel->ResumeLayout(false);
 			   this->gradeinfo_panel->PerformLayout();
 			   this->ResumeLayout(false);

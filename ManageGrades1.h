@@ -33,7 +33,7 @@ namespace CourseRegistration {
 		}
 
 	private: 
-	System::Windows::Forms::PictureBox^ logo_Pic;
+
 	System::Windows::Forms::Label^ manage_grades;
 	System::Windows::Forms::TextBox^ search_id;
 	System::Windows::Forms::PictureBox^ search_icon;
@@ -48,27 +48,14 @@ namespace CourseRegistration {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ManageGrades1::typeid));
-			this->logo_Pic = (gcnew System::Windows::Forms::PictureBox());
 			this->manage_grades = (gcnew System::Windows::Forms::Label());
 			this->search_id = (gcnew System::Windows::Forms::TextBox());
 			this->search_icon = (gcnew System::Windows::Forms::PictureBox());
 			this->search_text = (gcnew System::Windows::Forms::Label());
 			this->panelCurrent = (gcnew System::Windows::Forms::Panel());
 			this->panelCompleted = (gcnew System::Windows::Forms::Panel());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// logo_Pic
-			// 
-			this->logo_Pic->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->logo_Pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo_Pic.Image")));
-			this->logo_Pic->Location = System::Drawing::Point(1071, 12);
-			this->logo_Pic->Name = L"logo_Pic";
-			this->logo_Pic->Size = System::Drawing::Size(73, 50);
-			this->logo_Pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->logo_Pic->TabIndex = 24;
-			this->logo_Pic->TabStop = false;
 			// 
 			// manage_grades
 			// 
@@ -77,7 +64,7 @@ namespace CourseRegistration {
 				static_cast<System::Byte>(0)));
 			this->manage_grades->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->manage_grades->Location = System::Drawing::Point(2, 24);
+			this->manage_grades->Location = System::Drawing::Point(12, 9);
 			this->manage_grades->Name = L"manage_grades";
 			this->manage_grades->Size = System::Drawing::Size(321, 52);
 			this->manage_grades->TabIndex = 25;
@@ -150,7 +137,6 @@ namespace CourseRegistration {
 			this->Controls->Add(this->search_icon);
 			this->Controls->Add(this->search_id);
 			this->Controls->Add(this->manage_grades);
-			this->Controls->Add(this->logo_Pic);
 			this->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
@@ -158,7 +144,6 @@ namespace CourseRegistration {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"ManageGrades";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo_Pic))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

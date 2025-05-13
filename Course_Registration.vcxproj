@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminCoursesManager.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
     <ClCompile Include="AdminNavBar.cpp" />
     <ClCompile Include="Course.cpp" />
@@ -140,10 +141,10 @@
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Studentlogin.cpp" />
     <ClCompile Include="UploadCourses.cpp" />
-    <ClCompile Include="UploadCoursesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminCoursesManager.h" />
     <ClInclude Include="Adminlogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -188,7 +189,6 @@
     <ClInclude Include="UploadCourses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="UploadCoursesManager.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

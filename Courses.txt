@@ -1,7 +1,7 @@
 ||0|||
 CS101|Introduction to Programming|3|Basics of programming using C++|Dr. Ahmed Salem|
 CS102|Object-Oriented Programming|3|OOP principles using Java|Dr. Reem Youssef|CS101
-CS201|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|CS102
+CS201|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|CS101
 CS202|Algorithms|4|Sorting, Searching, Dynamic Programming|Dr. Mariam Ayman|CS201
 CS210|Computer Architecture|3|Digital logic and system architecture|Dr. Samir Elmasry|CS101
 CS220|Operating Systems|4|Processes, Threads, Memory Management|Dr. Dina Helmy|CS201
@@ -29,5 +29,3 @@ CS430|Augmented Reality|3|ARKit, ARCore, spatial mapping|Dr. Salma Yehia|CS300
 CS440|Ethical Hacking|3|Penetration testing, tools, vulnerabilities|Dr. Heba Gamil|CS280
 CS450|Human-Computer Interaction|3|UX/UI design, evaluation techniques|Dr. Layla Naguib|CS240
 CS460|Computer Vision|3|Image classification, object detection|Dr. Basel Ali|CS270
-||0|||
-||0|||
