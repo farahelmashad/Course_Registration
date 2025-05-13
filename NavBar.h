@@ -6,6 +6,7 @@
 #include"FileManager.h"
 #include"course_pre.h"
 #include"ViewGrades.h"
+ref class Studentlogin;
 namespace CourseRegistration {
 
 	using namespace System;
@@ -100,6 +101,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Panel^ panel11;
 
+    System::Void panel8_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 
 
@@ -123,6 +125,9 @@ namespace CourseRegistration {
 
 
 private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+private: System::Windows::Forms::Panel^ panel8;
+private: System::Windows::Forms::Label^ label2;
+private: System::Windows::Forms::PictureBox^ pictureBox9;
 
 
 
@@ -179,6 +184,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->check_pre = (gcnew System::Windows::Forms::Label());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel8 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->Profile = (gcnew System::Windows::Forms::Label());
 			this->Stundent_id_p = (gcnew System::Windows::Forms::Label());
@@ -210,6 +218,8 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			this->panel8->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel5->SuspendLayout();
 			this->flowLayoutPanel2->SuspendLayout();
@@ -226,12 +236,13 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->flowLayoutPanel1->Controls->Add(this->panel3);
 			this->flowLayoutPanel1->Controls->Add(this->panel4);
 			this->flowLayoutPanel1->Controls->Add(this->panel7);
+			this->flowLayoutPanel1->Controls->Add(this->panel8);
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 562);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(253, 749);
 			this->flowLayoutPanel1->TabIndex = 1;
 			// 
 			// panel1
@@ -255,7 +266,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label1->Location = System::Drawing::Point(74, 117);
 			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(130, 29);
+			this->label1->Size = System::Drawing::Size(102, 23);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"User name";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -295,7 +306,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(60, 40);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(179, 23);
+			this->label3->Size = System::Drawing::Size(141, 18);
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"Course Registration";
 			this->label3->Click += gcnew System::EventHandler(this, &NavBar::label3_Click);
@@ -332,7 +343,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label4->ForeColor = System::Drawing::Color::White;
 			this->label4->Location = System::Drawing::Point(66, 37);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(116, 23);
+			this->label4->Size = System::Drawing::Size(93, 18);
 			this->label4->TabIndex = 1;
 			this->label4->Text = L"View Grades";
 			this->label4->Click += gcnew System::EventHandler(this, &NavBar::label4_Click);
@@ -381,7 +392,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label6->ForeColor = System::Drawing::Color::White;
 			this->label6->Location = System::Drawing::Point(63, 38);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(112, 23);
+			this->label6->Size = System::Drawing::Size(90, 18);
 			this->label6->TabIndex = 1;
 			this->label6->Text = L"View Report";
 			// 
@@ -404,7 +415,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label5->ForeColor = System::Drawing::Color::White;
 			this->label5->Location = System::Drawing::Point(63, 38);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(112, 23);
+			this->label5->Size = System::Drawing::Size(90, 18);
 			this->label5->TabIndex = 1;
 			this->label5->Text = L"View Report";
 			this->label5->Click += gcnew System::EventHandler(this, &NavBar::label5_Click);
@@ -443,7 +454,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->check_pre->ForeColor = System::Drawing::Color::White;
 			this->check_pre->Location = System::Drawing::Point(63, 38);
 			this->check_pre->Name = L"check_pre";
-			this->check_pre->Size = System::Drawing::Size(170, 23);
+			this->check_pre->Size = System::Drawing::Size(133, 18);
 			this->check_pre->TabIndex = 1;
 			this->check_pre->Text = L"Check prerequisite";
 			// 
@@ -457,6 +468,42 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox7->TabIndex = 0;
 			this->pictureBox7->TabStop = false;
+			// 
+			// panel8
+			// 
+			this->panel8->Controls->Add(this->label2);
+			this->panel8->Controls->Add(this->pictureBox9);
+			this->panel8->Location = System::Drawing::Point(0, 562);
+			this->panel8->Margin = System::Windows::Forms::Padding(0);
+			this->panel8->Name = L"panel8";
+			this->panel8->Size = System::Drawing::Size(253, 93);
+			this->panel8->TabIndex = 19;
+			this->panel8->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &NavBar::panel8_MouseClick);
+			this->panel8->MouseEnter += gcnew System::EventHandler(this, &NavBar::panel8_MouseEnter);
+			this->panel8->MouseLeave += gcnew System::EventHandler(this, &NavBar::panel8_MouseLeave);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(63, 38);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(60, 18);
+			this->label2->TabIndex = 1;
+			this->label2->Text = L"Log Out";
+			// 
+			// pictureBox9
+			// 
+			this->pictureBox9->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
+			this->pictureBox9->Location = System::Drawing::Point(3, 26);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(57, 41);
+			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox9->TabIndex = 0;
+			this->pictureBox9->TabStop = false;
 			// 
 			// pictureBox5
 			// 
@@ -478,7 +525,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Profile->Location = System::Drawing::Point(272, 80);
 			this->Profile->Name = L"Profile";
-			this->Profile->Size = System::Drawing::Size(347, 72);
+			this->Profile->Size = System::Drawing::Size(281, 58);
 			this->Profile->TabIndex = 3;
 			this->Profile->Text = L"Profile Data";
 			this->Profile->Click += gcnew System::EventHandler(this, &NavBar::Profile_Click);
@@ -492,7 +539,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Stundent_id_p->Location = System::Drawing::Point(26, 170);
 			this->Stundent_id_p->Name = L"Stundent_id_p";
-			this->Stundent_id_p->Size = System::Drawing::Size(148, 33);
+			this->Stundent_id_p->Size = System::Drawing::Size(117, 25);
 			this->Stundent_id_p->TabIndex = 6;
 			this->Stundent_id_p->Text = L"Student ID ";
 			// 
@@ -505,7 +552,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->national_id_p->Location = System::Drawing::Point(26, 213);
 			this->national_id_p->Name = L"national_id_p";
-			this->national_id_p->Size = System::Drawing::Size(155, 33);
+			this->national_id_p->Size = System::Drawing::Size(122, 25);
 			this->national_id_p->TabIndex = 7;
 			this->national_id_p->Text = L"National ID ";
 			// 
@@ -518,7 +565,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->academic_year_p->Location = System::Drawing::Point(26, 304);
 			this->academic_year_p->Name = L"academic_year_p";
-			this->academic_year_p->Size = System::Drawing::Size(204, 33);
+			this->academic_year_p->Size = System::Drawing::Size(160, 25);
 			this->academic_year_p->TabIndex = 8;
 			this->academic_year_p->Text = L"Academic year :";
 			// 
@@ -531,7 +578,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->GPA_P->Location = System::Drawing::Point(26, 351);
 			this->GPA_P->Name = L"GPA_P";
-			this->GPA_P->Size = System::Drawing::Size(94, 33);
+			this->GPA_P->Size = System::Drawing::Size(76, 25);
 			this->GPA_P->TabIndex = 9;
 			this->GPA_P->Text = L"CGPA :";
 			// 
@@ -544,7 +591,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			this->Gender_p->Location = System::Drawing::Point(26, 258);
 			this->Gender_p->Name = L"Gender_p";
-			this->Gender_p->Size = System::Drawing::Size(115, 33);
+			this->Gender_p->Size = System::Drawing::Size(91, 25);
 			this->Gender_p->TabIndex = 10;
 			this->Gender_p->Text = L"Gender :";
 			// 
@@ -661,7 +708,7 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->label8->Location = System::Drawing::Point(24, 25);
 			this->label8->Margin = System::Windows::Forms::Padding(20, 21, 20, 20);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(297, 45);
+			this->label8->Size = System::Drawing::Size(230, 35);
 			this->label8->TabIndex = 19;
 			this->label8->Text = L"Current Courses";
 			// 
@@ -698,10 +745,10 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			// 
 			// NavBar
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::AliceBlue;
-			this->ClientSize = System::Drawing::Size(1282, 562);
+			this->ClientSize = System::Drawing::Size(1282, 749);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->Profile);
 			this->Controls->Add(this->pictureBox5);
@@ -732,6 +779,9 @@ private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 			this->panel7->ResumeLayout(false);
 			this->panel7->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			this->panel8->ResumeLayout(false);
+			this->panel8->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->panel5->ResumeLayout(false);
 			this->flowLayoutPanel2->ResumeLayout(false);
@@ -875,6 +925,16 @@ private: System::Void panel6_MouseClick(System::Object^ sender, System::Windows:
 
 
 private: System::Void GPA_out_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel8_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	panel8->BackColor = System::Drawing::Color::FromArgb(54, 70, 105);
+	panel8->Cursor = Cursors::Hand;
+
+}
+private: System::Void panel8_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	panel8->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
+	panel8->Cursor = Cursors::Hand;
+
 }
 };
 }

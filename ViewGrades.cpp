@@ -97,6 +97,7 @@ Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, 
             Course foundCourse = Course::SearchCourse(courseID);
             if (foundCourse.getCourseID() != "") { // Check if course was found
                 courseDisplayName = gcnew String(foundCourse.getCourseName().c_str());
+                gcid = foundCourse.getCourseID();
             }
 
             // Course Name Label

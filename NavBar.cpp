@@ -1,5 +1,5 @@
 #include"NavBar.h"
-
+#include"Studentlogin.h"
 void CourseRegistration::NavBar::createCurrentCoursePanel(Course course)
 {
     Panel^ panel = gcnew Panel();
@@ -57,4 +57,19 @@ void CourseRegistration::NavBar::displayAllCourses()
         {
         }
     }
+}
+
+void CourseRegistration::NavBar::panel8_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    System::Windows::Forms::DialogResult result = MessageBox::Show("Are you sure you want to log out?", "Logout", MessageBoxButtons::YesNo, MessageBoxIcon::Exclamation);
+
+    if (result == System::Windows::Forms::DialogResult::Yes)
+    {
+        Studentlogin^ loginForm = gcnew Studentlogin();
+        loginForm->ShowDialog();
+        this->Hide();
+        this->Close();
+
+    }
+
 }
