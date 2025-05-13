@@ -57,7 +57,10 @@ namespace CourseRegistration {
 		   System::Windows::Forms::PictureBox^ pre_pic;
 		   System::Windows::Forms::Panel^ manage_panel;
 		   System::Windows::Forms::Label^ manage_text;
-		   System::Windows::Forms::PictureBox^ manage_pic;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ manage_pic;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 		   System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -73,22 +76,26 @@ namespace CourseRegistration {
 			   this->user_name = (gcnew System::Windows::Forms::Label());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->upload_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			   this->upload_text = (gcnew System::Windows::Forms::Label());
 			   this->upload_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->pre_panel = (gcnew System::Windows::Forms::Panel());
 			   this->pre_text = (gcnew System::Windows::Forms::Label());
 			   this->pre_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_text = (gcnew System::Windows::Forms::Label());
 			   this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->nav_panel->SuspendLayout();
 			   this->user_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->upload_panel->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->BeginInit();
 			   this->pre_panel->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
 			   this->manage_panel->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
 			   this->SuspendLayout();
 			   // 
@@ -145,6 +152,7 @@ namespace CourseRegistration {
 			   // 
 			   // upload_panel
 			   // 
+			   this->upload_panel->Controls->Add(this->pictureBox2);
 			   this->upload_panel->Controls->Add(this->upload_text);
 			   this->upload_panel->Controls->Add(this->upload_pic);
 			   this->upload_panel->Location = System::Drawing::Point(0, 178);
@@ -155,6 +163,17 @@ namespace CourseRegistration {
 			   this->upload_panel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::panel2_MouseClick);
 			   this->upload_panel->MouseEnter += gcnew System::EventHandler(this, &AdminNavBar::panel2_MouseEnter);
 			   this->upload_panel->MouseLeave += gcnew System::EventHandler(this, &AdminNavBar::panel2_MouseLeave);
+			   // 
+			   // pictureBox2
+			   // 
+			   this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			   this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			   this->pictureBox2->Location = System::Drawing::Point(3, 28);
+			   this->pictureBox2->Name = L"pictureBox2";
+			   this->pictureBox2->Size = System::Drawing::Size(55, 39);
+			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox2->TabIndex = 2;
+			   this->pictureBox2->TabStop = false;
 			   // 
 			   // upload_text
 			   // 
@@ -171,7 +190,6 @@ namespace CourseRegistration {
 			   // upload_pic
 			   // 
 			   this->upload_pic->BackColor = System::Drawing::Color::Transparent;
-			   this->upload_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upload_pic.Image")));
 			   this->upload_pic->Location = System::Drawing::Point(3, 28);
 			   this->upload_pic->Name = L"upload_pic";
 			   this->upload_pic->Size = System::Drawing::Size(55, 39);
@@ -217,6 +235,7 @@ namespace CourseRegistration {
 			   // 
 			   // manage_panel
 			   // 
+			   this->manage_panel->Controls->Add(this->pictureBox3);
 			   this->manage_panel->Controls->Add(this->manage_text);
 			   this->manage_panel->Controls->Add(this->manage_pic);
 			   this->manage_panel->Location = System::Drawing::Point(0, 371);
@@ -227,6 +246,17 @@ namespace CourseRegistration {
 			   this->manage_panel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &AdminNavBar::panel3_MouseClick);
 			   this->manage_panel->MouseEnter += gcnew System::EventHandler(this, &AdminNavBar::panel3_MouseEnter);
 			   this->manage_panel->MouseLeave += gcnew System::EventHandler(this, &AdminNavBar::panel3_MouseLeave);
+			   // 
+			   // pictureBox3
+			   // 
+			   this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
+			   this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			   this->pictureBox3->Location = System::Drawing::Point(3, 26);
+			   this->pictureBox3->Name = L"pictureBox3";
+			   this->pictureBox3->Size = System::Drawing::Size(57, 40);
+			   this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox3->TabIndex = 2;
+			   this->pictureBox3->TabStop = false;
 			   // 
 			   // manage_text
 			   // 
@@ -243,7 +273,6 @@ namespace CourseRegistration {
 			   // manage_pic
 			   // 
 			   this->manage_pic->BackColor = System::Drawing::Color::Transparent;
-			   this->manage_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"manage_pic.Image")));
 			   this->manage_pic->Location = System::Drawing::Point(3, 26);
 			   this->manage_pic->Name = L"manage_pic";
 			   this->manage_pic->Size = System::Drawing::Size(57, 40);
@@ -255,9 +284,22 @@ namespace CourseRegistration {
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::Color::Honeydew;
-			   this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			   this->BackColor = System::Drawing::Color::AliceBlue;
+			   System::Drawing::Image^ original = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+
+			   int targetWidth = 800;
+			   int originalWidth = original->Width;
+			   int originalHeight = original->Height;
+
+			   // Calculate new height preserving aspect ratio
+			   int targetHeight = (int)((double)originalHeight * ((double)targetWidth / (double)originalWidth));
+
+			   System::Drawing::Bitmap^ resized = gcnew System::Drawing::Bitmap(original, System::Drawing::Size(targetWidth, targetHeight));
+
+			   this->BackgroundImage = resized;
+			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+
+
 			   this->ClientSize = System::Drawing::Size(1282, 673);
 			   this->Controls->Add(this->nav_panel);
 			   this->DoubleBuffered = true;
@@ -275,12 +317,14 @@ namespace CourseRegistration {
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->upload_panel->ResumeLayout(false);
 			   this->upload_panel->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->EndInit();
 			   this->pre_panel->ResumeLayout(false);
 			   this->pre_panel->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->EndInit();
 			   this->manage_panel->ResumeLayout(false);
 			   this->manage_panel->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
 			   this->ResumeLayout(false);
 
@@ -292,7 +336,7 @@ namespace CourseRegistration {
 		for each (Control ^ ctrl in this->Controls) {
 			System::Windows::Forms::MdiClient^ client = dynamic_cast<System::Windows::Forms::MdiClient^>(ctrl);
 			if (client != nullptr) {
-				client->BackColor = System::Drawing::Color::Honeydew;
+				client->BackColor = System::Drawing::Color::AliceBlue;
 			}
 		}
 	}
