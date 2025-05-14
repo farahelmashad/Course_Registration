@@ -152,6 +152,9 @@
     <ClInclude Include="ViewGrades.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Admin.txt" />
@@ -174,5 +177,40 @@
     <Image Include="..\..\Downloads\database.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Images\book.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\computer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\computer-science.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\database.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\graduated.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\pc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\profile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\remove.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\user.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\woman.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

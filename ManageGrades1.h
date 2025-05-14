@@ -40,7 +40,8 @@ namespace CourseRegistration {
 		System::Windows::Forms::Label^ search_text;
 		System::Windows::Forms::Panel^ panelCurrent;
 		System::Windows::Forms::Panel^ panelCompleted;
-	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 
 		   System::ComponentModel::Container^ components;
 
@@ -56,9 +57,9 @@ namespace CourseRegistration {
 			   this->search_text = (gcnew System::Windows::Forms::Label());
 			   this->panelCurrent = (gcnew System::Windows::Forms::Panel());
 			   this->panelCompleted = (gcnew System::Windows::Forms::Panel());
-			   this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // manage_grades
@@ -70,7 +71,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->manage_grades->Location = System::Drawing::Point(12, 9);
 			   this->manage_grades->Name = L"manage_grades";
-			   this->manage_grades->Size = System::Drawing::Size(321, 52);
+			   this->manage_grades->Size = System::Drawing::Size(263, 42);
 			   this->manage_grades->TabIndex = 25;
 			   this->manage_grades->Text = L"Manage Grades";
 			   // 
@@ -92,7 +93,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->search_icon->Cursor = System::Windows::Forms::Cursors::Default;
 			   this->search_icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"search_icon.Image")));
-			   this->search_icon->Location = System::Drawing::Point(761, 188);
+			   this->search_icon->Location = System::Drawing::Point(702, 188);
 			   this->search_icon->Name = L"search_icon";
 			   this->search_icon->Size = System::Drawing::Size(50, 37);
 			   this->search_icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -109,9 +110,9 @@ namespace CourseRegistration {
 				   static_cast<System::Byte>(0)));
 			   this->search_text->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->search_text->Location = System::Drawing::Point(339, 146);
+			   this->search_text->Location = System::Drawing::Point(334, 158);
 			   this->search_text->Name = L"search_text";
-			   this->search_text->Size = System::Drawing::Size(228, 34);
+			   this->search_text->Size = System::Drawing::Size(177, 27);
 			   this->search_text->TabIndex = 29;
 			   this->search_text->Text = L"Enter Student ID:";
 			   // 
@@ -129,25 +130,25 @@ namespace CourseRegistration {
 			   this->panelCompleted->Size = System::Drawing::Size(353, 480);
 			   this->panelCompleted->TabIndex = 33;
 			   // 
-			   // pictureBox5
+			   // pictureBox1
 			   // 
-			   this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			   this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			   this->pictureBox5->Location = System::Drawing::Point(1071, 11);
-			   this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			   this->pictureBox5->Name = L"pictureBox5";
-			   this->pictureBox5->Size = System::Drawing::Size(73, 50);
-			   this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox5->TabIndex = 34;
-			   this->pictureBox5->TabStop = false;
+			   this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			   this->pictureBox1->Location = System::Drawing::Point(1090, 11);
+			   this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			   this->pictureBox1->Name = L"pictureBox1";
+			   this->pictureBox1->Size = System::Drawing::Size(55, 41);
+			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox1->TabIndex = 35;
+			   this->pictureBox1->TabStop = false;
 			   // 
 			   // ManageGrades1
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1156, 740);
-			   this->Controls->Add(this->pictureBox5);
+			   this->Controls->Add(this->pictureBox1);
 			   this->Controls->Add(this->panelCompleted);
 			   this->Controls->Add(this->panelCurrent);
 			   this->Controls->Add(this->search_text);
@@ -162,7 +163,7 @@ namespace CourseRegistration {
 			   this->Text = L"ManageGrades";
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 

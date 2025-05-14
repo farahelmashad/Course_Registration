@@ -181,6 +181,7 @@
     <ClInclude Include="report.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Setprerequisites.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -257,11 +258,24 @@
     <Image Include="..\..\Downloads\computer.png" />
     <Image Include="..\..\Downloads\database.png" />
     <Image Include="..\..\Downloads\pc.png" />
+    <Image Include="Images\book.png" />
+    <Image Include="Images\computer-science.png" />
+    <Image Include="Images\computer.png" />
+    <Image Include="Images\database.png" />
+    <Image Include="Images\graduated.png" />
+    <Image Include="Images\pc.png" />
+    <Image Include="Images\profile.png" />
+    <Image Include="Images\remove.png" />
+    <Image Include="Images\user.png" />
+    <Image Include="Images\woman.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Admin.txt" />
     <Text Include="Courses.txt" />
     <Text Include="student.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

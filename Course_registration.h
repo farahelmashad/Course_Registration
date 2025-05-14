@@ -4,6 +4,8 @@
 #include"Course.h"
 #include"Utils.h"
 #include"FileManager.h"
+#include <windows.h>
+
 //#include"course_pre.h"
  ref class course_pre;
  ref class course_info;
@@ -18,6 +20,7 @@
 	 using namespace System::Windows::Forms;
 	 using namespace System::Data;
 	 using namespace System::Drawing;
+     using namespace System::IO;
 
 	 /// <summary>
 	 /// Summary for Course_registration
@@ -540,6 +543,7 @@
 			 this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
 			 this->flowLayoutPanel2->Size = System::Drawing::Size(960, 500);
 			 this->flowLayoutPanel2->TabIndex = 22;
+			 DisplayAllCourses(courses);
 			 // 
 			 // course_lay
 			 // 

@@ -19,7 +19,6 @@ void CourseRegistration::GradesInfo::LoadCourseInfo() {
 			break;
 		}
 	}
-	//student/course wasn't found
 	course_id->Text = "N/A";
 	course_name->Text = "Student not found!";
 	stud_grade->Text = "N/A";

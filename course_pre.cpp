@@ -51,17 +51,13 @@ void CourseRegistration::course_pre::CreateCoursesPanel(Course course, Random^ r
         courseID->TextAlign = ContentAlignment::MiddleCenter;
         courseID->Location = System::Drawing::Point(0, 130);
 
-        // Remove credit labels and add prerequisites labels
         Label^ prereqLabel = gcnew Label();
         prereqLabel->Text = "Prerequisites:";
         prereqLabel->Font = gcnew System::Drawing::Font("Bahnschrift", 9.5F, System::Drawing::FontStyle::Regular);
         prereqLabel->ForeColor = courseID->ForeColor;
-        prereqLabel->Location = System::Drawing::Point(50, 155);
+        prereqLabel->Location = System::Drawing::Point(60, 155);
         prereqLabel->AutoSize = true;
-
-        // Dynamically add prerequisite courses here
-        // Assuming course.getPrerequisites() returns a vector of prerequisite courses (or a similar list)
-        int yPosition = 170; // Start position for the first prerequisite label
+        int yPosition = 170; 
 
         for each (string prere in course.getPrerequisites())
         {
@@ -70,23 +66,22 @@ void CourseRegistration::course_pre::CreateCoursesPanel(Course course, Random^ r
             prereqCourse->Text = prereq;
             prereqCourse->Font = gcnew System::Drawing::Font("Bahnschrift", 9.5F, System::Drawing::FontStyle::Regular);
             prereqCourse->ForeColor = courseID->ForeColor;
-            prereqCourse->Location = System::Drawing::Point(50, yPosition);
+            prereqCourse->Location = System::Drawing::Point(85, yPosition);
             prereqCourse->AutoSize = true;
 
             coursePanel->Controls->Add(prereqCourse);
-            yPosition += 20; // Adjust space between prerequisite labels
+            yPosition += 15; 
         }
-        //Pictures
 
         PictureBox^ pic = gcnew PictureBox();
-        std::array<std::string, 5> imageNames = { "book", "pc", "computer", "computer-science", "database" };
+        std::array<std::string, 5> imageNames = { "ai-assistant.png", "pc.png", "computer.png", "computer-science.png", "database.png" };
 
         int index = rand->Next(imageNames.size());
         String^ selectedImage = Utils::toSysStr(imageNames[index]);
 
-        System::ComponentModel::ComponentResourceManager^ resources =
-            gcnew System::ComponentModel::ComponentResourceManager(course_pre::typeid);
-        pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
+        String^ imagePath = Path::Combine(Application::StartupPath, "..\\..\\Images", selectedImage);
+
+        pic->Image = System::Drawing::Image::FromFile(imagePath);
 
         pic->SizeMode = PictureBoxSizeMode::Zoom;
         pic->Location = System::Drawing::Point(37, 10);

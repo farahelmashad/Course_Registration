@@ -15,6 +15,7 @@
 #include <set>
 #include <string>
 #include <msclr/marshal_cppstd.h>
+std::string cid = "";
 
 using namespace std;
 using namespace System;
@@ -97,7 +98,7 @@ Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, 
             Course foundCourse = Course::SearchCourse(courseID);
             if (foundCourse.getCourseID() != "") { // Check if course was found
                 courseDisplayName = gcnew String(foundCourse.getCourseName().c_str());
-                gcid = foundCourse.getCourseID();
+                cid = foundCourse.getCourseID();
             }
 
             // Course Name Label
@@ -140,7 +141,7 @@ Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, 
 }
 
 Void CourseRegistration::ViewGrades::Retakebtn_Click(System::Object^ sender, System::EventArgs^ e) {
-    currentStudent.Retake(gcid);
+    currentStudent.Retake(cid);
     MessageBox::Show("Course Successfully Retaken", "Success", MessageBoxButtons::OK);
 
 

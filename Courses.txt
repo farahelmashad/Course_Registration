@@ -1,23 +1,23 @@
 AI|Artificial Intelligence|3|AI concepts and search algorithms|Dr. Aya Kamel|ALG
 ALG|Algorithms|4|Sorting, Searching, Dynamic Programming|Dr. Mariam Ayman|DS
 APP|Mobile App Development|3|Android/iOS development fundamentals|Dr. Amr Saeed|WEB
-AR|Augmented Reality|3|ARKit, ARCore, spatial mapping|Dr. Salma Yehia|APP
 BLOCK|Blockchain Technology|3|Decentralized systems and smart contracts|Dr. Rasha Seif|DB
+AR|Augmented Reality|3|ARKit, ARCore, spatial mapping|Dr. Salma Yehia|APP
 OOP|Object-Oriented Programming|3|OOP principles using Java|Dr. Reem Youssef|PRG
 ARCH|Computer Architecture|3|Digital logic and system architecture|Dr. Samir Elmasry|PRG
 BIGDATA|Big Data Analytics|4|Hadoop, Spark, large-scale data|Dr. Khaled Morsy|DB
-CLOUD|Cloud Computing|3|Cloud models and architecture|Dr. Sarah Nasser|NET
 SWE|Software Engineering|3|Software lifecycle, UML, testing|Dr. Eman Lotfy|OOP
-CV|Computer Vision|3|Image classification, object detection|Dr. Basel Ali|ML
+CLOUD|Cloud Computing|3|Cloud models and architecture|Dr. Sarah Nasser|NET
 QUANT|Quantum Computing|3|Qubits, gates, and algorithms|Dr. Hany Farid|ALG
+CV|Computer Vision|3|Image classification, object detection|Dr. Basel Ali|ML
 DB|Database Systems|3|SQL, ER diagrams, indexing|Dr. Omar Hassan|DS
-DEVOPS|DevOps Engineering|3|CI/CD, Docker, Kubernetes|Dr. Amina Raouf|WEB
 NET|Computer Networks|3|OSI model, TCP/IP, networking protocols|Dr. Khaled Anwar|ARCH
-DS|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|OOP
+DEVOPS|DevOps Engineering|3|CI/CD, Docker, Kubernetes|Dr. Amina Raouf|WEB
 PRG|Introduction to Programming|3|Basics of programming using C++|Dr. Ahmed Salem|
+DS|Data Structures|4|Stacks, Queues, Trees, Hashing|Dr. Nabil Fathy|OOP
 EMB|Embedded Systems|3|Microcontrollers and real-time systems|Dr. Mona Galal|ARCH
-GAME|Game Development|3|Unity, game loops, physics|Dr. Karim Maher|WEB
 GRAPH|Computer Graphics|3|Rendering, OpenGL, modeling|Dr. Hesham Gamil|DS
+GAME|Game Development|3|Unity, game loops, physics|Dr. Karim Maher|WEB
 HACK|Ethical Hacking|3|Penetration testing, tools, vulnerabilities|Dr. Heba Gamil|SEC
 HCI|Human-Computer Interaction|3|UX/UI design, evaluation techniques|Dr. Layla Naguib|SWE
 IMG|Digital Image Processing|3|Filters, transformations, feature extraction|Dr. Youssef Nasr|GRAPH

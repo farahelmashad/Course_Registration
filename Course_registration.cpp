@@ -81,16 +81,14 @@ void CourseRegistration::Course_registration::CreateCoursePanel(Course course,Ra
 
 	//Picturesss
 	PictureBox^ pic = gcnew PictureBox();
-	std::array<std::string, 5> imageNames = { "book", "pc", "computer","computer-science","database"};
+	std::array<std::string, 5> imageNames = { "ai-assistant.png", "pc.png", "computer.png", "computer-science.png", "database.png" };
 
 	int index = rand->Next(imageNames.size());
 	String^ selectedImage = Utils::toSysStr(imageNames[index]);
 
+	String^ imagePath = Path::Combine(Application::StartupPath, "..\\..\\Images", selectedImage);
 
-	System::ComponentModel::ComponentResourceManager^ resources =
-	gcnew System::ComponentModel::ComponentResourceManager(Course_registration::typeid);
-	pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(selectedImage)));
-
+	pic->Image = System::Drawing::Image::FromFile(imagePath);
 	pic->SizeMode = PictureBoxSizeMode::Zoom;
 	pic->Location = System::Drawing::Point(37,10);
 	pic->Size = System::Drawing::Size(135, 92);

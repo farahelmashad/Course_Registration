@@ -263,7 +263,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(74, 117);
+			this->label1->Location = System::Drawing::Point(82, 117);
 			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(102, 23);
@@ -454,9 +454,9 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 			this->check_pre->ForeColor = System::Drawing::Color::White;
 			this->check_pre->Location = System::Drawing::Point(63, 38);
 			this->check_pre->Name = L"check_pre";
-			this->check_pre->Size = System::Drawing::Size(133, 18);
+			this->check_pre->Size = System::Drawing::Size(142, 18);
 			this->check_pre->TabIndex = 1;
-			this->check_pre->Text = L"Check prerequisite";
+			this->check_pre->Text = L"Check Prerequisites";
 			// 
 			// pictureBox7
 			// 
@@ -523,7 +523,7 @@ private: System::Windows::Forms::PictureBox^ pictureBox9;
 				static_cast<System::Byte>(0)));
 			this->Profile->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			this->Profile->Location = System::Drawing::Point(272, 80);
+			this->Profile->Location = System::Drawing::Point(295, 80);
 			this->Profile->Name = L"Profile";
 			this->Profile->Size = System::Drawing::Size(281, 58);
 			this->Profile->TabIndex = 3;
