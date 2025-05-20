@@ -37,7 +37,7 @@ bool Login_SignUp_Helper::Student_Sign_Up(string username, string password, int 
 		return false;
 	}
 
-	set<string> current = {};
+	unordered_set<string> current = {};
 	set<CourseGrades> completed = {};
 	Student s(username, password, nationalID, studentID, gender, 1, current, completed);
 	students[studentID] = s;

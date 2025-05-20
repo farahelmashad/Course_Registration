@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include<set>
+#include<unordered_set>
 #include"CourseGrades.h"
 #include"FileManager.h"
 class CourseGrades;
@@ -15,21 +16,21 @@ private:
 	int studentID;
 	char gender;
 	int academicYear; //1st year, 2nd , etc.
-	set<string> currentCourses; //course IDs of the courses they're currently enrolled in 
+	unordered_set<string> currentCourses; //course IDs of the courses they're currently enrolled in 
 	set <CourseGrades> completedCourses; // elcourses ely khalasha (their ids/semester/grade onlyy)
 
 
 
 public:
 	Student();
-	Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, set<CourseGrades>& completedCourses);
+	Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, unordered_set<string>& currentCourses, set<CourseGrades>& completedCourses);
 	void setUsername(string username);
 	void setPassword(string password);
 	void setNationalID(int nationalID);
 	void setStudentID(int studentID);
 	void setGender(char gender);
 	void setAcademicYear(int academicYear);
-	void setCurrentCourses(set<string> currentCourses);
+	void setCurrentCourses(unordered_set<string> currentCourses);
 	void setCompletedCourses(set<CourseGrades> completedCourses);
 	string getUserName();
 	string getPassword();
@@ -37,7 +38,7 @@ public:
 	int getStudentID();
 	char getGender();
 	int getAcademicYear();
-	set<string> getCurrentCourses();
+	unordered_set<string> getCurrentCourses();
 	set<CourseGrades>& getCompletedCourses();
 	~Student();
 	//Student methods:

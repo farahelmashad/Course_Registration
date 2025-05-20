@@ -4,6 +4,10 @@
 CourseGrades::~CourseGrades()
 {
 }
+CourseGrades::CourseGrades(string courseID)
+{
+	this->courseID = courseID;
+}
 
 
 CourseGrades::CourseGrades(int studentID, string courseID, string semester, char grade)
@@ -14,10 +18,13 @@ CourseGrades::CourseGrades(int studentID, string courseID, string semester, char
 	this->grade = grade;
 }
 
-CourseGrades::CourseGrades(string courseID)
-{
-	this->courseID = courseID;
+string CourseGrades::getCourseID() const {
+	return courseID;
 }
+//CourseGrades::CourseGrades(string courseID)
+//{
+//	this->courseID = courseID;
+//}
 
 void CourseGrades::setCourseID(string courseID)
 {
@@ -34,11 +41,6 @@ void CourseGrades::setGrade(char grade)
 	this->grade = grade;
 }
 
-string CourseGrades::getCourseID() const
-{
-	return courseID;
-
-}
 
 string CourseGrades::getSemester()
 {
@@ -48,4 +50,7 @@ string CourseGrades::getSemester()
 char CourseGrades::getGrade() const
 {
 	return grade;
+}
+bool CourseGrades::operator<(const CourseGrades& other) const {
+	return courseID < other.courseID;
 }

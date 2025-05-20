@@ -71,7 +71,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->manage_grades->Location = System::Drawing::Point(12, 9);
 			   this->manage_grades->Name = L"manage_grades";
-			   this->manage_grades->Size = System::Drawing::Size(263, 42);
+			   this->manage_grades->Size = System::Drawing::Size(321, 52);
 			   this->manage_grades->TabIndex = 25;
 			   this->manage_grades->Text = L"Manage Grades";
 			   // 
@@ -112,7 +112,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->search_text->Location = System::Drawing::Point(334, 158);
 			   this->search_text->Name = L"search_text";
-			   this->search_text->Size = System::Drawing::Size(177, 27);
+			   this->search_text->Size = System::Drawing::Size(228, 34);
 			   this->search_text->TabIndex = 29;
 			   this->search_text->Text = L"Enter Student ID:";
 			   // 
@@ -144,7 +144,7 @@ namespace CourseRegistration {
 			   // 
 			   // ManageGrades1
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1156, 740);
@@ -162,6 +162,7 @@ namespace CourseRegistration {
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			   this->Text = L"ManageGrades";
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			   this->Load += gcnew System::EventHandler(this, &ManageGrades1::ManageGrades1_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->search_icon))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
@@ -373,5 +374,7 @@ namespace CourseRegistration {
 		search_icon->BackColor = System::Drawing::Color::FromArgb(32, 42, 68);
 	}
 
-	};
+	private: System::Void ManageGrades1_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

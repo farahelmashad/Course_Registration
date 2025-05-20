@@ -11,6 +11,7 @@
 #include"report.h"
 #include"Course_registration.h"
 #include <map>
+#include<unordered_set>
 #include <vector>
 #include <set>
 #include <string>
@@ -58,7 +59,7 @@ void CourseRegistration::ViewGrades::InitializeData() {
 
     GradesLayoutPanel->Controls->Clear();
     // Collect unique semesters from completed courses
-    set<string> semesters;
+    unordered_set<string> semesters;
     for each (CourseGrades grade in currentStudent.getCompletedCourses()) {
         semesters.insert(grade.getSemester());
     }
@@ -96,11 +97,12 @@ Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, 
             String^ courseDisplayName = gcnew String(courseID.c_str()); // Default to ID
 
             Course foundCourse = Course::SearchCourse(courseID);
-            if (foundCourse.getCourseID() != "") { // Check if course was found
+            auto it = courses.find(courseID);
+            if (it != courses.end()) {
+                Course& foundCourse = it->second;
                 courseDisplayName = gcnew String(foundCourse.getCourseName().c_str());
                 cid = foundCourse.getCourseID();
             }
-
             // Course Name Label
             Label^ CNlbl = gcnew Label();
             CNlbl->AutoSize = true;
@@ -123,15 +125,15 @@ Void CourseRegistration::ViewGrades::searchbutton_Click(System::Object^ sender, 
             Coursepanel->Controls->Add(CGradelbl);
 
             // Retake Button (unchanged)
-            Button^ Retakebtn = gcnew Button();
-            Retakebtn->Text = "Retake";
-            Retakebtn->BackColor = Color::AliceBlue;
-            Retakebtn->Location = Point(117, 143);
-            Retakebtn->Size = System::Drawing::Size(111, 46);
-            Retakebtn->Click += gcnew EventHandler(this, &ViewGrades::Retakebtn_Click);
-            string combinedID = courseID + "|" + grade.getSemester(); // Still using original ID for functionality
-            Retakebtn->Tag = gcnew String(combinedID.c_str());
-            Coursepanel->Controls->Add(Retakebtn);
+            //Button^ Retakebtn = gcnew Button();
+            //Retakebtn->Text = "Retake";
+            //Retakebtn->BackColor = Color::AliceBlue;
+            //Retakebtn->Location = Point(117, 143);
+            //Retakebtn->Size = System::Drawing::Size(111, 46);
+            //Retakebtn->Click += gcnew EventHandler(this, &ViewGrades::Retakebtn_Click);
+            //string combinedID = courseID + "|" + grade.getSemester(); // Still using original ID for functionality
+            //Retakebtn->Tag = gcnew String(combinedID.c_str());
+            //Coursepanel->Controls->Add(Retakebtn);
 
             GradesLayoutPanel->Controls->Add(Coursepanel);
         }

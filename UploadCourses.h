@@ -136,7 +136,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label1->Location = System::Drawing::Point(95, 26);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(93, 23);
+			   this->label1->Size = System::Drawing::Size(113, 28);
 			   this->label1->TabIndex = 29;
 			   this->label1->Text = L"Course ID";
 			   // 
@@ -177,7 +177,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label8->Location = System::Drawing::Point(95, 219);
 			   this->label8->Name = L"label8";
-			   this->label8->Size = System::Drawing::Size(84, 23);
+			   this->label8->Size = System::Drawing::Size(101, 28);
 			   this->label8->TabIndex = 22;
 			   this->label8->Text = L"Syllabus";
 			   // 
@@ -202,7 +202,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label5->Location = System::Drawing::Point(95, 285);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(148, 23);
+			   this->label5->Size = System::Drawing::Size(182, 28);
 			   this->label5->TabIndex = 26;
 			   this->label5->Text = L"Instructor Name";
 			   // 
@@ -227,7 +227,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label7->Location = System::Drawing::Point(95, 151);
 			   this->label7->Name = L"label7";
-			   this->label7->Size = System::Drawing::Size(118, 23);
+			   this->label7->Size = System::Drawing::Size(144, 28);
 			   this->label7->TabIndex = 24;
 			   this->label7->Text = L"Credit Hours";
 			   // 
@@ -253,7 +253,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label9->Location = System::Drawing::Point(95, 89);
 			   this->label9->Name = L"label9";
-			   this->label9->Size = System::Drawing::Size(125, 23);
+			   this->label9->Size = System::Drawing::Size(152, 28);
 			   this->label9->TabIndex = 20;
 			   this->label9->Text = L"Course Name";
 			   // 
@@ -267,7 +267,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->course_i->Location = System::Drawing::Point(320, 21);
 			   this->course_i->Name = L"course_i";
-			   this->course_i->Size = System::Drawing::Size(0, 42);
+			   this->course_i->Size = System::Drawing::Size(0, 52);
 			   this->course_i->TabIndex = 30;
 			   // 
 			   // label10
@@ -280,7 +280,7 @@ namespace CourseRegistration {
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
 			   this->label10->Location = System::Drawing::Point(12, 9);
 			   this->label10->Name = L"label10";
-			   this->label10->Size = System::Drawing::Size(266, 42);
+			   this->label10->Size = System::Drawing::Size(324, 52);
 			   this->label10->TabIndex = 31;
 			   this->label10->Text = L"Upload Courses";
 			   // 
@@ -298,7 +298,7 @@ namespace CourseRegistration {
 			   // 
 			   // UploadCourses
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1156, 740);
@@ -313,6 +313,7 @@ namespace CourseRegistration {
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			   this->Text = L"AdminNavBar";
 			   this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			   this->Load += gcnew System::EventHandler(this, &UploadCourses::UploadCourses_Load);
 			   this->panel5->ResumeLayout(false);
 			   this->panel5->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -358,5 +359,7 @@ namespace CourseRegistration {
 				MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
-	};
+	private: System::Void UploadCourses_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

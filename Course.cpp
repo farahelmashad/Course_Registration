@@ -8,7 +8,7 @@ Course::Course() {
 	creditHours = 0;
 }
 
-Course::Course(string courseID, string courseName, int creditHours, string syllabus, string instructor, set<string>& prerequisites)
+Course::Course(string courseID, string courseName, int creditHours, string syllabus, string instructor, unordered_set<string>& prerequisites)
 {
 	this->courseID = courseID;
 	this->courseName = courseName;
@@ -50,6 +50,7 @@ string Course::getCourseName()
 	return courseName;
 }
 
+
 int Course::getCreditHours()
 {
 	return creditHours;
@@ -65,11 +66,11 @@ string Course::getInstructor()
 	return instructor;
 }
 
-set<string> Course::getPrerequisites()
+unordered_set<string> Course::getPrerequisites()
 {
 	return prerequisites;
 }
 
-void Course::setPrerequisites(set<string>& prereqs) {
+void Course::setPrerequisites(unordered_set<string>& prereqs) {
 	prerequisites = prereqs;
 }

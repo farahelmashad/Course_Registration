@@ -655,9 +655,9 @@ namespace CourseRegistration {
 			instructor_name->Text = Utils::toSysStr(course.getInstructor());
 
 			flowLayoutPanel2->Controls->Clear();
-			set<string> prereqs = course.getPrerequisites();
+			unordered_set<string> prereqs = course.getPrerequisites();
 
-			set<string> passedCourses;
+			unordered_set<string> passedCourses;
 			for ( CourseGrades cg : currentStudent.getCompletedCourses()) {
 				if (cg.getGrade() != 'F') {
 					passedCourses.insert(cg.getCourseID());

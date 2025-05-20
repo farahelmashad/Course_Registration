@@ -62,7 +62,7 @@ namespace CourseRegistration {
                 static_cast<System::Byte>(0)));
             this->label1->Location = System::Drawing::Point(907, 161);
             this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(144, 58);
+            this->label1->Size = System::Drawing::Size(178, 72);
             this->label1->TabIndex = 0;
             this->label1->Text = L"Login";
             // 
@@ -73,7 +73,7 @@ namespace CourseRegistration {
                 static_cast<System::Byte>(0)));
             this->username_a->Location = System::Drawing::Point(851, 304);
             this->username_a->Name = L"username_a";
-            this->username_a->Size = System::Drawing::Size(293, 20);
+            this->username_a->Size = System::Drawing::Size(293, 25);
             this->username_a->TabIndex = 2;
             this->username_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::username_KeyDown);
             // 
@@ -84,7 +84,7 @@ namespace CourseRegistration {
                 static_cast<System::Byte>(0)));
             this->label2->Location = System::Drawing::Point(848, 283);
             this->label2->Name = L"label2";
-            this->label2->Size = System::Drawing::Size(77, 18);
+            this->label2->Size = System::Drawing::Size(97, 23);
             this->label2->TabIndex = 3;
             this->label2->Text = L"Username";
             // 
@@ -95,7 +95,7 @@ namespace CourseRegistration {
                 static_cast<System::Byte>(0)));
             this->label3->Location = System::Drawing::Point(848, 349);
             this->label3->Name = L"label3";
-            this->label3->Size = System::Drawing::Size(75, 18);
+            this->label3->Size = System::Drawing::Size(95, 23);
             this->label3->TabIndex = 4;
             this->label3->Text = L"Password";
             // 
@@ -107,7 +107,7 @@ namespace CourseRegistration {
             this->password_a->Location = System::Drawing::Point(851, 370);
             this->password_a->Name = L"password_a";
             this->password_a->PasswordChar = '*';
-            this->password_a->Size = System::Drawing::Size(293, 20);
+            this->password_a->Size = System::Drawing::Size(293, 25);
             this->password_a->TabIndex = 5;
             this->password_a->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Adminlogin::password_KeyDown);
             // 
@@ -134,7 +134,7 @@ namespace CourseRegistration {
             this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
             this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-            this->pictureBox2->Location = System::Drawing::Point(-107, -55);
+            this->pictureBox2->Location = System::Drawing::Point(-129, -47);
             this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
             this->pictureBox2->Name = L"pictureBox2";
             this->pictureBox2->Size = System::Drawing::Size(800, 800);
@@ -144,10 +144,10 @@ namespace CourseRegistration {
             // 
             // Adminlogin
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(17, 36);
+            this->AutoScaleDimensions = System::Drawing::SizeF(21, 45);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->BackColor = System::Drawing::Color::Honeydew;
-            this->ClientSize = System::Drawing::Size(1156, 628);
+            this->BackColor = System::Drawing::Color::AliceBlue;
+            this->ClientSize = System::Drawing::Size(1221, 628);
             this->Controls->Add(this->pictureBox2);
             this->Controls->Add(this->submit_a);
             this->Controls->Add(this->password_a);

@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include<unordered_set>
 #include<set>
 #include<map>
 #include"FileManager.h"
@@ -13,26 +14,30 @@ private:
 	int creditHours;
 	string syllabus;
 	string instructor;
-	set<string> prerequisites; //courseID lel prerequisite courses
+	unordered_set<string> prerequisites; //courseID lel prerequisite courses
 
 public:
-	Course(string courseID, string courseName, int creditHours, string syllabus, string instructor, set<string>& prerequisites);
+	string getCourseID() const;
+	Course(string courseID, string courseName, int creditHours, string syllabus, string instructor, unordered_set<string>& prerequisites);
 	Course(string courseID, string courseName, int creditHours, string syllabus, string instructor);
 	void setCourseID(string courseID);
 	void setCourseName(string courseName);
 	void setCreditHours(int creditHours);
 	void setSyllabus(string syllabus);
 	void setInstructor(string instructor);
-	void setPrerequisites(set<string>& prereqs);
+	void setPrerequisites(unordered_set<string>& prereqs);
 	static Course SearchCourse(string courseID);
 	string getCourseID();
 	string getCourseName();
 	int getCreditHours();
 	string getSyllabus();
 	string getInstructor();
-	set<string> getPrerequisites();
+	unordered_set<string> getPrerequisites();
 	~Course();
 	Course();
+	bool operator==(const Course& other) const {
+		return courseID == other.courseID;
+	}
 	// course file outline: courseID|courseName|creditHours|syllabus|instructor|prerequisite1,prerequisite2,...
 
 };

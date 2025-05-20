@@ -5,20 +5,22 @@ void CourseRegistration::GradesInfo::LoadCourseInfo() {
 	std::string stdCourseCode = Utils::toStdString(courseID);
 	for (auto& studentPair : students) {
 		if (studentPair.first == studentID) {
-			for (auto& completedCourse : studentPair.second.getCompletedCourses()) {
-				if (completedCourse.getCourseID() == stdCourseCode) {
-					course_id->Text = Utils::toSysStr(completedCourse.getCourseID());
-					course_name->Text = Utils::toSysStr(courses[stdCourseCode].getCourseName());
-					stud_grade->Text = Utils::toSysStr(completedCourse.getGrade());
-					hours_out->Text = courses[stdCourseCode].getCreditHours().ToString();
-					syllabus->Text = Utils::toSysStr(courses[stdCourseCode].getSyllabus());
-					instructor_name->Text = Utils::toSysStr(courses[stdCourseCode].getInstructor());
-					return;
-				}
+			const auto& completedCourses = studentPair.second.getCompletedCourses();
+			CourseGrades target(stdCourseCode);
+			auto it = completedCourses.find(target);
+			if (it != completedCourses.end()) {
+				course_id->Text = Utils::toSysStr(it->getCourseID());
+				course_name->Text = Utils::toSysStr(courses[stdCourseCode].getCourseName());
+				stud_grade->Text = Utils::toSysStr(it->getGrade());
+				hours_out->Text = courses[stdCourseCode].getCreditHours().ToString();
+				syllabus->Text = Utils::toSysStr(courses[stdCourseCode].getSyllabus());
+				instructor_name->Text = Utils::toSysStr(courses[stdCourseCode].getInstructor());
+				return;
 			}
 			break;
 		}
 	}
+	// Fallback if student or course not found
 	course_id->Text = "N/A";
 	course_name->Text = "Student not found!";
 	stud_grade->Text = "N/A";
@@ -46,27 +48,22 @@ System::Void CourseRegistration::GradesInfo::submit_button_MouseClick(System::Ob
 	for (auto& studentPair : students) {
 		if (studentPair.first == studentID) {
 			auto& courses = studentPair.second.getCompletedCourses();
+			CourseGrades target(stdCourseID);
+			auto it = courses.find(target);
 
-			// Find and update the course
-			for (auto it = courses.begin(); it != courses.end(); it++) {
-				if (it->getCourseID() == stdCourseID) {
-					// Create modified copy
-					CourseGrades updated = *it;
-					updated.setGrade(gradeChar);
+			if (it != courses.end()) {
+				// Update grade
+				CourseGrades updated = *it;
+				updated.setGrade(gradeChar);
 
-					// Replace in set 
-					courses.erase(it);
-					courses.insert(updated);
+				courses.erase(it);
+				courses.insert(updated);
 
-					// Force map update
-					studentPair.second = studentPair.second;
-
-					MessageBox::Show("Grade updated successfully!",
-						"Success",
-						MessageBoxButtons::OK,
-						MessageBoxIcon::None);
-					return;
-				}
+				MessageBox::Show("Grade updated successfully!",
+					"Success",
+					MessageBoxButtons::OK,
+					MessageBoxIcon::None);
+				return;
 			}
 			break;
 		}

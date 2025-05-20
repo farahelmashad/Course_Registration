@@ -24,15 +24,10 @@ void Student::MakeReport()
 {
 }
 
-bool Student::willRetake(string courseID)
+bool Student::willRetake(std::string courseID)
 {
-	for (CourseGrades cg : completedCourses) {
-		if (cg.getCourseID() == courseID) {
-			return true;
-		}
-	}
-	return false;
-
+	CourseGrades target(courseID);
+	return completedCourses.find(target) != completedCourses.end();
 }
 bool Student::isRegistered(string courseID) {
 	return currentCourses.find(courseID) != currentCourses.end();
@@ -61,7 +56,7 @@ bool Student::hasPrerequisites(string courseID, string& reason)
 	}
 	auto it = courses.find(courseID);
 	Course c = it->second;
-	set<string> passedCourses;
+	unordered_set<string> passedCourses;
 
 	for (auto cg : this->completedCourses) {
 		if (cg.getGrade() != 'F') {
@@ -91,7 +86,7 @@ Student::Student()
 {
 }
 
-Student::Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, set<string>& currentCourses, set<CourseGrades>& completedCourses)
+Student::Student(string username, string password, int nationalID, int studentID, char gender, int academicYear, unordered_set<string>& currentCourses, set<CourseGrades>& completedCourses)
 	: username(username), password(password), nationalID(nationalID), studentID(studentID), gender(gender), academicYear(academicYear),
 	currentCourses(currentCourses), completedCourses(completedCourses)
 {
@@ -128,7 +123,7 @@ void Student::setAcademicYear(int academicYear)
 	this->academicYear = academicYear;
 }
 
-void Student::setCurrentCourses(set<string> currentCourses)
+void Student::setCurrentCourses(unordered_set<string> currentCourses)
 {
 	this->currentCourses = currentCourses;
 }
@@ -168,7 +163,7 @@ int Student::getAcademicYear()
 	return academicYear;
 }
 
-set<string> Student::getCurrentCourses()
+unordered_set<string> Student::getCurrentCourses()
 {
 	return currentCourses;
 }

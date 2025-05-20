@@ -1,7 +1,10 @@
 #pragma once
+//#include <functional>
 #include<string>
+#include<unordered_set>
 #include<set>
 #include<vector>
+#include<iostream>
 #include"FileManager.h"
 using namespace std;
 
@@ -24,10 +27,7 @@ public:
 	string getSemester();
 	char getGrade() const;
 	~CourseGrades();
-	bool operator<(const CourseGrades& other) const {
-		return courseID < other.courseID;
-	}
-
-
+	
+	bool operator<(const CourseGrades& other) const;
 
 };

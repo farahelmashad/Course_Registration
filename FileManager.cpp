@@ -66,7 +66,7 @@ void FileManager::readStudents(string filename) {
             gender = genderStr[0];
 
             getline(ss, currentCourseStr, '#');
-            set<string> currentCourses;
+            unordered_set<string> currentCourses;
             stringstream currentStream(currentCourseStr);
             string currentCourse;
             while (getline(currentStream, currentCourse, ';')) {
@@ -75,7 +75,7 @@ void FileManager::readStudents(string filename) {
             }
 
             getline(ss, completedCourseStr);
-            set<CourseGrades> completedCourses;
+           set<CourseGrades> completedCourses;
             stringstream completedStream(completedCourseStr);
             string courseData;
             while (getline(completedStream, courseData, ';')) {
@@ -125,7 +125,7 @@ void FileManager::readCourses(string filename) {
 
          int creditHours = stoi(creditHoursStr);
 
-         set<string> prereqs;
+         unordered_set<string> prereqs;
          stringstream prereqStream(prereqStr);
          string prereq;
          while (getline(prereqStream, prereq, ',')) {
@@ -157,7 +157,7 @@ void FileManager::writeStudents( string filename) {
              << s.getGender() << ','
              << s.getAcademicYear() << ',';
 
-         set<string> currentCourses = s.getCurrentCourses();
+         unordered_set<string> currentCourses = s.getCurrentCourses();
          for (auto it = currentCourses.begin(); it != currentCourses.end(); ++it) {
              file << *it;
              if (next(it) != currentCourses.end()) file << ';';
@@ -191,7 +191,7 @@ void FileManager::writeCourses(string filename) {
              << course.getSyllabus() << '|'
              << course.getInstructor() << '|';
 
-         const set<string>& prereqs = course.getPrerequisites();
+         const unordered_set<string>& prereqs = course.getPrerequisites();
          for (auto it = prereqs.begin(); it != prereqs.end(); ++it) {
              file << *it;
              if (next(it) != prereqs.end()) file << ',';

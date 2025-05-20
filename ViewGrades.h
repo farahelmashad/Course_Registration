@@ -85,7 +85,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Label^ CGradelbl;
 
 	private: System::Windows::Forms::Label^ CNlbl;
-	private: System::Windows::Forms::Button^ Retakebtn;
+
 
 
 		   System::Windows::Forms::Label^ course_idout;
@@ -122,7 +122,6 @@ namespace CourseRegistration {
 			   this->Semlbl = (gcnew System::Windows::Forms::Label());
 			   this->GradesLayoutPanel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			   this->Coursepanel = (gcnew System::Windows::Forms::Panel());
-			   this->Retakebtn = (gcnew System::Windows::Forms::Button());
 			   this->CGradelbl = (gcnew System::Windows::Forms::Label());
 			   this->CNlbl = (gcnew System::Windows::Forms::Label());
 			   this->flowLayoutPanel1->SuspendLayout();
@@ -179,7 +178,7 @@ namespace CourseRegistration {
 			   this->label1->Location = System::Drawing::Point(80, 117);
 			   this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(102, 23);
+			   this->label1->Size = System::Drawing::Size(130, 29);
 			   this->label1->TabIndex = 1;
 			   this->label1->Text = L"User name";
 			   this->label1->Click += gcnew System::EventHandler(this, &ViewGrades::label1_Click);
@@ -217,7 +216,7 @@ namespace CourseRegistration {
 			   this->label3->ForeColor = System::Drawing::Color::White;
 			   this->label3->Location = System::Drawing::Point(60, 37);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(141, 18);
+			   this->label3->Size = System::Drawing::Size(179, 23);
 			   this->label3->TabIndex = 1;
 			   this->label3->Text = L"Course Registration";
 			   this->label3->Click += gcnew System::EventHandler(this, &ViewGrades::label3_Click);
@@ -253,7 +252,7 @@ namespace CourseRegistration {
 			   this->label4->ForeColor = System::Drawing::Color::White;
 			   this->label4->Location = System::Drawing::Point(60, 35);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(93, 18);
+			   this->label4->Size = System::Drawing::Size(116, 23);
 			   this->label4->TabIndex = 1;
 			   this->label4->Text = L"View Grades";
 			   this->label4->Click += gcnew System::EventHandler(this, &ViewGrades::label4_Click);
@@ -290,7 +289,7 @@ namespace CourseRegistration {
 			   this->label5->ForeColor = System::Drawing::Color::White;
 			   this->label5->Location = System::Drawing::Point(63, 38);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(90, 18);
+			   this->label5->Size = System::Drawing::Size(112, 23);
 			   this->label5->TabIndex = 1;
 			   this->label5->Text = L"View Report";
 			   this->label5->Click += gcnew System::EventHandler(this, &ViewGrades::label5_Click);
@@ -327,7 +326,7 @@ namespace CourseRegistration {
 			   this->check_pre->ForeColor = System::Drawing::Color::White;
 			   this->check_pre->Location = System::Drawing::Point(60, 37);
 			   this->check_pre->Name = L"check_pre";
-			   this->check_pre->Size = System::Drawing::Size(142, 18);
+			   this->check_pre->Size = System::Drawing::Size(182, 23);
 			   this->check_pre->TabIndex = 1;
 			   this->check_pre->Text = L"Check Prerequisites";
 			   // 
@@ -382,7 +381,7 @@ namespace CourseRegistration {
 			   this->SemBox->FormattingEnabled = true;
 			   this->SemBox->Location = System::Drawing::Point(192, 22);
 			   this->SemBox->Name = L"SemBox";
-			   this->SemBox->Size = System::Drawing::Size(284, 27);
+			   this->SemBox->Size = System::Drawing::Size(284, 32);
 			   this->SemBox->TabIndex = 7;
 			   // 
 			   // Semlbl
@@ -391,7 +390,7 @@ namespace CourseRegistration {
 			   this->Semlbl->Font = (gcnew System::Drawing::Font(L"Bahnschrift", 17.8F, System::Drawing::FontStyle::Bold));
 			   this->Semlbl->Location = System::Drawing::Point(77, 20);
 			   this->Semlbl->Name = L"Semlbl";
-			   this->Semlbl->Size = System::Drawing::Size(118, 29);
+			   this->Semlbl->Size = System::Drawing::Size(146, 36);
 			   this->Semlbl->TabIndex = 5;
 			   this->Semlbl->Text = L"Semester";
 			   this->Semlbl->Click += gcnew System::EventHandler(this, &ViewGrades::semesterlabel_Click);
@@ -411,7 +410,6 @@ namespace CourseRegistration {
 			   // 
 			   this->Coursepanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(32)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(68)));
-			   this->Coursepanel->Controls->Add(this->Retakebtn);
 			   this->Coursepanel->Controls->Add(this->CGradelbl);
 			   this->Coursepanel->Controls->Add(this->CNlbl);
 			   this->Coursepanel->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -423,17 +421,6 @@ namespace CourseRegistration {
 			   this->Coursepanel->TabIndex = 0;
 			   this->Coursepanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ViewGrades::panel5_Paint);
 			   // 
-			   // Retakebtn
-			   // 
-			   this->Retakebtn->BackColor = System::Drawing::Color::AliceBlue;
-			   this->Retakebtn->Location = System::Drawing::Point(117, 143);
-			   this->Retakebtn->Name = L"Retakebtn";
-			   this->Retakebtn->Size = System::Drawing::Size(111, 46);
-			   this->Retakebtn->TabIndex = 3;
-			   this->Retakebtn->Text = L"Retake";
-			   this->Retakebtn->UseVisualStyleBackColor = false;
-			   this->Retakebtn->Click += gcnew System::EventHandler(this, &ViewGrades::button1_Click);
-			   // 
 			   // CGradelbl
 			   // 
 			   this->CGradelbl->AutoSize = true;
@@ -442,7 +429,7 @@ namespace CourseRegistration {
 			   this->CGradelbl->ForeColor = System::Drawing::Color::White;
 			   this->CGradelbl->Location = System::Drawing::Point(20, 83);
 			   this->CGradelbl->Name = L"CGradelbl";
-			   this->CGradelbl->Size = System::Drawing::Size(57, 19);
+			   this->CGradelbl->Size = System::Drawing::Size(70, 24);
 			   this->CGradelbl->TabIndex = 1;
 			   this->CGradelbl->Text = L"Grade:";
 			   this->CGradelbl->Click += gcnew System::EventHandler(this, &ViewGrades::CGradelbl_Click);
@@ -455,14 +442,14 @@ namespace CourseRegistration {
 			   this->CNlbl->ForeColor = System::Drawing::Color::White;
 			   this->CNlbl->Location = System::Drawing::Point(20, 29);
 			   this->CNlbl->Name = L"CNlbl";
-			   this->CNlbl->Size = System::Drawing::Size(112, 19);
+			   this->CNlbl->Size = System::Drawing::Size(137, 24);
 			   this->CNlbl->TabIndex = 0;
 			   this->CNlbl->Text = L"Course Name:";
 			   this->CNlbl->Click += gcnew System::EventHandler(this, &ViewGrades::label6_Click);
 			   // 
 			   // ViewGrades
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->ClientSize = System::Drawing::Size(1370, 749);

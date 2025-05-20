@@ -4,6 +4,7 @@
 #include "Course.h"
 #include"AdminCoursesManager.h"
 #include<map>
+#include<unordered_set>
 #include<set>
 #include<string>
 #include <msclr/marshal_cppstd.h>
@@ -546,7 +547,7 @@ namespace CourseRegistration {
 
 		}
 	private: System::Void submit_s_Click(System::Object^ sender, System::EventArgs^ e) {
-		set<string> newPrerequisites;
+		unordered_set<string> newPrerequisites;
 
 		for (int i = 0; i < PrerequisitesList->CheckedItems->Count; i++) {
 			String^ courseName = safe_cast<String^>(PrerequisitesList->CheckedItems[i]);
