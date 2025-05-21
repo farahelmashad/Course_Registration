@@ -195,7 +195,7 @@ namespace CourseRegistration {
 			this->National_ID->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->National_ID->Location = System::Drawing::Point(204, 444);
 			this->National_ID->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->National_ID->MaxLength = 10;
+			this->National_ID->MaxLength = 8;
 			this->National_ID->Multiline = true;
 			this->National_ID->Name = L"National_ID";
 			this->National_ID->Size = System::Drawing::Size(377, 26);

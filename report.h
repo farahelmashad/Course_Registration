@@ -596,7 +596,7 @@ namespace CourseRegistration {
         // System::Void printReportDocument_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e);
 
         System::Void NavBar_Load(System::Object^ sender, System::EventArgs^ e) {
-            label1->Text = gcnew String(currentStudent.getUserName().c_str());
+            // Handle form load event
         }
 
         System::Void ReportflowLayoutPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {

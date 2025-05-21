@@ -136,7 +136,7 @@ namespace CourseRegistration {
 			   this->user_name->Location = System::Drawing::Point(89, 127);
 			   this->user_name->Margin = System::Windows::Forms::Padding(0);
 			   this->user_name->Name = L"user_name";
-			   this->user_name->Size = System::Drawing::Size(64, 23);
+			   this->user_name->Size = System::Drawing::Size(82, 29);
 			   this->user_name->TabIndex = 1;
 			   this->user_name->Text = L"Admin";
 			   this->user_name->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -173,7 +173,7 @@ namespace CourseRegistration {
 			   this->upload_text->ForeColor = System::Drawing::Color::White;
 			   this->upload_text->Location = System::Drawing::Point(60, 40);
 			   this->upload_text->Name = L"upload_text";
-			   this->upload_text->Size = System::Drawing::Size(105, 18);
+			   this->upload_text->Size = System::Drawing::Size(134, 23);
 			   this->upload_text->TabIndex = 1;
 			   this->upload_text->Text = L"Upload Course";
 			   // 
@@ -209,7 +209,7 @@ namespace CourseRegistration {
 			   this->pre_text->ForeColor = System::Drawing::Color::White;
 			   this->pre_text->Location = System::Drawing::Point(60, 37);
 			   this->pre_text->Name = L"pre_text";
-			   this->pre_text->Size = System::Drawing::Size(124, 18);
+			   this->pre_text->Size = System::Drawing::Size(158, 23);
 			   this->pre_text->TabIndex = 1;
 			   this->pre_text->Text = L"Set Prerequisites";
 			   // 
@@ -245,7 +245,7 @@ namespace CourseRegistration {
 			   this->manage_text->ForeColor = System::Drawing::Color::White;
 			   this->manage_text->Location = System::Drawing::Point(60, 38);
 			   this->manage_text->Name = L"manage_text";
-			   this->manage_text->Size = System::Drawing::Size(112, 18);
+			   this->manage_text->Size = System::Drawing::Size(141, 23);
 			   this->manage_text->TabIndex = 1;
 			   this->manage_text->Text = L"Manage Grades";
 			   // 
@@ -281,7 +281,7 @@ namespace CourseRegistration {
 			   this->label1->ForeColor = System::Drawing::Color::White;
 			   this->label1->Location = System::Drawing::Point(60, 38);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(60, 18);
+			   this->label1->Size = System::Drawing::Size(75, 23);
 			   this->label1->TabIndex = 1;
 			   this->label1->Text = L"Log Out";
 			   // 
@@ -298,9 +298,9 @@ namespace CourseRegistration {
 			   // 
 			   // AdminNavBar
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->BackColor = System::Drawing::Color::Honeydew;
+			   this->BackColor = System::Drawing::Color::AliceBlue;
 			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			   this->ClientSize = System::Drawing::Size(1282, 673);
 			   this->Controls->Add(this->nav_panel);
@@ -339,7 +339,7 @@ namespace CourseRegistration {
 		for each (Control ^ ctrl in this->Controls) {
 			System::Windows::Forms::MdiClient^ client = dynamic_cast<System::Windows::Forms::MdiClient^>(ctrl);
 			if (client != nullptr) {
-				client->BackColor = System::Drawing::Color::Honeydew;
+				client->BackColor = System::Drawing::Color::AliceBlue;
 			}
 		}
 	}

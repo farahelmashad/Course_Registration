@@ -119,36 +119,36 @@ namespace CourseRegistration {
 			   this->coursename = (gcnew System::Windows::Forms::Label());
 			   this->nav_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			   this->user_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->user_name = (gcnew System::Windows::Forms::Label());
 			   this->user_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->update_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			   this->upload_text = (gcnew System::Windows::Forms::Label());
 			   this->upload_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->pre_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			   this->pre_text = (gcnew System::Windows::Forms::Label());
 			   this->pre_pic = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_panel = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			   this->manage_text = (gcnew System::Windows::Forms::Label());
 			   this->manage_pic = (gcnew System::Windows::Forms::PictureBox());
-			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			   this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			   this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			   this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			   this->course_infop->SuspendLayout();
 			   this->nav_panel->SuspendLayout();
 			   this->user_panel->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->BeginInit();
 			   this->update_panel->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->BeginInit();
 			   this->pre_panel->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->BeginInit();
 			   this->manage_panel->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			   this->SuspendLayout();
 			   // 
@@ -255,6 +255,17 @@ namespace CourseRegistration {
 			   this->user_panel->Size = System::Drawing::Size(253, 178);
 			   this->user_panel->TabIndex = 26;
 			   // 
+			   // pictureBox1
+			   // 
+			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			   this->pictureBox1->Location = System::Drawing::Point(58, 4);
+			   this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
+			   this->pictureBox1->Name = L"pictureBox1";
+			   this->pictureBox1->Size = System::Drawing::Size(130, 113);
+			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox1->TabIndex = 2;
+			   this->pictureBox1->TabStop = false;
+			   // 
 			   // user_name
 			   // 
 			   this->user_name->AutoSize = true;
@@ -290,6 +301,17 @@ namespace CourseRegistration {
 			   this->update_panel->Size = System::Drawing::Size(253, 100);
 			   this->update_panel->TabIndex = 27;
 			   // 
+			   // pictureBox2
+			   // 
+			   this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
+			   this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			   this->pictureBox2->Location = System::Drawing::Point(3, 28);
+			   this->pictureBox2->Name = L"pictureBox2";
+			   this->pictureBox2->Size = System::Drawing::Size(55, 39);
+			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox2->TabIndex = 3;
+			   this->pictureBox2->TabStop = false;
+			   // 
 			   // upload_text
 			   // 
 			   this->upload_text->AutoSize = true;
@@ -322,6 +344,17 @@ namespace CourseRegistration {
 			   this->pre_panel->Name = L"pre_panel";
 			   this->pre_panel->Size = System::Drawing::Size(253, 93);
 			   this->pre_panel->TabIndex = 28;
+			   // 
+			   // pictureBox3
+			   // 
+			   this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
+			   this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			   this->pictureBox3->Location = System::Drawing::Point(3, 26);
+			   this->pictureBox3->Name = L"pictureBox3";
+			   this->pictureBox3->Size = System::Drawing::Size(57, 41);
+			   this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox3->TabIndex = 2;
+			   this->pictureBox3->TabStop = false;
 			   // 
 			   // pre_text
 			   // 
@@ -356,6 +389,17 @@ namespace CourseRegistration {
 			   this->manage_panel->Size = System::Drawing::Size(253, 100);
 			   this->manage_panel->TabIndex = 28;
 			   // 
+			   // pictureBox4
+			   // 
+			   this->pictureBox4->BackColor = System::Drawing::Color::Transparent;
+			   this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+			   this->pictureBox4->Location = System::Drawing::Point(3, 26);
+			   this->pictureBox4->Name = L"pictureBox4";
+			   this->pictureBox4->Size = System::Drawing::Size(57, 40);
+			   this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			   this->pictureBox4->TabIndex = 3;
+			   this->pictureBox4->TabStop = false;
+			   // 
 			   // manage_text
 			   // 
 			   this->manage_text->AutoSize = true;
@@ -377,50 +421,6 @@ namespace CourseRegistration {
 			   this->manage_pic->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			   this->manage_pic->TabIndex = 0;
 			   this->manage_pic->TabStop = false;
-			   // 
-			   // pictureBox1
-			   // 
-			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			   this->pictureBox1->Location = System::Drawing::Point(58, 4);
-			   this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
-			   this->pictureBox1->Name = L"pictureBox1";
-			   this->pictureBox1->Size = System::Drawing::Size(130, 113);
-			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox1->TabIndex = 2;
-			   this->pictureBox1->TabStop = false;
-			   // 
-			   // pictureBox2
-			   // 
-			   this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
-			   this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			   this->pictureBox2->Location = System::Drawing::Point(3, 28);
-			   this->pictureBox2->Name = L"pictureBox2";
-			   this->pictureBox2->Size = System::Drawing::Size(55, 39);
-			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox2->TabIndex = 3;
-			   this->pictureBox2->TabStop = false;
-			   // 
-			   // pictureBox3
-			   // 
-			   this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
-			   this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			   this->pictureBox3->Location = System::Drawing::Point(3, 26);
-			   this->pictureBox3->Name = L"pictureBox3";
-			   this->pictureBox3->Size = System::Drawing::Size(57, 41);
-			   this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox3->TabIndex = 2;
-			   this->pictureBox3->TabStop = false;
-			   // 
-			   // pictureBox4
-			   // 
-			   this->pictureBox4->BackColor = System::Drawing::Color::Transparent;
-			   this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			   this->pictureBox4->Location = System::Drawing::Point(3, 26);
-			   this->pictureBox4->Name = L"pictureBox4";
-			   this->pictureBox4->Size = System::Drawing::Size(57, 40);
-			   this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			   this->pictureBox4->TabIndex = 3;
-			   this->pictureBox4->TabStop = false;
 			   // 
 			   // pictureBox5
 			   // 
@@ -456,20 +456,20 @@ namespace CourseRegistration {
 			   this->nav_panel->ResumeLayout(false);
 			   this->user_panel->ResumeLayout(false);
 			   this->user_panel->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->user_pic))->EndInit();
 			   this->update_panel->ResumeLayout(false);
 			   this->update_panel->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upload_pic))->EndInit();
 			   this->pre_panel->ResumeLayout(false);
 			   this->pre_panel->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pre_pic))->EndInit();
 			   this->manage_panel->ResumeLayout(false);
 			   this->manage_panel->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->manage_pic))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
