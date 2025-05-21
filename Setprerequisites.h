@@ -162,6 +162,7 @@ namespace CourseRegistration {
 			   // 
 			   // book_pic
 			   // 
+			   this->book_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"book_pic.Image")));
 			   this->book_pic->Location = System::Drawing::Point(32, 4);
 			   this->book_pic->Name = L"book_pic";
 			   this->book_pic->Size = System::Drawing::Size(159, 91);

@@ -63,6 +63,7 @@ System::Void CourseRegistration::GradesInfo::submit_button_MouseClick(System::Ob
 					"Success",
 					MessageBoxButtons::OK,
 					MessageBoxIcon::None);
+				this->Close();
 				return;
 			}
 			break;

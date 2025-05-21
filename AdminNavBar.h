@@ -62,6 +62,7 @@ namespace CourseRegistration {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 		   System::ComponentModel::Container^ components;
     System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 #pragma region Windows Form Designer generated code
@@ -301,6 +302,7 @@ namespace CourseRegistration {
 			   this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::AliceBlue;
+			   this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			   this->ClientSize = System::Drawing::Size(1282, 673);
 			   this->Controls->Add(this->nav_panel);
